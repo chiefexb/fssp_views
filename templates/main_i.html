@@ -1,0 +1,30 @@
+{% extends "base_bs4.html" %}
+{% block title %}
+{% endblock %}
+{% block content %}
+{% include "navbar.html" %}
+
+
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">HOME</li>
+  </ol>
+</nav>
+
+
+<h1>Категория</h1>
+
+      
+<ul class="nav flex-column">
+    {% for item  in   items  %}
+  <li class="nav-item">
+    <a class="nav-link" href="/osp?filter_id={{ item.id }}">{{ item.name }}</a>
+  </li>
+  {% endfor %}
+
+</ul>
+
+
+{% endblock %}
+
