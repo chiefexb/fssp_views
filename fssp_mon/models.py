@@ -1,12 +1,74 @@
 from django.db import models
 
+#from . import forms
+
 # Create your models here.
 
-class Fssp_filter_cat (models.Model):
+
+class Osp (models.Model):
+    full_name = models.CharField(max_length=1000,null='False', blank='False', verbose_name='название')
+    short_name = models.CharField(max_length=1000,null='False', blank='False', verbose_name='название')
+    host = models.CharField(max_length=1000, null='False', blank='False', verbose_name='название')
+    data_base = models.CharField(max_length=1000, null='False', blank='False', verbose_name='название')
+    password = models.CharField(max_length=32,null='False', blank='False')
+
+    def __str__(self):
+        return self.full_name
+
+
+class Vitrina (models.Model):
+    #osp = models.ForeignKey('Osp', on_delete=models.CASCADE)
+    filter = models.ForeignKey('FsspFilter', on_delete=models.CASCADE)
+
+
+class VitrinaValue (models.Model):
+    osp = models.ForeignKey('Osp', on_delete=models.CASCADE)
+    vitrina = models.ForeignKey('Vitrina', on_delete=models.CASCADE)
+    col1 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
+    col2 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
+    col3 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
+    col4 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
+    col5 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
+    col6 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
+    col7 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
+    col8 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
+    col9 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
+    col10 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
+    col11 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
+    col12 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
+    col13 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
+    col14 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
+    col15 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
+
+
+class VitrinaField (models.Model):
+    vitrina = models.ForeignKey('Vitrina', on_delete=models.CASCADE)
+    col1 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
+    col2 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
+    col3 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
+    col4 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
+    col5 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
+    col6 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
+    col7 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
+    col8 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
+    col9 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
+    col10 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
+    col11 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
+    col12 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
+    col13 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
+    col14 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
+    col15 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
+
+
+class FsspFilterCat (models.Model):
     name = models.CharField(max_length=1000,null='False', blank='False', verbose_name='название')
 
-class Fssp_filter (models.Model):
+    def __str__(self):
+        return self.name
+class FsspFilter (models.Model):
     name = models.CharField(max_length=1000, null='False', blank='False', verbose_name='название')
     sql_text = models.TextField(null='False', blank='False', verbose_name='Тело запроса')
-    category = models.ForeignKey('fssp_filter_cat', on_delete=models.CASCADE)
+    category = models.ForeignKey('FsspFilterCat', on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.name

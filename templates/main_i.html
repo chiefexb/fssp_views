@@ -15,9 +15,9 @@
 
 <h1>Категория</h1>
 
-      
+{% for item  in   items  %}
 <ul class="nav flex-column">
-    {% for item  in   items  %}
+
   <li class="nav-item">
     <a class="nav-link" href="/osp?filter_id={{ item.id }}">{{ item.name }}</a>
   </li>

@@ -1,4 +1,5 @@
 from django.contrib import admin
+from .forms import *
 
 
 
@@ -6,5 +7,14 @@ from django.contrib import admin
 
 from .models import *
 
-admin.site.register(Fssp_filter_cat)
-admin.site.register(Fssp_filter)
+
+class OspAdmin(admin.ModelAdmin):
+    form = OspForm
+
+admin.site.register(Vitrina)
+admin.site.register(VitrinaField)
+admin.site.register(VitrinaValue)
+admin.site.register(Osp, OspAdmin)
+admin.site.register(FsspFilterCat)
+admin.site.register(FsspFilter)
+
