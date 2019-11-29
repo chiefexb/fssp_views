@@ -5,44 +5,71 @@
 {% block content %}
 {% include "navbar.html" %}
 <nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Home</a></li>
-    <li class="breadcrumb-item"><a href="/vmon/mon">Мониторинг</a></li>
-    <li class="breadcrumb-item active" aria-current="page">{{ stand }}</li>
-  </ol>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="/vmon/mon">Мониторинг</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{ stand }}</li>
+    </ol>
 </nav>
 
 
 <h1>Название фильтра: "{{ filter_name }}" </h1>
-Дата актуальности: <strong>{{ items.actual_date  }} </strong>(сек).
+Дата актуальности: <strong>{{ date_actual }} </strong>(сек).
+
+
+<table class="table table">
+    <thead class='thead-dark'>
+    <tr>
+
+         <td> Название ОСП</td>
+        {% if item.col1 %} <td> {{ item.col1 }}</td> {% endif %}
+        {% if item.col2 %} <td> {{ item.col2 }}</td> {% endif %}
+        {% if item.col3 %} <td> {{ item.col3 }}</td> {% endif %}
+        {% if item.col4 %} <td> {{ item.col4 }}</td> {% endif %}
+        {% if item.col5 %} <td> {{ item.col5 }}</td> {% endif %}
+        {% if item.col6 %} <td> {{ item.col6 }}</td> {% endif %}
+        {% if item.col7 %} <td> {{ item.col7 }}</td> {% endif %}
+        {% if item.col8 %} <td> {{ item.col8 }}</td> {% endif %}
+        {% if item.col9 %} <td> {{ item.col9 }}</td> {% endif %}
+        {% if item.col10 %} <td> {{ item.col10 }}</td> {% endif %}
+        {% if item.col11 %} <td> {{ item.col11 }}</td> {% endif %}
+        {% if item.col12 %} <td> {{ item.col12 }}</td> {% endif %}
+        {% if item.col13 %} <td> {{ item.col13 }}</td> {% endif %}
+        {% if item.col14 %} <td> {{ item.col14 }}</td> {% endif %}
+        {% if item.col15 %} <td> {{ item.col15 }}</td> {% endif %}
 
 
 
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for item in items %}
+    <tr>
+
+        <td> {{ item.osp }}</td>
+        {% if item.col1 %} <td> {{ item.col1 }}</td> {% endif %}
+        {% if item.col2 %} <td> {{ item.col2 }}</td> {% endif %}
+        {% if item.col3 %} <td> {{ item.col3 }}</td> {% endif %}
+        {% if item.col4 %} <td> {{ item.col4 }}</td> {% endif %}
+        {% if item.col5 %} <td> {{ item.col5 }}</td> {% endif %}
+        {% if item.col6 %} <td> {{ item.col6 }}</td> {% endif %}
+        {% if item.col7 %} <td> {{ item.col7 }}</td> {% endif %}
+        {% if item.col8 %} <td> {{ item.col8 }}</td> {% endif %}
+        {% if item.col9 %} <td> {{ item.col9 }}</td> {% endif %}
+        {% if item.col10 %} <td> {{ item.col10 }}</td> {% endif %}
+        {% if item.col11 %} <td> {{ item.col11 }}</td> {% endif %}
+        {% if item.col12 %} <td> {{ item.col12 }}</td> {% endif %}
+        {% if item.col13 %} <td> {{ item.col13 }}</td> {% endif %}
+        {% if item.col14 %} <td> {{ item.col14 }}</td> {% endif %}
+        {% if item.col15 %} <td> {{ item.col15 }}</td> {% endif %}
 
 
-<table  class="table table">
- <thead class='thead-dark'>
- <tr>
-     {% for item  in   col_names  %}
-      <th  scope="col">{{ item }}</th>
+
+    </tr>
     {% endfor %}
 
- </tr>
-     </thead>
-     <tbody>
 
-
-        <tr>
-         {% for item  in   vals  %}
-          <td >{{ item }}</td>
-          {% endfor %}
-        </tr>
-
-
-
-
-
-
-   </tbody
- </table>
+    </tbody
+</table>
 {% endblock %}

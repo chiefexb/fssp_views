@@ -1,5 +1,5 @@
 from django.db import models
-
+import datetime
 #from . import forms
 
 # Create your models here.
@@ -19,6 +19,10 @@ class Osp (models.Model):
 class Vitrina (models.Model):
     #osp = models.ForeignKey('Osp', on_delete=models.CASCADE)
     filter = models.ForeignKey('FsspFilter', on_delete=models.CASCADE)
+    date_actual=models.DateTimeField(null='False',default= datetime.datetime(2019, 11, 26, 14, 22, 40, 267301))
+    calc_field_name= models.BooleanField (null='False',default=True)
+    def __str__(self):
+        return self.filter.name
 
 
 class VitrinaValue (models.Model):
@@ -39,7 +43,8 @@ class VitrinaValue (models.Model):
     col13 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
     col14 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
     col15 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
-
+    def __str__(self):
+        return self.osp.full_name+':'+ self.vitrina.__str__()
 
 class VitrinaField (models.Model):
     vitrina = models.ForeignKey('Vitrina', on_delete=models.CASCADE)

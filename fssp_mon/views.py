@@ -1,5 +1,9 @@
 from django.shortcuts import render
 import urllib
+import datetime
+
+
+
 from django.views.decorators.csrf import csrf_exempt
 from django.template.loader import get_template
 from django.template import Context
@@ -7,6 +11,7 @@ from django.template import Context, Template
 from django.http  import HttpResponse,Http404
 from django.http import JsonResponse
 from django.http import HttpResponse
+from django.db import transaction
 from .models import *
 import fdb
 import yaml
@@ -22,36 +27,27 @@ def osp_list (request):
     html = t.render(context={'items':a}, request=None)
     return HttpResponse(html)
 def index (request):
-    p = Fssp_filter.objects
-    a = p.values()
+    p = Vitrina.objects.all()
+    #a = p.values()
     t = get_template('main_i.html')
-    html = t.render(context={'items':a}, request=None)
+    html = t.render(context={'items':p,'date_now':str(datetime.datetime.now() )}, request=None)
     return HttpResponse(html)
-def osp_update (request):
+
+
+def osp(request):
+
     par=request.GET
-    id= int(par.get('filter_id',default='1') )
-    #t = get_template('main_i.html')
-    #p=Fssp_filter.objects.all()
-    #p = Fssp_filter.objects.all()
-    #p2 = Fssp_filter_cat.objects.all()
-    #a = p.values()[id-1]
-    #sql=a['sql_text']
-    #category_id=a['category_id']
-    #category= p2.values()[category_id-1]['name']
-    # p = Task.objects
-    # a = p.values_list()
-    # p2 = Task.objects.all()
-    #filter_name=a['name']
-    #con = fdb.connect(host='localhost', database='fssp', user='SYSDBA', password='123456', charset='WIN1251')
-    #cur=con.cursor()
-    #cur.execute(sql)
-    #r=cur.fetchall()
-    #con.close()
-    #col_names = []
-    #vals=[]
-    #for col_name, val in r:
-    #        col_names.append(col_name)
-    #        vals.append(val)
+    id= int(par.get('vitrina_id',default='1') )
+    t = get_template('main.html')
+    p=VitrinaValue.objects.filter(vitrina_id=id)
+    filter_name='Новая витрина, зайдите позже'
+    date_actual=''
+    if len(p)>0:
+        filter_name=p[0].vitrina.filter
+        date_actual=p[0].vitrina.date_actual
+
+    html = t.render(context={'items': p,'filter_name':filter_name,'date_actual': date_actual }, request=None)
+    return HttpResponse(html)
 
 
 def testpar(j):
@@ -71,42 +67,67 @@ def testpar(j):
             rez=False
             err_mess=err_mess+  'Hash not valid;'
     return rez,err_mess
+def rotate_field (val):
+    vv={}
+    i=1
+    for row in val:
+        vv['col'+str(i)] = str(row[1])
+        i=i+1
+    for i in range(15):
+        if  vv.get('col'+str(i+1) )==None:
+            vv['col'+str(i+1)]=None
+    return vv
 
 @csrf_exempt
 def webhook(request):
     html='not Allow'
     if request.method == "POST":
         par = request.POST
-        #mes=str(par.keys())
-        #f = open('/home/chief9/project/1.log', 'w')
-        #f.write(str(request.body))
-        #f.write(str(request.keys() ) )
 
-        #f.close()
 
-        #j = json.loads(mes)
+
         err_mess = ''
         rez, err_mess = testpar(par)
         if rez:
-            v = Vitrina.objects.values()
-            item = v[0]
-            flt=(FsspFilter.objects.filter(id=item['id'])).values()
-            osp=Osp.objects.values()
-            item2=osp[0]
-            sql_text = flt[0]['sql_text']
+            v = Vitrina.objects.all()
 
-            con = fdb.connect(host=item2['host'], database=item2['data_base'], user='SYSDBA', password=item2['password'], charset='WIN1251')
-            cur=con.cursor()
-            cur.execute(sql_text)
-            r=cur.fetchall()
-            con.close()
-            #p2 = Task.objects.all()
+            for item in v:
+                osp=Osp.objects.values()
+                obj = item
 
-            mes=str(r )
+                setattr(obj, 'date_actual', str(datetime.datetime.now() ))
+                obj.save()
+                sql_text = item.filter.sql_text
+                #flt[0]['sql_text']
+                for item2 in osp:
+                    try:
+                        con = fdb.connect(host=item2['host'], database=item2['data_base'], user='SYSDBA', password=item2['password'], charset='WIN1251')
+                    except:
+                        pass
+                    else:
+                        cur=con.cursor()
+                        cur.execute(sql_text)
+                        r=cur.fetchall()
+                        rr=rotate_field(r)
+                        con.close()
+                        try:
+                            obj=VitrinaValue.objects.get(osp_id=item2['id'],vitrina_id=item.id)
+                            for key,value in rr.items():
+                                setattr(obj,key,value)
+                            obj.save()
+                        except:
+                            new_values=rr
+                            new_values['osp_id']=item2['id']
+                            new_values['vitrina_id'] = item.id
+                            obj=VitrinaValue(**new_values)
+                            obj.save()
+
+
+    mes=''
         #mes = request.body.decode('UTF8')
         #j = json.loads(mes)
 
-        html = str(rez)+';'+ mes
+    html = str(rez)+';'+ mes
     return  HttpResponse(html)
 
 

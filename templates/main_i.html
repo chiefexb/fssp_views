@@ -17,9 +17,9 @@
 
 {% for item  in   items  %}
 <ul class="nav flex-column">
-
+{{ date_now }}
   <li class="nav-item">
-    <a class="nav-link" href="/osp?filter_id={{ item.id }}">{{ item.name }}</a>
+    <a class="nav-link" href="/osp?vitrina_id={{ item.id }}">{{ item.filter.name }}</a>
   </li>
   {% endfor %}
 
