@@ -1,6 +1,7 @@
 from django.shortcuts import render
 import urllib
 import datetime
+import os
 
 
 
@@ -17,7 +18,8 @@ import fdb
 import yaml
 import json
 # Create your views here.
-f=open('/home/chief9/project/fssp_views_settings/inventory.yml')
+bd=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+f=open (os.path.join (bd,'../fssp_views_settings/inventory.yml'))
 db_config=yaml.load(f)
 f.close()
 def osp_list (request):
@@ -30,7 +32,7 @@ def index (request):
     p = Vitrina.objects.all()
     #a = p.values()
     t = get_template('main_i.html')
-    html = t.render(context={'items':p,'date_now':str(datetime.datetime.now() )}, request=None)
+    html = t.render(context={'bd':bd,'items':p,'date_now':str(datetime.datetime.now() )}, request=None)
     return HttpResponse(html)
 
 
@@ -40,13 +42,17 @@ def osp(request):
     id= int(par.get('vitrina_id',default='1') )
     t = get_template('main.html')
     p=VitrinaValue.objects.filter(vitrina_id=id)
+    p2 = VitrinaField.objects.filter(vitrina_id=id)
+    if len (p2)>0:
+        p2=p2[0]
+
     filter_name='Новая витрина, зайдите позже'
     date_actual=''
     if len(p)>0:
         filter_name=p[0].vitrina.filter
         date_actual=p[0].vitrina.date_actual
 
-    html = t.render(context={'items': p,'filter_name':filter_name,'date_actual': date_actual }, request=None)
+    html = t.render(context={'cols':p2, 'items': p,'filter_name':filter_name,'date_actual': date_actual }, request=None)
     return HttpResponse(html)
 
 
@@ -69,14 +75,19 @@ def testpar(j):
     return rez,err_mess
 def rotate_field (val):
     vv={}
+    vv2={}
     i=1
     for row in val:
         vv['col'+str(i)] = str(row[1])
+        vv2['col' + str(i)] = str(row[0])
         i=i+1
     for i in range(15):
         if  vv.get('col'+str(i+1) )==None:
             vv['col'+str(i+1)]=None
-    return vv
+        if vv2.get('col' + str(i + 1)) == None:
+            vv2['col' + str(i + 1)] = None
+
+    return vv,vv2
 
 @csrf_exempt
 def webhook(request):
@@ -94,10 +105,33 @@ def webhook(request):
             for item in v:
                 osp=Osp.objects.values()
                 obj = item
+                sql_text = item.filter.sql_text
+                if item.calc_field_name:
+                    item2=osp[0]
+                    try:
+                        con = fdb.connect(host=item2['host'], database=item2['data_base'], user='SYSDBA', password=item2['password'], charset='WIN1251')
+                    except:
+                        pass
+                    else:
+                        cur = con.cursor()
+                        cur.execute(sql_text)
+                        r = cur.fetchall()
+                        rr,vv2 = rotate_field(r)
+                        con.close()
+                        try:
+                            obj2=VitrinaField.objects.get(vitrina_id=item.id)
+                            for key,value in vv2.items():
+                                setattr(obj2,key,value)
+                            obj2.save()
+                        except:
+                            new_values=vv2
+                            new_values['vitrina_id'] = item.id
+                            obj2=VitrinaField(**new_values)
+                            obj2.save()
 
                 setattr(obj, 'date_actual', str(datetime.datetime.now() ))
                 obj.save()
-                sql_text = item.filter.sql_text
+
                 #flt[0]['sql_text']
                 for item2 in osp:
                     try:
@@ -108,7 +142,7 @@ def webhook(request):
                         cur=con.cursor()
                         cur.execute(sql_text)
                         r=cur.fetchall()
-                        rr=rotate_field(r)
+                        rr,rr2=rotate_field(r)
                         con.close()
                         try:
                             obj=VitrinaValue.objects.get(osp_id=item2['id'],vitrina_id=item.id)

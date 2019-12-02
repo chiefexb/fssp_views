@@ -129,4 +129,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 #STATIC_URL = '/vmon/static/'
-STATIC_ROOT = '/home/chief9/project/fssp_views/static'
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
