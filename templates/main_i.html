@@ -5,7 +5,7 @@
 {% include "navbar.html" %}
 
 
-{{ bd }}
+
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item active" aria-current="page">HOME</li>
@@ -13,11 +13,11 @@
 </nav>
 
 
-<h1>Категория</h1>
+<!--<h1>Категория</h1> -->
 
 {% for item  in   items  %}
 <ul class="nav flex-column">
-{{ date_now }}
+<!--{{ date_now }} -->
   <li class="nav-item">
     <a class="nav-link" href="/osp?vitrina_id={{ item.id }}">{{ item.filter.name }}</a>
   </li>
