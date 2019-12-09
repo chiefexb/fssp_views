@@ -17,53 +17,79 @@ class Osp (models.Model):
 
 
 class Vitrina (models.Model):
+    name = models.CharField(max_length=1000, null='False', default='vitrina',blank='False', verbose_name='название')
+
     #osp = models.ForeignKey('Osp', on_delete=models.CASCADE)
     filter = models.ForeignKey('FsspFilter', on_delete=models.CASCADE)
     date_actual=models.DateTimeField(null='False',default= datetime.datetime(2019, 11, 26, 14, 22, 40, 267301))
     calc_field_name= models.BooleanField (null='False',default=True)
+    custom_fields = models.BooleanField(null='False', default=False)
     def __str__(self):
-        return self.filter.name
+        return str(self.id)+':' +self.name +': '+self.filter.name
 
 
 class VitrinaValue (models.Model):
     osp = models.ForeignKey('Osp', on_delete=models.CASCADE)
     vitrina = models.ForeignKey('Vitrina', on_delete=models.CASCADE)
     col1 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
-    col2 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
-    col3 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
-    col4 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
-    col5 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
-    col6 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
-    col7 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
-    col8 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
-    col9 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
-    col10 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
-    col11 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
-    col12 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
-    col13 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
-    col14 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
-    col15 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
+    col2 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col2')
+    col3 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col3')
+    col4 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col4')
+    col5 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col5')
+    col6 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col6')
+    col7 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col7')
+    col8 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col8')
+    col9 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col9')
+    col10 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col10')
+    col11 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col11')
+    col12 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col12')
+    col13 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col13')
+    col14 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col14')
+    col15 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col15')
     def __str__(self):
         return self.osp.full_name+':'+ self.vitrina.__str__()
 
 class VitrinaField (models.Model):
     vitrina = models.ForeignKey('Vitrina', on_delete=models.CASCADE)
     col1 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
-    col2 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
-    col3 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
-    col4 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
-    col5 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
-    col6 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
-    col7 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
-    col8 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
-    col9 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
-    col10 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
-    col11 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
-    col12 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
-    col13 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
-    col14 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
-    col15 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
-
+    col2 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col2')
+    col3 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col3')
+    col4 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col4')
+    col5 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col5')
+    col6 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col6')
+    col7 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col7')
+    col8 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col8')
+    col9 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col9')
+    col10 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col10')
+    col11 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col11')
+    col12 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col12')
+    col13 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col13')
+    col14 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col14')
+    col15 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col15')
+class VitrinaCustom (models.Model):
+    COL_NUMBER_CHOICES=[
+        ('col1','col1'),
+        ('col2', 'col2'),
+        ('col3', 'col3'),
+        ('col4', 'col4'),
+        ('col5', 'col5'),
+        ('col6', 'col6'),
+        ('col7', 'col7'),
+        ('col8', 'col8'),
+        ('col9', 'col9'),
+        ('col10', 'col10'),
+        ('col11', 'col11'),
+        ('col12', 'col12'),
+        ('col13', 'col13'),
+        ('col14', 'col14'),
+        ('col15', 'col15'),]
+    col_number=models.CharField(
+        max_length=10,
+        choices=COL_NUMBER_CHOICES,
+        default='col1'
+    )
+    vitrina = models.ForeignKey('Vitrina', on_delete=models.CASCADE)
+    filter  = models.ForeignKey('FsspFilter', on_delete=models.CASCADE)
 
 class FsspFilterCat (models.Model):
     name = models.CharField(max_length=1000,null='False', blank='False', verbose_name='название')
@@ -76,4 +102,4 @@ class FsspFilter (models.Model):
     category = models.ForeignKey('FsspFilterCat', on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name
+        return self.category.name+':'+ self.name

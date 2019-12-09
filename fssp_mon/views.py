@@ -100,7 +100,8 @@ def webhook(request):
         err_mess = ''
         rez, err_mess = testpar(par)
         if rez:
-            v = Vitrina.objects.all()
+            v=[]
+            v.append(  Vitrina.objects.get(id=4))
 
             for item in v:
                 osp=Osp.objects.values()
@@ -133,6 +134,7 @@ def webhook(request):
                 obj.save()
 
                 #flt[0]['sql_text']
+
                 for item2 in osp:
                     try:
                         con = fdb.connect(host=item2['host'], database=item2['data_base'], user='SYSDBA', password=item2['password'], charset='WIN1251')
@@ -140,10 +142,31 @@ def webhook(request):
                         pass
                     else:
                         cur=con.cursor()
-                        cur.execute(sql_text)
-                        r=cur.fetchall()
-                        rr,rr2=rotate_field(r)
+                        if not item.custom_fields:
+                            cur.execute(sql_text)
+                            r=cur.fetchall()
+                            rr,rr2=rotate_field(r)
+
+
+                        elif item.custom_fields:
+                            rr={}
+
+                            custf =VitrinaCustom.objects.filter(vitrina_id=item.id)
+
+                            for item3 in custf:
+                                sql_text=item3.filter.sql_text
+                                cur.execute(sql_text)
+                                r = cur.fetchall()
+                                if len (r)>0:
+                                   rr[item3.col_number]=r[0][0]
+                                else:
+                                    rr[item3.col_number] = None
+                                for i in range(15):
+                                    if rr.get('col' + str(i + 1)) == None:
+                                        rr['col' + str(i + 1)] = None
+
                         con.close()
+
                         try:
                             obj=VitrinaValue.objects.get(osp_id=item2['id'],vitrina_id=item.id)
                             for key,value in rr.items():
@@ -155,7 +178,6 @@ def webhook(request):
                             new_values['vitrina_id'] = item.id
                             obj=VitrinaValue(**new_values)
                             obj.save()
-
 
     mes=''
         #mes = request.body.decode('UTF8')
