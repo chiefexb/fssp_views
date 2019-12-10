@@ -49,7 +49,7 @@ def osp(request):
     filter_name='Новая витрина, зайдите позже'
     date_actual=''
     if len(p)>0:
-        filter_name=p[0].vitrina.filter
+        filter_name=p[0].vitrina.name
         date_actual=p[0].vitrina.date_actual
 
     html = t.render(context={'cols':p2, 'items': p,'filter_name':filter_name,'date_actual': date_actual }, request=None)
@@ -100,9 +100,9 @@ def webhook(request):
         err_mess = ''
         rez, err_mess = testpar(par)
         if rez:
-            v=[]
-            v.append(  Vitrina.objects.get(id=4))
-
+            #v=[]
+            #v.append(  Vitrina.objects.get(id=4))
+            v=Vitrina.objects.all()
             for item in v:
                 osp=Osp.objects.values()
                 obj = item

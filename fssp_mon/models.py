@@ -66,6 +66,8 @@ class VitrinaField (models.Model):
     col13 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col13')
     col14 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col14')
     col15 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col15')
+    def __str__(self):
+        return 'Fields '+self.vitrina.__str__()
 class VitrinaCustom (models.Model):
     COL_NUMBER_CHOICES=[
         ('col1','col1'),
