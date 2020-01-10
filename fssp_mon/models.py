@@ -46,8 +46,15 @@ class VitrinaValue (models.Model):
     col13 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col13')
     col14 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col14')
     col15 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col15')
+    col16 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col16')
+    col17 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col17')
+    col18 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col18')
+    col19 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col19')
+    col20 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col20')
+
     def __str__(self):
         return self.osp.full_name+':'+ self.vitrina.__str__()
+
 
 class VitrinaField (models.Model):
     vitrina = models.ForeignKey('Vitrina', on_delete=models.CASCADE)
@@ -66,8 +73,15 @@ class VitrinaField (models.Model):
     col13 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col13')
     col14 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col14')
     col15 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col15')
+    col16 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col16')
+    col17 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col17')
+    col18 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col18')
+    col19 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col19')
+    col20 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col20')
+
     def __str__(self):
         return 'Fields '+self.vitrina.__str__()
+
 class VitrinaCustom (models.Model):
     COL_NUMBER_CHOICES=[
         ('col1','col1'),
@@ -84,7 +98,13 @@ class VitrinaCustom (models.Model):
         ('col12', 'col12'),
         ('col13', 'col13'),
         ('col14', 'col14'),
-        ('col15', 'col15'),]
+        ('col15', 'col15'),
+        ('col16', 'col16'),
+        ('col17', 'col17'),
+        ('col18', 'col18'),
+        ('col19', 'col19'),
+        ('col20', 'col20')
+        ]
     col_number=models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
@@ -92,7 +112,7 @@ class VitrinaCustom (models.Model):
     )
     vitrina = models.ForeignKey('Vitrina', on_delete=models.CASCADE)
     filter  = models.ForeignKey('FsspFilter', on_delete=models.CASCADE)
-
+    width = models.IntegerField(null='True')
 class FsspFilterCat (models.Model):
     name = models.CharField(max_length=1000,null='False', blank='False', verbose_name='название')
 
