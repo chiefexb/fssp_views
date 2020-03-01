@@ -1,4 +1,4 @@
-#!/home/chief9/project/fssp_views/venv/bin/python
+#!/home/test/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

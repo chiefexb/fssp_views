@@ -22,6 +22,7 @@ f.close()
 path2 = bd
 path3 = os.path.join(bd, 'fssp_v')
 path4 = db_config['class_path']
+
 sys.path.append(path2)
 sys.path.append(path3)
 sys.path.append(path4)

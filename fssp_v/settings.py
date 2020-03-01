@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 from fssp_mon import *
+import yaml
+
+#f=open (os.path.join (bd,'../fssp_views_settings/inventory.yml'))
+#db=yaml.load(f)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,7 +30,7 @@ SECRET_KEY = 'vt39wqig9$)-96k%qvyc7le_f2=a8ts54fdxiyz)-+*9e9z^@d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['167.172.40.99']
 
 
 # Application definition
@@ -80,7 +84,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'fssp',
         'USER': 'fssp',
-        'PASSWORD': '123456',
+        'PASSWORD': 'Exb021205!',
         'HOST': 'localhost',
 
 
