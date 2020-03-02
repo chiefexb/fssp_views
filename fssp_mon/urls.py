@@ -17,10 +17,12 @@ class VitrinaValueViewSet (generics.ListAPIView):   #(viewsets.ModelViewSet):
  
     serializer_class = VitrinaValueSerializer
     
-    def get_queryset(self, vitrina_id=None):
+    def get_queryset(self,vitrina_id=None):
         queryset = VitrinaValue.objects.all()
-        vitrina_id = self.kwargs['vitrina_id']
+        vitrina_id = self.request.vitrina_id
+        
         if vitrina_id is not None:
+            user = self.request.user
             queryset = queryset.filter(vitrina_id=vitrina_id)
         return queryset
        
