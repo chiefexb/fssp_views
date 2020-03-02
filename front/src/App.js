@@ -96,7 +96,7 @@ class App extends React.Component {
     render() {
        let content = <div/>;
          if (this.state.loaded) {
-             if (this.state.data)
+             if (this.state.data) {
      content=
      <TableContainer>
       <Table >
@@ -128,9 +128,9 @@ class App extends React.Component {
 
 
 
+
          //const navbar = {backgroundColor: '#BBBBBB'};
         return (
-
          <Container  maxWidth="false">
             <AppBar position="static">
                 <Toolbar >
@@ -163,12 +163,13 @@ class App extends React.Component {
                     </Typography>
                  </Toolbar>
                       </AppBar>
-    {content}
+          {content}
+     
    </Container>
       
+);
 
-
-        );
+        
     }
 }
 
