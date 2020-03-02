@@ -134,7 +134,7 @@ class App extends React.Component {
                     </Typography>
                  </Toolbar>
                       </AppBar>
-  
+    if (this.state.loaded) {
      <TableContainer>
       <Table >
         <TableHead>
@@ -160,7 +160,7 @@ class App extends React.Component {
         </Table >
    </TableContainer>
    </Container>
-
+}
 
 
         );
