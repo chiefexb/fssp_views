@@ -151,7 +151,7 @@ class App extends React.Component {
              <TableBody  >
             <TableRow>
            <TableCell>
-             {item.col1}
+            
           </TableCell>
           
           </TableRow>
