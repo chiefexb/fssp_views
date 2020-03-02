@@ -18,12 +18,12 @@
  
   - name: copy
     copy:
-      src: '{{  path_to_front }}/build/'
+      src: '{{  path_to_front }}/build/static'
       dest:  '{{ path_to_www }}'
       remote_src: yes
   - name: copy
     copy:
-      src: '{{  path_to_front }}/../static/'
+      src: '{{  path_to_front }}/../static'
       dest:  '{{ path_to_www }}'
       remote_src: yes
   - name: reload service httpd, in all cases
