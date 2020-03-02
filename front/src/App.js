@@ -70,7 +70,7 @@ class App extends React.Component {
 
 
         };
-        this.state.params = queryString.parse(this.props.location.search);
+       
 }
  componentDidMount() {
     fetch("apivitrinavalue?vitrina_id=1")
