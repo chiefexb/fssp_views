@@ -142,14 +142,17 @@ class App extends React.Component {
           </TableRow>
            
           </TableHead>
-          <TableBody>
+         
+           {this.state.result.rez2.map(item => (
+             <TableBody  key={item.id} title={item.name}>
             <TableRow>
            <TableCell>
-          2
+             {item.col1}
           </TableCell>
           
           </TableRow>
           </TableBody>
+           ))}
         </Table >
    </TableContainer>
    </Container>
