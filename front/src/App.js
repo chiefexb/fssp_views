@@ -73,7 +73,7 @@ class App extends React.Component {
          <Container  maxWidth="false">
             <AppBar position="static">
                 <Toolbar >
-                  <img src="head_left.gif" alt="logo"  />
+                  <img src="/static/head_left.gif" alt="logo"  />
 
                     <Typography  >
                         <Link href="#" >
