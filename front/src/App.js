@@ -146,9 +146,9 @@ class App extends React.Component {
           </TableRow>
            
           </TableHead>
+           {JSON.stringify (this.data) }
          
-           {this.state.data.data.map(item => (
-             <TableBody  key={item.id} title={item.name}>
+             <TableBody  >
             <TableRow>
            <TableCell>
              {item.col1}
@@ -156,7 +156,7 @@ class App extends React.Component {
           
           </TableRow>
           </TableBody>
-           ))}
+           
         </Table >
    </TableContainer>
    </Container>
