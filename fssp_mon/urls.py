@@ -15,17 +15,10 @@ class VitrinaValueSerializer(serializers.HyperlinkedModelSerializer):
 # ViewSets define the view behavior.
 class VitrinaValueViewSet  (generics.ListCreateAPIView): #(generics.ListAPIView):   
 #(generics.ListAPIView):   #(viewsets.ModelViewSet):
- 
+    queryset = VitrinaValue.objects.all()
     serializer_class = VitrinaValueSerializer
-    
-    def get_queryset(self):
-        queryset = VitrinaValue.objects.all()
-        vitrina_id = self.request.GET.get('vitrina_id',None)
-        
-        if vitrina_id is not None:
-            user = self.request.user
-            queryset = queryset.filter(vitrina_id=vitrina_id)
-        return queryset
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['vitrina_id']
        
     
 class VitrinaFieldSerializer(serializers.HyperlinkedModelSerializer):
