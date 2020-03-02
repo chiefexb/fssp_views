@@ -31,9 +31,9 @@ def osp_list (request):
 def index (request):
     p = Vitrina.objects.all()
     #a = p.values()
-    #t = get_template('main_i.html')
     t = get_template('index.html')
-    #html = t.render(context={'bd':bd,'items':p,'date_now':str(datetime.datetime.now() )}, request=None)
+    t = get_template('index.html')
+    html = t.render(context={'bd':bd,'items':p,'date_now':str(datetime.datetime.now() )}, request=None)
     return HttpResponse(html)
 
 
