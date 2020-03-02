@@ -41,7 +41,7 @@ def api2(request):
     id=1
     p=VitrinaValue.objects.filter(vitrina_id=id)
     j=json.dumps( list ( p.values ()  ) )
-    return JsonResponse( )
+    return JsonResponse(j)
     
 def osp(request):
 
