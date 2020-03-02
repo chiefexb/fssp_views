@@ -5,6 +5,7 @@ from fssp_mon.models import VitrinaValue, VitrinaField
 from rest_framework import routers, serializers, viewsets
 from . import views
 from fssp_mon.views import  *
+from rest_framework import generics
 
 class VitrinaValueSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
