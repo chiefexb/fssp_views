@@ -1,4 +1,7 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
+import queryString from 'query-string';
+
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
@@ -67,9 +70,10 @@ class App extends React.Component {
 
 
         };
+        this.state.params = queryString.parse(this.props.location.search);
 }
  componentDidMount() {
-    fetch("apivitrinavalue")
+    fetch("apivitrinavalue?vitrina_id=1")
       .then(response => {
         if (response.status > 400) {
           return this.setState(() => {
