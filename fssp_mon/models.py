@@ -31,6 +31,7 @@ class Vitrina (models.Model):
 class VitrinaValue (models.Model):
     osp = models.ForeignKey('Osp', on_delete=models.CASCADE)
     vitrina = models.ForeignKey('Vitrina', on_delete=models.CASCADE)
+    
     col1 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
     col2 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col2')
     col3 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col3')
@@ -51,7 +52,9 @@ class VitrinaValue (models.Model):
     col18 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col18')
     col19 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col19')
     col20 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col20')
-
+    @property
+    def vitrina_id (self):
+		return self.vitrina.id
     def __str__(self):
         return self.osp.full_name+':'+ self.vitrina.__str__()
 

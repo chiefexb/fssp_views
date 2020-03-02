@@ -9,7 +9,7 @@ from fssp_mon.views import  *
 class VitrinaValueSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = VitrinaValue
-        fields = ['vitrina','col1', 'col2', 'col3', 'col4']
+        fields = ['vitrina_id','col1', 'col2', 'col3', 'col4']
 
 # ViewSets define the view behavior.
 class VitrinaValueViewSet(viewsets.ModelViewSet):
