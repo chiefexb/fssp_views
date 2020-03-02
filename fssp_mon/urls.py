@@ -18,9 +18,9 @@ class VitrinaValueViewSet (viewsets.ModelViewSet):
  
     serializer_class = VitrinaValueSerializer
     
-    def get_queryset(self,vitrina_id=None):
+    def get_queryset(self):
         queryset = VitrinaValue.objects.all()
-        vitrina_id = self.vitrina_id
+        vitrina_id = self.request.GET.get('vitrina_id',None)
         
         if vitrina_id is not None:
             user = self.request.user
