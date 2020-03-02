@@ -62,7 +62,7 @@ class App extends React.Component {
         this.state = {
             text: '',
             lastname:'',
-            data: [],
+            result: [],
             region: '',
             but_push: false,
             loaded: false,
@@ -82,10 +82,10 @@ class App extends React.Component {
         }
         return response.json();
       })
-      .then(data => {
+      .then(result => {
         this.setState(() => {
           return {
-            data,
+            result,
             loaded: true
           };
         });
@@ -96,7 +96,7 @@ class App extends React.Component {
     render() {
        let content = <div/>;
          if (this.state.loaded) {
-             if (this.state.data) {
+             if (this.state.result) {
      content=
      <TableContainer>
       <Table >
@@ -110,7 +110,7 @@ class App extends React.Component {
            
           </TableHead>
           
-               {this.state.data.map(item => ( 
+               {this.state.result.map(item => ( 
              <TableBody  key={item.id} > 
             <TableRow>
            <TableCell>
