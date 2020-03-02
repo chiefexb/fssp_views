@@ -12,8 +12,8 @@ class VitrinaValueSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['vitrina','col1', 'col2', 'col3', 'col4']
 
 # ViewSets define the view behavior.
-class VitrinaValueViewSet(viewsets.ModelViewSet):
-   
+class VitrinaValueViewSet (generics.ListAPIView):   #(viewsets.ModelViewSet):
+ 
     serializer_class = VitrinaValueSerializer
     
     def get_queryset(self):
