@@ -96,6 +96,7 @@ class App extends React.Component {
     render() {
        let content = <div/>;
          if (this.state.loaded) {
+             if (this.state.data)
      content=
      <TableContainer>
       <Table >
@@ -121,7 +122,7 @@ class App extends React.Component {
          ))}
         </Table >
    </TableContainer>
-     
+  }   
 } 
 
 
