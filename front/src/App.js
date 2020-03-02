@@ -164,7 +164,7 @@ class App extends React.Component {
                  </Toolbar>
                       </AppBar>
           {content}
-     
+           {JSON.stringify (this.state) }
    </Container>
       
 );
