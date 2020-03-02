@@ -103,7 +103,13 @@ class App extends React.Component {
         <TableHead>
           <TableRow>
            <TableCell>
-        2
+        id
+          </TableCell>
+          <TableCell>
+        col
+          </TableCell>
+           <TableCell>
+        col
           </TableCell>
           
           </TableRow>
@@ -115,6 +121,12 @@ class App extends React.Component {
             <TableRow>
            <TableCell>
             {item.id}
+          </TableCell>
+          <TableCell>
+            {item.col1}
+          </TableCell>
+           <TableCell>
+            {item.col2}
           </TableCell>
           
           </TableRow>
