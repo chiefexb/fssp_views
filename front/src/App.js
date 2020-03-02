@@ -73,7 +73,7 @@ class App extends React.Component {
        
 }
  componentDidMount() {
-    fetch("apivitrinavalue?vitrina_id=1")
+    fetch("api")
       .then(response => {
         if (response.status > 400) {
           return this.setState(() => {
