@@ -59,18 +59,34 @@ class App extends React.Component {
         this.state = {
             text: '',
             lastname:'',
-            result: [],
+            data: [],
             region: '',
             but_push: false,
-            isLoaded: false,
+            loaded: false,
             tooltip: false
 
 
         };
-
-
-
-       }
+}
+ componentDidMount() {
+    fetch("apivitrinavalue")
+      .then(response => {
+        if (response.status > 400) {
+          return this.setState(() => {
+            return { placeholder: "Something went wrong!" };
+          });
+        }
+        return response.json();
+      })
+      .then(data => {
+        this.setState(() => {
+          return {
+            data,
+            loaded: true
+          };
+        });
+      });
+  }
 
 
     render() {
@@ -114,7 +130,7 @@ class App extends React.Component {
                     </Typography>
                  </Toolbar>
                       </AppBar>
- 
+  
      <TableContainer>
       <Table >
         <TableHead>
