@@ -15,15 +15,25 @@
     file:
       path: '{{ path_to_www }}' 
       state: directory
+      
+  - name: Compress directory /path/to/foo/ into /path/to/foo.tgz
+    archive:
+      path: '{{  path_to_front }}/build/static'
+      dest: /tmp/front.tgz      
+  - name: Compress directory /path/to/foo/ into /path/to/foo.tgz
+    archive:
+      path: ' '{{  path_to_front }}/../static'
+      dest: /tmp/admin.tgz 
+
  
   - name: copy
-    copy:
-      src: '{{  path_to_front }}/build/static'
+    unarchive:
+      src: /tmp/front.tgz  
       dest:  '{{ path_to_www }}'
       remote_src: yes
   - name: copy
-    copy:
-      src: '{{  path_to_front }}/../static'
+    unarchive:
+      src: /tmp/admin.tgz 
       dest:  '{{ path_to_www }}'
       remote_src: yes
   - name: reload service httpd, in all cases
