@@ -20,7 +20,7 @@ class VitrinaValueViewSet (viewsets.ModelViewSet):
     
     def get_queryset(self,vitrina_id=None):
         queryset = VitrinaValue.objects.all()
-        vitrina_id = self.request.vitrina_id
+        vitrina_id = self.vitrina_id
         
         if vitrina_id is not None:
             user = self.request.user
