@@ -13,7 +13,7 @@ class VitrinaValueSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['vitrina','col1', 'col2', 'col3', 'col4']
 
 # ViewSets define the view behavior.
-class VitrinaValueViewSet (generics.ListAPIView):   
+class VitrinaValueViewSet  (ListCreateAPIView): #(generics.ListAPIView):   
 #(generics.ListAPIView):   #(viewsets.ModelViewSet):
  
     serializer_class = VitrinaValueSerializer
