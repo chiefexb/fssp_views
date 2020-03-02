@@ -147,7 +147,7 @@ class App extends React.Component {
            
           </TableHead>
          
-           {this.state.data.map(item => (
+           {this.state.data[0].map(item => (
              <TableBody  key={item.id} title={item.name}>
             <TableRow>
            <TableCell>
