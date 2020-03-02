@@ -16,7 +16,10 @@ class VitrinaValueViewSet(viewsets.ModelViewSet):
     queryset = VitrinaValue.objects.all()
     serializer_class = VitrinaValueSerializer
     vitrina_id = self.kwargs['vitrina_id']
-        return VitrinaValue.objects.filter(vitrina_id=vitrina_id)
+    if vitrina_id is not None:
+            queryset = queryset.filter(vitrina_id=vitrina_id)
+        return queryset
+       
     
 class VitrinaFieldSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
