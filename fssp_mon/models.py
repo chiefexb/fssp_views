@@ -52,9 +52,11 @@ class VitrinaValue (models.Model):
     col18 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col18')
     col19 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col19')
     col20 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col20')
+    
     @property
     def vitrina_id (self):
-		return self.vitrina.id
+		return str(self.vitrina.id)
+		
     def __str__(self):
         return self.osp.full_name+':'+ self.vitrina.__str__()
 
