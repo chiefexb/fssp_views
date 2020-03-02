@@ -140,8 +140,7 @@ class App extends React.Component {
         <TableHead>
           <TableRow>
            <TableCell>
-          2 {JSON.stringify (this.state.data)}
-          3  {JSON.stringify (this.state.data)}
+        2
           </TableCell>
           
           </TableRow>
