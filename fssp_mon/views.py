@@ -41,7 +41,7 @@ def osp(request):
 
     par=request.GET
     id= int(par.get('vitrina_id',default='1') )
-    t = get_template('../front/build/index.html')
+    t = get_template('index.html')
     p=VitrinaValue.objects.filter(vitrina_id=id)
     p2 = VitrinaField.objects.filter(vitrina_id=id)
     if len (p2)>0:
