@@ -16,13 +16,10 @@ class VitrinaValueSerializer(serializers.HyperlinkedModelSerializer):
 class VitrinaValueViewSet (generics.ListAPIView):   #(viewsets.ModelViewSet):
  
     serializer_class = VitrinaValueSerializer
-    
     def get_queryset(self):
-        queryset = VitrinaValue.objects.all()
-        vitrina_id = self.kwargs['vitrina_id']
-        if vitrina_id is not None:
-            queryset = queryset.filter(vitrina_id=vitrina_id)
-        return queryset
+        queryset =  VitrinaValue.objects.filter(vitrina_id=self.request.vitrina_id)
+        return queryset.order_by('-id')
+   
        
     
 class VitrinaFieldSerializer(serializers.HyperlinkedModelSerializer):
