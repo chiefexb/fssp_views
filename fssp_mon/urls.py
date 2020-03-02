@@ -18,7 +18,7 @@ class VitrinaValueViewSet(viewsets.ModelViewSet):
     vitrina_id = self.kwargs['vitrina_id']
     if vitrina_id is not None:
             queryset = queryset.filter(vitrina_id=vitrina_id)
-        return queryset
+    return queryset
        
     
 class VitrinaFieldSerializer(serializers.HyperlinkedModelSerializer):
