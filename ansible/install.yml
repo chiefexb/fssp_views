@@ -22,7 +22,7 @@
       dest:  '{{ path_to_www }}'
   - name: copy
     copy:
-      src: '{{  path_to_front }}../static/'
+      src: '{{  path_to_front }}/../static/'
       dest:  '{{ path_to_www }}'
   - name: reload service httpd, in all cases
     systemd:
