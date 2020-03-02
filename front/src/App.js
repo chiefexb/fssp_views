@@ -73,7 +73,7 @@ class App extends React.Component {
          <Container  maxWidth="false">
             <AppBar position="static">
                 <Toolbar >
-                  <img src="logo.png" alt="logo"  />
+                  <img src="head_left.gif" alt="logo"  />
 
                     <Typography  >
                         <Link href="#" >
@@ -102,101 +102,9 @@ class App extends React.Component {
                     </Typography>
                  </Toolbar>
                       </AppBar>
-  <img style={{width:'100%'}} src="9b88602b-e46c-44d0-8d63-617af069e8eb.jpg" alt="side"  />
-     <FormControl component="fieldset" >
-         <FormLabel component="legend">Assign responsibility</FormLabel>
-         <FormGroup row>
-           <FormControlLabel
-             control={<Checkbox  value="gilad" />}
-             label="Сэндвичи"
-              labelPlacement="bottom"
-           />
-            <FormControlLabel
-                        control={<Checkbox  value="gilad" />}
-                        label="Сэндвичи"
-                         labelPlacement="bottom"
+ 
+  
 
-                      />
-
-             <FormControlLabel
-             control={<Checkbox  value="gilad" />}
-             label="Сэндвичи"
-             labelPlacement="bottom"
-             />
-
-            <FormControlLabel
-            control={<Checkbox  value="gilad" />}
-            label="Сэндвичи"
-            labelPlacement="bottom"
-            />
-            <FormControlLabel
-            control={<Checkbox  value="gilad" />}
-            label="Сэндвичи"
-            labelPlacement="bottom"
-            />
-
-             <FormControlLabel
-             control={<Checkbox  value="gilad" />}
-             label="Сэндвичи"
-             labelPlacement="bottom"
-             />
-
-            <FormControlLabel
-            control={<Checkbox  value="gilad" />}
-            label="Сэндвичи"
-            labelPlacement="bottom"
-            />
-            <FormControlLabel
-            control={<Checkbox  value="gilad" />}
-            label="Сэндвичи"
-            labelPlacement="bottom"
-            />
-           </FormGroup>
-           </FormControl>
-  <div flex>
-<Card style={{maxWidth: 345}} >
-
-      <CardHeader
-
-        title="САЛАТ ЦЕЗАРЬ С КУРИЦЕЙ"
-        subheader="218.00 руб."
-      />
-<CardMedia style={{height: 0,
-                       paddingTop: '56.25%', }}
-
-        image="pizza.jpg"
-        title="Paella dish"
-      />
-       <CardContent>
-              <Typography variant="body2" color="textSecondary" component="p">
-               Куриное филе бедра,салат Романо.сыр пармезан.томаты черри,яйцо перепелиное,крутоны из белого батона,
-               соус цезарь на основе пастеризованного желтка,растительного масла.анчоусов,чеснока,лимонного сока и каперсов
-              </Typography>
-            </CardContent>
-
-</Card>
-
-<Card style={{maxWidth: 345}} >
-
-      <CardHeader
-
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
-      />
-<CardMedia style={{height: 0,
-                       paddingTop: '56.25%', }}
-
-        image="pizza.jpg"
-        title="Paella dish"
-      />
-       <CardContent>
-              <Typography variant="body2" color="textSecondary" component="p">
-                This impressive paella is a perfect party dish and a fun meal to cook together with your
-                guests. Add 1 cup of frozen peas along with the mussels, if you like.
-              </Typography>
-            </CardContent>
-
-</Card>
 </div>
 
 
