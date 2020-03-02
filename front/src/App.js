@@ -148,16 +148,16 @@ class App extends React.Component {
            
           </TableHead>
           
-         //{this.state.data.map(item => (
-             <TableBody > // key={item.id} >
+        
+             <TableBody > 
             <TableRow>
            <TableCell>
-            {item.col1}
+            
           </TableCell>
           
           </TableRow>
           </TableBody>
-          //  ))}
+         
         </Table >
    </TableContainer>
    </Container>
