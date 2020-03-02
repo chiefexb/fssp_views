@@ -94,7 +94,35 @@ class App extends React.Component {
 
 
     render() {
-
+       let content = <div/>;
+         if (this.state.loaded) {
+     content=
+     <TableContainer>
+      <Table >
+        <TableHead>
+          <TableRow>
+           <TableCell>
+        2
+          </TableCell>
+          
+          </TableRow>
+           
+          </TableHead>
+          
+               {this.state.data.map(item => ( 
+             <TableBody  key={item.id} > 
+            <TableRow>
+           <TableCell>
+            {item.id}
+          </TableCell>
+          
+          </TableRow>
+          </TableBody>
+         ))}
+        </Table >
+   </TableContainer>
+     
+} 
 
 
 
@@ -134,33 +162,9 @@ class App extends React.Component {
                     </Typography>
                  </Toolbar>
                       </AppBar>
-    if (this.state.loaded) {
-     <TableContainer>
-      <Table >
-        <TableHead>
-          <TableRow>
-           <TableCell>
-        2
-          </TableCell>
-          
-          </TableRow>
-           
-          </TableHead>
-          
-               {this.state.data.map(item => ( 
-             <TableBody  key={item.id} > 
-            <TableRow>
-           <TableCell>
-            {item.id}
-          </TableCell>
-          
-          </TableRow>
-          </TableBody>
-         ))}
-        </Table >
-   </TableContainer>
+    {content}
    </Container>
-}
+      
 
 
         );
