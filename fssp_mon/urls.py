@@ -13,12 +13,11 @@ class VitrinaValueSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['vitrina','col1', 'col2', 'col3', 'col4']
 
 # ViewSets define the view behavior.
-class VitrinaValueViewSet  (generics.ListAPIView): #$#(generics.ListCreateAPIView): #(generics.ListAPIView):   
+class VitrinaValueViewSet  (viewsets.ModelViewSet): #$#(generics.ListCreateAPIView): #(generics.ListAPIView):   
 #(generics.ListAPIView):   #(viewsets.ModelViewSet):
     queryset = VitrinaValue.objects.all()
     serializer_class = VitrinaValueSerializer
-    #filter_backends = [DjangoFilterBackend] DEFAULT_FILTER_BACKENDS
-    filterset_fields = ['vitrina_id']
+     
        
     
 class VitrinaFieldSerializer(serializers.HyperlinkedModelSerializer):
@@ -39,7 +38,7 @@ router.register(r'vitrinafield', VitrinaFieldViewSet)
 # Additionally, we include login URLs for the browsable API.
 
 urlpatterns = [
-    url(r'^api', include(router.urls)),
+    url(r'^api/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path("", views.index, name='index'),
     path("osp", views.osp, name='osp'),
