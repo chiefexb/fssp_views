@@ -1,0 +1,31 @@
+- hosts: localhost
+  tasks:
+  - name: build front
+    shell: 'cd {{ path_to_front }} && npm run build'
+
+  - name: reload service httpd, in all cases
+    systemd:
+      name: apache2
+      state: stopped
+  - name: reload service httpd, in all cases
+    file:
+      path: '{{ path_to_www }}'
+      state: absent
+  - name: reload service httpd, in all cases
+    file:
+      path: '{{ path_to_www }}' 
+      state: directory
+ 
+  - name: copy
+    copy:
+      src: '{{  path_to_front }}/build/'
+      dest:  '{{ path_to_www }}'
+  - name: copy
+    copy:
+      src: '{{  path_to_front }}../static/'
+      dest:  '{{ path_to_www }}'
+  - name: reload service httpd, in all cases
+    systemd:
+      name: apache2
+      state: started
+      
