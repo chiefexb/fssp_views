@@ -141,14 +141,14 @@ class App extends React.Component {
           <TableRow>
            <TableCell>
           2 {JSON.stringify (this.state.data)}
-          3  {JSON.stringify (this.state.data.data)}
+          3  {JSON.stringify (this.state.data)}
           </TableCell>
           
           </TableRow>
            
           </TableHead>
           
-               {this.state.data.data.map(item => ( 
+               {this.state.data.map(item => ( 
              <TableBody  key={item.id} > 
             <TableRow>
            <TableCell>

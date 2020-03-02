@@ -43,8 +43,8 @@ def api2(request):
     l=[]
     for item in  p.values ():
        l.append(item) 
-    j=  {'data':l}  
-    return JsonResponse(j)
+    #j=  {'data':l}  
+    return JsonResponse(l)
     
 def osp(request):
 
