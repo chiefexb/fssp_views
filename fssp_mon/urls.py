@@ -42,6 +42,7 @@ urlpatterns = [
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path("", views.index, name='index'),
     path("osp", views.osp, name='osp'),
+     path("api2", views.osp, name='api2'),
     path("webhook", views.webhook, name='webhook'),
     path("osp2", views.osp_list, name='osp_list'),
     

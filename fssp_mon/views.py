@@ -2,6 +2,7 @@ from django.shortcuts import render
 import urllib
 import datetime
 import os
+import json
 
 
 
@@ -36,7 +37,10 @@ def index (request):
     html = t.render(context={'bd':bd,'items':p,'date_now':str(datetime.datetime.now() )}, request=None)
     return HttpResponse(html)
 
-
+def api2(request):
+    id=1
+    p=VitrinaValue.objects.filter(vitrina_id=id)
+    return json.dumps(p)
 def osp(request):
 
     par=request.GET
