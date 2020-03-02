@@ -96,7 +96,7 @@ class App extends React.Component {
     render() {
        let content = <div/>;
          if (this.state.loaded) {
-             if (this.state.result) {
+             if (this.state.result.rez) {
      content=
      <TableContainer>
       <Table >
@@ -110,7 +110,7 @@ class App extends React.Component {
            
           </TableHead>
           
-               {this.state.result.map(item => ( 
+               {this.state.result.rez.map(item => ( 
              <TableBody  key={item.id} > 
             <TableRow>
            <TableCell>
