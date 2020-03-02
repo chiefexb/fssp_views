@@ -156,7 +156,7 @@ class App extends React.Component {
           
           </TableRow>
           </TableBody>
-           
+            ))}
         </Table >
    </TableContainer>
    </Container>
