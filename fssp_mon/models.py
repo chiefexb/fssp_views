@@ -58,6 +58,7 @@ class VitrinaValue (models.Model):
 
 class VitrinaField (models.Model):
     vitrina = models.ForeignKey('Vitrina', on_delete=models.CASCADE)
+    
     col1 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
     col2 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col2')
     col3 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col3')
