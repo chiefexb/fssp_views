@@ -41,7 +41,7 @@ def osp(request):
 
     par=request.GET
     id= int(par.get('vitrina_id',default='1') )
-    t = get_template('main.html')
+    t = get_template('../front/build/index.html')
     p=VitrinaValue.objects.filter(vitrina_id=id)
     p2 = VitrinaField.objects.filter(vitrina_id=id)
     if len (p2)>0:
@@ -52,8 +52,8 @@ def osp(request):
     if len(p)>0:
         filter_name=p[0].vitrina.name
         date_actual=p[0].vitrina.date_actual
-    html=f=open (os.path.join (bd,'/front/bild/index.html'))
-    #html = t.render(context={'cols':p2, 'items': p,'filter_name':filter_name,'date_actual': date_actual }, request=None)
+    #html=f=open (os.path.join (bd,'/front/bild/index.html'))
+    html = t.render(context={'cols':p2, 'items': p,'filter_name':filter_name,'date_actual': date_actual }, request=None)
     return HttpResponse(html)
 
 
