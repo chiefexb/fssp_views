@@ -36,6 +36,7 @@ ALLOWED_HOSTS = ['167.172.40.99']
 # Application definition
 
 INSTALLED_APPS = [
+     'rest_framework',
     'fssp_mon',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -57,8 +58,15 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'fssp_v.urls'
 
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 TEMPLATES = [
-    {
+    {    
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates'),os.path.join(BASE_DIR, 'front/build')],
         'APP_DIRS': True,
