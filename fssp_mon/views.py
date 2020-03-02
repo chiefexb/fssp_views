@@ -38,13 +38,13 @@ def index (request):
     return HttpResponse(html)
 
 def api2(request):
-    id=1
+    id=1 #
     p=VitrinaValue.objects.filter(vitrina_id=id)
     l=[]
     for item in  p.values ():
        l.append(item) 
     j=  {'rez':l}  
-    return JsonResponse(l)
+    return JsonResponse(j)
     
 def osp(request):
 
