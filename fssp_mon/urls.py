@@ -17,7 +17,7 @@ class VitrinaValueViewSet  (generics.ListCreateAPIView): #(generics.ListAPIView)
 #(generics.ListAPIView):   #(viewsets.ModelViewSet):
     queryset = VitrinaValue.objects.all()
     serializer_class = VitrinaValueSerializer
-    filter_backends = [DjangoFilterBackend]
+    #filter_backends = [DjangoFilterBackend] DEFAULT_FILTER_BACKENDS
     filterset_fields = ['vitrina_id']
        
     
