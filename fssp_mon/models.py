@@ -55,8 +55,8 @@ class VitrinaValue (models.Model):
     
     @property
     def vitrina_id (self):
-		return str(self.vitrina.id)
-		
+        return self.vitrina.id
+
     def __str__(self):
         return self.osp.full_name+':'+ self.vitrina.__str__()
 
