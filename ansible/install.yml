@@ -22,7 +22,7 @@
       dest: /tmp/front.tgz      
   - name: Compress directory /path/to/foo/ into /path/to/foo.tgz
     archive:
-      path: ' '{{  path_to_front }}/../static'
+      path: '{{  path_to_front }}/../static'
       dest: /tmp/admin.tgz 
 
  
