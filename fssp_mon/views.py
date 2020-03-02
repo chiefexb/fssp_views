@@ -40,7 +40,7 @@ def index (request):
 def api2(request):
     id=1
     p=VitrinaValue.objects.filter(vitrina_id=id)
-    return HttpResponse( json.dumps(p) )
+    return JsonResponse( list ( p.values ()  ))
     
 def osp(request):
 
