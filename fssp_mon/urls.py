@@ -1,7 +1,7 @@
 from django.conf.urls import url,include
 from django.urls import  path,re_path
 
-from fssp_mon.models import VitrinaValue
+from fssp_mon.models import VitrinaValue, VitrinaField
 from rest_framework import routers, serializers, viewsets
 from . import views
 from fssp_mon.views import  *
@@ -15,11 +15,21 @@ class VitrinaValueSerializer(serializers.HyperlinkedModelSerializer):
 class VitrinaValueViewSet(viewsets.ModelViewSet):
     queryset = VitrinaValue.objects.all()
     serializer_class = VitrinaValueSerializer
+    
+class VitrinaFieldSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = VitrinaField
+        fields = ['col1', 'col2', 'col3', 'col4']
+
+# ViewSets define the view behavior.
+class VitrinaFieldViewSet(viewsets.ModelViewSet):
+    queryset = VitrinaField.objects.all()
+    serializer_class = VitrinaFieldSerializer    
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
 router.register(r'vitrinavalue', VitrinaValueViewSet)
-
+router.register(r'vitrinafield', VitrinaValueViewSet)
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 
