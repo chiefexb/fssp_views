@@ -31,8 +31,9 @@ def osp_list (request):
 def index (request):
     p = Vitrina.objects.all()
     #a = p.values()
-    t = get_template('main_i.html')
-    html = t.render(context={'bd':bd,'items':p,'date_now':str(datetime.datetime.now() )}, request=None)
+    #t = get_template('main_i.html')
+    t = get_template('index.html')
+    #html = t.render(context={'bd':bd,'items':p,'date_now':str(datetime.datetime.now() )}, request=None)
     return HttpResponse(html)
 
 
@@ -51,8 +52,8 @@ def osp(request):
     if len(p)>0:
         filter_name=p[0].vitrina.name
         date_actual=p[0].vitrina.date_actual
-
-    html = t.render(context={'cols':p2, 'items': p,'filter_name':filter_name,'date_actual': date_actual }, request=None)
+    html=f=open (os.path.join (bd,'/front/bild/index.html'))
+    #html = t.render(context={'cols':p2, 'items': p,'filter_name':filter_name,'date_actual': date_actual }, request=None)
     return HttpResponse(html)
 
 
