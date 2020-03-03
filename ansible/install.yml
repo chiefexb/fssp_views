@@ -19,7 +19,11 @@
   - name: Compress directory /path/to/foo/ into /path/to/foo.tgz
     archive:
       path: '{{  path_to_front }}/build/static'
-      dest: /tmp/front.tgz      
+      dest: /tmp/front.tgz
+  - name: Compress directory /path/to/foo/ into /path/to/foo.tgz
+    archive:
+      path: '{{  path_to_swagger }}/build/static'
+      dest: /tmp/swagger.tgz       
   - name: Compress directory /path/to/foo/ into /path/to/foo.tgz
     archive:
       path: '{{  path_to_front }}/../static'
@@ -36,6 +40,12 @@
       src: /tmp/admin.tgz 
       dest:  '{{ path_to_www }}'
       remote_src: yes
+  - name: copy
+    unarchive:
+      src: /tmp/swagger.tgz 
+      dest:  '{{ path_to_www }}'
+      remote_src: yes
+      
   - name: reload service httpd, in all cases
     systemd:
       name: apache2
