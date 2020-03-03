@@ -38,11 +38,14 @@ def index (request):
     return HttpResponse(html)
 
 def swagger_file (request):
-    
+    response = HttpResponse(content_type='text/yaml')
+    response['Content-Disposition'] = 'attachment; filename="swagger.yaml"'
     
     t = get_template('swagger/build/swagger.yaml' )
     html = t.render(context={}, request=None)
-    return HttpResponse(html)    
+    c = {}
+    response.write(t.render(c))
+    return response    
 def swagger (request):
     p = Vitrina.objects.all()
     #a = p.values()
