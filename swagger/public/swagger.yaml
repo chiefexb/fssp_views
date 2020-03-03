@@ -6,8 +6,8 @@ info:
   title: Backend API  
   contact:
     email: it@r09.fssprus.ru
-servers:  
-  - url: http://api/
+#servers:  
+#  - url: http://loc/
  
 tags:
   - name: vitriana
