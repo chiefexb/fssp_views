@@ -36,9 +36,16 @@ def index (request):
     t = get_template('index.html')
     html = t.render(context={'bd':bd,'items':p,'date_now':str(datetime.datetime.now() )}, request=None)
     return HttpResponse(html)
+def swagger (request):
+    p = Vitrina.objects.all()
+    #a = p.values()
+    t = get_template('index.html')
+    t = get_template('../swagger/build/index.html')
+    html = t.render(context={'bd':bd,'items':p,'date_now':str(datetime.datetime.now() )}, request=None)
+    return HttpResponse(html)
 
 def api2(request):
-    id=1 #
+    id=request.GET.get('vitrina_id',1)
     p=VitrinaValue.objects.filter(vitrina_id=id)
     l=[]
     for item in  p.values ():
