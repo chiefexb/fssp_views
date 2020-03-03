@@ -19,6 +19,12 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
+import ViewListIcon from '@material-ui/icons/ViewList';
+import BugReportIcon from '@material-ui/icons/BugReport';
+
+
+
+
 
 import IconButton from '@material-ui/core/IconButton';
 import FilterListIcon from '@material-ui/icons/FilterList';
@@ -38,6 +44,16 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
+import RefreshIcon from '@material-ui/icons/Refresh';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import ListItemText from '@material-ui/core/ListItemText';
+
+import CommentIcon from '@material-ui/icons/Comment';
+
+
 
 
 function ElevationScroll(props) {
@@ -70,19 +86,38 @@ class App extends React.Component {
             but_push: false,
             loaded: false,
             tooltip: false,
-            windows: 'vitrina'
+            windows: 'vitrina',
+            debug: false
 
 
         };
        
+        this.setwindows2_filters = this.setwindows2_filters.bind(this);
+        this.setwindows2_vitrina = this.setwindows2_vitrina.bind(this);
+        this.setdebug= this.setdebug.bind(this);
 }
-  setwindows2_filters() {
+   setwindows2_filters() {
         
-        this.setState({window: 'filters'});
+        this.setState({windows: 'filters'});
        
     
-  };    
-     
+  }; 
+   setwindows2_vitrina() {
+        
+        this.setState({windows: 'vitrina'});
+       
+    
+  }; 
+  setdebug() {
+        if  (this.state.debug) {
+        this.setState({debug: false});
+       } else {
+              this.setState({debug: true});
+        }
+       
+    
+  }; 
+   
  componentDidMount() {
     fetch("api?vitrina_id=1")
       .then(response => {
@@ -105,13 +140,37 @@ class App extends React.Component {
 
 }
     render() {
+
        let content = <div/>;
-       if (this.state.windows='filters') {
-   <IconButton onClick={this.setwindows2_filters } aria-label="delete">
-                             <FilterListIcon />
-                             </IconButton>
+       let debug_info=<div/>;
+       
+        if (this.state.debug) {
+         debug_info=JSON.stringify (this.state) 
+        }
+    
+       if (this.state.windows=='filters') {
+          content=
+          <List>
+          
+               <ListItem  dense button >
+            <ListItemIcon>
+              <Checkbox
+                
+                
+              />
+            </ListItemIcon>
+            <ListItemText  primary="TEST" />
+            <ListItemSecondaryAction>
+              <IconButton edge="end" aria-label="comments">
+                <CommentIcon />
+              </IconButton>
+            </ListItemSecondaryAction>
+          </ListItem>
+          
+          </List>
+            
 } 
-       if (this.state.windows='vitrina') {
+       if (this.state.windows=='vitrina') {
          if (this.state.loaded) {
              if (this.state.result.rez) {
      content=
@@ -185,20 +244,24 @@ class App extends React.Component {
                              <IconButton onClick={this.setwindows2_filters } aria-label="delete">
                              <FilterListIcon />
                              </IconButton>
-                                 <IconButton style ={{marginRight: 2  }}
-                                             aria-label="account of current user"
-                                             aria-controls="menu-appbar"
-                                             aria-haspopup="true"
-
-                                             color="inherit"
-                                           >
-                                             <AccountCircle />
-                                           </IconButton>
+                             
+                              <IconButton   onClick={this.setwindows2_vitrina} aria-label="delete">
+                             <ViewListIcon />
+                             </IconButton>
+                             
+                              <IconButton   onClick={this.setdebug} aria-label="delete">
+                             <BugReportIcon />
+                             </IconButton>
+                             
+                             
+                             
+                           
                     </Typography>
                  </Toolbar>
                       </AppBar>
+                      {debug_info}
           {content}
-           {JSON.stringify (this.state) }
+          
    </Container>
       
 );
