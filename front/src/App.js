@@ -21,6 +21,9 @@ import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 
 import IconButton from '@material-ui/core/IconButton';
+import FilterListIcon from '@material-ui/icons/FilterList';
+
+
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle'
 
@@ -66,12 +69,20 @@ class App extends React.Component {
             region: '',
             but_push: false,
             loaded: false,
-            tooltip: false
+            tooltip: false,
+            windows: 'vitrina'
 
 
         };
        
 }
+  setwindows2_filters() {
+        
+        this.setState({window: 'filters'});
+       
+    
+  };    
+     
  componentDidMount() {
     fetch("api?vitrina_id=1")
       .then(response => {
@@ -90,11 +101,17 @@ class App extends React.Component {
           };
         });
       });
-  }
 
 
+}
     render() {
        let content = <div/>;
+       if (this.state.windows='filters') {
+   <IconButton onClick={this.setwindows2_filters } aria-label="delete">
+                             <FilterListIcon />
+                             </IconButton>
+} 
+       if (this.state.windows='vitrina') {
          if (this.state.loaded) {
              if (this.state.result.rez) {
      content=
@@ -134,7 +151,9 @@ class App extends React.Component {
          ))}
         </Table >
    </TableContainer>
-  }   
+  }
+} 
+ 
 } 
 
 
@@ -163,6 +182,9 @@ class App extends React.Component {
                             <Link href="#" variant="body2">
                                 {'variant="body2"'}
                              </Link>
+                             <IconButton onClick={this.setwindows2_filters } aria-label="delete">
+                             <FilterListIcon />
+                             </IconButton>
                                  <IconButton style ={{marginRight: 2  }}
                                              aria-label="account of current user"
                                              aria-controls="menu-appbar"
