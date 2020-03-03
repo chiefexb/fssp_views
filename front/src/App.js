@@ -62,6 +62,10 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 
 import CommentIcon from '@material-ui/icons/Comment';
+import Button from '@material-ui/core/Button';
+import SettingsIcon from '@material-ui/icons/Settings';
+
+
 
 
 
@@ -258,21 +262,15 @@ class App extends React.Component {
                 <Toolbar >
                   <img src="/static/head_left.gif" alt="logo"  />
 
-                    <Typography  >
-                        <Link href="#" >
-                            Link
-                         </Link>
+                    
+                       
+                         <Button color="inherit">ОИП</Button>
+                            <Button color="inherit">Депозит</Button>
+                               <Button color="inherit">Login</Button>
+                         
 
 
-                           <Link href="#" color="inherit">
-                                   ОИП
-                            </Link>
-                            <Link href="#" color="inherit">
-                                     Депозит
-                            </Link>
-                            <Link href="#" variant="body2">
-                                {'variant="body2"'}
-                             </Link>
+                          
                              <IconButton onClick={this.setwindows2_filters } aria-label="delete">
                              <FilterListIcon />
                              </IconButton>
@@ -284,11 +282,16 @@ class App extends React.Component {
                               <IconButton   onClick={this.setdebug} aria-label="delete">
                              <BugReportIcon />
                              </IconButton>
-                             
+                            
+                                <IconButton    aria-label="delete">
+                            <SettingsIcon />
+                             </IconButton>
+
+
                              
                              
                            
-                    </Typography>
+                   
                  </Toolbar>
                       </AppBar>
                       {debug_info}

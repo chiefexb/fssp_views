@@ -1,0 +1,118 @@
+openapi: 3.0.0
+info:
+  description: >-
+    Публичный API Для backend Витрины
+  version: "1.0"
+  title: Backend API  
+  contact:
+    email: it@r09.fssprus.ru
+servers:  
+  - url: http://api/
+ 
+tags:
+  - name: vitriana
+    description: Описание методов API
+    externalDocs:
+      description: Find out more
+      url: 'http://swagger.io'
+
+paths:
+  /vitriana:
+    get:
+      tags:
+        - vitrina
+      summary: Выводит расчитанные витрины
+      parameters:
+        - in: path
+          name: vitrina_id
+          schema:
+            type: integer
+          required: true
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+              example: 
+                status: "error"
+                code: 401
+                exception: "token not exist"
+          
+  /vitrina/fields:
+    get:
+      tags:
+        - vitrina
+      summary: Выдает наименование столбцов
+      parameters:
+        - in: path
+          name: vitrina_id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+
+          description: successful operation
+  /search/ip:
+    get:
+      tags:
+        - search
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: region
+          in: path
+          required: true
+          type: number
+        - name: adress
+          in: path
+          required: false
+          type: string
+      responses:
+        '200':
+
+          description: successful operation
+  /search/group:
+    post:
+      tags:
+        - search
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: region
+          in: path
+          required: true
+          type: number
+        - name: adress
+          in: path
+          required: false
+          type: string
+      responses:
+        200:
+          description: successful operation
+
+components:
+  schemas:
+    Response:
+      type: object
+      properties:
+        col1:
+          type: string
+        col2:
+          type: string
+        col3:
+          type: string
+        col4:
+          type: string  
+        
+    
+     
+       
+
