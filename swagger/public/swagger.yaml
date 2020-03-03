@@ -6,18 +6,18 @@ info:
   title: Backend API  
   contact:
     email: it@r09.fssprus.ru
-#servers:  
-#  - url: http://loc/
+servers:  
+  - url: http://localhost
  
 tags:
-  - name: vitriana
+  - name: vitrina
     description: Описание методов API
     externalDocs:
       description: Find out more
       url: 'http://swagger.io'
 
 paths:
-  /vitriana:
+  /vitrina:
     get:
       tags:
         - vitrina
