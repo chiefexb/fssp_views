@@ -265,10 +265,10 @@ class App extends React.Component {
 
 
                            <Link href="#" color="inherit">
-                                {'Сэндвичи'.toUpperCase()}
+                                   ОИП
                             </Link>
                             <Link href="#" color="inherit">
-                                      {'Пиццета'.toUpperCase()}
+                                     Депозит
                             </Link>
                             <Link href="#" variant="body2">
                                 {'variant="body2"'}
