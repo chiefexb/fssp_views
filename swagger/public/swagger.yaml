@@ -6,8 +6,8 @@ info:
   title: Backend API  
   contact:
     email: it@r09.fssprus.ru
-servers:  
-  - url: http://localhost
+#servers:  
+#  - url: http://167.172.40.99
  
 tags:
   - name: vitrina
