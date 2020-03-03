@@ -1,6 +1,13 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import queryString from 'query-string';
+import CheckIcon from '@material-ui/icons/Check';
+
+
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+//import SyntaxHighlighter from 'react-syntax-highlighter';
+//import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+
 
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -21,6 +28,9 @@ import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import ViewListIcon from '@material-ui/icons/ViewList';
 import BugReportIcon from '@material-ui/icons/BugReport';
+import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
+
+
 
 
 
@@ -140,7 +150,16 @@ class App extends React.Component {
 
 }
     render() {
+        let code=`select 'all_v' as inf, count(DOC_IP.IP_EXEC_PRIST_NAME) as f_col  
+		from doc_ip join doc_ip_doc on doc_ip_doc.id=doc_ip.id  
+					join document on document.id=doc_ip.id 
+		where doc_ip.ip_risedate>=current_date <
+		union all         `
+       let code_ed=
+        <SyntaxHighlighter language="sql" >
+         {code}
 
+          </SyntaxHighlighter>;
        let content = <div/>;
        let debug_info=<div/>;
        
@@ -149,8 +168,11 @@ class App extends React.Component {
         }
     
        if (this.state.windows=='filters') {
+          document.title = "Добавление фильров | ФССП Витрина"
           content=
           <List>
+          
+          
           
                <ListItem  dense button >
             <ListItemIcon>
@@ -162,15 +184,25 @@ class App extends React.Component {
             <ListItemText  primary="TEST" />
             <ListItemSecondaryAction>
               <IconButton edge="end" aria-label="comments">
-                <CommentIcon />
+              <PlaylistAddIcon />
+
               </IconButton>
             </ListItemSecondaryAction>
           </ListItem>
           
+          <ListItem button>
+           <ListItemIcon>
+            <CheckIcon />
+           </ListItemIcon>
+             </ListItem>
+          
           </List>
+          
+          
             
 } 
        if (this.state.windows=='vitrina') {
+           document.title = "Витрины| ФССП Витрина"
          if (this.state.loaded) {
              if (this.state.result.rez) {
      content=
@@ -260,8 +292,10 @@ class App extends React.Component {
                  </Toolbar>
                       </AppBar>
                       {debug_info}
+                      {code_ed}
+                    
           {content}
-          
+     
    </Container>
       
 );
