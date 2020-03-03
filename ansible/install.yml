@@ -2,6 +2,8 @@
   tasks:
   - name: build front
     shell: 'cd {{ path_to_front }} && npm run build'
+  - name: build swagger
+    shell: 'cd {{ path_to_swagger }} && npm run build'
 
   - name: reload service httpd, in all cases
     systemd:
