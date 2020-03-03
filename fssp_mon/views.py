@@ -40,7 +40,7 @@ def index (request):
 def swagger_file (request):
     
     
-    t = get_template('swagger/build/swagger.yml' )
+    t = get_template('swagger/build/swagger.yaml' )
     html = t.render(context={}, request=None)
     return HttpResponse(html)    
 def swagger (request):
