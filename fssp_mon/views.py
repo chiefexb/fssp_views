@@ -36,6 +36,13 @@ def index (request):
     t = get_template('index.html')
     html = t.render(context={'bd':bd,'items':p,'date_now':str(datetime.datetime.now() )}, request=None)
     return HttpResponse(html)
+
+def swagger_file (request):
+    
+    
+    t = get_template('swagger/build/swagger.yml' )
+    html = t.render(context={}, request=None)
+    return HttpResponse(html)    
 def swagger (request):
     p = Vitrina.objects.all()
     #a = p.values()

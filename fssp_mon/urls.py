@@ -11,6 +11,7 @@ urlpatterns = [
     path("", views.index, name='index'),
     path("osp", views.osp, name='osp'),
     path("api", views.swagger, name='api'),
+     path("swagger.yml", views.swagger_file, name='swagger.yml'),
     
     path("webhook", views.webhook, name='webhook'),
     path("osp2", views.osp_list, name='osp_list'),
