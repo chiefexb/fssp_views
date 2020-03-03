@@ -39,8 +39,8 @@ def index (request):
 def swagger (request):
     p = Vitrina.objects.all()
     #a = p.values()
-    t = get_template('index.html')
-    t = get_template('swagger/build/index.html')
+    
+    t = get_template('../swagger/build/index.html')
     html = t.render(context={'bd':bd,'items':p,'date_now':str(datetime.datetime.now() )}, request=None)
     return HttpResponse(html)
 
