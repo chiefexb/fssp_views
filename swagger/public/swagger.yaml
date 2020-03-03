@@ -6,8 +6,8 @@ info:
   title: Backend API  
   contact:
     email: it@r09.fssprus.ru
-#servers:  
-#  - url: http://167.172.40.99
+servers:  
+ - url: http://167.172.40.99/api
  
 tags:
   - name: vitrina
@@ -41,7 +41,7 @@ paths:
                 code: 401
                 exception: "token not exist"
           
-  /vitrina/fields:
+  vitrina/fields:
     get:
       tags:
         - vitrina
