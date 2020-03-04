@@ -56,7 +56,13 @@ def swagger (request):
 def api2(request,method=None,method2=None):
     if method=='filter' and method2=='get':
         bd=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        l= os.listdir(os.path.join (bd,'filters')  ) 
+        ld= os.listdir(os.path.join (bd,'filters')  ) 
+        l=[]
+        for item i ld:
+            f=open (os.path.join (bd,'filters',item  )
+            y=yaml.load(f)
+            f.close()
+            l.append(y)
         j=  {'rez':l} 
     if method=='vitrina' and method2=='field':
         id=request.GET.get('vitrina_id',1)
