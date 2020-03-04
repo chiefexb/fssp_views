@@ -65,7 +65,8 @@ def api2(request,method=None,method2=None):
             xml=etree.parse(f)
             f.close()
             root=xml.getroot()
-            dd= root.attrib
+            for k,v in root.attrib.items:
+                dd[k]=v
             dd['file_name']=item
             l.append(dd)
         j=  {'rez':l} 
