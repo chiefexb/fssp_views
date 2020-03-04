@@ -10,7 +10,8 @@ urlpatterns = [
    
     path("", views.index, name='index'),
     path("osp", views.osp, name='osp'),
-    path("api/vitrina", views.api2, name='api'),
+    path("api/<method>", views.api, name='api'),
+     
     path("api/", views.swagger, name='api2'),
      path("swagger.yaml", views.swagger_file, name='swagger.yaml'),
     

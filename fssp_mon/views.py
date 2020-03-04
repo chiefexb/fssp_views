@@ -32,8 +32,8 @@ def osp_list (request):
 def index (request):
     p = Vitrina.objects.all()
     #a = p.values()
-    t = get_template('index.html')
-    t = get_template('index.html')
+    
+    t = get_template('front/build/index.html')
     html = t.render(context={'bd':bd,'items':p,'date_now':str(datetime.datetime.now() )}, request=None)
     return HttpResponse(html)
 
@@ -54,13 +54,16 @@ def swagger (request):
     html = t.render(context={'bd':bd,'items':p,'date_now':str(datetime.datetime.now() )}, request=None)
     return HttpResponse(html)
 
-def api2(request):
-    id=request.GET.get('vitrina_id',1)
-    p=VitrinaValue.objects.filter(vitrina_id=id)
-    l=[]
-    for item in  p.values ():
-       l.append(item) 
-    j=  {'rez':l}  
+def api(request):
+    
+    method=request.GET.get('method','')
+    if method=='':
+        id=request.GET.get('vitrina_id',1)
+        p=VitrinaValue.objects.filter(vitrina_id=id)
+        l=[]
+        for item in  p.values ():
+            l.append(item) 
+        j=  {'rez':l}  
     return JsonResponse(j)
     
 def osp(request):
