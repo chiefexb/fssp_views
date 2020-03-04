@@ -59,7 +59,7 @@ def api2(request,method=None,method2=None):
         ld= os.listdir(os.path.join (bd,'filters')  ) 
         l=[]
         for item in ld:
-            f=open (os.path.join (bd,'filters',item  )
+            f=open (os.path.join (bd,'filters',item  ))
             y=yaml.load(f)
             f.close()
             l.append(y)
