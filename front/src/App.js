@@ -238,13 +238,13 @@ fetch("api/vitrina/field?vitrina_id=1")
           {this.state.result2.rez.map(item => ( 
         <TableHead   key={item.id}>
           <TableRow borderBottom={1} borderColor="text.primary">
-           <TableCell style='{border-color: black; }'>
+           <TableCell >
             {item.id}
           </TableCell >
-          <TableCell style='{border-color: black; }'>
+          <TableCell >
             {item.col1}
           </TableCell>
-           <TableCell style='{border-color: black; }'>
+           <TableCell >
             {item.col2}
           </TableCell  >
           
@@ -256,13 +256,13 @@ fetch("api/vitrina/field?vitrina_id=1")
                {this.state.result.rez.map(item2 => ( 
              <TableBody  key={item2.id} > 
             <TableRow borderBottom={1} borderColor="text.primary" >
-           <TableCell style='{border-color: black; }'>
+           <TableCell >
             {item2.id}
           </TableCell>
-          <TableCell style='{border-color: black; }'>
+          <TableCell >
             {item2.col1}
           </TableCell >
-           <TableCell style='{border-color: black; }'>
+           <TableCell >
             {item2.col2}
           </TableCell>
           
