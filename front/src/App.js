@@ -232,17 +232,17 @@ fetch("api/vitrina/field?vitrina_id=1")
              if (this.state.result2.rez) {
      content=
      <TableContainer>
-      <Table border={1}>
+      <Table >
           {this.state.result2.rez.map(item => ( 
-        <TableHead key={item.id}>
+        <TableHead  border={1} key={item.id}>
           <TableRow>
-           <TableCell>
+           <TableCell  >
             {item.id}
-          </TableCell>
-          <TableCell>
+          </TableCell >
+          <TableCell >
             {item.col1}
           </TableCell>
-           <TableCell>
+           <TableCell  >
             {item.col2}
           </TableCell>
           
@@ -252,7 +252,7 @@ fetch("api/vitrina/field?vitrina_id=1")
           ))}
           
                {this.state.result.rez.map(item2 => ( 
-             <TableBody  key={item2.id} > 
+             <TableBody  border={1} key={item2.id} > 
             <TableRow>
            <TableCell>
             {item2.id}
