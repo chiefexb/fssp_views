@@ -232,7 +232,7 @@ fetch("api/vitrina/field?vitrina_id=1")
              if (this.state.result2.rez) {
      content=
      <TableContainer>
-      <Table >
+      <Table border={1}>
           {this.state.result2.rez.map(item => ( 
         <TableHead key={item.id}>
           <TableRow>
