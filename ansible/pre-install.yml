@@ -1,5 +1,6 @@
 - hosts: localhost
   tasks:
+
 - name: Download nodejs
   get_url:
     url: https://nodejs.org/dist/v12.16.1/node-v12.16.1-linux-x64.tar.xz  
