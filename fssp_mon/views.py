@@ -56,15 +56,15 @@ def swagger (request):
 
 def api(request):
     
-    method=callback_kwargs.get('method','')
-    if method=='vitrina':
-        id=request.GET.get('vitrina_id',1)
-        p=VitrinaValue.objects.filter(vitrina_id=id)
-        l=[]
-        for item in  p.values ():
-            l.append(item) 
-        j=  {'rez':l}  
-    return JsonResponse(j)
+    #method=callback_kwargs.get('method','')
+    #if method=='vitrina':
+    #    id=request.GET.get('vitrina_id',1)
+    #    p=VitrinaValue.objects.filter(vitrina_id=id)
+    #    l=[]
+    #    for item in  p.values ():
+    #        l.append(item) 
+    #    j=  {'rez':l}  
+    return JsonResponse(callback_kwargs)
     
 def osp(request):
 
