@@ -166,7 +166,7 @@ fetch("api/vitrina/field?vitrina_id=1")
         this.setState(() => {
           return {
             result,
-            loaded: true
+            loaded2: true
           };
         });
       });
