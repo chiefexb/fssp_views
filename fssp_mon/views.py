@@ -58,7 +58,7 @@ def api2(request,method=None,method2=None):
         bd=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         ld= os.listdir(os.path.join (bd,'filters')  ) 
         l=[]
-        for item i ld:
+        for item in ld:
             f=open (os.path.join (bd,'filters',item  )
             y=yaml.load(f)
             f.close()
