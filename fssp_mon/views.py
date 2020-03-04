@@ -18,6 +18,7 @@ from .models import *
 import fdb
 import yaml
 import json
+from lxml import etree
 # Create your views here.
 bd=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 f=open (os.path.join (bd,'../fssp_views_settings/inventory.yml'))
@@ -59,10 +60,14 @@ def api2(request,method=None,method2=None):
         ld= os.listdir(os.path.join (bd,'filters')  ) 
         l=[]
         for item in ld:
+            dd={}
             f=open (os.path.join (bd,'filters',item  ))
-            y=yaml.load(f)
+            xml=etree.parse(f)
             f.close()
-            l.append(y)
+            root=xml.getroot()
+            dd= root.attrib
+            dd['file_name']=item
+            l.append(dd)
         j=  {'rez':l} 
     if method=='vitrina' and method2=='field':
         id=request.GET.get('vitrina_id',1)

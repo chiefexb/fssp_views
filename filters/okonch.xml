@@ -1,6 +1,6 @@
-<vitrina  name='ОИП оконченные'  custom_fields = false  calc_field_name= false  category='ОИП' >
+<vitrina  name="ОИП оконченные"  custom_fields="false"  calc_field_name="true"  category="ОИП" >
 <filters>
-     <filter ='ОИП оконченные' category=''>
+     <filter name="ОИП оконченные" category="ОИП">
         <sql>
 			
 <![CDATA[
