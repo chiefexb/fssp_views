@@ -236,7 +236,7 @@ fetch("api/vitrina/field?vitrina_id=1")
       <Table border={1}>
           {this.state.result2.rez.map(item => ( 
         <TableHead   key={item.id}>
-          <TableRow>
+          <TableRow border={1}>
            <TableCell  >
             {item.id}
           </TableCell >
@@ -254,7 +254,7 @@ fetch("api/vitrina/field?vitrina_id=1")
           
                {this.state.result.rez.map(item2 => ( 
              <TableBody  key={item2.id} > 
-            <TableRow>
+            <TableRow border={1}>
            <TableCell >
             {item2.id}
           </TableCell>
