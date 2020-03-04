@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import queryString from 'query-string';
 import CheckIcon from '@material-ui/icons/Check';
+import { borders } from '@material-ui/system';
 
 
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -232,17 +233,17 @@ fetch("api/vitrina/field?vitrina_id=1")
              if (this.state.result2.rez) {
      content=
      <TableContainer>
-      <Table >
+      <Table border={1}>
           {this.state.result2.rez.map(item => ( 
         <TableHead   key={item.id}>
           <TableRow>
-           <TableCell border={1} >
+           <TableCell  >
             {item.id}
           </TableCell >
-          <TableCell border={1}>
+          <TableCell >
             {item.col1}
           </TableCell>
-           <TableCell border={1} >
+           <TableCell>
             {item.col2}
           </TableCell>
           
@@ -254,7 +255,7 @@ fetch("api/vitrina/field?vitrina_id=1")
                {this.state.result.rez.map(item2 => ( 
              <TableBody  key={item2.id} > 
             <TableRow>
-           <TableCell border={1}>
+           <TableCell >
             {item2.id}
           </TableCell>
           <TableCell border={1}>
