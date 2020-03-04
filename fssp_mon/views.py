@@ -57,7 +57,7 @@ def swagger (request):
 def api(request):
     
     method=request.GET.get('method','')
-    if method=='':
+    if method=='vitrina':
         id=request.GET.get('vitrina_id',1)
         p=VitrinaValue.objects.filter(vitrina_id=id)
         l=[]
