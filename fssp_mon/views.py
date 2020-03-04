@@ -64,7 +64,7 @@ def api(request):
     #    for item in  p.values ():
     #        l.append(item) 
     #    j=  {'rez':l}  
-    return JsonResponse(callback_kwargs)
+    return JsonResponse(request.callback_kwargs)
     
 def osp(request):
 
