@@ -96,9 +96,11 @@ class App extends React.Component {
             text: '',
             lastname:'',
             result: [],
+            result2: [],
             region: '',
             but_push: false,
             loaded: false,
+            loaded2: false,
             tooltip: false,
             windows: 'vitrina',
             debug: false
@@ -151,6 +153,23 @@ class App extends React.Component {
         });
       });
 
+fetch("api/vitrina/field?vitrina_id=1")
+      .then(response => {
+        if (response.status > 400) {
+          return this.setState(() => {
+            return { placeholder: "Something went wrong!" };
+          });
+        }
+        return response.json();
+      })
+      .then(result => {
+        this.setState(() => {
+          return {
+            result,
+            loaded: true
+          };
+        });
+      });
 
 }
     render() {
@@ -209,24 +228,28 @@ class App extends React.Component {
            document.title = "Витрины| ФССП Витрина"
          if (this.state.loaded) {
              if (this.state.result.rez) {
+                if (this.state.loaded2) {
+             if (this.state.result2.rez) {
      content=
      <TableContainer>
       <Table >
-        <TableHead>
+          {this.state.result2.rez.map(item => ( 
+        <TableHead key={item.id}>
           <TableRow>
            <TableCell>
-        id
+            {item.id}
           </TableCell>
           <TableCell>
-        col
+            {item.col1}
           </TableCell>
            <TableCell>
-        col
+            {item.col2}
           </TableCell>
           
           </TableRow>
-           
+   
           </TableHead>
+          ))}
           
                {this.state.result.rez.map(item => ( 
              <TableBody  key={item.id} > 
@@ -250,8 +273,8 @@ class App extends React.Component {
 } 
  
 } 
-
-
+}
+}
 
 
 
