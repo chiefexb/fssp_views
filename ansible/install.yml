@@ -1,13 +1,13 @@
 - hosts: localhost
   tasks:
-  - name: install
-    shell: 'cd {{ path_to_front }} && npm install'
+ # - name: install
+ #   shell: 'cd {{ path_to_front }} && npm install'
   - name: build swagger
     shell: 'cd {{ path_to_swagger }} && npm install'
   - name: build front
     shell: 'cd {{ path_to_front }} && npm run build'
-  - name: build swagger
-    shell: 'cd {{ path_to_swagger }} && npm run build'
+ # - name: build swagger
+ #   shell: 'cd {{ path_to_swagger }} && npm run build'
 
   - name: reload service httpd, in all cases
     systemd:
