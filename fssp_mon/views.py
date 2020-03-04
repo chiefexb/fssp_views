@@ -53,8 +53,16 @@ def swagger (request):
     t = get_template('swagger/build/index.html' )
     html = t.render(context={'bd':bd,'items':p,'date_now':str(datetime.datetime.now() )}, request=None)
     return HttpResponse(html)
-
-def api(request,method=None,method2=None):
+def api2(request,method=None,method2=None):
+     if method=='vitrina' and method2=='field':
+        id=request.GET.get('vitrina_id',1)
+        p=VitrinaField.objects.filter(vitrina_id=id)
+        l=[]
+        for item in  p.values ():
+            l.append(item) 
+        j=  {'rez':l}  
+    return JsonResponse(j)
+def api(request,method=None):
     
     #method=callback_kwargs.get('method','')
     if method=='vitrina':
