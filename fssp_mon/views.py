@@ -54,7 +54,7 @@ def swagger (request):
     html = t.render(context={'bd':bd,'items':p,'date_now':str(datetime.datetime.now() )}, request=None)
     return HttpResponse(html)
 
-def api(request,method=None):
+def api(request,method=None,method2=None):
     
     #method=callback_kwargs.get('method','')
     if method=='vitrina':

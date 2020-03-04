@@ -133,7 +133,7 @@ class App extends React.Component {
   }; 
    
  componentDidMount() {
-    fetch("api?vitrina_id=1")
+    fetch("api/vitrina?vitrina_id=1")
       .then(response => {
         if (response.status > 400) {
           return this.setState(() => {
