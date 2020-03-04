@@ -62,10 +62,10 @@ def api2(request,method=None,method2=None):
         for item in ld:
             dd={}
             f=open (os.path.join (bd,'filters',item  ))
-            #xml=etree.parse(f)
+            xml=etree.parse(f)
             f.close()
-            #root=xml.getroot()
-            #dd= root.attrib
+            root=xml.getroot()
+            dd= root.attrib
             dd['file_name']=item
             l.append(dd)
         j=  {'rez':l} 
