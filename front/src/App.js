@@ -162,10 +162,10 @@ fetch("api/vitrina/field?vitrina_id=1")
         }
         return response.json();
       })
-      .then(result => {
+      .then(result2 => {
         this.setState(() => {
           return {
-            result,
+            result2,
             loaded2: true
           };
         });
