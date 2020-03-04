@@ -54,6 +54,9 @@ def swagger (request):
     html = t.render(context={'bd':bd,'items':p,'date_now':str(datetime.datetime.now() )}, request=None)
     return HttpResponse(html)
 def api2(request,method=None,method2=None):
+    if method=='filter' and method2=='get':
+        bd=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        l= os.listdir(os.path.join (bd,'../filters')  ) 
     if method=='vitrina' and method2=='field':
         id=request.GET.get('vitrina_id',1)
         p=VitrinaField.objects.filter(vitrina_id=id)
