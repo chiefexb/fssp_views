@@ -54,17 +54,17 @@ def swagger (request):
     html = t.render(context={'bd':bd,'items':p,'date_now':str(datetime.datetime.now() )}, request=None)
     return HttpResponse(html)
 
-def api(request):
+def api(request,method=None):
     
     #method=callback_kwargs.get('method','')
-    #if method=='vitrina':
-    #    id=request.GET.get('vitrina_id',1)
-    #    p=VitrinaValue.objects.filter(vitrina_id=id)
-    #    l=[]
-    #    for item in  p.values ():
-    #        l.append(item) 
-    #    j=  {'rez':l}  
-    return JsonResponse(request.callback_kwargs)
+    if method=='vitrina':
+        id=request.GET.get('vitrina_id',1)
+        p=VitrinaValue.objects.filter(vitrina_id=id)
+        l=[]
+        for item in  p.values ():
+            l.append(item) 
+        j=  {'rez':l}  
+    return JsonResponse(j)
     
 def osp(request):
 
