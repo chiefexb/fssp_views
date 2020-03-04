@@ -1,9 +1,9 @@
-vitrina_name: u'ОИП Оконченные'
+vitrina_name: "\u041E\u043A\u043E\u043D\u0447\u0435\u043D\u043D\u044B\u0435"
 custom_fields: no
 calc_field_name: yes
 filters:
-  name:  u'ОИП оконченные'
-  category: u'ОИП'
+  name: "\u041E\u043A\u043E\u043D\u0447\u0435\u043D\u043D\u044B\u0435"
+  category: "\u041E\u043A\u043E\u043D\u0447\u0435\u043D\u043D\u044B\u0435"
   sql_text: |
     select
 
