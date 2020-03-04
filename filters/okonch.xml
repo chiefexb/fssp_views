@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<vitrina  name="ОИП оконченные"  custom_fields="false"  calc_field_name="true"  category="ОИП" >
+<vitrina  name="\xd0\x9e\xd0\x98\xd0\x9f \xd0\xbe\xd0\xba\xd0\xbe\xd0\xbd\xd1\x87\xd0\xb5\xd0\xbd\xd0\xbd\xd1\x8b\xd0\xb5"  custom_fields="false"  calc_field_name="true"  category="ОИП" >
 <filters>
-     <filter name="ОИП оконченные" category="ОИП">
+     <filter name="\xd0\x9e\xd0\x98\xd0\x9f \xd0\xbe\xd0\xba\xd0\xbe\xd0\xbd\xd1\x87\xd0\xb5\xd0\xbd\xd0\xbd\xd1\x8b\xd0\xb5" category="\xd0\x9e\xd0\x98\xd0\x9f">
         <sql>
 			
 <![CDATA[
