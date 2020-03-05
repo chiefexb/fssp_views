@@ -35,6 +35,9 @@ import Container from '@material-ui/core/Container';
 import ViewListIcon from '@material-ui/icons/ViewList';
 import BugReportIcon from '@material-ui/icons/BugReport';
 import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
+import AddIcon from '@material-ui/icons/Add';
+
+
 
 
 
@@ -240,8 +243,33 @@ fetch("api/vitrina/field?vitrina_id=1")
           content=
           <div>
           <form  noValidate autoComplete="off">
+          <FormControl className={clsx(classes.margin, classes.textField)}>
+          <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
+          <Input
+            id="standard-adornment-password"
+            type= 'text' }
+            value={this.state.category_new}
+            onChange={this.NewCatChange}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickNewCat}
+                  
+                >
+                  <AddIcon />
+                </IconButton>
+              </InputAdornment>
+            }
+          />
           
-            <TextField id="standard-basic" label="Standard" />
+          
+            <TextField id="standard-basic" label="Standard" >
+                       <IconButton    aria-label="delete">
+                            <SettingsIcon />
+                             </IconButton>
+            </TextField>
+import AddIcon from '@material-ui/icons/Add';
                     <TextField
           id="filter_category"
           select
@@ -393,6 +421,8 @@ fetch("api/vitrina/field?vitrina_id=1")
                                 <IconButton    aria-label="delete">
                             <SettingsIcon />
                              </IconButton>
+
+
 
 
                              
