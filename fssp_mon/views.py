@@ -98,6 +98,7 @@ def api(request,method=None):
         j=  {'rez':l}  
     return JsonResponse(j)
     
+@csrf_exempt   
 def osp(request):
 
     par=request.GET
