@@ -221,7 +221,7 @@ fetch("api/vitrina/field?vitrina_id=1")
 
 
        let code_ed=
-       <Box height="25%">
+       <Box maxHeight="150px">
         <SyntaxHighlighter       language="sql"         >
          {this.state.code}
 
@@ -386,11 +386,11 @@ fetch("api/vitrina/field?vitrina_id=1")
                              <BugReportIcon />
                              </IconButton>
                              </Tooltip>
-                            
+                              <Tooltip title="Включить DEBUG строку" aria-label="add">
                               <IconButton    aria-label="delete">
                             <DescriptionIcon />
                              </IconButton>
-
+ </Tooltip>
                                 <IconButton    aria-label="delete">
                             <SettingsIcon />
                              </IconButton>
