@@ -223,8 +223,39 @@ fetch("api/vitrina/field?vitrina_id=1")
         }
     
        if (this.state.windows=='filters') {
+          if (this.state.loaded3) { 
+             if (this.state.result3.rez) {
           document.title = "Добавление фильров | ФССП Витрина"
           content=
+          <div>
+          <form  noValidate autoComplete="off">
+          
+            <TextField id="standard-basic" label="Standard" />
+                    <TextField
+          id="standard-select-currency"
+          select
+          label="Select"
+          value={this.state.category}
+          onChange={this.handleChange}
+          helperText="Please select your currency"
+        >  
+          {this.state.result3.rez.map(option => (
+            <MenuItem key={option.id} value={option.id}>
+              {option.name}
+            </MenuItem>
+          ))}
+        </TextField> 
+          <TextField
+          id="outlined-multiline-static"
+          label="Multiline"
+          multiline
+          rows="20"
+          defaultValue="Default Value"
+          variant="outlined"
+          fullWidth="true"
+          />
+          
+          </form>
           
           <List>
           
@@ -253,7 +284,8 @@ fetch("api/vitrina/field?vitrina_id=1")
              </ListItem>
           
           </List>
-          
+          </div>
+	  }}
           
             
 } 
@@ -356,34 +388,8 @@ fetch("api/vitrina/field?vitrina_id=1")
                       {code_ed}
                     
           {content}
-          if (this.state.loaded3) {    
-          <form  noValidate autoComplete="off">
-            <TextField id="standard-basic" label="Standard" />
-                    <TextField
-          id="standard-select-currency"
-          select
-          label="Select"
-          value={this.state.category}
-          onChange={this.handleChange}
-          helperText="Please select your currency"
-        >  
-          {this.state.result3.rez.map(option => (
-            <MenuItem key={option.id} value={option.id}>
-              {option.name}
-            </MenuItem>
-          ))}
-        </TextField> 
-          <TextField
-          id="outlined-multiline-static"
-          label="Multiline"
-          multiline
-          rows="20"
-          defaultValue="Default Value"
-          variant="outlined"
-          fullWidth="true"
-          />
-          </form>}
-          
+    
+ 
    </Container>
       
 );
