@@ -87,6 +87,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 
 
 
+
 class App extends React.Component {
     constructor() {
         super();
@@ -151,12 +152,16 @@ class App extends React.Component {
    handleClickNewCat(e) {
         let text=e.target.value;
         this.setState({new_category: ''});
+        let url='/api/filter/category_add' ;
         const  opts = {
-           name: text,
-           csrfmiddlewaretoken: {cookie.load("csrftoken")}
+           name: text
+          // csrfmiddlewaretoken: {cookie.load("csrftoken")}
         };  
 
-       
+       axios.defaults.xsrfCookieName = "csrftoken";
+       axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+
+       //your_client.setHeaders({"X-CSRFTOKEN": cookie.load("csrftoken")});
        
        axios.post(url,opts)
       .then(response => { 
