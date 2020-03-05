@@ -372,7 +372,7 @@ fetch("api/vitrina/field?vitrina_id=1")
               {option.name}
             </MenuItem>
           ))}
-        </TextField> }
+        </TextField> 
           <TextField
           id="outlined-multiline-static"
           label="Multiline"
@@ -382,7 +382,7 @@ fetch("api/vitrina/field?vitrina_id=1")
           variant="outlined"
           fullWidth="true"
           />
-          </form>
+          </form>}
           
    </Container>
       
