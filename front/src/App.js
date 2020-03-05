@@ -217,10 +217,12 @@ fetch("api/vitrina/field?vitrina_id=1")
 
 
        let code_ed=
-        <SyntaxHighlighter style="{    height: 150px;}"      language="sql"         >
+       <Box height="25%">
+        <SyntaxHighlighter       language="sql"         >
          {this.state.code}
 
           </SyntaxHighlighter>;
+          </Box>
        let content = <div/>;
        let debug_info=<div/>;
        
