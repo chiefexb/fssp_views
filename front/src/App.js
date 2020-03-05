@@ -100,6 +100,7 @@ class App extends React.Component {
             result: [],
             result2: [],
             result3: [],
+            SQLtext:'',
             category: 1,
             region: '',
             but_push: false,
@@ -117,6 +118,8 @@ class App extends React.Component {
         this.setwindows2_vitrina = this.setwindows2_vitrina.bind(this);
         this.setdebug= this.setdebug.bind(this);
          this.handleChange=this.handleChange.bind(this);
+          this.SQLChange=this.SQLChange.bind(this);
+         
 }
    setwindows2_filters() {
         
@@ -133,6 +136,11 @@ class App extends React.Component {
   handleChange(e) {
         let text = e.target.value;
         this.setState({category: text});
+        //this.calculate(text);
+    }
+   SQLChange(e) {
+        let text = e.target.value;
+        this.setState({SQLtext: text});
         //this.calculate(text);
     }
   //    const handleChange = event => {
@@ -232,12 +240,12 @@ fetch("api/vitrina/field?vitrina_id=1")
           
             <TextField id="standard-basic" label="Standard" />
                     <TextField
-          id="standard-select-currency"
+          id="filter_category"
           select
-          label="Select"
+          label="Категория"
           value={this.state.category}
           onChange={this.handleChange}
-          helperText="Please select your currency"
+          helperText="Выбор категории фильтра"
         >  
           {this.state.result3.rez.map(option => (
             <MenuItem key={option.id} value={option.id}>
@@ -253,6 +261,7 @@ fetch("api/vitrina/field?vitrina_id=1")
           defaultValue="Default Value"
           variant="outlined"
           fullWidth="true"
+          onChange={this.SQLChange}
           />
           
           </form>
