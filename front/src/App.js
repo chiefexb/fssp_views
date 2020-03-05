@@ -6,6 +6,13 @@ import { borders } from '@material-ui/system';
 import TextField from '@material-ui/core/TextField';
 import DescriptionIcon from '@material-ui/icons/Description';
 import Tooltip from '@material-ui/core/Tooltip';
+import Input from '@material-ui/core/Input';
+import FilledInput from '@material-ui/core/FilledInput';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+import InputLabel from '@material-ui/core/InputLabel';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
 
 
 
@@ -55,10 +62,10 @@ import AccountCircle from '@material-ui/icons/AccountCircle'
 import Link from '@material-ui/core/Link';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormLabel from '@material-ui/core/FormLabel';
-import FormControl from '@material-ui/core/FormControl';
+
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormHelperText from '@material-ui/core/FormHelperText'
+
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -110,6 +117,7 @@ class App extends React.Component {
             SQLtext:'',
             code: '',
             category: 1,
+            new_category: '',
             region: '',
             but_push: false,
             loaded: false,
@@ -127,6 +135,10 @@ class App extends React.Component {
         this.setdebug= this.setdebug.bind(this);
          this.handleChange=this.handleChange.bind(this);
           this.SQLChange=this.SQLChange.bind(this);
+           this.handleClickNewCat=this.handleClickNewCat.bind(this);
+             this.NewCatChange=this. NewCatChange.bind(this);
+          
+          
          
 }
    setwindows2_filters() {
@@ -146,6 +158,17 @@ class App extends React.Component {
         this.setState({category: text});
         //this.calculate(text);
     }
+    handleClickNewCat(e) {
+        let text = e.target.value;
+        this.setState({new_category: ''});
+        //this.calculate(text);
+    }
+    NewCatChange (e)       {
+        let text = e.target.value;
+        this.setState({new_category: text});
+        //this.calculate(text);
+    }
+    
    SQLChange(e) {
         let text = e.target.value;
         this.setState({SQLtext: text});
@@ -243,18 +266,18 @@ fetch("api/vitrina/field?vitrina_id=1")
           content=
           <div>
           <form  noValidate autoComplete="off">
-          <FormControl className={clsx(classes.margin, classes.textField)}>
+          <FormControl >
           <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
           <Input
             id="standard-adornment-password"
-            type= 'text' }
+            type= 'text' 
             value={this.state.category_new}
             onChange={this.NewCatChange}
             endAdornment={
               <InputAdornment position="end">
                 <IconButton
                   aria-label="toggle password visibility"
-                  onClick={handleClickNewCat}
+                  onClick={this.handleClickNewCat}
                   
                 >
                   <AddIcon />
@@ -262,14 +285,14 @@ fetch("api/vitrina/field?vitrina_id=1")
               </InputAdornment>
             }
           />
-          
+          </FormControl>
           
             <TextField id="standard-basic" label="Standard" >
                        <IconButton    aria-label="delete">
                             <SettingsIcon />
                              </IconButton>
             </TextField>
-import AddIcon from '@material-ui/icons/Add';
+
                     <TextField
           id="filter_category"
           select
