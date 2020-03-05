@@ -356,7 +356,7 @@ fetch("api/vitrina/field?vitrina_id=1")
                       {code_ed}
                     
           {content}
-               
+          if (this.state.loaded3) {    
           <form  noValidate autoComplete="off">
             <TextField id="standard-basic" label="Standard" />
                     <TextField
@@ -366,13 +366,13 @@ fetch("api/vitrina/field?vitrina_id=1")
           value={this.state.category}
           onChange={this.handleChange}
           helperText="Please select your currency"
-        >
+        >  
           {this.state.result3.rez.map(option => (
             <MenuItem key={option.id} value={option.id}>
               {option.name}
             </MenuItem>
           ))}
-        </TextField>
+        </TextField> }
           <TextField
           id="outlined-multiline-static"
           label="Multiline"
