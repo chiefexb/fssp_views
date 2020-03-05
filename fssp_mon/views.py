@@ -55,6 +55,12 @@ def swagger (request):
     html = t.render(context={'bd':bd,'items':p,'date_now':str(datetime.datetime.now() )}, request=None)
     return HttpResponse(html)
 def api2(request,method=None,method2=None):
+    if method=='filter' and method2=='category':
+        p=FsspFilterCat.objects.all()
+        l=[]
+        for item in  p.values ():
+            l.append(item) 
+        j=  {'rez':l}  
     if method=='filter' and method2=='get':
         bd=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         ld= os.listdir(os.path.join (bd,'filters')  ) 

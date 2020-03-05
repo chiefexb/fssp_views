@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import queryString from 'query-string';
 import CheckIcon from '@material-ui/icons/Check';
 import { borders } from '@material-ui/system';
+import TextField from '@material-ui/core/TextField';
 
 
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -65,8 +66,26 @@ import ListItemText from '@material-ui/core/ListItemText';
 import CommentIcon from '@material-ui/icons/Comment';
 import Button from '@material-ui/core/Button';
 import SettingsIcon from '@material-ui/icons/Settings';
+import MenuItem from '@material-ui/core/MenuItem';
 
-
+const currencies = [
+  {
+    value: 'USD',
+    label: '$',
+  },
+  {
+    value: 'EUR',
+    label: '€',
+  },
+  {
+    value: 'BTC',
+    label: '฿',
+  },
+  {
+    value: 'JPY',
+    label: '¥',
+  },
+];
 
 
 
@@ -112,6 +131,7 @@ class App extends React.Component {
         this.setwindows2_filters = this.setwindows2_filters.bind(this);
         this.setwindows2_vitrina = this.setwindows2_vitrina.bind(this);
         this.setdebug= this.setdebug.bind(this);
+         this.handleChange=this.handleChange.bind(this);
 }
    setwindows2_filters() {
         
@@ -125,6 +145,14 @@ class App extends React.Component {
        
     
   }; 
+  handleChange(e) {
+        let text = e.target.value;
+        this.setState({category: text});
+        //this.calculate(text);
+    }
+  //    const handleChange = event => {
+  //  setCurrency(event.target.value);
+  //};
   setdebug() {
         if  (this.state.debug) {
         this.setState({debug: false});
@@ -195,6 +223,7 @@ fetch("api/vitrina/field?vitrina_id=1")
        if (this.state.windows=='filters') {
           document.title = "Добавление фильров | ФССП Витрина"
           content=
+          
           <List>
           
           
@@ -281,6 +310,8 @@ fetch("api/vitrina/field?vitrina_id=1")
 
 
          //const navbar = {backgroundColor: '#BBBBBB'};
+       
+
         return (
          <Container  maxWidth="false">
             <AppBar position="static">
@@ -323,7 +354,34 @@ fetch("api/vitrina/field?vitrina_id=1")
                       {code_ed}
                     
           {content}
-     
+               
+          <form  noValidate autoComplete="off">
+            <TextField id="standard-basic" label="Standard" />
+                    <TextField
+          id="standard-select-currency"
+          select
+          label="Select"
+          value={currency}
+          onChange={this.handleChange}
+          helperText="Please select your currency"
+        >
+          {currencies.map(option => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
+          <TextField
+          id="outlined-multiline-static"
+          label="Multiline"
+          multiline
+          rows="20"
+          defaultValue="Default Value"
+          variant="outlined"
+          fullWidth="true"
+          />
+          </form>
+          
    </Container>
       
 );

@@ -56,10 +56,10 @@ paths:
         '200':
 
           description: successful operation
-  /search/ip:
+  /filter/get:
     get:
       tags:
-        - search
+        - filter
       parameters:
         - name: name
           in: path
@@ -77,10 +77,10 @@ paths:
         '200':
 
           description: successful operation
-  /search/group:
-    post:
+  /filter/category:
+    get:
       tags:
-        - search
+        - filter
       parameters:
         - name: name
           in: path
