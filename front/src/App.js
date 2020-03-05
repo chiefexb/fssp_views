@@ -68,24 +68,6 @@ import Button from '@material-ui/core/Button';
 import SettingsIcon from '@material-ui/icons/Settings';
 import MenuItem from '@material-ui/core/MenuItem';
 
-const currencies = [
-  {
-    value: 'USD',
-    label: '$',
-  },
-  {
-    value: 'EUR',
-    label: '€',
-  },
-  {
-    value: 'BTC',
-    label: '฿',
-  },
-  {
-    value: 'JPY',
-    label: '¥',
-  },
-];
 
 
 
@@ -117,10 +99,13 @@ class App extends React.Component {
             lastname:'',
             result: [],
             result2: [],
+            result3: [],
+            category: 1,
             region: '',
             but_push: false,
             loaded: false,
             loaded2: false,
+            loaded3: false,
             tooltip: false,
             windows: 'vitrina',
             debug: false
@@ -164,6 +149,23 @@ class App extends React.Component {
   }; 
    
  componentDidMount() {
+fetch("api/filter/category")
+      .then(response => {
+        if (response.status > 400) {
+          return this.setState(() => {
+            return { placeholder: "Something went wrong!" };
+          });
+        }
+        return response.json();
+      })
+      .then(result3 => {
+        this.setState(() => {
+          return {
+            result3,
+            loaded3: true
+          };
+        });
+      });
     fetch("api/vitrina?vitrina_id=1")
       .then(response => {
         if (response.status > 400) {
@@ -361,13 +363,13 @@ fetch("api/vitrina/field?vitrina_id=1")
           id="standard-select-currency"
           select
           label="Select"
-          value={currency}
+          value={this.state.category}
           onChange={this.handleChange}
           helperText="Please select your currency"
         >
-          {currencies.map(option => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
+          {this.state.result3.rez.map(option => (
+            <MenuItem key={option.id} value={option.id}>
+              {option.name}
             </MenuItem>
           ))}
         </TextField>
