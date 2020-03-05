@@ -101,6 +101,7 @@ class App extends React.Component {
             result2: [],
             result3: [],
             SQLtext:'',
+            code: '',
             category: 1,
             region: '',
             but_push: false,
@@ -141,6 +142,7 @@ class App extends React.Component {
    SQLChange(e) {
         let text = e.target.value;
         this.setState({SQLtext: text});
+        this.setState({code: text});
         //this.calculate(text);
     }
   //    const handleChange = event => {
@@ -220,7 +222,7 @@ fetch("api/vitrina/field?vitrina_id=1")
 		union all         `
        let code_ed=
         <SyntaxHighlighter language="sql" >
-         {code}
+         {this.code}
 
           </SyntaxHighlighter>;
        let content = <div/>;
