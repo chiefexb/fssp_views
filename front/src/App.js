@@ -166,7 +166,7 @@ class App extends React.Component {
         
          const  opts = {
   
-            lname: this.state.new_category,
+            name: this.state.new_category,
            
         
         };  
