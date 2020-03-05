@@ -217,9 +217,12 @@ fetch("api/vitrina/field?vitrina_id=1")
 
 
        let code_ed=
-        <SyntaxHighlighter 
-         language="sql"
-         rows="10" >
+        <SyntaxHighlighter style={
+    
+    height: 150px;
+    overflow-y: auto !important;
+    overflow-x: auto !important;} 
+    language="sql"         >
          {this.state.code}
 
           </SyntaxHighlighter>;
