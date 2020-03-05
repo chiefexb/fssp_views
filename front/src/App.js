@@ -13,6 +13,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
+import axios from 'axios';
 
 
 
@@ -81,6 +82,7 @@ import CommentIcon from '@material-ui/icons/Comment';
 import Button from '@material-ui/core/Button';
 import SettingsIcon from '@material-ui/icons/Settings';
 import MenuItem from '@material-ui/core/MenuItem';
+
 
 
 
@@ -161,6 +163,32 @@ class App extends React.Component {
     handleClickNewCat(e) {
         let text = e.target.value;
         this.setState({new_category: ''});
+        
+         const  opts = {
+  
+            lname: this.state.new_category,
+           
+        
+        };  
+            
+        
+       const url="api/filter/category_add";
+      
+       axios.post(url,opts)
+      .then(response => { 
+       console.log('response')
+	console.log(response);
+        
+        this.setState({
+            Loaded4: true,
+            result4: response.data
+          });
+      })
+      .catch(error => {
+      console.log(error);
+      this.setState({Loaded4: false })
+      })
+        
         //this.calculate(text);
     }
     NewCatChange (e)       {

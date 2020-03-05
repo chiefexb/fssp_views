@@ -55,6 +55,8 @@ def swagger (request):
     html = t.render(context={'bd':bd,'items':p,'date_now':str(datetime.datetime.now() )}, request=None)
     return HttpResponse(html)
 def api2(request,method=None,method2=None):
+    if method=='filter' and method2=='category_add':
+        j=request.POST
     if method=='filter' and method2=='category':
         p=FsspFilterCat.objects.all()
         l=[]
