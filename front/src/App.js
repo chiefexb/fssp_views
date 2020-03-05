@@ -155,7 +155,7 @@ class App extends React.Component {
         let url='/api/filter/category_add' ;
         const  opts = {
            name: text
-           csrfmiddlewaretoken: {cookie.load("csrftoken")}
+          // csrfmiddlewaretoken: {cookie.load("csrftoken")}
         };  
 
        axios.defaults.xsrfCookieName = "csrftoken";
