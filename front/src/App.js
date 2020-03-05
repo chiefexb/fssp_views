@@ -15,6 +15,7 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import axios from 'axios';
 import Drawer from '@material-ui/core/Drawer';
+import cookie from "react-cookies";
 
 
 
@@ -152,10 +153,11 @@ class App extends React.Component {
         this.setState({new_category: ''});
         const  opts = {
            name: text,
+           csrfmiddlewaretoken: {cookie.load("csrftoken")}
         };  
 
-       const url="api/filter/category_add";
-      
+       
+       
        axios.post(url,opts)
       .then(response => { 
       console.log('response')
