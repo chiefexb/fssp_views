@@ -4,6 +4,10 @@ import queryString from 'query-string';
 import CheckIcon from '@material-ui/icons/Check';
 import { borders } from '@material-ui/system';
 import TextField from '@material-ui/core/TextField';
+import DescriptionIcon from '@material-ui/icons/Description';
+import Tooltip from '@material-ui/core/Tooltip';
+
+
 
 
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -221,7 +225,7 @@ fetch("api/vitrina/field?vitrina_id=1")
         <SyntaxHighlighter       language="sql"         >
          {this.state.code}
 
-          </SyntaxHighlighter>;
+          </SyntaxHighlighter>
           </Box>
        let content = <div/>;
        let debug_info=<div/>;
@@ -377,11 +381,16 @@ fetch("api/vitrina/field?vitrina_id=1")
                               <IconButton   onClick={this.setwindows2_vitrina} aria-label="delete">
                              <ViewListIcon />
                              </IconButton>
-                             
+                             <Tooltip title="Включить DEBUG строку" aria-label="add">
                               <IconButton   onClick={this.setdebug} aria-label="delete">
                              <BugReportIcon />
                              </IconButton>
+                             </Tooltip>
                             
+                              <IconButton    aria-label="delete">
+                            <DescriptionIcon />
+                             </IconButton>
+
                                 <IconButton    aria-label="delete">
                             <SettingsIcon />
                              </IconButton>
