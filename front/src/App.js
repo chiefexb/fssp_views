@@ -215,11 +215,7 @@ fetch("api/vitrina/field?vitrina_id=1")
 }
     render() {
 
-        let code=`select 'all_v' as inf, count(DOC_IP.IP_EXEC_PRIST_NAME) as f_col  
-		from doc_ip join doc_ip_doc on doc_ip_doc.id=doc_ip.id  
-					join document on document.id=doc_ip.id 
-		where doc_ip.ip_risedate>=current_date <
-		union all         `
+
        let code_ed=
         <SyntaxHighlighter language="sql" >
          {this.code}
