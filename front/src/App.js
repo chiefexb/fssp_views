@@ -14,6 +14,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import axios from 'axios';
+import Drawer from '@material-ui/core/Drawer';
 
 
 
@@ -85,25 +86,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 
 
 
-
-
-
-function ElevationScroll(props) {
-  const { children, window } = props;
-  // Note that you normally won't need to set the window ref as useScrollTrigger
-  // will default to window.
-  // This is only being set here because the demo is in an iframe.
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 0,
-    target: window ? window() : undefined,
-  });
-
-  return React.cloneElement(children, {
-    elevation: trigger ? 4 : 0,
-  });
-}
-
 class App extends React.Component {
     constructor() {
         super();
@@ -111,11 +93,12 @@ class App extends React.Component {
        // this.loadModel();
 
         this.state = {
-            text: '',
+            
             lastname:'',
             result: [],
             result2: [],
             result3: [],
+            sidebar: false,
             SQLtext:'',
             code: '',
             category: 1,
@@ -135,54 +118,53 @@ class App extends React.Component {
         this.setwindows2_filters = this.setwindows2_filters.bind(this);
         this.setwindows2_vitrina = this.setwindows2_vitrina.bind(this);
         this.setdebug= this.setdebug.bind(this);
-         this.handleChange=this.handleChange.bind(this);
-          this.SQLChange=this.SQLChange.bind(this);
-           this.handleClickNewCat=this.handleClickNewCat.bind(this);
-             this.NewCatChange=this. NewCatChange.bind(this);
+        this.handleChange=this.handleChange.bind(this);
+        this.SQLChange=this.SQLChange.bind(this);
+        
+        this.handleClickNewCat=this.handleClickNewCat.bind(this);
+        this.NewCatChange=this.NewCatChange.bind(this);
+        this.toggleDrawer=this.toggleDrawer.bind(this);
+        
           
           
          
 }
    setwindows2_filters() {
-        
-        this.setState({windows: 'filters'});
-       
-    
-  }; 
+         this.setState({windows: 'filters'});
+   }; 
    setwindows2_vitrina() {
-        
         this.setState({windows: 'vitrina'});
-       
-    
-  }; 
-  handleChange(e) {
+   }; 
+   handleChange(e) {
         let text = e.target.value;
         this.setState({category: text});
         //this.calculate(text);
-    }
-    handleClickNewCat(e) {
-        let text = e.target.value;
+   }
+   toggleDrawer () {
+     if (this.state.sidebar) {
+        this.setState({sidebar: false })
+      } else {
+       this.setState({sidebar: true })
+ }
+   }; 
+   handleClickNewCat(e) {
+        let text=e.target.value;
         this.setState({new_category: ''});
-        
-         const  opts = {
-  
-            name: this.state.new_category,
-           
-        
+        const  opts = {
+           name: text,
         };  
-            
-        
+
        const url="api/filter/category_add";
       
        axios.post(url,opts)
       .then(response => { 
-       console.log('response')
-	console.log(response);
+      console.log('response')
+       console.log(response);
         
-        this.setState({
+       this.setState({
             Loaded4: true,
             result4: response.data
-          });
+        });
       })
       .catch(error => {
       console.log(error);
@@ -287,7 +269,7 @@ fetch("api/vitrina/field?vitrina_id=1")
          debug_info=JSON.stringify (this.state) 
         }
     
-       if (this.state.windows=='filters') {
+       if (this.state.windows==='filters') {
           if (this.state.loaded3) { 
              if (this.state.result3.rez) {
           document.title = "Добавление фильров | ФССП Витрина"
@@ -298,7 +280,7 @@ fetch("api/vitrina/field?vitrina_id=1")
           <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
           <Input
             id="standard-adornment-password"
-            type= 'text' 
+            type='text' 
             value={this.state.category_new}
             onChange={this.NewCatChange}
             endAdornment={
@@ -380,7 +362,7 @@ fetch("api/vitrina/field?vitrina_id=1")
           
             
 } 
-       if (this.state.windows=='vitrina') {
+       if (this.state.windows==='vitrina') {
            document.title = "Витрины| ФССП Витрина"
          if (this.state.loaded) {
              if (this.state.result.rez) {
@@ -439,6 +421,12 @@ fetch("api/vitrina/field?vitrina_id=1")
 
         return (
          <Container  maxWidth="false">
+      <Drawer anchor="left" open={this.state.sidebar} onClose={this.toggleDrawer}>
+           <ListItem button >
+            <ListItemIcon><FilterListIcon /></ListItemIcon>
+            <ListItemText primary='sds' />
+          </ListItem>
+      </Drawer>
             <AppBar position="static">
                 <Toolbar >
                   <img src="/static/head_left.gif" alt="logo"  />
@@ -469,7 +457,7 @@ fetch("api/vitrina/field?vitrina_id=1")
                             <DescriptionIcon />
                              </IconButton>
  </Tooltip>
-                                <IconButton    aria-label="delete">
+                                <IconButton  onClick={this.toggleDrawer}  aria-label="delete">
                             <SettingsIcon />
                              </IconButton>
 
