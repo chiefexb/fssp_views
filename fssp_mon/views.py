@@ -181,7 +181,7 @@ def worker(request):
     html='not Allow'
     if request.method == "POST":
         par = request.POST   
-        logging.info ('worker_start') )
+        logging.info ('worker_start' )
 
 @csrf_exempt
 def webhook(request):
