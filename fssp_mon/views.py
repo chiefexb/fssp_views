@@ -18,11 +18,17 @@ from .models import *
 import fdb
 import yaml
 import json
+import logging
+import sys
+
+
+logging.basicConfig(format = u'%(levelname)-8s [%(asctime)s] %(message)s', level = logging.DEBUG, filename = '/home/fssp.log')
+
 from lxml import etree
 # Create your views here.
 bd=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 f=open (os.path.join (bd,'../fssp_views_settings/inventory.yml'))
-f2=open (os.path.join (bd,'../fssp.log'), 'w')
+#f2=open (os.path.join (bd,'../fssp.log'), 'w')
 db_config=yaml.load(f)
 f.close()
 def osp_list (request):
@@ -61,7 +67,7 @@ def api2(request,method=None,method2=None):
     if request.method=='POST' and method=='filter' and method2=='category_add':
         j=dict(request.POST)
         #csrf_token = django.middleware.csrf.get_token()
-        f2.write(str(j)+'\n')
+        logging.info(str(j))
         return JsonResponse({'rez':  j})
     if method=='filter' and method2=='category':
         p=FsspFilterCat.objects.all()
