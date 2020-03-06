@@ -8,12 +8,17 @@
     shell: 'cd {{ path_to_front }} && npm run build'
   - name: build swagger
     shell: 'cd {{ path_to_swagger }} && npm run build'
-
+  - name: migrate 
+    shell: 'cd {{ path_to_home }} && ./manage.py make migrations'
+    - name: migrate 
+    shell: 'cd {{ path_to_home }} && ./manage.py migrate'
+    
   - name: reload service httpd, in all cases
     systemd:
       name: '{{ item }}'
       state: stopped
     with_items: ['apache2', 'fssp_views']
+    
   - name: reload service httpd, in all cases
     file:
       path: '{{ path_to_www }}'
