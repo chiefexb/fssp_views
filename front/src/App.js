@@ -159,8 +159,8 @@ class App extends React.Component {
           // csrfmiddlewaretoken: {cookie.load("csrftoken")}
         };  
         this.setState({new_category: ''});
-       axios.defaults.xsrfCookieName = "csrftoken";
-       axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+      // axios.defaults.xsrfCookieName = "csrftoken";
+       //axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 
        //your_client.setHeaders({"X-CSRFTOKEN": cookie.load("csrftoken")});
        
