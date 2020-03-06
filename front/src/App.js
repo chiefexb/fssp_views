@@ -163,20 +163,38 @@ class App extends React.Component {
 
        //your_client.setHeaders({"X-CSRFTOKEN": cookie.load("csrftoken")});
        
-       axios.post(url,opts)
-      .then(response => { 
-      console.log('response')
-       console.log(response);
-        
+       axios.post(url, {
+    headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFTOKEN': cookie.load("csrftoken") 
+    },
+    opts
+})      
+.then((response) => {
        this.setState({
             Loaded4: true,
             result4: response.data
         });
-      })
-      .catch(error => {
-      console.log(error);
-      this.setState({Loaded4: false })
-      })
+  
+})
+.catch((error) => {
+    
+})
+       
+  //     axios.post(url,opts)
+//      .then(response => { 
+//      console.log('response')
+//       console.log(response);
+//        
+ //      this.setState({
+ //           Loaded4: true,
+ //           result4: response.data
+ //       });
+ //     })
+//      .catch(error => {
+//      console.log(error);
+//      this.setState({Loaded4: false })
+//      })
         
         //this.calculate(text);
     }
