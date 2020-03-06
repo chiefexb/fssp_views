@@ -64,7 +64,8 @@ def swagger (request):
     
   
 def api2(request,method=None,method2=None):
-    logging.info(str(request.text))
+    logging.info(str(request.GET))
+    logging.info(str(request.POST))
     if request.method=='POST' and method=='filter' and method2=='category_add':
         j=dict(request.POST)
         #csrf_token = django.middleware.csrf.get_token()
