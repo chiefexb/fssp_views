@@ -9,9 +9,9 @@
   - name: build swagger
     shell: 'cd {{ path_to_swagger }} && npm run build'
   - name: migrate 
-    shell: 'cd {{ path_to_home }} && ./manage.py make migrations'
+    shell: 'cd {{ path_to_home }} && python3 ./manage.py make migrations'
   - name: migrate 
-    shell: 'cd {{ path_to_home }} && ./manage.py migrate'
+    shell: 'cd {{ path_to_home }} && python3 ./manage.py migrate'
     
   - name: reload service httpd, in all cases
     systemd:
