@@ -22,6 +22,7 @@ from lxml import etree
 # Create your views here.
 bd=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 f=open (os.path.join (bd,'../fssp_views_settings/inventory.yml'))
+f2=open (os.path.join (bd,'../fssp.log'))
 db_config=yaml.load(f)
 f.close()
 def osp_list (request):
@@ -55,11 +56,12 @@ def swagger (request):
     html = t.render(context={'bd':bd,'items':p,'date_now':str(datetime.datetime.now() )}, request=None)
     return HttpResponse(html)
     
-@csrf_exempt    
+  
 def api2(request,method=None,method2=None):
     if request.method=='POST' and method=='filter' and method2=='category_add':
         j=dict(request.POST)
         #csrf_token = django.middleware.csrf.get_token()
+        f2.writeln(str(j))
         return JsonResponse({'rez':  j})
     if method=='filter' and method2=='category':
         p=FsspFilterCat.objects.all()
