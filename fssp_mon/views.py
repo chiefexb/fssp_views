@@ -64,11 +64,11 @@ def swagger (request):
     
   
 def api2(request,method=None,method2=None):
-    logging.info(str(request.method))
-    logging.info(str(dir(request )  ))
-    logging.info ( str (request.body) )
-    logging.info ( str (request.COOKIES) )
-    logging.info ( str (request.META) )
+    logging.info('method:'+str(request.method))
+    logging.info('dir:'+str(dir(request )  ))
+    logging.info ('body:'+ str (request.body) )
+    logging.info ('COOKIES:'+ str (request.COOKIES) )
+    logging.info ('META:'+ str (request.META) )
     
     
     logging.info(str(request.GET))
