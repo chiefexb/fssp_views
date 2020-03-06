@@ -11,8 +11,9 @@
 
   - name: reload service httpd, in all cases
     systemd:
-      name: apache2
+      name: '{{ item }}'
       state: stopped
+    with_items: ['apache2', 'fssp_views']
   - name: reload service httpd, in all cases
     file:
       path: '{{ path_to_www }}'
@@ -54,6 +55,7 @@
       
   - name: reload service httpd, in all cases
     systemd:
-      name: apache2
+      name: '{{ item }}'
       state: started
+    with_items: ['apache2', 'fssp_views']
       
