@@ -64,7 +64,7 @@ def swagger (request):
     
   
 def api2(request,method=None,method2=None):
-    logging.info(str(request.method))
+    logging.info('Method' +str(request.method))
     logging.info(str(request.GET))
     logging.info(str(request.POST))
     if request.method=='POST' and method=='filter' and method2=='category_add':
