@@ -175,8 +175,10 @@ def rotate_field (val):
             vv2['col' + str(i + 1)] = None
 
     return vv,vv2
+
+@csrf_exempt    
 def worker(request):
-     html='not Allow'
+    html='not Allow'
     if request.method == "POST":
         par = request.POST   
         logging.info ('worker_start) )
