@@ -7,8 +7,8 @@ import time
 import sys
 
 
-bd=ys.argv[2]
-f=open(os.path.join( bd,'../fssp_views_settings/inventory.yml'))
+bd=sys.argv[2]
+f=open (os.path.join( bd,'../fssp_views_settings/inventory.yml'))
 db_config=yaml.load(f)
 f.close()
 pid = os.getpid() 
