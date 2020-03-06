@@ -75,6 +75,9 @@ def api2(request,method=None,method2=None):
     logging.info(str(request.POST))
     if request.method=='POST' and method=='filter' and method2=='category_add':
         j=json.loads(request.body)
+        p=FsspFilterCat (name=j['name'])
+       
+        p.save()
         #csrf_token = django.middleware.csrf.get_token()
         logging.info(str(j))
         return JsonResponse({'rez':  j})
