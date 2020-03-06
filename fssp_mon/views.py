@@ -68,7 +68,7 @@ def api2(request,method=None,method2=None):
     logging.info(str(dir(request )  ))
     logging.info ( str (request.body) )
     logging.info ( str (request.COOKIES) )
-     logging.info ( str (request.META) )
+    logging.info ( str (request.META) )
     
     
     logging.info(str(request.GET))
