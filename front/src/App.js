@@ -153,7 +153,7 @@ class App extends React.Component {
        
        
         let url='/api/filter/category_add' ;
-        const  opts = {
+        const  data = {
            name: this.state.new_category
           // csrfmiddlewaretoken: {cookie.load("csrftoken")}
         };  
@@ -168,7 +168,7 @@ class App extends React.Component {
         'Content-Type': 'application/json',
         'X-CSRFTOKEN': cookie.load("csrftoken") 
     },
-    opts
+    data
 })      
 .then((response) => {
        this.setState({
