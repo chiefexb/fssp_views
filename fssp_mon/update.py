@@ -10,7 +10,7 @@ import logging
 
 
 logging.basicConfig(format = u'%(levelname)-8s [%(asctime)s] %(message)s', level = logging.DEBUG, filename = '/home/fssp_d.log')
-
+loggin.info (str (sys.argv))
 
 #bd=sys.argv[2]
 bd=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
