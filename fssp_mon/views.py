@@ -182,6 +182,8 @@ def worker(request):
     if request.method == "POST":
         par = request.POST   
         logging.info ('worker_start' )
+    j=  {'status':'looking good :Q'}  
+    return JsonResponse(j)
 
 @csrf_exempt
 def webhook(request):
