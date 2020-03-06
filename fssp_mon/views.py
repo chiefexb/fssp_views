@@ -22,7 +22,7 @@ from lxml import etree
 # Create your views here.
 bd=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 f=open (os.path.join (bd,'../fssp_views_settings/inventory.yml'))
-f2=open (os.path.join (bd,'../fssp.log'))
+f2=open (os.path.join (bd,'../fssp.log'), 'w')
 db_config=yaml.load(f)
 f.close()
 def osp_list (request):
