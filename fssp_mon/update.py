@@ -5,6 +5,11 @@ import yaml
 import os
 import time
 import sys
+import logging
+
+
+
+logging.basicConfig(format = u'%(levelname)-8s [%(asctime)s] %(message)s', level = logging.DEBUG, filename = '/home/fssp_d.log')
 
 
 #bd=sys.argv[2]
@@ -13,7 +18,8 @@ f=open (os.path.join( bd,'../fssp_views_settings/inventory.yml'))
 db_config=yaml.load(f)
 f.close()
 pid = os.getpid() 
-print (pid)
+loggin.info (pid)
+loggin.info (str (sys.argv))
 pid_path=sys.argv[1]
 f=open(pid_path, 'w')
 f.write(str(pid) )
