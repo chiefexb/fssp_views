@@ -154,7 +154,8 @@ class App extends React.Component {
        
         let url='/api/filter/category_add' ;
         const  data = {
-           name: this.state.new_category
+           name: this.state.new_category,
+           result: 'rez'
           // csrfmiddlewaretoken: {cookie.load("csrftoken")}
         };  
         this.setState({new_category: ''});
