@@ -164,12 +164,12 @@ class App extends React.Component {
 
        //your_client.setHeaders({"X-CSRFTOKEN": cookie.load("csrftoken")});
        
-       axios.post(url, {
+       axios.post(url: url, {
     headers: {
         'Content-Type': 'application/json',
         'X-CSRFTOKEN': cookie.load("csrftoken") 
     },
-    opts
+    data: opts
 })      
 .then((response) => {
        this.setState({
