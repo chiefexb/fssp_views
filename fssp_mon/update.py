@@ -7,7 +7,7 @@ import time
 import sys
 
 
-bd=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+bd=ys.argv[2]
 f=open(os.path.join( bd,'../fssp_views_settings/inventory.yml'))
 db_config=yaml.load(f)
 f.close()
