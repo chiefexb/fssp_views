@@ -14,7 +14,7 @@ pid = os.getpid()
 print (pid)
 pid_path=sys.argv[1]
 f=open(pid_path, 'w')
-f.write(pid)
+f.write(str(pid) )
 f.close()
 
 while True:
