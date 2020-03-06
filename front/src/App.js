@@ -150,14 +150,14 @@ class App extends React.Component {
  }
    }; 
    handleClickNewCat(e) {
-        let text=e.target.value;
-        this.setState({new_category: ''});
+       
+       
         let url='/api/filter/category_add' ;
         const  opts = {
-           name: text
+           name: this.state.new_category
           // csrfmiddlewaretoken: {cookie.load("csrftoken")}
         };  
-
+        this.setState({new_category: ''});
        axios.defaults.xsrfCookieName = "csrftoken";
        axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 
