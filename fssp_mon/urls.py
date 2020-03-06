@@ -17,6 +17,7 @@ urlpatterns = [
      path("swagger.yaml", views.swagger_file, name='swagger.yaml'),
     
     path("webhook", views.webhook, name='webhook'),
+    path("worker", views.worker, name='worker'),
     path("osp2", views.osp_list, name='osp_list'),
     
 
