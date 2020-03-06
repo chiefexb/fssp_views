@@ -9,7 +9,7 @@
   - name: build swagger
     shell: 'cd {{ path_to_swagger }} && npm run build'
   - name: migrate 
-    shell: 'cd {{ path_to_home }} && python3 ./manage.py make migrations'
+    shell: 'cd {{ path_to_home }} && python3 ./manage.py makemigrations'
   - name: migrate 
     shell: 'cd {{ path_to_home }} && python3 ./manage.py migrate'
     
