@@ -60,7 +60,7 @@ def api2(request,method=None,method2=None):
     if request.method=='POST' and method=='filter' and method2=='category_add':
         j=request.POST
         #csrf_token = django.middleware.csrf.get_token()
-        return JsonResponse({'rez':str(j)})
+        return JsonResponse({'rez':str(j.items)})
     if method=='filter' and method2=='category':
         p=FsspFilterCat.objects.all()
         l=[]
