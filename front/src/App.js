@@ -246,7 +246,7 @@ class App extends React.Component {
     
   }; 
  DrawView() {
- let content=
+return (
      <TableContainer>
       <Table border={1}  borderBottom={1} borderColor="text.primary">
           {this.state.result2.rez.map(item => ( 
@@ -285,10 +285,10 @@ class App extends React.Component {
          ))}
         </Table >
    </TableContainer>
-   return content;
+  )
  }
 DrawFilter() {
-let  content=
+return (
           <div>
           <form  noValidate autoComplete="off">
           <FormControl >
@@ -373,7 +373,7 @@ let  content=
           
           </List>
           </div>
-  return content;
+  )
  }
  componentDidMount() {
 fetch("api/filter/category")
