@@ -185,8 +185,8 @@ def worker(request):
         logging.info ('worker_start' )
         zero=Task.objects.filter(name='zero')
         
-        if zero.first().status=='pending':
-            zero.first()(status='running')
+        if zero[0].status=='pending':
+            zero.update(status='running')
             
             p = Task.objects.filter(status='pending')
             for item in p:
@@ -194,7 +194,7 @@ def worker(request):
                 p2.update(status='started')
                 time.sleep(60)
                 p2.update(status='finished')
-        if zero.status=='running':
+        if zero[0].status=='running':
             j=  {'status':'looking running :Q'} 
             
             
