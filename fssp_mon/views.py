@@ -187,8 +187,8 @@ def worker(request):
        # for item in p:
        #     item(status='finish');
        #     item.save()
-with transaction.atomic():
-    for entry in entries:
+#with transaction.atomic():
+#    for entry in entries:
     j=  {'status':'looking good :Q'}  
     return JsonResponse(j)
 
