@@ -136,7 +136,7 @@ class App extends React.Component {
         this.toggleDrawerOpen=this.toggleDrawerOpen.bind(this);
         this.toggleDrawerClose=this.toggleDrawerClose.bind(this);
         this.DrawView=this.DrawView.bind(this);
-        this.DrawFilter=this.DrawFilter.bind(this);
+        //this.DrawFilter=this.DrawFilter.bind(this);
         
         
           
@@ -451,7 +451,7 @@ fetch("api/vitrina/field?vitrina_id=1")
 
 }
     render() {
-
+let cont=this.DrawView();
 
        let code_ed=
          <SyntaxHighlighter       language="sql"         >
@@ -543,7 +543,7 @@ fetch("api/vitrina/field?vitrina_id=1")
                       </AppBar>
                       {debug_info}
                      
-                  {this.DrawView}  
+                  {cont}  
           {content}
      {code_ed}
  
