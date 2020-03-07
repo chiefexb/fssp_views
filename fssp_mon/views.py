@@ -183,10 +183,10 @@ def worker(request):
         par = request.POST   
         logging.info ('worker_start' )
         
-        p = Task.objects.select_for_update().filter(status='pending')
-        for item in p:
-            item(status='finish');
-            item.save()
+       # p = Task.objects.select_for_update().filter(status='pending')
+       # for item in p:
+       #     item(status='finish');
+       #     item.save()
 with transaction.atomic():
     for entry in entries:
     j=  {'status':'looking good :Q'}  
