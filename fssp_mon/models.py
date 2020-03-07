@@ -132,7 +132,8 @@ class Task (models.Model):
     name = models.CharField(max_length=1000,null='False', blank='False', verbose_name='название')
     osp=  models.ForeignKey('Osp', on_delete=models.CASCADE)
     vitrina = models.ForeignKey('Vitrina', on_delete=models.CASCADE)
-     
+    started=models.DateTimeField(null='True') 
+    ended=models.DateTimeField(null='True') 
 
     def __str__(self):
         return self.name    
