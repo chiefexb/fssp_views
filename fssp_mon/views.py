@@ -185,7 +185,7 @@ def worker(request):
         logging.info ('worker_start' )
         zero=Task.objects.filter(name='zero')
         
-        if zero.status=='pending':
+        if zero.first.status=='pending':
             zero(status='running')
             
             p = Task.objects.filter(status='pending')
