@@ -135,7 +135,7 @@ class App extends React.Component {
         this.NewCatChange=this.NewCatChange.bind(this);
         this.toggleDrawerOpen=this.toggleDrawerOpen.bind(this);
         this.toggleDrawerClose=this.toggleDrawerClose.bind(this);
-        //this.DrawView=this.DrawView.bind(this);
+        this.setwindows2_scheduller=this.setwindows2_scheduller.bind(this);
         //this.DrawFilter=this.DrawFilter.bind(this);
         
         
@@ -148,6 +148,9 @@ class App extends React.Component {
         this.toggleDrawerClose()
          //this.render()
    }; 
+    setwindows2_scheduller() {
+        this.setState({windows: 'scheduller'});
+   };
    setwindows2_vitrina() {
         this.setState({windows: 'vitrina'});
    }; 
@@ -370,6 +373,10 @@ content=
 } 
 }
 }
+ if (this.state.windows==='scheduller') {
+      content=
+  <div>Sheduller</div>
+}
        if (this.state.windows==='filters') {
           if (this.state.loaded3) { 
              if (this.state.result3.rez) {
@@ -482,7 +489,7 @@ content=
                 <ListItemText primary='Фильтры' /> 
              </ListItem>
                              
-            <ListItem button >                  
+            <ListItem button  onClick={ this.setwindows2_scheduller}>                  
             <ListItemIcon><FormatListBulletedIcon /></ListItemIcon>
             <ListItemText primary='Планировщик' />
           </ListItem>
