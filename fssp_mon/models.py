@@ -21,7 +21,7 @@ class Vitrina (models.Model):
 
     #osp = models.ForeignKey('Osp', on_delete=models.CASCADE)
     filter = models.ForeignKey('FsspFilter', on_delete=models.CASCADE)
-    date_actual=datemodels.DateTimeField(null='False',default= datetime.datetime(2019, 11, 26, 14, 22, 40, 267301))
+    date_actual= models.DateTimeField(null='False',default= datetime.datetime(2019, 11, 26, 14, 22, 40, 267301))
     calc_field_name= models.BooleanField (null='False',default=True)
     custom_fields = models.BooleanField(null='False', default=False)
     def __str__(self):
