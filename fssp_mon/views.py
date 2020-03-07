@@ -183,18 +183,25 @@ def worker(request):
     if request.method == "POST":
         par = request.POST   
         logging.info ('worker_start' )
+        zero=ask.objects.filter(name='zero')
         
-        p = Task.objects.filter(status='pending')
-        for item in p:
-            p2=objects.filter(id=item.id)
-            p2.update(status='started')
-            time.sleep(60)
-            p2.update(status='finished')
+        if zero.status=='pending':
+            zero(status='running')
+            
+            p = Task.objects.filter(status='pending')
+            for item in p:
+                p2=objects.filter(id=item.id)
+                p2.update(status='started')
+                time.sleep(60)
+                p2.update(status='finished')
+         if zero.status=='running':
+             j=  {'status':'looking running :Q'} 
+            
             
        #     item.save()
 #with transaction.atomic():
 #    for entry in entries:
-    j=  {'status':'looking good :Q'}  
+    #j=  {'status':'looking good :Q'}  
     return JsonResponse(j)
 
 @csrf_exempt
