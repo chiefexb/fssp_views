@@ -135,6 +135,8 @@ class App extends React.Component {
         this.NewCatChange=this.NewCatChange.bind(this);
         this.toggleDrawerOpen=this.toggleDrawerOpen.bind(this);
         this.toggleDrawerClose=this.toggleDrawerClose.bind(this);
+        this.DrawView=this.DrawView.bind(this);
+        this.DrawFilter=this.DrawFilter.bind(this);
         
         
           
@@ -143,7 +145,7 @@ class App extends React.Component {
 }
    setwindows2_filters() {
          this.setState({windows: 'filters'});
-        // this.setState({sidebar: false });
+        this.toggleDrawerClose()
          //this.render()
    }; 
    setwindows2_vitrina() {
@@ -243,7 +245,7 @@ class App extends React.Component {
        
     
   }; 
- drawView() {
+ DrawView() {
  let content=
      <TableContainer>
       <Table border={1}  borderBottom={1} borderColor="text.primary">
@@ -285,7 +287,7 @@ class App extends React.Component {
    </TableContainer>
    return content;
  }
- drawFilter() {
+DrawFilter() {
 let  content=
           <div>
           <form  noValidate autoComplete="off">
