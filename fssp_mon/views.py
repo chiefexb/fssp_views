@@ -182,6 +182,13 @@ def worker(request):
     if request.method == "POST":
         par = request.POST   
         logging.info ('worker_start' )
+        
+        p = Task.objects.select_for_update().filter(status='pending')
+        for item in p:
+			p(status='finish');
+			p.save()
+with transaction.atomic():
+    for entry in entries:
     j=  {'status':'looking good :Q'}  
     return JsonResponse(j)
 
