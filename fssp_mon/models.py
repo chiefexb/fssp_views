@@ -119,12 +119,12 @@ class VitrinaCustom (models.Model):
     filter  = models.ForeignKey('FsspFilter', on_delete=models.CASCADE)
     width = models.IntegerField(null='True')
 class Task (models.Model):
-     TASK_NUMBER_CHOICES=[
+    TASK_NUMBER_CHOICES=[
         ('pending','Ожидание'),
         ('finished','Завершена'),
         ('running','Выполнение')
         ]
-     status=models.CharField(
+    status=models.CharField(
         max_length=10,
         choices=TASK_NUMBER_CHOICES,
         default='pending' 
