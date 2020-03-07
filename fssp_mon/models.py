@@ -122,11 +122,13 @@ class Task (models.Model):
      TASK_NUMBER_CHOICES=[
         ('pending','Ожидание'),
         ('finished','Завершена'),
-        ('running','Выполнение'),
+        ('running','Выполнение')
+        ]
     status=models.CharField(
         max_length=10,
         choices=TASK_NUMBER_CHOICES,
-        default='pending' )  
+        default='pending' 
+        )  
     name = models.CharField(max_length=1000,null='False', blank='False', verbose_name='название')
     osp=  models.ForeignKey('Osp', on_delete=models.CASCADE)
     vitrina = models.ForeignKey('Vitrina', on_delete=models.CASCADE)
