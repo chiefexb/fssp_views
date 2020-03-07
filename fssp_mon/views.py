@@ -183,7 +183,7 @@ def worker(request):
     if request.method == "POST":
         par = request.POST   
         logging.info ('worker_start' )
-        zero=ask.objects.filter(name='zero')
+        zero=Task.objects.filter(name='zero')
         
         if zero.status=='pending':
             zero(status='running')
