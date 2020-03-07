@@ -450,7 +450,7 @@ fetch("api/vitrina/field?vitrina_id=1")
           if (this.state.loaded3) { 
              if (this.state.result3.rez) {
           document.title = "Добавление фильров | ФССП Витрина"
-             content= {this.drawFilter}
+             content= this.drawFilter()
 
 	  }}
           
@@ -462,7 +462,7 @@ fetch("api/vitrina/field?vitrina_id=1")
              if (this.state.result.rez) {
                 if (this.state.loaded2) {
              if (this.state.result2.rez) {
-				 content= {this.drawView}
+				 content= this.drawView()
 				
     
   }
