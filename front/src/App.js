@@ -246,8 +246,15 @@ class App extends React.Component {
     
   }; 
  DrawView() {
-return (
-     <TableContainer>
+	 let cont=<div>1 </div>
+	  if (this.state.windows==='vitrina') {
+           document.title = "Витрины| ФССП Витрина";
+         if (this.state.loaded) {
+             if (this.state.result.rez) {
+                if (this.state.loaded2) {
+             if (this.state.result2.rez) {
+ cont=
+ <TableContainer>
       <Table border={1}  borderBottom={1} borderColor="text.primary">
           {this.state.result2.rez.map(item => ( 
         <TableHead   key={item.id}>
@@ -285,6 +292,19 @@ return (
          ))}
         </Table >
    </TableContainer>
+    
+  }
+} 
+ 
+} 
+}
+}
+	 
+	 
+return (
+     {cont}
+
+    
   )
  }
 DrawFilter() {
@@ -456,21 +476,6 @@ fetch("api/vitrina/field?vitrina_id=1")
           
             
 } 
-       if (this.state.windows==='vitrina') {
-           document.title = "Витрины| ФССП Витрина"
-         if (this.state.loaded) {
-             if (this.state.result.rez) {
-                if (this.state.loaded2) {
-             if (this.state.result2.rez) {
-				 content= this.drawView();
-				
-    
-  }
-} 
- 
-} 
-}
-}
 
 
 
@@ -538,7 +543,7 @@ fetch("api/vitrina/field?vitrina_id=1")
                       </AppBar>
                       {debug_info}
                      
-                    
+                  {this.DrawView}  
           {content}
      {code_ed}
  
