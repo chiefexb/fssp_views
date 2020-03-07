@@ -133,7 +133,9 @@ class App extends React.Component {
         
         this.handleClickNewCat=this.handleClickNewCat.bind(this);
         this.NewCatChange=this.NewCatChange.bind(this);
-        this.toggleDrawer=this.toggleDrawer.bind(this);
+        this.toggleDrawerOpen=this.toggleDrawerOpen.bind(this);
+        this.toggleDrawerClose=this.toggleDrawerClose.bind(this);
+        
         
           
           
@@ -141,6 +143,8 @@ class App extends React.Component {
 }
    setwindows2_filters() {
          this.setState({windows: 'filters'});
+        // this.setState({sidebar: false });
+         //this.render()
    }; 
    setwindows2_vitrina() {
         this.setState({windows: 'vitrina'});
@@ -149,13 +153,21 @@ class App extends React.Component {
         let text = e.target.value;
         this.setState({category: text});
         //this.calculate(text);
-   }
-   toggleDrawer () {
-     if (this.state.sidebar) {
-        this.setState({sidebar: false })
-      } else {
-       this.setState({sidebar: true })
- }
+   };
+   toggleDrawerOpen () {
+
+    
+         this.setState({ sidebar: true }) ;
+     
+   
+	}
+	
+	 toggleDrawerClose () {
+
+    
+         this.setState({ sidebar: false }) ;
+     
+
    }; 
    handleClickNewCat(e) {
        
@@ -231,83 +243,50 @@ class App extends React.Component {
        
     
   }; 
+ drawView() {
+ let content=
+     <TableContainer>
+      <Table border={1}  borderBottom={1} borderColor="text.primary">
+          {this.state.result2.rez.map(item => ( 
+        <TableHead   key={item.id}>
+          <TableRow borderBottom={1} borderColor="text.primary">
+           <TableCell >
+            {item.id}
+          </TableCell >
+          <TableCell >
+            {item.col1}
+          </TableCell>
+           <TableCell >
+            {item.col2}
+          </TableCell  >
+          
+          </TableRow>
    
- componentDidMount() {
-fetch("api/filter/category")
-      .then(response => {
-        if (response.status > 400) {
-          return this.setState(() => {
-            return { placeholder: "Something went wrong!" };
-          });
-        }
-        return response.json();
-      })
-      .then(result3 => {
-        this.setState(() => {
-          return {
-            result3,
-            loaded3: true
-          };
-        });
-      });
-    fetch("api/vitrina?vitrina_id=1")
-      .then(response => {
-        if (response.status > 400) {
-          return this.setState(() => {
-            return { placeholder: "Something went wrong!" };
-          });
-        }
-        return response.json();
-      })
-      .then(result => {
-        this.setState(() => {
-          return {
-            result,
-            loaded: true
-          };
-        });
-      });
-
-fetch("api/vitrina/field?vitrina_id=1")
-      .then(response => {
-        if (response.status > 400) {
-          return this.setState(() => {
-            return { placeholder: "Something went wrong!" };
-          });
-        }
-        return response.json();
-      })
-      .then(result2 => {
-        this.setState(() => {
-          return {
-            result2,
-            loaded2: true
-          };
-        });
-      });
-
-}
-    render() {
-
-
-       let code_ed=
-         <SyntaxHighlighter       language="sql"         >
-         {this.state.code}
-
-          </SyntaxHighlighter>
-         
-       let content = <div/>;
-       let debug_info=<div/>;
-       
-        if (this.state.debug) {
-         debug_info=JSON.stringify (this.state) 
-        }
-    
-       if (this.state.windows==='filters') {
-          if (this.state.loaded3) { 
-             if (this.state.result3.rez) {
-          document.title = "Добавление фильров | ФССП Витрина"
-          content=
+          </TableHead>
+          ))}
+          
+               {this.state.result.rez.map(item2 => ( 
+             <TableBody  key={item2.id} > 
+            <TableRow borderBottom={1} borderColor="text.primary" >
+           <TableCell >
+            {item2.id}
+          </TableCell>
+          <TableCell >
+            {item2.col1}
+          </TableCell >
+           <TableCell >
+            {item2.col2}
+          </TableCell>
+          
+          </TableRow>
+          </TableBody>
+         ))}
+        </Table >
+   </TableContainer>
+   return content;
+ }
+ drawFilter() {
+let  content=
           <div>
           <form  noValidate autoComplete="off">
           <FormControl >
@@ -392,6 +371,85 @@ fetch("api/vitrina/field?vitrina_id=1")
           
           </List>
           </div>
+  return content;
+ }
+ componentDidMount() {
+fetch("api/filter/category")
+      .then(response => {
+        if (response.status > 400) {
+          return this.setState(() => {
+            return { placeholder: "Something went wrong!" };
+          });
+        }
+        return response.json();
+      })
+      .then(result3 => {
+        this.setState(() => {
+          return {
+            result3,
+            loaded3: true
+          };
+        });
+      });
+    fetch("api/vitrina?vitrina_id=1")
+      .then(response => {
+        if (response.status > 400) {
+          return this.setState(() => {
+            return { placeholder: "Something went wrong!" };
+          });
+        }
+        return response.json();
+      })
+      .then(result => {
+        this.setState(() => {
+          return {
+            result,
+            loaded: true
+          };
+        });
+      });
+
+fetch("api/vitrina/field?vitrina_id=1")
+      .then(response => {
+        if (response.status > 400) {
+          return this.setState(() => {
+            return { placeholder: "Something went wrong!" };
+          });
+        }
+        return response.json();
+      })
+      .then(result2 => {
+        this.setState(() => {
+          return {
+            result2,
+            loaded2: true
+          };
+        });
+      });
+
+}
+    render() {
+
+
+       let code_ed=
+         <SyntaxHighlighter       language="sql"         >
+         {this.state.code}
+
+          </SyntaxHighlighter>
+         
+       let content = <div/>;
+       let debug_info=<div/>;
+       
+        if (this.state.debug) {
+         debug_info=JSON.stringify (this.state) 
+        }
+    
+       if (this.state.windows==='filters') {
+          if (this.state.loaded3) { 
+             if (this.state.result3.rez) {
+          document.title = "Добавление фильров | ФССП Витрина"
+              this.drawFilter
+
 	  }}
           
             
@@ -402,45 +460,9 @@ fetch("api/vitrina/field?vitrina_id=1")
              if (this.state.result.rez) {
                 if (this.state.loaded2) {
              if (this.state.result2.rez) {
-     content=
-     <TableContainer>
-      <Table border={1}  borderBottom={1} borderColor="text.primary">
-          {this.state.result2.rez.map(item => ( 
-        <TableHead   key={item.id}>
-          <TableRow borderBottom={1} borderColor="text.primary">
-           <TableCell >
-            {item.id}
-          </TableCell >
-          <TableCell >
-            {item.col1}
-          </TableCell>
-           <TableCell >
-            {item.col2}
-          </TableCell  >
-          
-          </TableRow>
-   
-          </TableHead>
-          ))}
-          
-               {this.state.result.rez.map(item2 => ( 
-             <TableBody  key={item2.id} > 
-            <TableRow borderBottom={1} borderColor="text.primary" >
-           <TableCell >
-            {item2.id}
-          </TableCell>
-          <TableCell >
-            {item2.col1}
-          </TableCell >
-           <TableCell >
-            {item2.col2}
-          </TableCell>
-          
-          </TableRow>
-          </TableBody>
-         ))}
-        </Table >
-   </TableContainer>
+				 this.drawView
+				
+    
   }
 } 
  
@@ -455,12 +477,22 @@ fetch("api/vitrina/field?vitrina_id=1")
 
         return (
          <Container  maxWidth="false">
-      <Drawer anchor="left" open={this.state.sidebar} onClose={this.toggleDrawer}>
-           <ListItem button >
+           
+      <Drawer anchor="left" open={this.state.sidebar} onClose={this.toggleDrawerClose} >
+         
+          
+             <ListItem button onClick={this.setwindows2_filters } >
+               <ListItemIcon>             <FilterListIcon /> </ListItemIcon>
+                <ListItemText primary='Фильтры' /> 
+             </ListItem>
+                             
+            <ListItem button >                  
             <ListItemIcon><FormatListBulletedIcon /></ListItemIcon>
             <ListItemText primary='Планировщик' />
           </ListItem>
+         
       </Drawer>
+       
             <AppBar position="static">
                 <Toolbar >
                   <img src="/static/head_left.gif" alt="logo"  />
@@ -474,9 +506,7 @@ fetch("api/vitrina/field?vitrina_id=1")
 
 
                           
-                             <IconButton onClick={this.setwindows2_filters } aria-label="delete">
-                             <FilterListIcon />
-                             </IconButton>
+
                              
                               <IconButton   onClick={this.setwindows2_vitrina} aria-label="delete">
                              <ViewListIcon />
@@ -491,7 +521,7 @@ fetch("api/vitrina/field?vitrina_id=1")
                             <DescriptionIcon />
                              </IconButton>
  </Tooltip>
-                                <IconButton  onClick={this.toggleDrawer}  aria-label="delete">
+                                <IconButton  onClick={this.toggleDrawerOpen}  aria-label="delete">
                             <SettingsIcon />
                              </IconButton>
 
