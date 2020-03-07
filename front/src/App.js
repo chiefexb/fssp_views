@@ -17,6 +17,13 @@ import axios from 'axios';
 import Drawer from '@material-ui/core/Drawer';
 import cookie from "react-cookies";
 import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
+import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
+import PlayArrowIcon from '@material-ui/icons/PlayArrow';
+import DoneIcon from '@material-ui/icons/Done';
+
+
+
+
 
 
 
@@ -450,7 +457,7 @@ fetch("api/vitrina/field?vitrina_id=1")
          <Container  maxWidth="false">
       <Drawer anchor="left" open={this.state.sidebar} onClose={this.toggleDrawer}>
            <ListItem button >
-            <ListItemIcon>FormatListBulletedIcon</ListItemIcon>
+            <ListItemIcon><FormatListBulletedIcon /></ListItemIcon>
             <ListItemText primary='Планировщик' />
           </ListItem>
       </Drawer>
