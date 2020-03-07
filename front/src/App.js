@@ -135,7 +135,7 @@ class App extends React.Component {
         this.NewCatChange=this.NewCatChange.bind(this);
         this.toggleDrawerOpen=this.toggleDrawerOpen.bind(this);
         this.toggleDrawerClose=this.toggleDrawerClose.bind(this);
-        this.DrawView=this.DrawView.bind(this);
+        //this.DrawView=this.DrawView.bind(this);
         //this.DrawFilter=this.DrawFilter.bind(this);
         
         
@@ -245,15 +245,86 @@ class App extends React.Component {
        
     
   }; 
- DrawView() {
-	 let cont=<div>1 </div>
-	  if (this.state.windows==='vitrina') {
+
+
+ componentDidMount() {
+fetch("api/filter/category")
+      .then(response => {
+        if (response.status > 400) {
+          return this.setState(() => {
+            return { placeholder: "Something went wrong!" };
+          });
+        }
+        return response.json();
+      })
+      .then(result3 => {
+        this.setState(() => {
+          return {
+            result3,
+            loaded3: true
+          };
+        });
+      });
+    fetch("api/vitrina?vitrina_id=1")
+      .then(response => {
+        if (response.status > 400) {
+          return this.setState(() => {
+            return { placeholder: "Something went wrong!" };
+          });
+        }
+        return response.json();
+      })
+      .then(result => {
+        this.setState(() => {
+          return {
+            result,
+            loaded: true
+          };
+        });
+      });
+
+fetch("api/vitrina/field?vitrina_id=1")
+      .then(response => {
+        if (response.status > 400) {
+          return this.setState(() => {
+            return { placeholder: "Something went wrong!" };
+          });
+        }
+        return response.json();
+      })
+      .then(result2 => {
+        this.setState(() => {
+          return {
+            result2,
+            loaded2: true
+          };
+        });
+      });
+
+}
+    render() {
+
+
+       let code_ed=
+         <SyntaxHighlighter       language="sql"         >
+         {this.state.code}
+
+          </SyntaxHighlighter>
+         
+       let content = <div/>;
+       let debug_info=<div/>;
+       
+        if (this.state.debug) {
+         debug_info=JSON.stringify (this.state) 
+        }
+     if (this.state.windows==='vitrina') {
            document.title = "Витрины| ФССП Витрина";
          if (this.state.loaded) {
              if (this.state.result.rez) {
                 if (this.state.loaded2) {
              if (this.state.result2.rez) {
- cont=
+//DrawView
+content=
  <TableContainer>
       <Table border={1}  borderBottom={1} borderColor="text.primary">
           {this.state.result2.rez.map(item => ( 
@@ -299,17 +370,13 @@ class App extends React.Component {
 } 
 }
 }
-	 
-	 
-return (
-     {cont}
-
-    
-  )
- }
-DrawFilter() {
-return (
-          <div>
+       if (this.state.windows==='filters') {
+          if (this.state.loaded3) { 
+             if (this.state.result3.rez) {
+          document.title = "Добавление фильров | ФССП Витрина"
+ //DrawFilter
+content=
+  <div>
           <form  noValidate autoComplete="off">
           <FormControl >
           <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
@@ -392,85 +459,7 @@ return (
              </ListItem>
           
           </List>
-          </div>
-  )
- }
- componentDidMount() {
-fetch("api/filter/category")
-      .then(response => {
-        if (response.status > 400) {
-          return this.setState(() => {
-            return { placeholder: "Something went wrong!" };
-          });
-        }
-        return response.json();
-      })
-      .then(result3 => {
-        this.setState(() => {
-          return {
-            result3,
-            loaded3: true
-          };
-        });
-      });
-    fetch("api/vitrina?vitrina_id=1")
-      .then(response => {
-        if (response.status > 400) {
-          return this.setState(() => {
-            return { placeholder: "Something went wrong!" };
-          });
-        }
-        return response.json();
-      })
-      .then(result => {
-        this.setState(() => {
-          return {
-            result,
-            loaded: true
-          };
-        });
-      });
-
-fetch("api/vitrina/field?vitrina_id=1")
-      .then(response => {
-        if (response.status > 400) {
-          return this.setState(() => {
-            return { placeholder: "Something went wrong!" };
-          });
-        }
-        return response.json();
-      })
-      .then(result2 => {
-        this.setState(() => {
-          return {
-            result2,
-            loaded2: true
-          };
-        });
-      });
-
-}
-    render() {
-let cont=this.DrawView();
-
-       let code_ed=
-         <SyntaxHighlighter       language="sql"         >
-         {this.state.code}
-
-          </SyntaxHighlighter>
-         
-       let content = <div/>;
-       let debug_info=<div/>;
-       
-        if (this.state.debug) {
-         debug_info=JSON.stringify (this.state) 
-        }
-    
-       if (this.state.windows==='filters') {
-          if (this.state.loaded3) { 
-             if (this.state.result3.rez) {
-          document.title = "Добавление фильров | ФССП Витрина"
-             //content= this.drawFilter();
+          </div>            
 
 	  }}
           
@@ -543,7 +532,7 @@ let cont=this.DrawView();
                       </AppBar>
                       {debug_info}
                      
-                  {cont}  
+                   
           {content}
      {code_ed}
  
