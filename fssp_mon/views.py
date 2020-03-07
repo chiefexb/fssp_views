@@ -3,6 +3,7 @@ import urllib
 import datetime
 import os
 import json
+from django.db import transaction
 
 
 
@@ -183,9 +184,13 @@ def worker(request):
         par = request.POST   
         logging.info ('worker_start' )
         
-       # p = Task.objects.select_for_update().filter(status='pending')
-       # for item in p:
-       #     item(status='finish');
+        p = Task.objects.filter(status='pending')
+        for item in p:
+            p2=objects.filter(id=item.id)
+            p2.update(status='started')
+            time.sleep(60)
+            p2.update(status='finished')
+            
        #     item.save()
 #with transaction.atomic():
 #    for entry in entries:
