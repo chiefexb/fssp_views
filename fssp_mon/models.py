@@ -124,7 +124,7 @@ class Task (models.Model):
         ('finished','Завершена'),
         ('running','Выполнение')
         ]
-    status=models.CharField(
+     status=models.CharField(
         max_length=10,
         choices=TASK_NUMBER_CHOICES,
         default='pending' 
