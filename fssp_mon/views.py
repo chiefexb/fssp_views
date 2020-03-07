@@ -190,7 +190,7 @@ def worker(request):
             
             p = Task.objects.filter(status='pending')
             for item in p:
-                p2=objects.filter(id=item.id)
+                p2=Task.objects.filter(id=item.id)
                 p2.update(status='started')
                 time.sleep(60)
                 p2.update(status='finished')
