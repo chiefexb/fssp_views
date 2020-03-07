@@ -133,8 +133,8 @@ class Task (models.Model):
     osp=  models.ForeignKey('Osp', on_delete=models.CASCADE)
     vitrina = models.ForeignKey('Vitrina', on_delete=models.CASCADE)
     
-    started=models.DateTimeField(null='False',default= datetime.datetime(0, 1, 1, 0, 0, 0, 267301))
-    ended=models.DateTimeField(null='False',default= datetime.datetime  (0, 1, 1, 0, 0, 0, 267301))) 
+    started=models.DateTimeField(null='False',default= datetime.datetime  (1,1, 1, 0, 0, 0, 0))
+    ended=models.DateTimeField(null='False',default= datetime.datetime  (1,1, 1, 0, 0, 0, 0)) 
 
     def __str__(self):
         return self.name    
