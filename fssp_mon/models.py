@@ -21,7 +21,7 @@ class Vitrina (models.Model):
 
     #osp = models.ForeignKey('Osp', on_delete=models.CASCADE)
     filter = models.ForeignKey('FsspFilter', on_delete=models.CASCADE)
-    date_actual=models.DateTimeField(null='False',default= datetime.datetime(2019, 11, 26, 14, 22, 40, 267301))
+    date_actual=datemodels.DateTimeField(null='False',default= datetime.datetime(2019, 11, 26, 14, 22, 40, 267301))
     calc_field_name= models.BooleanField (null='False',default=True)
     custom_fields = models.BooleanField(null='False', default=False)
     def __str__(self):
@@ -132,8 +132,9 @@ class Task (models.Model):
     name = models.CharField(max_length=1000,null='False', blank='False', verbose_name='название')
     osp=  models.ForeignKey('Osp', on_delete=models.CASCADE)
     vitrina = models.ForeignKey('Vitrina', on_delete=models.CASCADE)
-    started=models.DateTimeField(null='True') 
-    ended=models.DateTimeField(null='True') 
+    
+    started=models.DateTimeField(null='False',default= datetime.datetime(0, 1, 1, 0, 0, 0, 267301))
+    ended=models.DateTimeField(null='False',default= datetime.datetime  (0, 1, 1, 0, 0, 0, 267301))) 
 
     def __str__(self):
         return self.name    
