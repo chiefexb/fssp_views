@@ -185,8 +185,8 @@ def worker(request):
         logging.info ('worker_start' )
         zero=Task.objects.filter(name='zero')
         
-        if zero.first.status=='pending':
-            zero(status='running')
+        if zero.first().status=='pending':
+            zero.first()(status='running')
             
             p = Task.objects.filter(status='pending')
             for item in p:
