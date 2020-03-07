@@ -16,6 +16,7 @@ import FormControl from '@material-ui/core/FormControl';
 import axios from 'axios';
 import Drawer from '@material-ui/core/Drawer';
 import cookie from "react-cookies";
+import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
 
 
 
@@ -449,8 +450,8 @@ fetch("api/vitrina/field?vitrina_id=1")
          <Container  maxWidth="false">
       <Drawer anchor="left" open={this.state.sidebar} onClose={this.toggleDrawer}>
            <ListItem button >
-            <ListItemIcon><FilterListIcon /></ListItemIcon>
-            <ListItemText primary='sds' />
+            <ListItemIcon>FormatListBulletedIcon</ListItemIcon>
+            <ListItemText primary='Планировщик' />
           </ListItem>
       </Drawer>
             <AppBar position="static">
