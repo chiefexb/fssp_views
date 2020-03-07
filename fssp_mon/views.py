@@ -185,8 +185,8 @@ def worker(request):
         
         p = Task.objects.select_for_update().filter(status='pending')
         for item in p:
-			p(status='finish');
-			p.save()
+            item(status='finish');
+            item.save()
 with transaction.atomic():
     for entry in entries:
     j=  {'status':'looking good :Q'}  
