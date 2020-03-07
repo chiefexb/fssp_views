@@ -194,8 +194,8 @@ def worker(request):
                 p2.update(status='started')
                 time.sleep(60)
                 p2.update(status='finished')
-         if zero.status=='running':
-             j=  {'status':'looking running :Q'} 
+        if zero.status=='running':
+            j=  {'status':'looking running :Q'} 
             
             
        #     item.save()
