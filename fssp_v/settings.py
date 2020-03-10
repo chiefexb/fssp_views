@@ -47,7 +47,7 @@ CELERY_RESULT_BACKEND = 'django-db'
 
 INSTALLED_APPS = [
    
-     'rest_framework',
+     #'rest_framework',
      'django_celery_results',
     'fssp_mon',
     'django.contrib.admin',
