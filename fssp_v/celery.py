@@ -6,7 +6,7 @@ from celery import Celery
 
 # set the default Django settings module for the 'celery' program.
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'fssp_v.settings')
-BROKER_USER = os.environ.get("BROKER_USER")
+#BROKER_USER = os.environ.get("BROKER_USER")
 
 app = Celery('fssp_v') #Celery('fssp_v',  broker='redis://localhost:6379',backend='django-db')
 
