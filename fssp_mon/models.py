@@ -85,8 +85,8 @@ class VitrinaField (models.Model):
     col18 = models.CharField(max_length=200, null='True', blank='True', verbose_name='Col18')
     col19 = models.CharField(max_length=200, null='True', blank='True', verbose_name='Col19')
     col20 = models.CharField(max_length=200, null='True', blank='True', verbose_name='Col20')
-    col21 = models.CharField(max_length=200, null='True', blank='True', verbose_name='Col19')
-    col22 = models.CharField(max_length=200, null='True', blank='True', verbose_name='Col20')
+    col21 = models.CharField(max_length=200, null='True', blank='True', verbose_name='Col21')
+    col22 = models.CharField(max_length=200, null='True', blank='True', verbose_name='Col22')
     
     
     def __str__(self):
