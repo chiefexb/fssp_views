@@ -64,7 +64,7 @@ def swagger (request):
     html = t.render(context={'bd':bd,'items':p,'date_now':str(datetime.datetime.now() )}, request=None)
     return HttpResponse(html)
     
-  
+  #calc_view.apply_async((1,1))
 def api2(request,method=None,method2=None):
     logging.info('method:'+str(request.method))
     logging.info('dir:'+str(dir(request )  ))
