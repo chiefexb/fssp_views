@@ -22,7 +22,7 @@ def calc_view(vitrina_id,osp_id):
      con = fdb.connect(host=item2.host, database=item2.data_base, user='SYSDBA', password=item2.password, charset='WIN1251',port=3050)
      cur=con.cursor()
      cur.execute(sql_text)
-     r=cur.fetchone()
+     r=cur.fetchall()
      return   str(r)             
     #calc field
     
