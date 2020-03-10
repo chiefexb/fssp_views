@@ -53,7 +53,7 @@ class VitrinaValue (models.Model):
     col19 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col19')
     col20 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col20')
     col21 = models.DateTimeField(null='True')
-    col22 = models.DateTimeField(null='True')
+    #col22 = models.DateTimeField(null='True')
     
     #property
     #def vitrina_id (self):
@@ -86,7 +86,7 @@ class VitrinaField (models.Model):
     col19 = models.CharField(max_length=200, null='True', blank='True', verbose_name='Col19')
     col20 = models.CharField(max_length=200, null='True', blank='True', verbose_name='Col20')
     col21 = models.CharField(max_length=200, null='True', blank='True', verbose_name='Col21')
-    col22 = models.CharField(max_length=200, null='True', blank='True', verbose_name='Col22')
+    #col22 = models.CharField(max_length=200, null='True', blank='True', verbose_name='Col22')
     
     
     def __str__(self):
