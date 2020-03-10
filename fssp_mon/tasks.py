@@ -19,8 +19,8 @@ def calc_view(vitrina_id,osp_id):
      osp=Osp.objects.filter(id=osp_id)
      item2=osp[0]
      sql_text = v[0].filter.sql_text
-     con = fdb.connect(host=item2['host'], database=item2['data_base'], user='SYSDBA', password=item2['password'], charset='WIN1251')
-                    
+     #con = fdb.connect(host=item2['host'], database=item2['data_base'], user='SYSDBA', password=item2['password'], charset='WIN1251')
+     return   sql_text             
     #calc field
     
     
