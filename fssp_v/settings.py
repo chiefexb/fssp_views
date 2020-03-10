@@ -45,6 +45,7 @@ BROKER_URL = 'redis://localhost:6379'
 #broker_url='redis://localhost:6379'
 
 INSTALLED_APPS = [
+    'celery_app',
      'rest_framework',
      'django_celery_results',
     'fssp_mon',
