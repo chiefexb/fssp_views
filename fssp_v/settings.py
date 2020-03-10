@@ -35,14 +35,14 @@ ALLOWED_HOSTS = ['167.172.40.99','localhost']
 
 # Application definition
 # CELERY STUFF
-#BROKER_URL = 'redis://localhost:6379'
+BROKER_URL = 'redis://localhost:6379'
 #CELERY_RESULT_BACKEND = 'redis://localhost:6379'
 #CELERY_ACCEPT_CONTENT = ['application/json']
 #CELERY_TASK_SERIALIZER = 'json'
 #CELERY_RESULT_SERIALIZER = 'json'
 #CELERY_TIMEZONE = 'Africa/Nairobi'
 #CELERY_RESULT_BACKEND = 'django-db'
-broker_url='redis://localhost:6379'
+#broker_url='redis://localhost:6379'
 
 INSTALLED_APPS = [
      'rest_framework',
