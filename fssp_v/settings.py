@@ -41,10 +41,11 @@ ALLOWED_HOSTS = ['167.172.40.99','localhost']
 #CELERY_TASK_SERIALIZER = 'json'
 #CELERY_RESULT_SERIALIZER = 'json'
 #CELERY_TIMEZONE = 'Africa/Nairobi'
-
+CELERY_RESULT_BACKEND = 'django-db'
 
 INSTALLED_APPS = [
      'rest_framework',
+     'django_celery_results',
     'fssp_mon',
     'django.contrib.admin',
     'django.contrib.auth',
