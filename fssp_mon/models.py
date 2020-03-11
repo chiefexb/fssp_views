@@ -101,7 +101,7 @@ class VitrinaFieldMap (models.Model):
         ('none','none'),
         ('data_vozb','data_vozb'),
         ('data_okonch', 'data_okonch'),
-        ('spi','spi')
+        ('spi','spi'),
         ('col1','col1'),
         ('col2', 'col2'),
         ('col3', 'col3'),
