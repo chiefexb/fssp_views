@@ -20,6 +20,9 @@ import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
 import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import DoneIcon from '@material-ui/icons/Done';
+import ScheduleIcon from '@material-ui/icons/Schedule';
+
+
 
 
 
@@ -136,6 +139,8 @@ class App extends React.Component {
         this.toggleDrawerOpen=this.toggleDrawerOpen.bind(this);
         this.toggleDrawerClose=this.toggleDrawerClose.bind(this);
         this.setwindows2_scheduller=this.setwindows2_scheduller.bind(this);
+         this.handleClickCount=this.handleClickCount.bind(this);
+        // handleClickCount(e) {
         //this.DrawFilter=this.DrawFilter.bind(this);
         
         
@@ -174,6 +179,57 @@ class App extends React.Component {
      
 
    }; 
+   //vitrana/calc
+    handleClickCount(e) {
+       
+       
+        let url='/api/vitrina/calc' ;
+        const  opts = {
+           //name: this.state.new_category,
+         //  result: 'rez' 
+         //  csrfmiddlewaretoken: {cookie.load("csrftoken")}
+        };  
+        //this.setState({new_category: ''});
+       axios.defaults.xsrfCookieName = "csrftoken";
+       axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+
+       //your_client.setHeaders({"X-CSRFTOKEN": cookie.load("csrftoken")});
+       
+       axios.post(url,opts, {
+    headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFTOKEN': cookie.load("csrftoken") 
+    }
+    
+})      
+.then((response) => {
+       this.setState({
+            Loaded5: true,
+            result5: response.data
+        });
+  
+})
+.catch((error) => {
+    
+})
+       
+  //     axios.post(url,opts)
+//      .then(response => { 
+//      console.log('response')
+//       console.log(response);
+//        
+ //      this.setState({
+ //           Loaded4: true,
+ //           result4: response.data
+ //       });
+ //     })
+//      .catch(error => {
+//      console.log(error);
+//      this.setState({Loaded4: false })
+//      })
+        
+        //this.calculate(text);
+    }    
    handleClickNewCat(e) {
        
        
@@ -524,9 +580,13 @@ content=
                             <DescriptionIcon />
                              </IconButton>
  </Tooltip>
+                          <IconButton  onClick={this.handleClickCount}  aria-label="delete">
+                            <ScheduleIcon />
+                             </IconButton>
                                 <IconButton  onClick={this.toggleDrawerOpen}  aria-label="delete">
                             <SettingsIcon />
                              </IconButton>
+                             //
 
 
 
