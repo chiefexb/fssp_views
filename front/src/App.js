@@ -408,7 +408,7 @@ content=
              <TableBody  key={item2.id} > 
             <TableRow borderBottom={1} borderColor="text.primary" >
            <TableCell >
-            {item2.id}
+            {item2.osp}
           </TableCell>
           <TableCell >
             {item2.col1}
