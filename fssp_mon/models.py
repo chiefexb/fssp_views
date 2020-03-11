@@ -114,6 +114,8 @@ class VitrinaCustom (models.Model):
         ('col18', 'col18'),
         ('col19', 'col19'),
         ('col20', 'col20')
+        ('col21', 'col21')
+        ('col22', 'col22')
         ]
     col_number=models.CharField(
         max_length=10,
@@ -123,26 +125,6 @@ class VitrinaCustom (models.Model):
     vitrina = models.ForeignKey('Vitrina', on_delete=models.CASCADE)
     filter  = models.ForeignKey('FsspFilter', on_delete=models.CASCADE)
     width = models.IntegerField(null='True')
-class Task (models.Model):
-    TASK_NUMBER_CHOICES=[
-        ('pending','Ожидание'),
-        ('finished','Завершена'),
-        ('running','Выполнение')
-        ]
-    status=models.CharField(
-        max_length=10,
-        choices=TASK_NUMBER_CHOICES,
-        default='pending' 
-        )  
-    name = models.CharField(max_length=1000,null='False', blank='False', verbose_name='название')
-    osp=  models.ForeignKey('Osp', on_delete=models.CASCADE)
-    vitrina = models.ForeignKey('Vitrina', on_delete=models.CASCADE)
-    
-    started=models.DateTimeField(null='False',default= datetime.datetime  (1,1, 1, 0, 0, 0, 0))
-    ended=models.DateTimeField(null='False',default= datetime.datetime  (1,1, 1, 0, 0, 0, 0)) 
-
-    def __str__(self):
-        return self.name    
 class FsspFilterCat (models.Model):
     name = models.CharField(max_length=1000,null='False', blank='False', verbose_name='название')
 

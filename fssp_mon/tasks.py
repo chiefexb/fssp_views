@@ -7,7 +7,21 @@ import logging
 from celery import shared_task
 #from demoapp.models import Widget
 logging.basicConfig(format = u'%(levelname)-8s [%(asctime)s] %(message)s', level = logging.DEBUG, filename = '/home/task.log')
+def rotate_field (val):
+    vv={}
+    vv2={}
+    i=1
+    for row in val:
+        vv['col'+str(i)] = str(row[1])
+        vv2['col' + str(i)] = str(row[0])
+        i=i+1
+    for i in range(15):
+        if  vv.get('col'+str(i+1) )==None:
+            vv['col'+str(i+1)]=None
+        if vv2.get('col' + str(i + 1)) == None:
+            vv2['col' + str(i + 1)] = None
 
+    return vv,vv2
 
 @shared_task
 def add(x, y):
@@ -23,6 +37,7 @@ def calc_view(vitrina_id,osp_id):
      cur=con.cursor()
      cur.execute(sql_text)
      r=cur.fetchall()
+     con.close()
      return   str(r)             
     #calc field
     

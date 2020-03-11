@@ -17,6 +17,7 @@ from django.http import JsonResponse
 from django.http import HttpResponse
 from django.db import transaction
 from .models import *
+from .tasks import *
 import fdb
 import yaml
 import json
@@ -75,6 +76,9 @@ def api2(request,method=None,method2=None):
     
     logging.info(str(request.GET))
     logging.info(str(request.POST))
+    if request.method=='POST' and method=='vitrina' and method2=='calc':
+        #calc_view(1,1)
+        calc_view.apply_async((1,1))
     if request.method=='POST' and method=='filter' and method2=='category_add':
         j=json.loads(request.body)
         p=FsspFilterCat (name=j['name'])

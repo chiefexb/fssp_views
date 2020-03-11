@@ -1,12 +1,14 @@
 - hosts: localhost
   tasks:
  #install depends packages
+ #redis
  #install apache2
  #generate apache config
  #install wsgi_py apache mod
  #enable modules  
  #create mysqldb
  #create fssp_views_setting 
+ 
 - name: install python modules 
     shell: 'cd {{ path_to_home }} && python3 -m pip install -r ./r.txt'
 - name: Download nodejs

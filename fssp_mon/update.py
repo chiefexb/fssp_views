@@ -25,9 +25,9 @@ f=open(pid_path, 'w')
 f.write(str(pid) )
 f.close()
 
-while True:
+#while True:
     
-    r=requests.post('http://localhost/worker', data={'secret': db_config['secret'],'method':'update' }  )
+    r=requests.post('http://localhost/vitrana/calc', data={'secret': db_config['secret'],'method':'update' }  )
     #r=requests.post('http://localhost/webhook', data={'secret': db_config['secret'],'method':'update' }  )
     print (str(r.text) )
     print ("Start : %s" % time.ctime())
