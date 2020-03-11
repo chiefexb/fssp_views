@@ -141,7 +141,7 @@ def api(request,method=None):
         p=VitrinaCounter.objects.filter(id=counter_id)
         j=p[0].exp
         dd=json.loads(j)
-        p2=VitrinaValue.objects.filter(vitrina_id=id , osp_id=1).filter(**dd)
+        p2=VitrinaValue.objects.filter(vitrina_id=id ).filter(**dd)
         if (spi_f==1):
             r=p2.values('spi').order_by('spi').annotate(count=Count('spi'))
         else:
