@@ -51,7 +51,7 @@ def calc_view(vitrina_id,osp_id):
          obj=VitrinaValue(**new_values)
          obj.save()
      con.close()
-     //return   str(r)             
+     #return   str(r)             
     #calc field
     
     
