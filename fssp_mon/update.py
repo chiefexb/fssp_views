@@ -12,7 +12,7 @@ import logging
 logging.basicConfig(format = u'%(levelname)-8s [%(asctime)s] %(message)s', level = logging.DEBUG, filename = '/home/fssp_d.log')
 logging.info (str (sys.argv))
 
-#bd=sys.argv[2]
+##bd=sys.argv[2]
 bd=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 f=open (os.path.join( bd,'../fssp_views_settings/inventory.yml'))
 db_config=yaml.load(f)
