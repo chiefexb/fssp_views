@@ -113,8 +113,8 @@ class VitrinaCustom (models.Model):
         ('col17', 'col17'),
         ('col18', 'col18'),
         ('col19', 'col19'),
-        ('col20', 'col20')
-        ('col21', 'col21')
+        ('col20', 'col20'),
+        ('col21', 'col21'),
         ('col22', 'col22')
         ]
     col_number=models.CharField(
