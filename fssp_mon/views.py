@@ -183,32 +183,6 @@ def rotate_field (val):
     return vv,vv2
 
 @csrf_exempt    
-def worker(request):
-    html='not Allow'
-    if request.method == "POST":
-        par = request.POST   
-        logging.info ('worker_start' )
-        zero=Task.objects.filter(name='zero')
-        logging.info (zero[0].status)
-        if zero[0].status=='pending':
-            zero.update(status='running')
-            
-            p = Task.objects.filter(status='pending')
-            for item in p:
-                logging.info ('inside task' +str(item.id) )
-                p2=Task.objects.filter(id=item.id)
-                p2.update(status='started')
-                time.sleep(60)
-                p2.update(status='finished')
-        if zero[0].status=='running':
-            j=  {'status':'looking running :Q'} 
-            
-            
-       #     item.save()
-#with transaction.atomic():
-#    for entry in entries:
-    #j=  {'status':'looking good :Q'}  
-    return JsonResponse(j)
 
 @csrf_exempt
 def webhook(request):
