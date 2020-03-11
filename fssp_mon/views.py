@@ -142,6 +142,7 @@ def api(request,method=None):
         j=p[0].exp
         dd=json.loads(j)
         p2=VitrinaValue.objects.filter(vitrina_id=id ).filter(**dd)
+        logging.info('ERR'+str(spi_f))
         if (spi_f==1):
             r=p2.values('spi').order_by('spi').annotate(count=Count('spi'))
         else:
