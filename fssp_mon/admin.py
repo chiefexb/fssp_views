@@ -18,6 +18,6 @@ admin.site.register(Osp, OspAdmin)
 admin.site.register(FsspFilterCat)
 admin.site.register(FsspFilter)
 admin.site.register(VitrinaCustom)
-admin.site.register(Task)
+
 
 
