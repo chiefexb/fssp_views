@@ -94,7 +94,7 @@ class VitrinaField (models.Model):
         
 class VitrinaFieldMap (models.Model):
     vitrina = models.ForeignKey('Vitrina', on_delete=models.CASCADE)
-       COL_NUMBER_CHOICES=[
+    COL_NUMBER_CHOICES=[
         ('none','none'),
         ('col1','col1'),
         ('col2', 'col2'),
