@@ -35,7 +35,7 @@ def calc_view(vitrina_id,osp_id):
      vmap=VitrinaFieldMap.objects.filter(id=vitrina_id).values()[0]
      vmap.pop('id')
      vmap.pop('vitrina_id')
-     
+     sql='select col1,count(*) from fssp_mon_vitrinavalue group_by col1'
      sql_text = v[0].filter.sql_text
      con = fdb.connect(host=item2.host, database=item2.data_base, user='SYSDBA', password=item2.password, charset='WIN1251',port=3050)
      cur=con.cursor()

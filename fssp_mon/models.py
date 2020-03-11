@@ -54,6 +54,9 @@ class VitrinaValue (models.Model):
     col20 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col20')
     col21 = models.DateTimeField(null='True')
     col22 = models.DateTimeField(null='True')
+    spi = models.CharField(max_length=1000, null='True', blank='True')
+    data_vozb = models.DateTimeField(null='True')
+    data_okonch = models.DateTimeField(null='True')
     
     #property
     #def vitrina_id (self):
@@ -96,6 +99,9 @@ class VitrinaFieldMap (models.Model):
     vitrina = models.ForeignKey('Vitrina', on_delete=models.CASCADE)
     COL_NUMBER_CHOICES=[
         ('none','none'),
+        ('data_vozb','data_vozb'),
+        ('data_okonch', 'data_okonch'),
+        ('spi','spi')
         ('col1','col1'),
         ('col2', 'col2'),
         ('col3', 'col3'),
