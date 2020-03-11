@@ -116,7 +116,7 @@ def api2(request,method=None,method2=None):
         for item in  p.values ():
             l.append(item) 
         j=  {'rez':l}  
-    return JsonResponse(j)
+        
     
     if method=='vitrina' and method2=='counter':
         id=request.GET.get('vitrina_id',1)
