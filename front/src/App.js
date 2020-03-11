@@ -143,7 +143,9 @@ class App extends React.Component {
         this.toggleDrawerOpen=this.toggleDrawerOpen.bind(this);
         this.toggleDrawerClose=this.toggleDrawerClose.bind(this);
         this.setwindows2_scheduller=this.setwindows2_scheduller.bind(this);
-         this.handleClickCount=this.handleClickCount.bind(this);
+        this.handleClickCount=this.handleClickCount.bind(this);
+        this.CounterChange=this.CounterChange.bind(this);
+         CounterChange
         // handleClickCount(e) {
         //this.DrawFilter=this.DrawFilter.bind(this);
         
