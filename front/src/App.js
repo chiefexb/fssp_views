@@ -297,7 +297,7 @@ class App extends React.Component {
         this.setState({counter_id: text});
          this.setState({loaded: false,
 			            result: []});
-		this.renderTable();           
+	        
 	       //this.calculate(text);
     }  
   renderTable() {
@@ -650,8 +650,8 @@ content=
                              <BugReportIcon />
                              </IconButton>
                              </Tooltip>
-                              <Tooltip title="Включить DEBUG строку" aria-label="add">
-                              <IconButton    aria-label="delete">
+                              <Tooltip title="Нарисовать" aria-label="add">
+                              <IconButton   onClick= {this.renderTable  } aria-label="delete">
                             <DescriptionIcon />
                              </IconButton>
  </Tooltip>
