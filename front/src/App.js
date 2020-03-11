@@ -295,7 +295,8 @@ class App extends React.Component {
   CounterChange(e) {
         let text = e.target.value;
         this.setState({counter_id: text});
-         this.setState({loaded: false});
+         this.setState({loaded: false,
+			            result: []});
     
     fetch("api/vitrina?vitrina_id=1&counter_id=${this.state.counter_id}")
       .then(response => {
