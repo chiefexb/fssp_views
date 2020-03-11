@@ -142,7 +142,7 @@ def api(request,method=None):
         j=p[0].exp
         dd=json.loads(j)
         p2=VitrinaValue.objects.filter(vitrina_id=id , osp_id=1).filter(**dd)
-        if spi==1:
+        if (spi=='1'):
             r=p2.values('spi').order_by('spi').annotate(count=Count('spi'))
         else:
             r=p2.values('osp').order_by('osp').annotate(count=Count('osp'))
@@ -151,7 +151,7 @@ def api(request,method=None):
         
         for item in  r :
             osp=Osp.objects.filter(id=item['osp'])[0].full_name
-            if spi==1:
+            if (spi=='1'):
                 l.append({'osp':osp,'col1':item['count']} ) 
             else:
                 l.append({'osp': osp,'col1':item['count'],'col2':item['spi'] } )
