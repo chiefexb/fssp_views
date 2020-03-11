@@ -91,7 +91,7 @@ class VitrinaField (models.Model):
     col21 = models.CharField(max_length=200, null='True', blank='True', verbose_name='Col21')
     col22 = models.CharField(max_length=200, null='True', blank='True', verbose_name='Col22')
     
-    
+    #
     def __str__(self):
         return 'Fields '+self.vitrina.__str__()
         
