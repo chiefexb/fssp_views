@@ -147,7 +147,7 @@ def api(request,method=None):
       #  l.append({'osp':'Урупский РОСП','col1':item['count'],'col2':item['spi'] } ) 
         
         for item in  r :
-            osp=VitrinaValue.objects.filter(osp_id=item['osp'])[0].name
+            osp=Osp.objects.filter(osp_id=item['osp'])[0].name
             l.append({'osp':osp,'col1':item['count']} ) 
         #    l.append({'osp':'Урупский РОСП','col1':item['count'],'col2':item['spi'] } )
         j=  {'rez':l}  
