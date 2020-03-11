@@ -28,8 +28,8 @@ class Vitrina (models.Model):
         return str(self.id)+':' +self.name +': '+self.filter.name
         
 class VitrinaCounter (models.Model):
-    name = models.CharField(max_length=1000, null='True', blank='True', verbose_name='name'))
-    exp = models.CharField(max_length=1000, null='True', blank='True', verbose_name='ex['))
+    name = models.CharField(max_length=1000, null='True', blank='True', verbose_name='name')
+    exp = models.CharField(max_length=1000, null='True', blank='True', verbose_name='exp')
     vitrina = models.ForeignKey('Vitrina', on_delete=models.CASCADE)
     def __str__(self):
         return str(self.id)+':' +self.name +': '+self.name
