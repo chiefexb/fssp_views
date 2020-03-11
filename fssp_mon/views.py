@@ -131,6 +131,7 @@ def api(request,method=None):
     #method=callback_kwargs.get('method','')
     if method=='vitrina':
         id=request.GET.get('vitrina_id',1)
+        spi=request.GET.get('spi',0)
         counter_id=request.GET.get('counter_id',1)
         #p=VitrinaValue.objects.filter(vitrina_id=id)
         sql='select spi from fssp_mon_vitrinavalue where osp_id=1 and vitrina_id=1 group by spi'
@@ -141,15 +142,19 @@ def api(request,method=None):
         j=p[0].exp
         dd=json.loads(j)
         p2=VitrinaValue.objects.filter(vitrina_id=id , osp_id=1).filter(**dd)
-        #r=p2.values('spi').order_by('spi').annotate(count=Count('spi'))
-        r=p2.values('osp').order_by('osp').annotate(count=Count('osp'))
+        if spi==1:
+            r=p2.values('spi').order_by('spi').annotate(count=Count('spi'))
+        else:
+            r=p2.values('osp').order_by('osp').annotate(count=Count('osp'))
         #c=p2.count()
       #  l.append({'osp':'Урупский РОСП','col1':item['count'],'col2':item['spi'] } ) 
         
         for item in  r :
             osp=Osp.objects.filter(id=item['osp'])[0].full_name
-            l.append({'osp':osp,'col1':item['count']} ) 
-        #    l.append({'osp':'Урупский РОСП','col1':item['count'],'col2':item['spi'] } )
+            if spi==1:
+                l.append({'osp':osp,'col1':item['count']} ) 
+            else:
+                l.append({'osp': osp,'col1':item['count'],'col2':item['spi'] } )
         j=  {'rez':l}  
     return JsonResponse(j)
     
