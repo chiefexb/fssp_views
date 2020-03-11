@@ -17,13 +17,13 @@ bd=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 f=open (os.path.join( bd,'../fssp_views_settings/inventory.yml'))
 db_config=yaml.load(f)
 f.close()
-pid = os.getpid() 
-logging.info (pid)
+#pid = os.getpid() 
+#logging.info (pid)
 logging.info (str (sys.argv))
-pid_path=sys.argv[1]
-f=open(pid_path, 'w')
-f.write(str(pid) )
-f.close()
+#pid_path=sys.argv[1]
+#f=open(pid_path, 'w')
+#f.write(str(pid) )
+#f.close()
 
 #while True:
 if (true):   
