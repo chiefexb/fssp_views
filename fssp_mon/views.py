@@ -148,7 +148,7 @@ def api(request,method=None):
             r=p2.values('osp').order_by('osp').annotate(count=Count('osp'))
         #c=p2.count()
       #  l.append({'osp':'Урупский РОСП','col1':item['count'],'col2':item['spi'] } ) 
-        
+        logging.info(str(r))
         for item in  r :
             
             if (spi_f==0):
