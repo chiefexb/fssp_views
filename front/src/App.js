@@ -112,6 +112,7 @@ class App extends React.Component {
             result2: [],
             result3: [],
             result4: [],
+            result5: [],
             sidebar: false,
             SQLtext:'',
             code: '',
@@ -122,7 +123,7 @@ class App extends React.Component {
             loaded: false,
             loaded2: false,
             loaded3: false,
-            loaded4: false,
+            loaded5: false,
             tooltip: false,
             windows: 'vitrina',
             debug: false
@@ -343,6 +344,24 @@ fetch("api/filter/category")
           };
         });
       });
+      
+       fetch("api/vitrina/counter?vitrina_id=1")
+      .then(response => {
+        if (response.status > 400) {
+          return this.setState(() => {
+            return { placeholder: "Something went wrong!" };
+          });
+        }
+        return response.json();
+      })
+      .then(result5 => {
+        this.setState(() => {
+          return {
+            result5,
+            loaded5: true
+          };
+        });
+      });
 
 fetch("api/vitrina/field?vitrina_id=1")
       .then(response => {
@@ -384,8 +403,12 @@ fetch("api/vitrina/field?vitrina_id=1")
              if (this.state.result.rez) {
                 if (this.state.loaded2) {
              if (this.state.result2.rez) {
+				if (this.state.loaded5) {
+			    if (this.state.result5.rez) {
 //DrawView
 content=
+<div>
+    <form  noValidate autoComplete="off">
        <TextField
           id="filter_category"
           select
@@ -394,12 +417,13 @@ content=
           onChange={this.handleChange}
           helperText="Выбор категории фильтра"
         >  
-          {this.state.result3.rez.map(option => (
+          {this.state.result5.rez.map(option => (
             <MenuItem key={option.id} value={option.id}>
               {option.name}
             </MenuItem>
           ))}
         </TextField> 
+        </form  >
  <TableContainer>
       <Table border={1}  borderBottom={1} borderColor="text.primary">
           {this.state.result2.rez.map(item => ( 
@@ -438,7 +462,9 @@ content=
          ))}
         </Table >
    </TableContainer>
-    
+   </div>
+ }
+}   
   }
 } 
  
