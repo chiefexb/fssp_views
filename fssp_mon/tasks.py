@@ -32,13 +32,26 @@ def calc_view(vitrina_id,osp_id):
      v=Vitrina.objects.filter(id=vitrina_id)
      osp=Osp.objects.filter(id=osp_id)
      item2=osp[0]
+     vmap=VitrinaFieldMap.objects.filter(id==vitrina_id).values()[0]
+     vmap.pop('id')
+     vmap.pop('vitrina_id')
+     
      sql_text = v[0].filter.sql_text
      con = fdb.connect(host=item2.host, database=item2.data_base, user='SYSDBA', password=item2.password, charset='WIN1251',port=3050)
      cur=con.cursor()
      cur.execute(sql_text)
      r=cur.fetchall()
+     for row in r:
+         new_values={}
+         i=1
+         for col in row:
+             dd[  vmap['col'+str(i) ] ]=col
+         new_values['osp_id']=osp_id
+         new_values['vitrina_id'] = vitrina_id
+         obj=VitrinaValue(**new_values)
+         obj.save()
      con.close()
-     return   str(r)             
+     //return   str(r)             
     #calc field
     
     
