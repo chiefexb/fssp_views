@@ -125,10 +125,11 @@ def api(request,method=None):
         p=VitrinaCounter.objects.filter(vitrina_id=1)
         j=p[0].exp
         dd=json.loads(j)
-        p2=VitrinaValue.objects.filter(vitrina_id=id).filter(**dd)
+        p2=VitrinaValue.objects.filter(vitrina_id=id and osp_id=1).filter(**dd)
+        
         c=p2.count()
         l=[]
-        l.append({'col1':c})
+        l.append({'osp':'Урупский РОСП','col1':c})
         #for item in  p.values ():
         #    l.append(item) 
         j=  {'rez':l}  
