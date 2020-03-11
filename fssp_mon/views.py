@@ -129,7 +129,7 @@ def api(request,method=None):
         p=VitrinaCounter.objects.filter(vitrina_id=1)
         j=p[0].exp
         dd=json.loads(j)
-        p2=VitrinaValue.objects.filter(vitrina_id=id , osp_id=1,spi=spi).filter(**dd)
+        p2=VitrinaValue.objects.filter(vitrina_id=id , osp_id=1).filter(**dd)
         r=p2.values('spi').order_by('spi').annotate(count=Count('spi'))
         #c=p2.count()
          
