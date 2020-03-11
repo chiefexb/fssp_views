@@ -41,17 +41,19 @@ def calc_view(vitrina_id,osp_id):
      cur=con.cursor()
      cur.execute(sql_text)
      r=cur.fetchall()
+     obj=VitrinaValue.objects.filter (vitrina_id=vitrina_id,osp_id=osp_id).delete()
      for row in r:
          new_values={}
-         i=1
+         i=0
          for col in row:
+             i=i+1
              new_values[  vmap['col'+str(i) ] ]=col
          new_values['osp_id']=osp_id
          new_values['vitrina_id'] = vitrina_id
          obj=VitrinaValue(**new_values)
          obj.save()
      con.close()
-     #return   str(r)             
+     return   str(vmap)             
     #calc field
     
     
