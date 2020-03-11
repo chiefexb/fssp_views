@@ -56,7 +56,7 @@ class VitrinaValue (models.Model):
     col22 = models.DateTimeField(null='True')
     spi = models.CharField(max_length=1000, null='True', blank='True')
     data_vozb = models.DateTimeField(null='True')
-    data_okonch = models.DateTimeField(null='True')
+    data_okon = models.DateTimeField(null='True')
     
     #property
     #def vitrina_id (self):
@@ -100,7 +100,7 @@ class VitrinaFieldMap (models.Model):
     COL_NUMBER_CHOICES=[
         ('none','none'),
         ('data_vozb','data_vozb'),
-        ('data_okonch', 'data_okonch'),
+        ('data_okon', 'data_okon'),
         ('spi','spi'),
         ('col1','col1'),
         ('col2', 'col2'),
