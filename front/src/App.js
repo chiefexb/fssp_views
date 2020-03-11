@@ -427,7 +427,7 @@ const StyledTableCell = withStyles(theme => ({
     color: theme.palette.common.white,
   },
   body: {
-    fontSize: 14, align: "center"
+    fontSize: 14,
   },
 }))(TableCell);
 
@@ -476,13 +476,13 @@ content=
           {this.state.result2.rez.map(item => ( 
         <TableHead   key={item.id}>
           <TableRow borderBottom={1} borderColor="text.primary">
-           <StyledTableCell >
+           <StyledTableCell  align="center" >
             {item.id}
           </StyledTableCell >
-          <StyledTableCell >
+          <StyledTableCell align="center">
             {item.col1}
-          </StyledTableCell>
-           <StyledTableCell >
+          </StyledTableCell >
+           <StyledTableCell align="center">
             {item.col2}
           </StyledTableCell  >
           
@@ -494,13 +494,13 @@ content=
                {this.state.result.rez.map(item2 => ( 
              <TableBody  key={item2.id} > 
             <TableRow borderBottom={1} borderColor="text.primary" >
-           <TableCell >
+           <TableCell align="center">
             {item2.osp}
           </TableCell>
-          <TableCell >
+          <TableCell align="center">
             {item2.col1}
           </TableCell >
-           <TableCell >
+           <TableCell align="center">
             {item2.col2}
           </TableCell>
           
