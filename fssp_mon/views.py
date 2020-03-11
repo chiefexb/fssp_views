@@ -117,6 +117,15 @@ def api2(request,method=None,method2=None):
             l.append(item) 
         j=  {'rez':l}  
     return JsonResponse(j)
+    
+    if method=='vitrina' and method2=='conter':
+        id=request.GET.get('vitrina_id',1)
+        p=VitrinaCounter.objects.filter(vitrina_id=id)
+        l=[]
+        for item in  p.values ():
+            l.append(item) 
+        j=  {'rez':l}  
+    return JsonResponse(j)
 def api(request,method=None):
     
     #method=callback_kwargs.get('method','')

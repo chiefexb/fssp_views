@@ -111,6 +111,7 @@ class App extends React.Component {
             result: [],
             result2: [],
             result3: [],
+            result4: [],
             sidebar: false,
             SQLtext:'',
             code: '',
@@ -121,6 +122,7 @@ class App extends React.Component {
             loaded: false,
             loaded2: false,
             loaded3: false,
+            loaded4: false,
             tooltip: false,
             windows: 'vitrina',
             debug: false
@@ -384,6 +386,20 @@ fetch("api/vitrina/field?vitrina_id=1")
              if (this.state.result2.rez) {
 //DrawView
 content=
+       <TextField
+          id="filter_category"
+          select
+          label="Категория"
+          value={this.state.category}
+          onChange={this.handleChange}
+          helperText="Выбор категории фильтра"
+        >  
+          {this.state.result3.rez.map(option => (
+            <MenuItem key={option.id} value={option.id}>
+              {option.name}
+            </MenuItem>
+          ))}
+        </TextField> 
  <TableContainer>
       <Table border={1}  borderBottom={1} borderColor="text.primary">
           {this.state.result2.rez.map(item => ( 
