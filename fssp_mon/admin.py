@@ -19,6 +19,7 @@ admin.site.register(FsspFilterCat)
 admin.site.register(FsspFilter)
 admin.site.register(VitrinaCustom)
 admin.site.register(VitrinaFieldMap)
+admin.site.register(VitrinaCounter )
 
 
 

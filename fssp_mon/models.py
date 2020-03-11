@@ -26,8 +26,13 @@ class Vitrina (models.Model):
     custom_fields = models.BooleanField(null='False', default=False)
     def __str__(self):
         return str(self.id)+':' +self.name +': '+self.filter.name
-
-
+        
+class VitrinaCounter (models.Model):
+    name = models.CharField(max_length=1000, null='True', blank='True', verbose_name='name'))
+    exp = models.CharField(max_length=1000, null='True', blank='True', verbose_name='ex['))
+    vitrina = models.ForeignKey('Vitrina', on_delete=models.CASCADE)
+    def __str__(self):
+        return str(self.id)+':' +self.name +': '+self.filter.name
 class VitrinaValue (models.Model):
     osp = models.ForeignKey('Osp', on_delete=models.CASCADE)
     vitrina = models.ForeignKey('Vitrina', on_delete=models.CASCADE)
