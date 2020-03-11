@@ -117,6 +117,7 @@ class App extends React.Component {
             SQLtext:'',
             code: '',
             category: 1,
+            counter_id:1,
             new_category: '',
             region: '',
             but_push: false,
@@ -288,7 +289,13 @@ class App extends React.Component {
         this.setState({new_category: text});
         //this.calculate(text);
     }
-    
+  
+  CounterChange(e) {
+        let text = e.target.value;
+        this.setState({counter_id: text});
+        
+        //this.calculate(text);
+    }  
    SQLChange(e) {
         let text = e.target.value;
         this.setState({SQLtext: text});
@@ -414,8 +421,8 @@ content=
           id="filter_category"
           select
           label="Категория"
-          value={this.state.category}
-          onChange={this.handleChange}
+          value={this.state.counter_id}
+          onChange={this.CounterChange}
           helperText="Выбор категории фильтра"
         >  
           {this.state.result5.rez.map(option => (
