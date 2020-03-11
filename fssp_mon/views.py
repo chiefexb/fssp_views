@@ -118,7 +118,7 @@ def api2(request,method=None,method2=None):
         j=  {'rez':l}  
     return JsonResponse(j)
     
-    if method=='vitrina' and method2=='conter':
+    if method=='vitrina' and method2=='counter':
         id=request.GET.get('vitrina_id',1)
         p=VitrinaCounter.objects.filter(vitrina_id=id)
         l=[]
