@@ -408,6 +408,7 @@ fetch("api/vitrina/field?vitrina_id=1")
 //DrawView
 content=
 <div>
+<p></p>
     <form  noValidate autoComplete="off">
        <TextField
           id="filter_category"
