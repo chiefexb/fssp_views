@@ -32,7 +32,7 @@ def calc_view(vitrina_id,osp_id):
      v=Vitrina.objects.filter(id=vitrina_id)
      osp=Osp.objects.filter(id=osp_id)
      item2=osp[0]
-     vmap=VitrinaFieldMap.objects.filter(id==vitrina_id).values()[0]
+     vmap=VitrinaFieldMap.objects.filter(id=vitrina_id).values()[0]
      vmap.pop('id')
      vmap.pop('vitrina_id')
      
