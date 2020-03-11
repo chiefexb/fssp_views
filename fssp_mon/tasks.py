@@ -45,7 +45,7 @@ def calc_view(vitrina_id,osp_id):
          new_values={}
          i=1
          for col in row:
-             dd[  vmap['col'+str(i) ] ]=col
+             new_values[  vmap['col'+str(i) ] ]=col
          new_values['osp_id']=osp_id
          new_values['vitrina_id'] = vitrina_id
          obj=VitrinaValue(**new_values)
