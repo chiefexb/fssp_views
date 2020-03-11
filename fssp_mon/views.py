@@ -142,11 +142,13 @@ def api(request,method=None):
         dd=json.loads(j)
         p2=VitrinaValue.objects.filter(vitrina_id=id , osp_id=1).filter(**dd)
         #r=p2.values('spi').order_by('spi').annotate(count=Count('spi'))
-        r=p2.values('osp.name').order_by('osp').annotate(count=Count('osp'))
+        r=p2.values('osp').order_by('osp').annotate(count=Count('osp'))
         #c=p2.count()
       #  l.append({'osp':'Урупский РОСП','col1':item['count'],'col2':item['spi'] } ) 
+        
         for item in  r :
-            l.append({'osp':item['osp'],'col1':item['count']} ) 
+            osp=VitrinaValue.objects.filter(osp_id=item['osp'])[0].name
+            l.append({'osp':osp,'col1':item['count']} ) 
         #    l.append({'osp':'Урупский РОСП','col1':item['count'],'col2':item['spi'] } )
         j=  {'rez':l}  
     return JsonResponse(j)
