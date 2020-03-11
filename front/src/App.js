@@ -421,7 +421,15 @@ fetch("api/vitrina/field?vitrina_id=1")
 
 }
     render() {
-
+const StyledTableCell = withStyles(theme => ({
+  head: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  body: {
+    fontSize: 14,
+  },
+}))(TableCell);
 
        let code_ed=
          <SyntaxHighlighter       language="sql"         >
@@ -468,15 +476,15 @@ content=
           {this.state.result2.rez.map(item => ( 
         <TableHead   key={item.id}>
           <TableRow borderBottom={1} borderColor="text.primary">
-           <TableCell >
+           <StyledTableCell >
             {item.id}
-          </TableCell >
-          <TableCell >
+          </StyledTableCell >
+          <StyledTableCell >
             {item.col1}
-          </TableCell>
-           <TableCell >
+          </StyledTableCell>
+           <StyledTableCell >
             {item.col2}
-          </TableCell  >
+          </StyledTableCell  >
           
           </TableRow>
    
