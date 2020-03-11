@@ -123,7 +123,7 @@ def api(request,method=None):
         id=request.GET.get('vitrina_id',1)
         #p=VitrinaValue.objects.filter(vitrina_id=id)
         sql='select spi from fssp_mon_vitrinavalue where osp_id=1 and vitrina_id=1 group by spi'
-        //spi_list=VitrinaValue.objects.raw(sql)
+        #spi_list=VitrinaValue.objects.raw(sql)
         l=[]
         #result = VitrinaValue.objects.values('spi').order_by('spi').annotate(count=Count('spi'))
         p=VitrinaCounter.objects.filter(vitrina_id=1)
