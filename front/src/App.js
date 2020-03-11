@@ -295,6 +295,24 @@ class App extends React.Component {
   CounterChange(e) {
         let text = e.target.value;
         this.setState({counter_id: text});
+    
+    fetch("api/vitrina?vitrina_id=1&counter_id="+this.state.counter_id)
+      .then(response => {
+        if (response.status > 400) {
+          return this.setState(() => {
+            return { placeholder: "Something went wrong!" };
+          });
+        }
+        return response.json();
+      })
+      .then(result => {
+        this.setState(() => {
+          return {
+            result,
+            loaded: true
+          };
+        });
+      });
         
         //this.calculate(text);
     }  
