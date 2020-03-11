@@ -131,7 +131,7 @@ def api(request,method=None):
     #method=callback_kwargs.get('method','')
     if method=='vitrina':
         id=request.GET.get('vitrina_id',1)
-        spi=request.GET.get('spi',0)
+        spi_f=request.GET.get('spi',0)
         counter_id=request.GET.get('counter_id',1)
         #p=VitrinaValue.objects.filter(vitrina_id=id)
         sql='select spi from fssp_mon_vitrinavalue where osp_id=1 and vitrina_id=1 group by spi'
@@ -142,7 +142,7 @@ def api(request,method=None):
         j=p[0].exp
         dd=json.loads(j)
         p2=VitrinaValue.objects.filter(vitrina_id=id , osp_id=1).filter(**dd)
-        if (spi==1):
+        if (spi_f==1):
             r=p2.values('spi').order_by('spi').annotate(count=Count('spi'))
         else:
             r=p2.values('osp').order_by('osp').annotate(count=Count('osp'))
@@ -151,7 +151,7 @@ def api(request,method=None):
         
         for item in  r :
             
-            if (spi==1):
+            if (spi_f==1):
                 osp='1'
                 l.append({'osp':osp,'col1':item['count']} ) 
             else:
