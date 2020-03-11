@@ -151,7 +151,7 @@ def api(request,method=None):
         
         for item in  r :
             
-            if (spi=='1'):
+            if (spi==1):
                 osp='1'
                 l.append({'osp':osp,'col1':item['count']} ) 
             else:
