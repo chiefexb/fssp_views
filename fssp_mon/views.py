@@ -121,10 +121,16 @@ def api(request,method=None):
     #method=callback_kwargs.get('method','')
     if method=='vitrina':
         id=request.GET.get('vitrina_id',1)
-        p=VitrinaValue.objects.filter(vitrina_id=id)
+        #p=VitrinaValue.objects.filter(vitrina_id=id)
+        p=VitrinaCounter.objects.filter(vitrina_id=1)
+        j=p[0].exp
+        dd=json.loads(j)
+        p2=VitrinaValue.objects.filter(vitrina_id=id).filter(**dd)
+        c=p2.count()
         l=[]
-        for item in  p.values ():
-            l.append(item) 
+        l.append({'col1':c})
+        #for item in  p.values ():
+        #    l.append(item) 
         j=  {'rez':l}  
     return JsonResponse(j)
     
