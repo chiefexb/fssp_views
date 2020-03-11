@@ -123,17 +123,18 @@ def api(request,method=None):
         id=request.GET.get('vitrina_id',1)
         #p=VitrinaValue.objects.filter(vitrina_id=id)
         sql='select spi from fssp_mon_vitrinavalue where osp_id=1 and vitrina_id=1 group by spi'
-        spi_list=VitrinaValue.objects.raw(sql)
+        //spi_list=VitrinaValue.objects.raw(sql)
         l=[]
-        for spi in spi_list:
-            p=VitrinaCounter.objects.filter(vitrina_id=1)
-            j=p[0].exp
-            dd=json.loads(j)
-            p2=VitrinaValue.objects.filter(vitrina_id=id , osp_id=1,spi=spi).filter(**dd)
-            c=p2.count()
-            l.append({'osp':'Урупский РОСП','col1':c,'col2':spi } )
-        #for item in  p.values ():
-        #    l.append(item) 
+        #result = VitrinaValue.objects.values('spi').order_by('spi').annotate(count=Count('spi'))
+        p=VitrinaCounter.objects.filter(vitrina_id=1)
+        j=p[0].exp
+        dd=json.loads(j)
+        p2=VitrinaValue.objects.filter(vitrina_id=id , osp_id=1,spi=spi).filter(**dd)
+        r=p2.values('spi').order_by('spi').annotate(count=Count('spi'))
+        #c=p2.count()
+         
+        for item in  r :
+            l.append({'osp':'Урупский РОСП','col1':item['count'],'col2':item['spi'] } )
         j=  {'rez':l}  
     return JsonResponse(j)
     
