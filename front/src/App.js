@@ -145,7 +145,7 @@ class App extends React.Component {
         this.setwindows2_scheduller=this.setwindows2_scheduller.bind(this);
         this.handleClickCount=this.handleClickCount.bind(this);
         this.CounterChange=this.CounterChange.bind(this);
-         CounterChange
+        // CounterChange
         // handleClickCount(e) {
         //this.DrawFilter=this.DrawFilter.bind(this);
         
