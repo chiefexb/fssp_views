@@ -124,109 +124,109 @@ class VitrinaFieldMap (models.Model):
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-      col2=models.CharField(
+    col2=models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-      col3=models.CharField(
+    col3=models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-     col4=models.CharField(
+    col4=models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-      col5=models.CharField(
+    col5=models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-      col6=models.CharField(
-        max_length=10,
-        choices=COL_NUMBER_CHOICES,
-        default='none'
-    )
-    
-      col7=models.CharField(
-        max_length=10,
-        choices=COL_NUMBER_CHOICES,
-        default='none'
-    )
-      col8=models.CharField(
-        max_length=10,
-        choices=COL_NUMBER_CHOICES,
-        default='none'
-    )
-      col9=models.CharField(
-        max_length=10,
-        choices=COL_NUMBER_CHOICES,
-        default='none'
-    )
-     col10=models.CharField(
-        max_length=10,
-        choices=COL_NUMBER_CHOICES,
-        default='none'
-    )
-      col11=models.CharField(
-        max_length=10,
-        choices=COL_NUMBER_CHOICES,
-        default='none'
-    )
-      col12=models.CharField(
+    col6=models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
     
-      col13=models.CharField(
+    col7=models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-      col14=models.CharField(
+    col8=models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-      col15=models.CharField(
+    col9=models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-     col16=models.CharField(
+    col10=models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-      col17=models.CharField(
+    col11=models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-      col18=models.CharField(
+    col12=models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-         col19=models.CharField(
+    
+    col13=models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-      col20=models.CharField(
+    col14=models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-      col21=models.CharField(
+    col15=models.CharField(
+        max_length=10,
+        choices=COL_NUMBER_CHOICES,
+        default='none'
+    )
+    col16=models.CharField(
+        max_length=10,
+        choices=COL_NUMBER_CHOICES,
+        default='none'
+    )
+    col17=models.CharField(
+        max_length=10,
+        choices=COL_NUMBER_CHOICES,
+        default='none'
+    )
+    col18=models.CharField(
+        max_length=10,
+        choices=COL_NUMBER_CHOICES,
+        default='none'
+    )
+    col19=models.CharField(
+        max_length=10,
+        choices=COL_NUMBER_CHOICES,
+        default='none'
+    )
+    col20=models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
     col21=models.CharField(
+        max_length=10,
+        choices=COL_NUMBER_CHOICES,
+        default='none'
+    )
+    col22=models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
