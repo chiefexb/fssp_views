@@ -153,7 +153,8 @@ def api(request,method=None):
         for item in  r :
             
             if (spi_f==0):
-                osp='1'
+                #osp='1'
+                osp=Osp.objects.filter(id=item['osp'])[0].full_name
                 l.append({'osp':osp,'col1':item['count']} ) 
             else:
                 osp='1'
