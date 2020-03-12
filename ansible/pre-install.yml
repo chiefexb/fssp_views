@@ -37,7 +37,7 @@
     file:
       path: '{{ item }}' 
       state: directory
-    with_items: ['/etc/conf.d' , '/opt/celery', '/var/log/celery' ]
+    with_items: ['/etc/conf.d' , '/opt/celery', '/var/log/celery', '/var/run/celery' ]
     tags: [ all, celery ]
    
   - name: create celery logfile
