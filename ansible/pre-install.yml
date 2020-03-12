@@ -12,7 +12,8 @@
   - name: Install the package redis
     apt:
       name: redis
-     
+    tags: [all] 
+    
   - name: install python modules 
     shell: 'cd {{ path_to_home }} && python3 -m pip install -r ./requirements.txt'
     tags: [all]
@@ -25,30 +26,30 @@
       mode: '0440'
     tags: [all]
     
-   - name: install nodejs
-     unarchive:
+  - name: install nodejs
+    unarchive:
        src: /tmp/node-v12.16.1-linux-x64.tar.xz
        dest:  '/usr'
        remote_src: yes
-     tags: [all]
+    tags: [all]
 
-   - name: create celery conf dir
-     file:
-       path: '{{ item }}' 
-       state: directory
-     with_items: 
-       - '/etc/conf.d'
-       - '/opt/celery'
-     tags: [all,celery]
+  - name: create celery conf dir
+    file:
+      path: '{{ item }}' 
+      state: directory
+    with_items: 
+      - '/etc/conf.d'
+      - '/opt/celery'
+    tags: [all,celery]
      
-   - name: create celery service
-     templates: 
-       src: celery.service
-       dest: /etc/system.d/system/celery.service 
-      tags: [all,celery]
+  - name: create celery service
+    templates: 
+      src: celery.service
+      dest: /etc/system.d/system/celery.service 
+    tags: [all,celery]
 
-   - name: create celery conf
-     templates: 
-       src: celery
-       dest:/etc/conf.d/celery
-      tags: [all,celery]    
+  - name: create celery conf
+    templates: 
+      src: celery
+      dest:/etc/conf.d/celery
+    tags: [all,celery]    
