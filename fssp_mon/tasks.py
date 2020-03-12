@@ -41,8 +41,8 @@ def calc_view(vitrina_id,osp_id):
      cur=con.cursor()
      cur.execute(sql_text)
      r=cur.fetchall()
-     #obj=VitrinaValue.objects.filter (vitrina_id=vitrina_id,osp_id=osp_id).delete()
-     obj=VitrinaValue.objects.all().delete()
+     obj=VitrinaValue.objects.filter (vitrina_id=vitrina_id,osp_id=osp_id).delete()
+     #obj=VitrinaValue.objects.all().delete()
      for row in r:
          new_values={}
          i=0
