@@ -64,9 +64,11 @@
        name: '{{ item }}'
        state: stopped
     with_items: ['celery']     
+    tags: [all, celery  ]
     
   - name: reload service httpd, in all cases
     systemd:
        name: '{{ item }}'
        state: started
     with_items: ['celery']   
+    tags: [all, celery  ]
