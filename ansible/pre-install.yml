@@ -40,16 +40,16 @@
     with_items: 
       - '/etc/conf.d'
       - '/opt/celery'
-    tags: [all celery]
+    tags: [all, celery]
      
   - name: create celery service
     templates: 
       src: celery.service
       dest: /etc/system.d/system/celery.service 
-    tags: [all celery]
+    tags: [all, celery]
 
   - name: create celery conf
     templates: 
       src: celery
       dest:/etc/conf.d/celery
-    tags: [all celery]    
+    tags: [all, celery]    
