@@ -43,7 +43,7 @@
    
      
   - name: create celery service
-    templates: 
+    template: 
       src: 'celery.service'
       dest: '/etc/system.d/system/celery.service'
     tags: [all, celery ]
