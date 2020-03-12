@@ -148,6 +148,8 @@ class App extends React.Component {
         this.handleClickCount=this.handleClickCount.bind(this);
         this.CounterChange=this.CounterChange.bind(this);
         this.renderTable=this.renderTable.bind(this);
+        this.handleChange_spi_checked=this.handleChange_spi_checked.bind(this);
+        //handleChange_spi_checked
         //renderTable
         
         // CounterChange
