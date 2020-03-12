@@ -365,7 +365,7 @@ fetch("api/filter/category")
           };
         });
       });
-    fetch("api/vitrina?vitrina_id=1&counter_id=1&spi=1")
+    fetch("api/vitrina?vitrina_id=1&counter_id=1&spi_id=1")
       .then(response => {
         if (response.status > 400) {
           return this.setState(() => {
