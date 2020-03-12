@@ -51,7 +51,5 @@
   - name: create celery conf
     templates: 
       src: celery
-      dest:/etc/conf.d/celery
-    tags: 
-      - all
-      - celery   
+      dest: /etc/conf.d/celery
+    tags: [all, celery  ] 
