@@ -49,7 +49,7 @@
     tags: [all, celery ]
 
   - name: create celery conf
-    templates: 
+    template: 
       src: celery
       dest: '/etc/conf.d/celery'
     tags: [all, celery  ] 
