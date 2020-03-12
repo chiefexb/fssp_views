@@ -146,7 +146,7 @@ def api(request,method=None):
         logging.info('ERR '+str(spi_id) +str(spi_id=='1')+str( type (spi_id) ))
         if (spi_id=='1'):
             #r=p2.values('spi').order_by('spi').annotate(count=Count('spi'))
-            r=p2.values('spi','osp_id').order_by('osp_id').annotate(count=Count('spi') )
+            r=p2.values('spi','osp_id').order_by('osp_id','spi').annotate(count=Count('spi') )
         else:
             r=p2.values('osp').order_by('osp').annotate(count=Count('osp'))
         #c=p2.count()
