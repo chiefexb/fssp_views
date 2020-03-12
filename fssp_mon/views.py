@@ -160,7 +160,7 @@ def api(request,method=None):
             else:
                 #osp='1'
                 
-                p3=p2=VitrinaValue.objects.filter(spi=item['spi'])[0]['osp_id']
+                p3=p2=VitrinaValue.objects.filter(spi=item['spi']).values()[0]['osp_id']
                 osp=Osp.objects.filter(id=p3['osp'])[0].full_name
                 l.append({'osp': osp,'col1':item['count'],'col2':item['spi'] } )
         j=  {'rez':l}  
