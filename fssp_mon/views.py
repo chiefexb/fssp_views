@@ -80,6 +80,7 @@ def api2(request,method=None,method2=None):
     if request.method=='POST' and method=='vitrina' and method2=='calc':
         #calc_view(1,1)
         calc_view.apply_async((1,1))
+        calc_view.apply_async((1,2))
     if request.method=='POST' and method=='filter' and method2=='category_add':
         j=json.loads(request.body)
         p=FsspFilterCat (name=j['name'])

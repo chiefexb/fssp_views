@@ -10,7 +10,8 @@
  #create fssp_views_setting 
  
 - name: install python modules 
-    shell: 'cd {{ path_to_home }} && python3 -m pip install -r ./r.txt'
+    shell: 'cd {{ path_to_home }} && python3 -m pip install -r ./requirements.txt'
+
 - name: Download nodejs
   get_url:
     url: https://nodejs.org/dist/v12.16.1/node-v12.16.1-linux-x64.tar.xz  
