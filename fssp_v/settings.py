@@ -104,17 +104,7 @@ DATABASES = {
     }
 }
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.mysql',
-#        'NAME': 'fssp',
-#        'USER': 'fssp',
-#        'PASSWORD': 'Exb021205!',
-#        'HOST': 'localhost',#
-#
-#
-#    }
-#}
+
 
 
 
