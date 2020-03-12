@@ -484,12 +484,14 @@ content=
             </MenuItem>
           ))}
         </TextField> 
+        <FormControl>
         <FormControlLabel
         control={
-          <Checkbox checked={this.state.spi_checked} onChange={this.handleChange_spi_checked value="checkedA" />
+          <Checkbox checked={this.state.spi_checked} onChange={this.handleChange_spi_checked} value="checkedA" />
         }
         label="Разбивка по СПИ"
-      />
+      /> 
+         </FormControl>
         </form  >
  <TableContainer>
       <Table border={1}  borderBottom={1} borderColor="text.primary">
