@@ -43,7 +43,7 @@
   - name: create celery logfile
     file:
       path: '{{ item }}' 
-      state: file
+      state: present
     with_items: ['/var/log/celery/w1.log' ]
     tags: [ all, celery ]
      
