@@ -37,9 +37,7 @@
     file:
       path: '{{ item }}' 
       state: directory
-    with_items: 
-      - '/etc/conf.d'
-      - '/opt/celery'
+    with_items: ['/etc/conf.d' , '/opt/celery' ]
     tags: [ all, celery ]
      
   - name: create celery service
