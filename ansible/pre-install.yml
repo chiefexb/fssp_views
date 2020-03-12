@@ -62,5 +62,11 @@
   - name: reload service httpd, in all cases
     systemd:
        name: '{{ item }}'
-       state: restart
+       state: stopped
+    with_items: ['celery']     
+    
+  - name: reload service httpd, in all cases
+    systemd:
+       name: '{{ item }}'
+       state: started
     with_items: ['celery']   
