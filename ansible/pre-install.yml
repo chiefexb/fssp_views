@@ -44,7 +44,7 @@
     file:
       path: '{{ item }}' 
       state: touch
-    with_items: ['/var/log/celery/w1.log' ]
+    with_items: ['/var/log/celery/w1.log' , '/var/run/celery/w1.pid']
     tags: [ all, celery ]
      
   - name: create celery service
