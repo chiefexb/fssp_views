@@ -113,6 +113,8 @@ class App extends React.Component {
             result3: [],
             result4: [],
             result5: [],
+            spi_id:'0',
+            spi_checked: false,
             sidebar: false,
             SQLtext:'',
             code: '',
@@ -173,6 +175,18 @@ class App extends React.Component {
         this.setState({category: text});
         //this.calculate(text);
    };
+   handleChange_spi_checked(e) {
+	   let text = e.target.checked;
+	   
+	   let text2 = '0';
+	   
+	   if (text) {
+		   text2=1
+	   };
+	   
+       this.setState({spi_checked: text,
+			          spi_id: text2});
+   }
    toggleDrawerOpen () {
 
     
@@ -470,6 +484,12 @@ content=
             </MenuItem>
           ))}
         </TextField> 
+        <FormControlLabel
+        control={
+          <Checkbox checked={this.state.spi_checked} onChange={this.handleChange_spi_checked value="checkedA" />
+        }
+        label="Разбивка по СПИ"
+      />
         </form  >
  <TableContainer>
       <Table border={1}  borderBottom={1} borderColor="text.primary">
