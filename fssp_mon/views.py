@@ -160,8 +160,8 @@ def api(request,method=None):
             else:
                 #osp='1'
                 
-                p3=p2=VitrinaValue.objects.filter(spi=item['spi']).values()[0]['osp_id']
-                osp=Osp.objects.filter(id=p3['osp'])[0].full_name
+                osp_id=p2=VitrinaValue.objects.filter(spi=item['spi']).values()[0]['osp_id']
+                osp=Osp.objects.filter(id=osp_id)[0].full_name
                 l.append({'osp': osp,'col1':item['count'],'col2':item['spi'] } )
         j=  {'rez':l}  
     return JsonResponse(j)
