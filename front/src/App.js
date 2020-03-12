@@ -178,15 +178,15 @@ class App extends React.Component {
         //this.calculate(text);
    };
    handleChange_spi_checked(e) {
-	   let text = e.target.checked;
+	  
 	   
 	   let text2 = '0';
 	   
-	   if (text) {
+	   if (e.target.checked) {
 		   text2=1
 	   };
 	   
-       this.setState({spi_checked: text,
+       this.setState({spi_checked: e.target.checked,
 			          spi_id: text2});
    }
    toggleDrawerOpen () {
@@ -381,7 +381,7 @@ fetch("api/filter/category")
           };
         });
       });
-    fetch("api/vitrina?vitrina_id=1&counter_id=1&spi_id=1")
+    fetch("api/vitrina?vitrina_id=1&counter_id=1&spi_id=0")
       .then(response => {
         if (response.status > 400) {
           return this.setState(() => {
