@@ -159,8 +159,8 @@ def api(request,method=None):
                 l.append({'osp':osp,'col1':item['count']} ) 
             else:
                 #osp='1'
-                id=item['id']
-                p3=p2=VitrinaValue.objects.filter(id=id )[0]
+                
+                p3=p2=VitrinaValue.objects.filter(spi=item['spi'])[0]['osp_id']
                 osp=Osp.objects.filter(id=p3['osp'])[0].full_name
                 l.append({'osp': osp,'col1':item['count'],'col2':item['spi'] } )
         j=  {'rez':l}  
