@@ -160,7 +160,7 @@ def api(request,method=None):
                 l.append({'osp':osp,'col1':item['count']} ) 
             else:
                 #osp='1'
-                osp=Osp.objects.filter(id=item['osp'])[0].full_name 
+                osp=Osp.objects.filter(id=item['osp_id'])[0].full_name 
                 l.append({'osp': osp,'col1':item['count'],'col2':item['spi'] } )
         j=  {'rez':l}  
     return JsonResponse(j)
