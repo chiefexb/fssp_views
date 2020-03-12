@@ -53,8 +53,9 @@
       src: celery
       dest: '/etc/conf.d/celery'
     tags: [all, celery  ]
-   - name: reload service httpd, in all cases
-     systemd:
+    
+  - name: reload service httpd, in all cases
+    systemd:
        name: '{{ item }}'
        state: restart
-     with_items: ['celery']   
+    with_items: ['celery']   
