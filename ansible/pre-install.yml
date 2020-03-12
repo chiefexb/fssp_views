@@ -52,4 +52,6 @@
     templates: 
       src: celery
       dest:/etc/conf.d/celery
-    tags: [all, celery ]    
+    tags: 
+      - all
+      - celery   
