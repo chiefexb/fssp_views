@@ -145,7 +145,8 @@ def api(request,method=None):
         p2=VitrinaValue.objects.filter(vitrina_id=id ).filter(**dd)
         logging.info('ERR '+str(spi_id) +str(spi_id=='1')+str( type (spi_id) ))
         if (spi_id=='1'):
-            r=p2.values('spi').order_by('spi').annotate(count=Count('spi'))
+            #r=p2.values('spi').order_by('spi').annotate(count=Count('spi'))
+            r=p2.values('spi','osp_id').order_by('osp_id').annotate(count=Count('spi') )
         else:
             r=p2.values('osp').order_by('osp').annotate(count=Count('osp'))
         #c=p2.count()
@@ -159,9 +160,7 @@ def api(request,method=None):
                 l.append({'osp':osp,'col1':item['count']} ) 
             else:
                 #osp='1'
-                
-                osp_id=p2=VitrinaValue.objects.filter(spi=item['spi']).values()[0]['osp_id']
-                osp=Osp.objects.filter(id=osp_id)[0].full_name
+                osp=Osp.objects.filter(id=item['osp'])[0].full_name 
                 l.append({'osp': osp,'col1':item['count'],'col2':item['spi'] } )
         j=  {'rez':l}  
     return JsonResponse(j)
