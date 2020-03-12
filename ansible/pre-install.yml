@@ -40,7 +40,12 @@
     with_items: ['/etc/conf.d' , '/opt/celery', '/var/log/celery' ]
     tags: [ all, celery ]
    
-   
+  - name: create celery logfile
+    file:
+      path: '{{ item }}' 
+      state: file
+    with_items: ['/var/log/celery/w1.log' ]
+    tags: [ all, celery ]
      
   - name: create celery service
     template: 
