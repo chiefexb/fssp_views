@@ -1,43 +1,44 @@
 from django.db import models
 import datetime
-#from . import forms
-
-# Create your models here.
 
 
-class Osp (models.Model):
-    full_name = models.CharField(max_length=1000,null='False', blank='False', verbose_name='название')
-    short_name = models.CharField(max_length=1000,null='False', blank='False', verbose_name='название')
+class Osp(models.Model):
+    full_name = models.CharField(max_length=1000, null='False', blank='False', verbose_name='название')
+    short_name = models.CharField(max_length=1000, null='False', blank='False', verbose_name='название')
     host = models.CharField(max_length=1000, null='False', blank='False', verbose_name='название')
     data_base = models.CharField(max_length=1000, null='False', blank='False', verbose_name='название')
-    password = models.CharField(max_length=32,null='False', blank='False')
+    password = models.CharField(max_length=32, null='False', blank='False')
 
     def __str__(self):
         return self.full_name
 
 
-class Vitrina (models.Model):
-    name = models.CharField(max_length=1000, null='False', default='vitrina',blank='False', verbose_name='название')
+class Vitrina(models.Model):
+    name = models.CharField(max_length=1000, null='False', default='vitrina', blank='False', verbose_name='название')
 
-    #osp = models.ForeignKey('Osp', on_delete=models.CASCADE)
+    # osp = models.ForeignKey('Osp', on_delete=models.CASCADE)
     filter = models.ForeignKey('FsspFilter', on_delete=models.CASCADE)
-    date_actual= models.DateTimeField(null='False',default= datetime.datetime(2019, 11, 26, 14, 22, 40, 267301))
-    calc_field_name= models.BooleanField (null='False',default=True)
+    date_actual = models.DateTimeField(null='False', default=datetime.datetime(2019, 11, 26, 14, 22, 40, 267301))
+    calc_field_name = models.BooleanField(null='False', default=True)
     custom_fields = models.BooleanField(null='False', default=False)
+
     def __str__(self):
-        return str(self.id)+':' +self.name +': '+self.filter.name
-        
-class VitrinaCounter (models.Model):
+        return str(self.id) + ':' + self.name + ': ' + self.filter.name
+
+
+class VitrinaCounter(models.Model):
     name = models.CharField(max_length=1000, null='True', blank='True', verbose_name='name')
     exp = models.CharField(max_length=1000, null='True', blank='True', verbose_name='exp')
     vitrina = models.ForeignKey('Vitrina', on_delete=models.CASCADE)
+
     def __str__(self):
-        return str(self.id)+':' +self.name +': '+self.name
-        
-class VitrinaValue (models.Model):
+        return str(self.id) + ':' + self.name + ': ' + self.name
+
+
+class VitrinaValue(models.Model):
     osp = models.ForeignKey('Osp', on_delete=models.CASCADE)
     vitrina = models.ForeignKey('Vitrina', on_delete=models.CASCADE)
-    
+
     col1 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col1')
     col2 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col2')
     col3 = models.CharField(max_length=1000, null='True', blank='True', verbose_name='Col3')
@@ -63,16 +64,12 @@ class VitrinaValue (models.Model):
     spi = models.CharField(max_length=1000, null='True', blank='True')
     data_vozb = models.DateTimeField(null='True')
     data_okon = models.DateTimeField(null='True')
-    
-    #property
-    #def vitrina_id (self):
-    #   return str(self.vitrina.id)
 
     def __str__(self):
-        return self.osp.full_name+':'+ self.vitrina.__str__()
+        return self.osp.full_name + ':' + self.vitrina.__str__()
 
 
-class VitrinaField (models.Model):
+class VitrinaField(models.Model):
     vitrina = models.ForeignKey('Vitrina', on_delete=models.CASCADE)
     col1 = models.CharField(max_length=200, null='True', blank='True', verbose_name='Col1')
     col2 = models.CharField(max_length=200, null='True', blank='True', verbose_name='Col2')
@@ -96,19 +93,19 @@ class VitrinaField (models.Model):
     col20 = models.CharField(max_length=200, null='True', blank='True', verbose_name='Col20')
     col21 = models.CharField(max_length=200, null='True', blank='True', verbose_name='Col21')
     col22 = models.CharField(max_length=200, null='True', blank='True', verbose_name='Col22')
-    
-    #
+
     def __str__(self):
-        return 'Fields '+self.vitrina.__str__()
-        
-class VitrinaFieldMap (models.Model):
+        return 'Fields ' + self.vitrina.__str__()
+
+
+class VitrinaFieldMap(models.Model):
     vitrina = models.ForeignKey('Vitrina', on_delete=models.CASCADE)
-    COL_NUMBER_CHOICES=[
-        ('none','none'),
-        ('data_vozb','data_vozb'),
+    COL_NUMBER_CHOICES = [
+        ('none', 'none'),
+        ('data_vozb', 'data_vozb'),
         ('data_okon', 'data_okon'),
-        ('spi','spi'),
-        ('col1','col1'),
+        ('spi', 'spi'),
+        ('col1', 'col1'),
         ('col2', 'col2'),
         ('col3', 'col3'),
         ('col4', 'col4'),
@@ -130,127 +127,127 @@ class VitrinaFieldMap (models.Model):
         ('col20', 'col20'),
         ('col21', 'col21'),
         ('col22', 'col22')
-        ]
-    col1=models.CharField(
+    ]
+    col1 = models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-    col2=models.CharField(
+    col2 = models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-    col3=models.CharField(
+    col3 = models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-    col4=models.CharField(
+    col4 = models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-    col5=models.CharField(
+    col5 = models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-    col6=models.CharField(
+    col6 = models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-    
-    col7=models.CharField(
+
+    col7 = models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-    col8=models.CharField(
+    col8 = models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-    col9=models.CharField(
+    col9 = models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-    col10=models.CharField(
+    col10 = models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-    col11=models.CharField(
+    col11 = models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-    col12=models.CharField(
+    col12 = models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-    
-    col13=models.CharField(
+
+    col13 = models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-    col14=models.CharField(
+    col14 = models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-    col15=models.CharField(
+    col15 = models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-    col16=models.CharField(
+    col16 = models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-    col17=models.CharField(
+    col17 = models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-    col18=models.CharField(
+    col18 = models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-    col19=models.CharField(
+    col19 = models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-    col20=models.CharField(
+    col20 = models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-    col21=models.CharField(
+    col21 = models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
-    col22=models.CharField(
+    col22 = models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='none'
     )
+
     def __str__(self):
-        return 'FieldsMap '+self.vitrina.__str__()
+        return 'FieldsMap ' + self.vitrina.__str__()
 
 
-
-class VitrinaCustom (models.Model):
-    COL_NUMBER_CHOICES=[
-        ('col1','col1'),
+class VitrinaCustom(models.Model):
+    COL_NUMBER_CHOICES = [
+        ('col1', 'col1'),
         ('col2', 'col2'),
         ('col3', 'col3'),
         ('col4', 'col4'),
@@ -272,24 +269,28 @@ class VitrinaCustom (models.Model):
         ('col20', 'col20'),
         ('col21', 'col21'),
         ('col22', 'col22')
-        ]
-    col_number=models.CharField(
+    ]
+    col_number = models.CharField(
         max_length=10,
         choices=COL_NUMBER_CHOICES,
         default='col1'
     )
     vitrina = models.ForeignKey('Vitrina', on_delete=models.CASCADE)
-    filter  = models.ForeignKey('FsspFilter', on_delete=models.CASCADE)
+    filter = models.ForeignKey('FsspFilter', on_delete=models.CASCADE)
     width = models.IntegerField(null='True')
-class FsspFilterCat (models.Model):
-    name = models.CharField(max_length=1000,null='False', blank='False', verbose_name='название')
+
+
+class FsspFilterCat(models.Model):
+    name = models.CharField(max_length=1000, null='False', blank='False', verbose_name='название')
 
     def __str__(self):
         return self.name
-class FsspFilter (models.Model):
+
+
+class FsspFilter(models.Model):
     name = models.CharField(max_length=1000, null='False', blank='False', verbose_name='название')
     sql_text = models.TextField(null='False', blank='False', verbose_name='Тело запроса')
     category = models.ForeignKey('FsspFilterCat', on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.category.name+':'+ self.name
+        return self.category.name + ':' + self.name
