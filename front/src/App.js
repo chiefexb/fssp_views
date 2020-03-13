@@ -96,17 +96,13 @@ import Button from '@material-ui/core/Button';
 import SettingsIcon from '@material-ui/icons/Settings';
 import MenuItem from '@material-ui/core/MenuItem';
 
-
+// End Import  ==========================================================================
 
 
 class App extends React.Component {
-    constructor() {
-        super();
-
-       // this.loadModel();
-
-        this.state = {
-            
+  constructor() {
+    super();
+    this.state = {
             lastname:'',
             result: [],
             result2: [],
@@ -130,199 +126,144 @@ class App extends React.Component {
             tooltip: false,
             windows: 'vitrina',
             debug: false
+    };
+
+    this.setwindows2_filters = this.setwindows2_filters.bind(this);
+    this.setwindows2_vitrina = this.setwindows2_vitrina.bind(this);
+    this.setdebug= this.setdebug.bind(this);
+    this.handleChange=this.handleChange.bind(this);
+    this.SQLChange=this.SQLChange.bind(this);
+    this.handleClickNewCat=this.handleClickNewCat.bind(this);
+    this.NewCatChange=this.NewCatChange.bind(this);
+    this.toggleDrawerOpen=this.toggleDrawerOpen.bind(this);
+    this.toggleDrawerClose=this.toggleDrawerClose.bind(this);
+    this.setwindows2_scheduller=this.setwindows2_scheduller.bind(this);
+    this.handleClickCount=this.handleClickCount.bind(this);
+    this.CounterChange=this.CounterChange.bind(this);
+    this.renderTable=this.renderTable.bind(this);
+    this.handleChange_spi_checked=this.handleChange_spi_checked.bind(this);
+
+    }
 
 
-        };
-       
-        this.setwindows2_filters = this.setwindows2_filters.bind(this);
-        this.setwindows2_vitrina = this.setwindows2_vitrina.bind(this);
-        this.setdebug= this.setdebug.bind(this);
-        this.handleChange=this.handleChange.bind(this);
-        this.SQLChange=this.SQLChange.bind(this);
-        
-        this.handleClickNewCat=this.handleClickNewCat.bind(this);
-        this.NewCatChange=this.NewCatChange.bind(this);
-        this.toggleDrawerOpen=this.toggleDrawerOpen.bind(this);
-        this.toggleDrawerClose=this.toggleDrawerClose.bind(this);
-        this.setwindows2_scheduller=this.setwindows2_scheduller.bind(this);
-        this.handleClickCount=this.handleClickCount.bind(this);
-        this.CounterChange=this.CounterChange.bind(this);
-        this.renderTable=this.renderTable.bind(this);
-        this.handleChange_spi_checked=this.handleChange_spi_checked.bind(this);
-        //handleChange_spi_checked
-        //renderTable
-        
-        // CounterChange
-        // handleClickCount(e) {
-        //this.DrawFilter=this.DrawFilter.bind(this);
-        
-        
-          
-          
-         
-}
-   setwindows2_filters() {
-         this.setState({windows: 'filters'});
-        this.toggleDrawerClose()
+    setwindows2_filters() {
+      this.setState({windows: 'filters'});
+      this.toggleDrawerClose()
          //this.render()
-   }; 
+    };
+
+
     setwindows2_scheduller() {
         this.setState({windows: 'scheduller'});
-   };
-   setwindows2_vitrina() {
-        this.setState({windows: 'vitrina'});
-   }; 
-   handleChange(e) {
-        let text = e.target.value;
-        this.setState({category: text});
+    };
+
+
+    setwindows2_vitrina() {
+      this.setState({windows: 'vitrina'});
+    };
+
+
+    handleChange(e) {
+      let text = e.target.value;
+      this.setState({category: text});
         //this.calculate(text);
-   };
-   handleChange_spi_checked(e) {
-	  
-	   
-	   let text2 = '0';
-	   
-	   if (e.target.checked) {
-		   text2=1
-	   };
-	   
-       this.setState({spi_checked: e.target.checked,
-			          spi_id: text2});
-   }
-   toggleDrawerOpen () {
+    };
 
-    
-         this.setState({ sidebar: true }) ;
-     
-   
-	}
-	
+
+    handleChange_spi_checked(e) {
+	    let text2 = '0';
+	    if (e.target.checked) {
+		    text2=1
+	    };
+
+      this.setState({spi_checked: e.target.checked,
+			               spi_id: text2});
+    }
+
+
+    toggleDrawerOpen () {
+      this.setState({ sidebar: true }) ;
+	  }
+
+
 	 toggleDrawerClose () {
+     this.setState({ sidebar: false }) ;
+   };
 
-    
-         this.setState({ sidebar: false }) ;
-     
-
-   }; 
    //vitrana/calc
     handleClickCount(e) {
-       
-       
-        let url='/api/vitrina/calc' ;
-        const  opts = {
-           //name: this.state.new_category,
-         //  result: 'rez' 
-         //  csrfmiddlewaretoken: {cookie.load("csrftoken")}
-        };  
-        //this.setState({new_category: ''});
-       axios.defaults.xsrfCookieName = "csrftoken";
-       axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
-
-       //your_client.setHeaders({"X-CSRFTOKEN": cookie.load("csrftoken")});
-       
-       axios.post(url,opts, {
-    headers: {
+    let url='/api/vitrina/calc' ;
+    const  opts = {         };
+    //this.setState({new_category: ''});
+    axios.defaults.xsrfCookieName = "csrftoken";
+    axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+    axios.post(url,opts, {
+      headers: {
         'Content-Type': 'application/json',
-        'X-CSRFTOKEN': cookie.load("csrftoken") 
-    }
-    
-})      
-.then((response) => {
-       this.setState({
+        'X-CSRFTOKEN': cookie.load("csrftoken")
+      }
+
+      })
+      .then((response) => {
+        this.setState({
             Loaded5: true,
             result5: response.data
         });
-  
-})
-.catch((error) => {
-    
-})
-       
-  //     axios.post(url,opts)
-//      .then(response => { 
-//      console.log('response')
-//       console.log(response);
-//        
- //      this.setState({
- //           Loaded4: true,
- //           result4: response.data
- //       });
- //     })
-//      .catch(error => {
-//      console.log(error);
-//      this.setState({Loaded4: false })
-//      })
-        
-        //this.calculate(text);
-    }    
-   handleClickNewCat(e) {
-       
-       
-        let url='/api/filter/category_add' ;
-        const  opts = {
-           name: this.state.new_category,
-           result: 'rez'
-          // csrfmiddlewaretoken: {cookie.load("csrftoken")}
-        };  
-        this.setState({new_category: ''});
-       axios.defaults.xsrfCookieName = "csrftoken";
-       axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 
-       //your_client.setHeaders({"X-CSRFTOKEN": cookie.load("csrftoken")});
-       
-       axios.post(url,opts, {
-    headers: {
-        'Content-Type': 'application/json',
-        'X-CSRFTOKEN': cookie.load("csrftoken") 
+      })
+      .catch((error) => {
+
+      })
     }
-    
-})      
-.then((response) => {
-       this.setState({
+
+
+    handleClickNewCat(e) {
+      let url='/api/filter/category_add' ;
+      const  opts = {
+        name: this.state.new_category,
+        result: 'rez'
+          // csrfmiddlewaretoken: {cookie.load("csrftoken")}
+        };
+      this.setState({new_category: ''});
+      axios.defaults.xsrfCookieName = "csrftoken";
+      axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+      axios.post(url,opts, {
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFTOKEN': cookie.load("csrftoken")
+        }
+        })
+        .then((response) => {
+          this.setState({
             Loaded4: true,
             result4: response.data
-        });
-  
-})
-.catch((error) => {
-    
-})
-       
-  //     axios.post(url,opts)
-//      .then(response => { 
-//      console.log('response')
-//       console.log(response);
-//        
- //      this.setState({
- //           Loaded4: true,
- //           result4: response.data
- //       });
- //     })
-//      .catch(error => {
-//      console.log(error);
-//      this.setState({Loaded4: false })
-//      })
-        
-        //this.calculate(text);
+          });
+
+      })
+      .catch((error) => {
+
+      })
+
+
     }
+
+
     NewCatChange (e)       {
         let text = e.target.value;
         this.setState({new_category: text});
         //this.calculate(text);
     }
-  
+
   CounterChange(e) {
         let text = e.target.value;
         this.setState({counter_id: text});
-       //  this.setState({loaded: false,
-		//	            result: []});
-	        
-	       //this.calculate(text);
-    }  
+
+
+    }
   renderTable() {
 	  this.setState({loaded: false,
 		            result: []});
-	  
+
     fetch(`api/vitrina?vitrina_id=1&counter_id=${this.state.counter_id}&spi_id=${this.state.spi_id}`)
       .then(response => {
         if (response.status > 400) {
@@ -340,27 +281,27 @@ class App extends React.Component {
           };
         });
       });
-        
-        //this.calculate(text);
-    }  
+
+
+    }
    SQLChange(e) {
         let text = e.target.value;
         this.setState({SQLtext: text});
         this.setState({code: text});
         //this.calculate(text);
     }
-  //    const handleChange = event => {
-  //  setCurrency(event.target.value);
-  //};
+
+
+
   setdebug() {
         if  (this.state.debug) {
         this.setState({debug: false});
        } else {
               this.setState({debug: true});
         }
-       
-    
-  }; 
+
+
+  };
 
 
  componentDidMount() {
@@ -398,7 +339,7 @@ fetch("api/filter/category")
           };
         });
       });
-      
+
        fetch("api/vitrina/counter?vitrina_id=1")
       .then(response => {
         if (response.status > 400) {
@@ -452,12 +393,12 @@ const StyledTableCell = withStyles(theme => ({
          {this.state.code}
 
           </SyntaxHighlighter>
-         
+
        let content = <div/>;
        let debug_info=<div/>;
-       
+
         if (this.state.debug) {
-         debug_info=JSON.stringify (this.state) 
+         debug_info=JSON.stringify (this.state)
         }
      if (this.state.windows==='vitrina') {
            document.title = "Витрины| ФССП Витрина";
@@ -471,54 +412,52 @@ const StyledTableCell = withStyles(theme => ({
 content=
 <div>
 <p></p>
-    <form  noValidate autoComplete="off">
-       <TextField
-          id="filter_category"
-          select
-          label="Категория"
-          value={this.state.counter_id}
-          onChange={this.CounterChange}
-          helperText="Выбор категории фильтра"
-        >  
-          {this.state.result5.rez.map(option => (
-            <MenuItem key={option.id} value={option.id}>
-              {option.name}
-            </MenuItem>
-          ))}
-        </TextField> 
-        <FormControl>
-        <FormControlLabel
+  <form  noValidate autoComplete="off">
+    <TextField
+      id="filter_category"
+      select
+      label="Категория"
+      value={this.state.counter_id}
+      onChange={this.CounterChange}
+      helperText="Выбор категории фильтра"
+    >
+      {this.state.result5.rez.map(option => (
+      <MenuItem key={option.id} value={option.id}>
+        {option.name}
+      </MenuItem>
+      ))}
+    </TextField>
+    <FormControl>
+      <FormControlLabel
         control={
           <Checkbox checked={this.state.spi_checked} onChange={this.handleChange_spi_checked} value="checkedA" />
         }
         label="Разбивка по СПИ"
-      /> 
-         </FormControl>
-        </form  >
- <TableContainer>
-      <Table border={1}  borderBottom={1} borderColor="text.primary">
-          {this.state.result2.rez.map(item => ( 
-        <TableHead   key={item.id}>
-          <TableRow borderBottom={1} borderColor="text.primary">
-           <StyledTableCell  align="center" >
+       />
+    </FormControl>
+  </form  >
+  <TableContainer>
+    <Table border={1}  borderBottom={1} borderColor="text.primary">
+      {this.state.result2.rez.map(item => (
+      <TableHead   key={item.id}>
+        <TableRow borderBottom={1} borderColor="text.primary">
+          <StyledTableCell  align="center" >
             {item.id}
           </StyledTableCell >
           <StyledTableCell align="center">
             {item.col1}
           </StyledTableCell >
-           <StyledTableCell align="center">
+          <StyledTableCell align="center">
             {item.col2}
           </StyledTableCell  >
-          
-          </TableRow>
-   
-          </TableHead>
-          ))}
-          
-               {this.state.result.rez.map(item2 => ( 
-             <TableBody  key={item2.id} > 
-            <TableRow borderBottom={1} borderColor="text.primary" >
-           <TableCell align="center">
+
+        </TableRow>
+      </TableHead>
+      ))}
+     {this.state.result.rez.map(item2 => (
+     <TableBody  key={item2.id} >
+       <TableRow borderBottom={1} borderColor="text.primary" >
+         <TableCell align="center">
             {item2.osp}
           </TableCell>
           <TableCell align="center">
@@ -527,19 +466,19 @@ content=
            <TableCell align="center">
             {item2.col2}
           </TableCell>
-          
+
           </TableRow>
           </TableBody>
          ))}
-        </Table >
-   </TableContainer>
-   </div>
+    </Table >
+</TableContainer>
+</div>
  }
-}   
+}
   }
-} 
- 
-} 
+}
+
+}
 }
 }
  if (this.state.windows==='scheduller') {
@@ -547,10 +486,11 @@ content=
   <div>Sheduller</div>
 }
        if (this.state.windows==='filters') {
-          if (this.state.loaded3) { 
+          if (this.state.loaded3) {
              if (this.state.result3.rez) {
           document.title = "Добавление фильров | ФССП Витрина"
- //DrawFilter
+
+
 content=
   <div>
           <form  noValidate autoComplete="off">
@@ -558,7 +498,7 @@ content=
           <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
           <Input
             id="standard-adornment-password"
-            type='text' 
+            type='text'
             value={this.state.category_new}
             onChange={this.NewCatChange}
             endAdornment={
@@ -566,7 +506,7 @@ content=
                 <IconButton
                   aria-label="toggle password visibility"
                   onClick={this.handleClickNewCat}
-                  
+
                 >
                   <AddIcon />
                 </IconButton>
@@ -574,7 +514,7 @@ content=
             }
           />
           </FormControl>
-          
+
             <TextField id="standard-basic" label="Standard" >
                        <IconButton    aria-label="delete">
                             <SettingsIcon />
@@ -588,13 +528,13 @@ content=
           value={this.state.category}
           onChange={this.handleChange}
           helperText="Выбор категории фильтра"
-        >  
+        >
           {this.state.result3.rez.map(option => (
             <MenuItem key={option.id} value={option.id}>
               {option.name}
             </MenuItem>
           ))}
-        </TextField> 
+        </TextField>
           <TextField
           id="outlined-multiline-static"
           label="Multiline"
@@ -605,18 +545,18 @@ content=
           fullWidth="true"
           onChange={this.SQLChange}
           />
-          
+
           </form>
-          
+
           <List>
-          
-          
-          
+
+
+
                <ListItem  dense button >
             <ListItemIcon>
               <Checkbox
-                
-                
+
+
               />
             </ListItemIcon>
             <ListItemText  primary="TEST" />
@@ -627,59 +567,55 @@ content=
               </IconButton>
             </ListItemSecondaryAction>
           </ListItem>
-          
+
           <ListItem button>
            <ListItemIcon>
             <CheckIcon />
            </ListItemIcon>
              </ListItem>
-          
+
           </List>
-          </div>            
+          </div>
 
 	  }}
-          
-            
-} 
 
 
+}
 
-         //const navbar = {backgroundColor: '#BBBBBB'};
-       
 
         return (
          <Container  maxWidth="false">
-           
+
       <Drawer anchor="left" open={this.state.sidebar} onClose={this.toggleDrawerClose} >
-         
-          
+
+
              <ListItem button onClick={this.setwindows2_filters } >
                <ListItemIcon>             <FilterListIcon /> </ListItemIcon>
-                <ListItemText primary='Фильтры' /> 
+                <ListItemText primary='Фильтры' />
              </ListItem>
-                             
-            <ListItem button  onClick={ this.setwindows2_scheduller}>                  
+
+            <ListItem button  onClick={ this.setwindows2_scheduller}>
             <ListItemIcon><FormatListBulletedIcon /></ListItemIcon>
             <ListItemText primary='Планировщик' />
           </ListItem>
-         
+
       </Drawer>
-       
+
             <AppBar position="static">
                 <Toolbar >
                   <img src="/static/head_left.gif" alt="logo"  />
 
-                    
-                       
+
+
                          <Button color="inherit">ОИП</Button>
                             <Button color="inherit">Депозит</Button>
                                <Button color="inherit">Login</Button>
-                         
 
 
-                          
 
-                             
+
+
+
                               <IconButton   onClick={this.setwindows2_vitrina} aria-label="delete">
                              <ViewListIcon />
                              </IconButton>
@@ -704,23 +640,23 @@ content=
 
 
 
-                             
-                             
-                           
-                   
+
+
+
+
                  </Toolbar>
                       </AppBar>
                       {debug_info}
-                     
-                   
+
+
           {content}
-     
- 
+
+
    </Container>
-      
+
 );
 
-        
+
     }
 }
 
