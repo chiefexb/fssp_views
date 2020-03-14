@@ -95,7 +95,7 @@ import CommentIcon from '@material-ui/icons/Comment';
 import Button from '@material-ui/core/Button';
 import SettingsIcon from '@material-ui/icons/Settings';
 import MenuItem from '@material-ui/core/MenuItem';
-import {  useAuth } from "./context/auth";
+//import {  useAuth } from "./context/auth";
 
 // End Import  ==========================================================================
 
@@ -304,7 +304,7 @@ class App extends React.Component {
 
 }
     render() {
-const isAuthenticated = useAuth();
+//const isAuthenticated = useAuth();
 const StyledTableCell = withStyles(theme => ({
   head: {
     backgroundColor: theme.palette.common.black,
