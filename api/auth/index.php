@@ -36,7 +36,7 @@ if (count ($row)>0 ) {
    $hashp=$row[0]['hash_password']; 
    $pass_ver=password_verify( $data['password'] ,$hashp) ;
    $ar= array (
-      array("auth"=>"yes","token" => "$hashp") ;
+      array("auth"=>"yes","token" => $hashp) ;
    ); 
    } else {
        array("auth"=>"no","error" => "user not found") ;
