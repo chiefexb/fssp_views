@@ -1,23 +1,27 @@
 - hosts: localhost
   tasks:
-  - name: install
-    shell: 'cd {{ path_to_front }} && npm install'
-  - name: build swagger
-    shell: 'cd {{ path_to_swagger }} && npm install'
+#  - name: install
+#    shell: 'cd {{ path_to_front }} && npm install'
+#  - name: build swagger
+#    shell: 'cd {{ path_to_swagger }} && npm install'
+    
   - name: build front
     shell: 'cd {{ path_to_front }} && npm run build'
+    
   - name: build swagger
     shell: 'cd {{ path_to_swagger }} && npm run build'
-  - name: migrate 
-    shell: 'cd {{ path_to_home }} && python3 ./manage.py makemigrations'
-  - name: migrate 
-    shell: 'cd {{ path_to_home }} && python3 ./manage.py migrate'
+    
+#  - name: migrate 
+#    shell: 'cd {{ path_to_home }} && python3 ./manage.py makemigrations'
+    
+#  - name: migrate 
+#    shell: 'cd {{ path_to_home }} && python3 ./manage.py migrate'
     
   - name: reload service httpd, in all cases
     systemd:
       name: '{{ item }}'
       state: stopped
-    with_items: ['apache2', 'celery']
+    with_items: ['apache2']
     
   - name: reload service httpd, in all cases
     file:
@@ -30,19 +34,26 @@
       
   - name: Compress directory /path/to/foo/ into /path/to/foo.tgz
     archive:
-      path: '{{  path_to_front }}/build/static'
+      path: '{{  path_to_front }}/build'
       dest: /tmp/front.tgz
-  - name: Compress directory /path/to/foo/ into /path/to/foo.tgz
-    archive:
-      path: '{{  path_to_swagger }}/build/static'
-      dest: /tmp/swagger.tgz       
-  - name: Compress directory /path/to/foo/ into /path/to/foo.tgz
-    archive:
-      path: '{{  path_to_front }}/../static'
-      dest: /tmp/admin.tgz 
+      
+#  - name: Compress directory /path/to/foo/ into /path/to/foo.tgz
+#    archive:
+#      path: '{{  path_to_swagger }}/build/static'
+#      dest: /tmp/swagger.tgz 
+            
+#  - name: Compress directory /path/to/foo/ into /path/to/foo.tgz
+#    archive:
+#      path: '{{  path_to_front }}/../static'
+#      dest: /tmp/admin.tgz 
 
- 
-  - name: copy
+#  - name: copy front 1
+#    copy:
+#      src: '{{  path_to_front }}/index.html'
+#      dest:  '{{ path_to_www }}'
+#      remote_src: yes
+       
+  - name: copy front 2
     unarchive:
       src: /tmp/front.tgz  
       dest:  '{{ path_to_www }}'
@@ -52,15 +63,16 @@
       src: /tmp/admin.tgz 
       dest:  '{{ path_to_www }}'
       remote_src: yes
-  - name: copy
-    unarchive:
-      src: /tmp/swagger.tgz 
-      dest:  '{{ path_to_www }}'
-      remote_src: yes
+      
+#  - name: copy
+#    unarchive:
+#      src: /tmp/swagger.tgz 
+#      dest:  '{{ path_to_www }}'
+#      remote_src: yes
       
   - name: reload service httpd, in all cases
     systemd:
       name: '{{ item }}'
       state: started
-    with_items: ['apache2', 'celery']
+    with_items: ['apache2']
       
