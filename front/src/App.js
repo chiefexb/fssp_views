@@ -95,6 +95,7 @@ import CommentIcon from '@material-ui/icons/Comment';
 import Button from '@material-ui/core/Button';
 import SettingsIcon from '@material-ui/icons/Settings';
 import MenuItem from '@material-ui/core/MenuItem';
+import {  useAuth } from "./context/auth";
 
 // End Import  ==========================================================================
 
@@ -218,33 +219,7 @@ class App extends React.Component {
 
 
     handleClickNewCat(e) {
-      let url='/api/filter/category_add' ;
-      const  opts = {
-        name: this.state.new_category,
-        result: 'rez'
-          // csrfmiddlewaretoken: {cookie.load("csrftoken")}
-        };
-      this.setState({new_category: ''});
-      axios.defaults.xsrfCookieName = "csrftoken";
-      axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
-      axios.post(url,opts, {
-        headers: {
-          'Content-Type': 'application/json',
-          'X-CSRFTOKEN': cookie.load("csrftoken")
-        }
-        })
-        .then((response) => {
-          this.setState({
-            Loaded4: true,
-            result4: response.data
-          });
-
-      })
-      .catch((error) => {
-
-      })
-
-
+    
     }
 
 
@@ -305,24 +280,9 @@ class App extends React.Component {
 
 
  componentDidMount() {
-fetch("api/filter/category")
-      .then(response => {
-        if (response.status > 400) {
-          return this.setState(() => {
-            return { placeholder: "Something went wrong!" };
-          });
-        }
-        return response.json();
-      })
-      .then(result3 => {
-        this.setState(() => {
-          return {
-            result3,
-            loaded3: true
-          };
-        });
-      });
-    fetch("api/vitrina?vitrina_id=1&counter_id=1&spi_id=0")
+
+    //fetch("api?vitrina_id=1&counter_id=1&spi_id=0")
+    fetch("api")
       .then(response => {
         if (response.status > 400) {
           return this.setState(() => {
@@ -340,44 +300,11 @@ fetch("api/filter/category")
         });
       });
 
-       fetch("api/vitrina/counter?vitrina_id=1")
-      .then(response => {
-        if (response.status > 400) {
-          return this.setState(() => {
-            return { placeholder: "Something went wrong!" };
-          });
-        }
-        return response.json();
-      })
-      .then(result5 => {
-        this.setState(() => {
-          return {
-            result5,
-            loaded5: true
-          };
-        });
-      });
-
-fetch("api/vitrina/field?vitrina_id=1")
-      .then(response => {
-        if (response.status > 400) {
-          return this.setState(() => {
-            return { placeholder: "Something went wrong!" };
-          });
-        }
-        return response.json();
-      })
-      .then(result2 => {
-        this.setState(() => {
-          return {
-            result2,
-            loaded2: true
-          };
-        });
-      });
+  
 
 }
     render() {
+const isAuthenticated = useAuth();
 const StyledTableCell = withStyles(theme => ({
   head: {
     backgroundColor: theme.palette.common.black,
@@ -403,58 +330,35 @@ const StyledTableCell = withStyles(theme => ({
      if (this.state.windows==='vitrina') {
            document.title = "Витрины| ФССП Витрина";
          if (this.state.loaded) {
-             if (this.state.result.rez) {
-                if (this.state.loaded2) {
-             if (this.state.result2.rez) {
-				if (this.state.loaded5) {
-			    if (this.state.result5.rez) {
+             if (this.state.result) {
+            //    if (this.state.loaded2) {
+             //if (this.state.result2.rez) {
+			//	if (this.state.loaded5) {
+			//    if (this.state.result5.rez) {
 //DrawView
 content=
 <div>
 <p></p>
-  <form  noValidate autoComplete="off">
-    <TextField
-      id="filter_category"
-      select
-      label="Категория"
-      value={this.state.counter_id}
-      onChange={this.CounterChange}
-      helperText="Выбор категории фильтра"
-    >
-      {this.state.result5.rez.map(option => (
-      <MenuItem key={option.id} value={option.id}>
-        {option.name}
-      </MenuItem>
-      ))}
-    </TextField>
-    <FormControl>
-      <FormControlLabel
-        control={
-          <Checkbox checked={this.state.spi_checked} onChange={this.handleChange_spi_checked} value="checkedA" />
-        }
-        label="Разбивка по СПИ"
-       />
-    </FormControl>
-  </form  >
+ 
   <TableContainer>
     <Table border={1}  borderBottom={1} borderColor="text.primary">
-      {this.state.result2.rez.map(item => (
-      <TableHead   key={item.id}>
+     
+      <TableHead   >
         <TableRow borderBottom={1} borderColor="text.primary">
           <StyledTableCell  align="center" >
-            {item.id}
+            1
           </StyledTableCell >
           <StyledTableCell align="center">
-            {item.col1}
+           2
           </StyledTableCell >
           <StyledTableCell align="center">
-            {item.col2}
+           3
           </StyledTableCell  >
 
         </TableRow>
       </TableHead>
-      ))}
-     {this.state.result.rez.map(item2 => (
+      
+     {this.state.result.map(item2 => (
      <TableBody  key={item2.id} >
        <TableRow borderBottom={1} borderColor="text.primary" >
          <TableCell align="center">
@@ -473,10 +377,10 @@ content=
     </Table >
 </TableContainer>
 </div>
- }
-}
-  }
-}
+// }
+//}
+//  }
+//}
 
 }
 }
@@ -632,7 +536,7 @@ content=
                           <IconButton  onClick={this.handleClickCount}  aria-label="delete">
                             <ScheduleIcon />
                              </IconButton>
-                                <IconButton  onClick={this.toggleDrawerOpen}  aria-label="delete">
+                                <IconButton disable ={ !isAuthenticated } onClick={this.toggleDrawerOpen}  aria-label="delete">
                             <SettingsIcon />
                              </IconButton>
                              //
