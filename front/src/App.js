@@ -144,7 +144,7 @@ class App extends React.Component {
     this.CounterChange=this.CounterChange.bind(this);
     this.renderTable=this.renderTable.bind(this);
     this.handleChange_spi_checked=this.handleChange_spi_checked.bind(this);
-    this.is_auth=this.is_auth.bind(this);
+    //this.is_auth=this.is_auth.bind(this);
     
 
     }
