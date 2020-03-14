@@ -95,6 +95,11 @@ import CommentIcon from '@material-ui/icons/Comment';
 import Button from '@material-ui/core/Button';
 import SettingsIcon from '@material-ui/icons/Settings';
 import MenuItem from '@material-ui/core/MenuItem';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle'
 //import {  useAuth } from "./context/auth";
 
 // End Import  ==========================================================================
@@ -127,7 +132,9 @@ class App extends React.Component {
             loaded5: false,
             tooltip: false,
             windows: 'vitrina',
-            debug: false
+            debug: false,
+            login_name:'',
+            passw: ''
     };
 
     this.setwindows2_filters = this.setwindows2_filters.bind(this);
@@ -144,7 +151,16 @@ class App extends React.Component {
     this.CounterChange=this.CounterChange.bind(this);
     this.renderTable=this.renderTable.bind(this);
     this.handleChange_spi_checked=this.handleChange_spi_checked.bind(this);
-    //this.is_auth=this.is_auth.bind(this);
+    this.handleClickOpen=this.handleClickOpen.bind(this);
+    this.handleClose=this.handleClose.bind(this);
+    this.handleLogin=this.handleLogin.bind(this);
+    this.handleLoginChange=this.handleLoginChange.bind(this);
+    this.handlePasswChange=this.handlePasswChange.bind(this); 
+    
+    
+     
+   
+    
     
 
     }
@@ -172,7 +188,60 @@ class App extends React.Component {
       this.setState({category: text});
         //this.calculate(text);
     };
+    
+    handleLoginChange(e) {
+      let text = e.target.value;
+      this.setState({login_name: text});
+        //this.calculate(text);
+    };
+      handlePasswChange(e) {
+      let text = e.target.value;
+      this.setState({passw: text});
+        //this.calculate(text);
+    }
+    handleLogin() {
+		
+		let url='/api/auth' ;
+    const  opts = { login: this.state.login_name,  password: this.state.passw        };
+    //this.setState({new_category: ''});
+    axios.defaults.xsrfCookieName = "csrftoken";
+    axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+    axios.post(url,opts, {
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFTOKEN': cookie.load("csrftoken")
+      }
 
+      })
+      .then((response) => {
+        this.setState({
+            Loaded5: true,
+            result5: response.data
+        });
+
+      })
+      .catch((error) => {
+
+      })
+      
+      //let login = this.refs.login;
+      //this.setState({category: login});
+      
+       // console.log(this.refs.password);
+       // console.log(this.refs.password.getValue());
+     // this.refs.dialog.dismiss();
+      
+     this.setState({ login_form: false ,passw: '', login_name: ''}) ; 
+      // this.setState({ is_auth: true }) ; 
+        //this.calculate(text);
+    };
+    handleClickOpen  ()      {
+      this.setState({ login_form: true }) ;
+	  };
+	  
+	  handleClose  ()      {
+		  this.setState({ login_form: false }) ; 
+	  }
 
     handleChange_spi_checked(e) {
 	    let text2 = '0';
@@ -553,6 +622,44 @@ content=
 
                  </Toolbar>
                       </AppBar>
+    <div>
+      <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
+        Open form dialog
+      </Button>
+      <Dialog ref = 'dialog' open={this.state.login_form} onClose={this.handleClose} aria-labelledby="form-dialog-title">
+        <DialogTitle id="form-dialog-title">Войти</DialogTitle>
+        <DialogContent>
+    
+          <TextField
+            autoFocus
+            margin="dense"
+            id="login"
+            label="login"
+            type="text"
+            fullWidth
+             onChange={this.handleLoginChange}/>
+          />
+           <TextField
+           
+            autoFocus
+            margin="dense"
+            id="password"
+            label="Password"
+            type="password"
+            fullWidth
+             onChange={this.handlePasswChange}/>
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={this.handleClose} color="primary">
+            Cancel
+          </Button>
+          <Button onClick={this.handleLogin} color="primary">
+            Login
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </div> 
                       {debug_info}
 
 
