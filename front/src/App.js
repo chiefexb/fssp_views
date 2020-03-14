@@ -539,7 +539,7 @@ content=
                           <IconButton  onClick={this.handleClickCount}  aria-label="delete">
                             <ScheduleIcon />
                              </IconButton>
-                                <IconButton   disabled={this.state.is_auth} onClick={this.toggleDrawerOpen}  aria-label="delete">
+                                <IconButton   disabled={!this.state.is_auth} onClick={this.toggleDrawerOpen}  aria-label="delete">
                             <SettingsIcon />
                              </IconButton>
                           
