@@ -38,7 +38,7 @@ if (count ($row)>0 ) {
    $ar=   array("auth"=>"yes","token" => $hashp)  ;
      
    } else {
-       array("auth"=>"no","error" => "user not found") ;
+       $ar= array("auth"=>"no","error" => "user not found") ;
    };
 
 
