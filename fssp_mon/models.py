@@ -1,7 +1,15 @@
 from django.db import models
 import datetime
 
-
+class User (models.Model):
+     login= models.CharField(max_length=1000, null='False', blank='False', verbose_name='название')
+     hash_password = models.CharField(max_length=1000, null='False', blank='False')
+    
+class Token (models.Model):
+    token =models.CharField(max_length=1000, null='False', blank='False', verbose_name='название')
+    date_create = models.DateTimeField(null='False', default=datetime.datetime(2019, 11, 26, 14, 22, 40, 267301))
+    active = models.BooleanField(null='False', default=True)
+    
 class Osp(models.Model):
     full_name = models.CharField(max_length=1000, null='False', blank='False', verbose_name='название')
     short_name = models.CharField(max_length=1000, null='False', blank='False', verbose_name='название')
