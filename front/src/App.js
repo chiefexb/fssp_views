@@ -287,8 +287,16 @@ class App extends React.Component {
       .catch((error) => {
 
       })
+      
+       if (this.state.Loaded5)  {
+		  if (this.state.result5.auth='yes') {
+		localStorage.setItem('Token', this.state.result5.token);
+		 this.setState({is_auth: true});
+	      }
+	}
     }
-
+   
+    
 
     handleClickNewCat(e) {
     
