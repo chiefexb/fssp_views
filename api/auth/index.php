@@ -34,6 +34,7 @@ $row=$result -> fetch_all(MYSQLI_ASSOC);
 
 if (count ($row)>0 ) {
    $hashp=$row[0]['hash_password']; 
+   $token =password_hash($login, PASSWORD_DEFAULT);
    $pass_ver=password_verify( $data['password'] ,$hashp) ;
    $ar=   array("auth"=>"yes","token" => $hashp)  ;
      
@@ -42,12 +43,12 @@ if (count ($row)>0 ) {
    };
 
 
-//var_dump( $base . $salt);
+//var_dump($ar);
 
 //var_dump($pass_ver);
 //var_dump(hash_equals($expected, $incorrect));
 
-echo json_encode($arr);
+echo json_encode($ar);
 
 ?>
 
