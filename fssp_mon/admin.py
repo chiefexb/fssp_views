@@ -20,6 +20,8 @@ admin.site.register(FsspFilter)
 admin.site.register(VitrinaCustom)
 admin.site.register(VitrinaFieldMap)
 admin.site.register(VitrinaCounter )
+admin.site.register(User)
+admin.site.register(Token)
 
 
 
