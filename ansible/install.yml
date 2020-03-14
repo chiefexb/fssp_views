@@ -34,7 +34,7 @@
       
   - name: Compress directory /path/to/foo/ into /path/to/foo.tgz
     archive:
-      path: '{{  path_to_front }}/build'
+      path: '{{  path_to_front }}/build/.'
       dest: /tmp/front.tgz
       
 #  - name: Compress directory /path/to/foo/ into /path/to/foo.tgz
@@ -48,7 +48,7 @@
 #      dest: /tmp/admin.tgz 
 
 #  - name: copy front 1
-#    copy:
+##    copy:
 #      src: '{{  path_to_front }}/index.html'
 #      dest:  '{{ path_to_www }}'
 #      remote_src: yes
