@@ -542,7 +542,7 @@ content=
                                 <IconButton   disabled={this.state.is_auth} onClick={this.toggleDrawerOpen}  aria-label="delete">
                             <SettingsIcon />
                              </IconButton>
-                             //
+                          
 
 
 
