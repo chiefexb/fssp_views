@@ -1,0 +1,177 @@
+---
+swagger: "2.0"
+info:
+  description: "Публичный API доступа к банку данных исполнительных производств
+разработан во исполнение пункта 7.4 Порядка создания и ведения банка данных
+в исполнительном производстве Федеральной службы судебных приставов,
+утвержденного приказом Федеральной службы судебных приставов от
+12 мая 2012 г. No 248 (в редакции приказа от 27.12.2017 No 676)."
+  version: "1.0"
+  title: "BD API  Федеральной службы судебных приставов"
+  contact:
+    email: admin@fssprus.ru
+    
+
+host: api-ip.fssprus.ru
+basePath: '/api/v1.0/'
+tags:
+  - name: search
+    description: Описание методов API
+    externalDocs:
+      description: Find out more
+      url: 'http://swagger.io'
+schemes:
+- https
+paths:
+  /search/physical:
+    get:
+      tags:
+        - search
+      summary: Запрос на поиск сведений о физическом лице
+      parameters:
+      - name: region
+        in: path
+        type: number
+        required: true
+        
+      - name: firstname
+        in: path
+        type: string
+        required: true
+
+      - name: lastname
+        in: path
+        type: string
+        required: true
+
+
+      - name: birthdate
+        in: path
+        type: string
+        
+
+       
+
+   
+      responses:
+        "401":
+          description: invalid token
+          $ref: '#/responses/Unauthorized'
+
+           
+        "200":
+          responseParameters:
+              method.response.header.Access-Control-Allow-Headers : "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods : "'*'"
+              method.response.header.Access-Control-Allow-Origin : "'*'"
+          description: successful operation
+  /search/legal:
+    get:
+      tags:
+        - search
+      summary: Запрос на поиск сведений о юридическом лице
+      parameters:
+      - name: name
+        in: path
+        required: true
+        type: string
+      - name: region
+        in: path
+        required: true
+        type: number
+      - name: adress
+        in: path
+        required: false
+        type: string
+   
+      responses:
+        "200":
+          responseParameters:
+              method.response.header.Access-Control-Allow-Headers : "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods : "'*'"
+              method.response.header.Access-Control-Allow-Origin : "'*'"
+          description: successful operation
+  /search/ip:
+    get:
+      tags:
+        - search
+      parameters:
+      - name: name
+        in: path
+        required: true
+        type: string
+      - name: region
+        in: path
+        required: true
+        type: number
+      - name: adress
+        in: path
+        required: false
+        type: string
+   
+      responses:
+        "200":
+          responseParameters:
+              method.response.header.Access-Control-Allow-Headers : "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods : "'*'"
+              method.response.header.Access-Control-Allow-Origin : "'*'"
+          description: successful operation
+  /search/group:
+    post:
+      tags:
+        - search
+      parameters:
+      - name: name
+        in: path
+        required: true
+        type: string
+      - name: region
+        in: path
+        required: true
+        type: number
+      - name: adress
+        in: path
+        required: false
+        type: string
+   
+      responses:
+        "200":
+          responseParameters:
+              method.response.header.Access-Control-Allow-Headers : "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods : "'*'"
+              method.response.header.Access-Control-Allow-Origin : "'*'"
+          description: successful operation
+securityDefinitions:
+  APIKeyQueryParam:
+    type: apiKey
+    name: token
+    in: query
+responses:
+  Unauthorized:
+    description: Unauthorized
+    schema:
+      $ref: '#/definitions/Response'
+    example: 
+      status: error
+      code: 401
+      exception": invalid token
+definitions:
+  Response:
+    type: object
+    properties:
+      status: 
+        type: string
+      code: 
+        type: integer
+ 
+
+  Category:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+    xml:
+      name: Category
