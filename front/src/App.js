@@ -201,7 +201,7 @@ class App extends React.Component {
     }
     handleLogin() {
 		
-		let url='/api/auth' ;
+		let url='/api/auth/index.php' ;
     const  opts = { login: this.state.login_name,  password: this.state.passw        };
     //this.setState({new_category: ''});
     axios.defaults.xsrfCookieName = "csrftoken";
