@@ -111,6 +111,7 @@ class App extends React.Component {
             result4: [],
             result5: [],
             spi_id:'0',
+            is_auth: false,
             spi_checked: false,
             sidebar: false,
             SQLtext:'',
@@ -143,6 +144,8 @@ class App extends React.Component {
     this.CounterChange=this.CounterChange.bind(this);
     this.renderTable=this.renderTable.bind(this);
     this.handleChange_spi_checked=this.handleChange_spi_checked.bind(this);
+    this.is_auth=this.is_auth.bind(this);
+    
 
     }
 
@@ -536,7 +539,7 @@ content=
                           <IconButton  onClick={this.handleClickCount}  aria-label="delete">
                             <ScheduleIcon />
                              </IconButton>
-                                <IconButton disable ={ !isAuthenticated } onClick={this.toggleDrawerOpen}  aria-label="delete">
+                                <IconButton disable ={ this.state.is_auth } onClick={this.toggleDrawerOpen}  aria-label="delete">
                             <SettingsIcon />
                              </IconButton>
                              //
