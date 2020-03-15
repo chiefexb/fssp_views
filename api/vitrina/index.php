@@ -3,7 +3,7 @@
 //user = fssp
 //password = Exb021205!
 //default-character-set = utf8
-
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 $mysqli = new mysqli("localhost", "fssp", "Exb021205!", "fssp");
 
 /* проверяем соединение */
@@ -41,6 +41,7 @@ echo json_encode($row);
 //}
 
 $result->free();
+};
 
 ?>
 

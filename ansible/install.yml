@@ -37,10 +37,10 @@
       path: '{{  path_to_front }}/build/.'
       dest: /tmp/front.tgz
       
-#  - name: Compress directory /path/to/foo/ into /path/to/foo.tgz
-#    archive:
-#      path: '{{  path_to_swagger }}/build/static'
-#      dest: /tmp/swagger.tgz 
+  - name: Compress directory /path/to/foo/ into /path/to/foo.tgz
+    archive:
+      path: '{{  path_to_swagger }}/build/.'
+      dest: /tmp/swagger.tgz 
             
   - name: Compress directory /path/to/foo/ into /path/to/foo.tgz
     archive:
@@ -64,11 +64,11 @@
       dest:  '{{ path_to_www }}'
       remote_src: yes
       
-#  - name: copy
-#    unarchive:
-#      src: /tmp/swagger.tgz 
-#      dest:  '{{ path_to_www }}'
-#      remote_src: yes
+  - name: copy
+    unarchive:
+      src: /tmp/swagger.tgz 
+      dest:  '{{ path_to_www }}/api'
+      remote_src: yes
       
   - name: reload service httpd, in all cases
     systemd:
