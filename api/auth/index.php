@@ -1,4 +1,5 @@
 <?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $postData = file_get_contents('php://input');
 $data = json_decode($postData, true);
 
@@ -49,6 +50,6 @@ if (count ($row)>0 ) {
 //var_dump(hash_equals($expected, $incorrect));
 
 echo json_encode($ar);
-
+};
 ?>
 

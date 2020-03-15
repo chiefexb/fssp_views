@@ -233,7 +233,7 @@ class App extends React.Component {
       
      this.setState({ login_form: false ,passw: '', login_name: ''}) ; 
      if (this.state.Loaded5)  {
-		  if (this.state.result5.auth='yes') {
+		  if (this.state.result5.auth=='yes') {
 		localStorage.setItem('Token', this.state.result5.token);
 		 this.setState({is_auth: true});
 	      }
