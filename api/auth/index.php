@@ -50,6 +50,8 @@ if (count ($row)>0 ) {
 //var_dump(hash_equals($expected, $incorrect));
 
 echo json_encode($ar);
+} else {
+	header("HTTP/1.0 404 Not Found");
 };
 ?>
 
