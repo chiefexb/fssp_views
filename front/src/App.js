@@ -341,7 +341,7 @@ class App extends React.Component {
 
    handleMenuClose (e) {
     this.setState({ menu_open: false,vitrina_id: e.target.value, anchor_el: null}) ;
-    this.setState({ menu_open: false,vitrina_id: e.target.value, anchor_el: null}) ;
+   // this.setState({ menu_open: false,vitrina_id: e.target.value, anchor_el: null}) ;
   };  
   renderTable() {
 
@@ -707,7 +707,7 @@ content=
                          <Button   onClick= {this.handleMenuClick } color="inherit">ОИП</Button>
                          <Menu
   id="simple-menu"
-  //anchorEl={this.state.anchor_el}
+  anchorEl={this.state.anchor_el}
   keepMounted
   open={this.state.menu_open}
   onClose={this.handleMenuClose}
