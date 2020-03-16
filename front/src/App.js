@@ -707,13 +707,9 @@ content=
       {popupState => (
         <React.Fragment>
 
-                         <Button   onClick= {this.handleMenuClick } color="inherit">ОИП</Button>
+                         <Button  {...bindTrigger(popupState)}  >ОИП</Button>
                          <Menu    {...bindMenu(popupState)}
-  id="simple-menu"
-  //anchorEl={this.state.anchor_el}
-  keepMounted
-  open={this.state.menu_open}
-  onClose={this.handleMenuClose}
+  
 >
   <MenuItem value='1' onClick={this.handleMenuClose}>Окончание</MenuItem>
   <MenuItem value='2' onClick={this.handleMenuClose}>Постановления</MenuItem>
