@@ -31,6 +31,12 @@
     file:
       path: '{{ path_to_www }}' 
       state: directory
+ 
+  - name: Delete alld
+    file:
+      state: absent
+      path: '{{ item }}'
+    with_items: ['/tmp/front.tgz','/tmp/api.tgz']
       
   - name: Compress directory /path/to/foo/ into /path/to/foo.tgz
     archive:
@@ -41,6 +47,7 @@
 #    archive:
 #      path: '{{  path_to_swagger }}/build/.'
 #      dest: /tmp/swagger.tgz 
+    
             
   - name: Compress directory /path/to/foo/ into /path/to/foo.tgz
     archive:
