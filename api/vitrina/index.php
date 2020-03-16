@@ -21,7 +21,7 @@ if(isset($_GET["spi_id"]))  {
 //$spi_id= array_search($, $array, strict_parameter)
 // r = p2.values('osp').order_by('osp').annotate(count=Count('osp'))
 if ($spi_id=='0') {
-$sql="select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,'-' as col1, count(*) as col2,
+$sql="select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,'-' as col1, count(osp) as col2,
 SUM(CASE WHEN (col2='47' and col3='1' and col4='1') THEN 1 ELSE 0 END ) as col3,
 SUM(CASE WHEN (col2='47' and col3='1' and col4='2') THEN 1 ELSE 0 END ) as col4
          from fssp_mon_vitrinavalue vv           where vitrina_id=1 group by  osp order by osp";
