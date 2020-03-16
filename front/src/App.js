@@ -706,7 +706,7 @@ content=
 
 
 
-                         <Button   onClick= {this.handleMenuClick }   >ОИП</Button>
+                         <Button id="menu-button"   onClick= {this.handleMenuClick }   >ОИП</Button>
                          <Menu  
   id="simple-menu"
   anchorEl={this.state.anchor_el}
