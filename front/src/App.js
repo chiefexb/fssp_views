@@ -266,6 +266,7 @@ class App extends React.Component {
 
       this.setState({spi_checked: e.target.checked,
 			               spi_id: text2});
+	  this.renderTable;
     }
 
 
