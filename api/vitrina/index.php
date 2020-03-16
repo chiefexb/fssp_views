@@ -11,8 +11,14 @@ if (mysqli_connect_errno()) {
     printf("Connect failed: %s\n", mysqli_connect_error());
     exit();
 }
+$spi_id='1';
+if(isset($_GET["spi_id"]))  {
+    if(!empty($_GET["spi_id"])) {
+		$spi_id=$_GET["spi_id"]
+	};
+};
 
-
+//$spi_id= array_search($, $array, strict_parameter)
 $sql =  "select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,spi as col1 , count(*) as col2         from fssp_mon_vitrinavalue vv           where vitrina_id=1 group by vv.spi, osp order by osp";
 
 $mysqli->set_charset('utf8');

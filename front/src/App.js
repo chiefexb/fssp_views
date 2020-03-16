@@ -57,6 +57,8 @@ import ViewListIcon from '@material-ui/icons/ViewList';
 import BugReportIcon from '@material-ui/icons/BugReport';
 import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
 import AddIcon from '@material-ui/icons/Add';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem'
 
 
 
@@ -94,7 +96,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import CommentIcon from '@material-ui/icons/Comment';
 import Button from '@material-ui/core/Button';
 import SettingsIcon from '@material-ui/icons/Settings';
-import MenuItem from '@material-ui/core/MenuItem';
+
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -115,6 +117,7 @@ class App extends React.Component {
             result3: [],
             result4: [],
             result5: [],
+            anchor_el: null,
             spi_id:'0',
             is_auth: false,
             spi_checked: false,
@@ -123,6 +126,7 @@ class App extends React.Component {
             code: '',
             category: 1,
             counter_id:1,
+            vitrina_id:'1',
             new_category: '',
             region: '',
             but_push: false,
@@ -130,6 +134,8 @@ class App extends React.Component {
             loaded2: false,
             loaded3: false,
             loaded5: false,
+            menu_open: false,
+            login_form: false,
             tooltip: false,
             windows: 'vitrina',
             debug: false,
@@ -156,6 +162,9 @@ class App extends React.Component {
     this.handleLogin=this.handleLogin.bind(this);
     this.handleLoginChange=this.handleLoginChange.bind(this);
     this.handlePasswChange=this.handlePasswChange.bind(this); 
+    this.handleMenuClose=this.handleMenuClose.bind(this); 
+    this.handleMenuClick=this.handleMenuClick.bind(this); 
+    
     
     
      
@@ -316,6 +325,15 @@ class App extends React.Component {
 
 
     }
+  handleMenuClick (e) {
+	  this.setState({ anchor_el: event.currentTarget, menu_open: true}) ; 
+    
+  };
+
+   handleMenuClose (e) {
+    this.setState({ menu_open: false,vitrina_id: e.target.value, anchor_el: null}) ;
+    this.setState({ menu_open: false,vitrina_id: e.target.value, anchor_el: null}) ;
+  };  
   renderTable() {
 	  this.setState({loaded: false,
 		            result: []});
@@ -569,7 +587,7 @@ content=
 
 
         return (
-         <Container  maxWidth="false">
+         <Container  maxWidth={false}>
 
       <Drawer anchor="left" open={this.state.sidebar} onClose={this.toggleDrawerClose} >
 
@@ -592,7 +610,18 @@ content=
 
 
 
-                         <Button color="inherit">ОИП</Button>
+                         <Button   onClick= {this.handleMenuClick } color="inherit">ОИП</Button>
+                         <Menu
+  id="simple-menu"
+  anchorEl={this.state.anchor_el}
+  keepMounted
+  open={this.state.menu_open}
+  onClose={this.handleMenuClose}
+>
+  <MenuItem value='1' onClick={this.handleMenuClose}>Окончание</MenuItem>
+  <MenuItem value='2' onClick={this.handleMenuClose}>Постановления</MenuItem>
+  <MenuItem value='3' onClick={this.handleMenuClose}>Депозит</MenuItem>
+</Menu>
                             <Button color="inherit">Депозит</Button>
                                <Button color="inherit">Login</Button>
 
@@ -635,7 +664,7 @@ content=
       <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
         Open form dialog
       </Button>
-      <Dialog ref = 'dialog' open={this.state.login_form} onClose={this.handleClose} aria-labelledby="form-dialog-title">
+      <Dialog  open={this.state.login_form} onClose={this.handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Войти</DialogTitle>
         <DialogContent>
     
