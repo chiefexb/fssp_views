@@ -337,11 +337,12 @@ class App extends React.Component {
     }
   handleMenuClick (e) {
 	  this.setState({ anchor_el: event.currentTarget, menu_open: true}) ; 
+	  //popupState.close;
     
   };
 
    handleMenuClose (e) {
-    this.setState({ menu_open: false,vitrina_id: e.target.value, anchor_el: null}) ;
+    this.setState({ menu_open: false,vitrina_id: e.target.value , anchor_el: null });
    // this.setState({ menu_open: false,vitrina_id: e.target.value, anchor_el: null}) ;
   };  
   renderTable() {
@@ -703,21 +704,23 @@ content=
                 <Toolbar >
                   <img src="/static/head_left.gif" alt="logo"  />
 
- <PopupState variant="popover" popupId="demo-popup-menu">
-      {popupState => (
-        <React.Fragment>
 
-                         <Button  {...bindTrigger(popupState)}  >ОИП</Button>
-                         <Menu    {...bindMenu(popupState)}
-  
+
+                         <Button   onClick= {this.handleMenuClick }   >ОИП</Button>
+                         <Menu  
+  id="simple-menu"
+  anchorEl={this.state.anchor_el}
+  anchorPosition={ {top: -40, left: 120} }
+  keepMounted
+  open={this.state.menu_open}
+  onClose={this.handleMenuClose}
 >
   <MenuItem value='1' onClick={this.handleMenuClose}>Окончание</MenuItem>
   <MenuItem value='2' onClick={this.handleMenuClose}>Постановления</MenuItem>
   <MenuItem value='3' onClick={this.handleMenuClose}>Депозит</MenuItem>
 </Menu>
- </React.Fragment>
-      )}
-    </PopupState>
+
+  
                             <Button color="inherit">Депозит</Button>
                                <Button onClick={this.handleClickOpen} color="inherit">Login</Button>
 
