@@ -63,6 +63,7 @@ import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
 import AddIcon from '@material-ui/icons/Add';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem'
+import Fade from '@material-ui/core/Fade';
 
 
 
@@ -706,14 +707,16 @@ content=
 
 
 
-                         <Button id="menu-button"   onClick= {this.handleMenuClick }   >ОИП</Button>
+                         <Button id="menu-button"   aria-controls="fade-menu" aria-haspopup="true"  onClick= {this.handleMenuClick }   >ОИП</Button>
                          <Menu  
   id="simple-menu"
+  
   anchorEl={this.state.anchor_el}
   anchorPosition={ {top: -40, left: 120} }
   keepMounted
   open={this.state.menu_open}
   onClose={this.handleMenuClose}
+  TransitionComponent={Fade}
 >
   <MenuItem value='1' onClick={this.handleMenuClose}>Окончание</MenuItem>
   <MenuItem value='2' onClick={this.handleMenuClose}>Постановления</MenuItem>
