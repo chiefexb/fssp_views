@@ -457,6 +457,12 @@ content=
           <StyledTableCell align="center">
            Количество ИП
           </StyledTableCell  >
+             <StyledTableCell align="center">
+          47 1 1
+          </StyledTableCell >
+             <StyledTableCell align="center">
+           47 1 2
+          </StyledTableCell >
 
         </TableRow>
       </TableHead>
@@ -473,7 +479,12 @@ content=
            <TableCell align="center">
             {item2.col2}
           </TableCell>
-
+              <TableCell align="center">
+            {item2.col3}
+          </TableCell>
+              <TableCell align="center">
+            {item2.col4}
+          </TableCell>
           </TableRow>
           </TableBody>
          ))}
