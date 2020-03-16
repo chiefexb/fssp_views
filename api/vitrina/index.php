@@ -11,7 +11,7 @@ if (mysqli_connect_errno()) {
     printf("Connect failed: %s\n", mysqli_connect_error());
     exit();
 }
-$spi_id='1';
+$spi_id='0';
 if(isset($_GET["spi_id"]))  {
     if(!empty($_GET["spi_id"])) {
 		$spi_id=$_GET["spi_id"];
