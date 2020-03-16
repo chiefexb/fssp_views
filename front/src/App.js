@@ -446,13 +446,13 @@ content=
       <TableHead   >
         <TableRow borderBottom={1} borderColor="text.primary">
           <StyledTableCell  align="center" >
-            1
+            Наименование ОСП
           </StyledTableCell >
           <StyledTableCell align="center">
-           2
+           ФИО судебного пристава
           </StyledTableCell >
           <StyledTableCell align="center">
-           3
+           Количество ИП
           </StyledTableCell  >
 
         </TableRow>
