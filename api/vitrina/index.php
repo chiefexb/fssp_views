@@ -17,11 +17,7 @@ if(isset($_GET["spi_id"]))  {
 		$spi_id=$_GET["spi_id"];
 	};
 };
-
-//$spi_id= array_search($, $array, strict_parameter)
-// r = p2.values('osp').order_by('osp').annotate(count=Count('osp'))
-if ($spi_id=='0') {
-$sql="select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,'-' as col1, count(osp_id) as col2,
+$sql_count="
 SUM(CASE WHEN (col2='47' and col3='1' and col4='1') THEN 1 ELSE 0 END ) as col3,
 SUM(CASE WHEN (col2='47' and col3='1' and col4='2') THEN 1 ELSE 0 END ) as col4,
 SUM(CASE WHEN (col2='47' and col3='1' and col4='8') THEN 1 ELSE 0 END ) as col5,
@@ -34,10 +30,18 @@ SUM(CASE WHEN (col2='43' and col3='1' and col4='1') THEN 1 ELSE 0 END ) as col10
 
 SUM(CASE WHEN (col2='103' and col3='1' and col4='1') THEN 1 ELSE 0 END ) as col11,
 SUM(CASE WHEN (col2='31' and col3='1' and col4='2') THEN 1 ELSE 0 END ) as col12
+";
+//$spi_id= array_search($, $array, strict_parameter)
+// r = p2.values('osp').order_by('osp').annotate(count=Count('osp'))
+if ($spi_id=='0') {
+$sql="select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,'-' as col1, count(osp_id) as col2,
+
+" .$sql_count ."
 
          from fssp_mon_vitrinavalue vv           where vitrina_id=1 group by  osp order by osp";
 	 } else {
-$sql =  "select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,spi as col1 , count(*) as col2         from fssp_mon_vitrinavalue vv           where vitrina_id=1 group by vv.spi, osp order by osp";
+$sql =  "select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,spi as col1 , count(spi_id) as col2  
+  " .$sql_count ."     from fssp_mon_vitrinavalue vv           where vitrina_id=1 group by vv.spi, osp order by osp";
 };
 $mysqli->set_charset('utf8');
 $result = $mysqli->query($sql);
