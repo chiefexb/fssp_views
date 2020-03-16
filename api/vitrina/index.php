@@ -5,7 +5,7 @@
 //default-character-set = utf8
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 $mysqli = new mysqli("localhost", "fssp", "Exb021205!", "fssp");
-
+//A
 /* проверяем соединение */
 if (mysqli_connect_errno()) {
     printf("Connect failed: %s\n", mysqli_connect_error());
