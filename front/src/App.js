@@ -624,7 +624,7 @@ content=
   <MenuItem value='3' onClick={this.handleMenuClose}>Депозит</MenuItem>
 </Menu>
                             <Button color="inherit">Депозит</Button>
-                               <Button color="inherit">Login</Button>
+                               <Button onClick={this.handleClickOpen} color="inherit">Login</Button>
 
 
 
@@ -662,9 +662,7 @@ content=
                  </Toolbar>
                       </AppBar>
     <div>
-      <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
-        Open form dialog
-      </Button>
+    
       
        <form  noValidate autoComplete="off">
     
@@ -690,7 +688,7 @@ content=
             label="login"
             type="text"
             fullWidth
-             onChange={this.handleLoginChange}/>
+             onChange={this.handleLoginChange}
           />
            <TextField
            
@@ -701,7 +699,7 @@ content=
             type="password"
             fullWidth
              onChange={this.handlePasswChange}/>
-          />
+          
         </DialogContent>
         <DialogActions>
           <Button onClick={this.handleClose} color="primary">
