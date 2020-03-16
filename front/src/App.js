@@ -707,7 +707,7 @@ content=
                          <Button   onClick= {this.handleMenuClick } color="inherit">ОИП</Button>
                          <Menu
   id="simple-menu"
-  anchorEl={this.state.anchor_el}
+  //anchorEl={this.state.anchor_el}
   keepMounted
   open={this.state.menu_open}
   onClose={this.handleMenuClose}
