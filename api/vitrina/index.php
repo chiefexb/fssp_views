@@ -23,7 +23,7 @@ if(isset($_GET["spi_id"]))  {
 if ($spi_id=='0') {
 $sql="select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,'-' as col1, count(*) as col2,
 SUM(CASE WHEN (col2='47' and col3='1' and col4='1') THEN 1 ELSE 0 END ) as col3,
-SUM(CASE WHEN (col2='47' and col3='1' and col4='2') THEN 1 ELSE 0 END ) as col4,
+SUM(CASE WHEN (col2='47' and col3='1' and col4='2') THEN 1 ELSE 0 END ) as col4
          from fssp_mon_vitrinavalue vv           where vitrina_id=1 group by  osp order by osp";
 	 } else {
 $sql =  "select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,spi as col1 , count(*) as col2         from fssp_mon_vitrinavalue vv           where vitrina_id=1 group by vv.spi, osp order by osp";
