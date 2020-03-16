@@ -21,6 +21,7 @@ import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import DoneIcon from '@material-ui/icons/Done';
 import ScheduleIcon from '@material-ui/icons/Schedule';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
 
 
@@ -407,6 +408,13 @@ class App extends React.Component {
 
 }
     render() {
+		const outerTheme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#03a06c',
+    },
+  },
+});
 //const isAuthenticated = useAuth();
 const StyledTableCell = withStyles(theme => ({
   head: {
@@ -682,8 +690,9 @@ content=
           </ListItem>
 
       </Drawer>
-
-            <AppBar position="static">
+<ThemeProvider theme={outerTheme}>
+            <AppBar  color="primary"  position="static">
+              
                 <Toolbar >
                   <img src="/static/head_left.gif" alt="logo"  />
 
@@ -738,7 +747,9 @@ content=
 
 
                  </Toolbar>
+                
                       </AppBar>
+                         </ThemeProvider >
     <div>
     
       
