@@ -266,7 +266,8 @@ class App extends React.Component {
 
       this.setState({spi_checked: e.target.checked,
 			               spi_id: text2});
-	  //this.renderTable;
+			               
+	  this.renderTable;
     }
 
 
@@ -335,13 +336,8 @@ class App extends React.Component {
     this.setState({ menu_open: false,vitrina_id: e.target.value, anchor_el: null}) ;
     this.setState({ menu_open: false,vitrina_id: e.target.value, anchor_el: null}) ;
   };  
-  renderTable(e) {
-	  let text2='0';
-	  if (e.target.checked) {
-		  text2='1';
-	  }; 
-	   this.setState({spi_checked: e.target.checked,
-			               spi_id: text2});
+  renderTable() {
+
 	  this.setState({loaded: false,
 		            result: []});
 
@@ -676,7 +672,7 @@ content=
     <FormControl>
       <FormControlLabel
         control={
-          <Checkbox checked={this.state.spi_checked} onClick={this.renderTable}   value="checkedA" />
+          <Checkbox checked={this.state.spi_checked} onChange={this.handleChange_spi_checked}   value="checkedA" />
         }
         label="Разбивка по СПИ"
        />
