@@ -22,6 +22,9 @@ import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import DoneIcon from '@material-ui/icons/Done';
 import ScheduleIcon from '@material-ui/icons/Schedule';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import RefreshIcon from '@material-ui/icons/Refresh';
+
+
 
 
 
@@ -728,7 +731,7 @@ content=
                              </Tooltip>
                               <Tooltip title="Нарисовать" aria-label="add">
                               <IconButton   onClick= {this.renderTable  } aria-label="delete">
-                            <DescriptionIcon />
+                            <RefreshIcon />
                              </IconButton>
  </Tooltip>
                           <IconButton  onClick={this.handleClickCount}  aria-label="delete">
