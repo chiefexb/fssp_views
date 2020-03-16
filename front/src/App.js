@@ -90,7 +90,7 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
-
+import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
 
 
 import List from '@material-ui/core/List';
@@ -171,6 +171,7 @@ class App extends React.Component {
     this.handlePasswChange=this.handlePasswChange.bind(this); 
     this.handleMenuClose=this.handleMenuClose.bind(this); 
     this.handleMenuClick=this.handleMenuClick.bind(this); 
+    
     
     
     
@@ -702,7 +703,9 @@ content=
                 <Toolbar >
                   <img src="/static/head_left.gif" alt="logo"  />
 
-
+ <PopupState variant="popover" popupId="demo-popup-menu">
+      {popupState => (
+        <React.Fragment>
 
                          <Button   onClick= {this.handleMenuClick } color="inherit">ОИП</Button>
                          <Menu
@@ -716,6 +719,9 @@ content=
   <MenuItem value='2' onClick={this.handleMenuClose}>Постановления</MenuItem>
   <MenuItem value='3' onClick={this.handleMenuClose}>Депозит</MenuItem>
 </Menu>
+ </React.Fragment>
+      )}
+    </PopupState>
                             <Button color="inherit">Депозит</Button>
                                <Button onClick={this.handleClickOpen} color="inherit">Login</Button>
 
