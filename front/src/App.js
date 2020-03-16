@@ -665,6 +665,20 @@ content=
       <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
         Open form dialog
       </Button>
+      
+       <form  noValidate autoComplete="off">
+    
+    <FormControl>
+      <FormControlLabel
+        control={
+          <Checkbox checked={this.state.spi_checked} onChange={this.handleChange_spi_checked} value="checkedA" />
+        }
+        label="Разбивка по СПИ"
+       />
+    </FormControl>
+  </form>  
+      
+      
       <Dialog  open={this.state.login_form} onClose={this.handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Войти</DialogTitle>
         <DialogContent>
