@@ -40,7 +40,7 @@ $sql="select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,'-'
 
          from fssp_mon_vitrinavalue vv           where vitrina_id=1 group by  osp order by osp";
 	 } else {
-$sql =  "select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,spi as col1 , count(spi_id) as col2 , 
+$sql =  "select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,spi as col1 , count(spi) as col2 , 
   " .$sql_count ."     from fssp_mon_vitrinavalue vv           where vitrina_id=1 group by vv.spi, osp order by osp";
 };
 $mysqli->set_charset('utf8');
