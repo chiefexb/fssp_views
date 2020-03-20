@@ -23,6 +23,14 @@ import DoneIcon from '@material-ui/icons/Done';
 import ScheduleIcon from '@material-ui/icons/Schedule';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import RefreshIcon from '@material-ui/icons/Refresh';
+import Grid from '@material-ui/core/Grid';
+import DateFnsUtils from '@date-io/date-fns';
+
+import {
+  MuiPickersUtilsProvider,
+  KeyboardTimePicker,
+  KeyboardDatePicker,
+} from '@material-ui/pickers';
 
 
 
@@ -110,6 +118,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle'
+import Radio from '@material-ui/core/Radio';
 //import {  useAuth } from "./context/auth";
 
 // End Import  ==========================================================================
@@ -125,6 +134,8 @@ class App extends React.Component {
             result3: [],
             result4: [],
             result5: [],
+            selectedDate1: new Date('2014-08-18T21:11:54'),
+            selectedDate2:  new Date('2014-08-18T21:11:54'),
             anchor_el: null,
             spi_id:'0',
             is_auth: false,
@@ -148,7 +159,23 @@ class App extends React.Component {
             windows: 'vitrina',
             debug: false,
             login_name:'',
-            passw: ''
+            passw: '',
+            range_date: [
+  {
+    name: 'Текущий год',
+    id: 0,
+  },
+  {
+    name: 'Текущий месяц',
+     id: 1,
+  },
+  
+  {
+    name: 'Текущая неделя',
+    id: 2,
+  },
+ 
+]
     };
 
     this.setwindows2_filters = this.setwindows2_filters.bind(this);
@@ -330,6 +357,17 @@ class App extends React.Component {
         //this.calculate(text);
     }
 
+// handleDateChange1 (e) {
+   // setSelectedDate(date);
+//   let date=e.target.value;
+//     this.setState({selectedDate1: date});
+//  };
+//  handleDateChange2 (e) {
+   // setSelectedDate(date);
+//   let date=e.target.value;
+//     this.setState({selectedDate2: date});
+//  };
+
   CounterChange(e) {
         let text = e.target.value;
         this.setState({counter_id: text});
@@ -417,6 +455,7 @@ class App extends React.Component {
 
 }
     render() {
+
 		const outerTheme = createMuiTheme({
   palette: {
     primary: {
@@ -425,6 +464,8 @@ class App extends React.Component {
   },
 });
 //const isAuthenticated = useAuth();
+
+
 const StyledTableCell = withStyles(theme => ({
   head: {
     backgroundColor: theme.palette.common.black,
@@ -689,9 +730,9 @@ content=
 
 
              <ListItem button onClick={this.setwindows2_filters } >
-               <ListItemIcon>             <FilterListIcon /> </ListItemIcon>
-                <ListItemText primary='Фильтры' />
-             </ListItem>
+             <ListItemIcon>             <FilterListIcon /> </ListItemIcon>
+             <ListItemText primary='Фильтры' />
+            </ListItem>
 
             <ListItem button  onClick={ this.setwindows2_scheduller}>
             <ListItemIcon><FormatListBulletedIcon /></ListItemIcon>
@@ -699,6 +740,8 @@ content=
           </ListItem>
 
       </Drawer>
+      
+      
 <ThemeProvider theme={outerTheme}>
             <AppBar  color="primary"  position="static">
               
@@ -764,9 +807,9 @@ content=
                 
                       </AppBar>
                          </ThemeProvider >
-    <div>
+ 
     
-      
+   
        <form  noValidate autoComplete="off">
     
     <FormControl>
@@ -775,10 +818,76 @@ content=
           <Checkbox checked={this.state.spi_checked} onChange={this.handleChange_spi_checked}   value="checkedA" />
         }
         label="Разбивка по СПИ"
+          labelPlacement="top"
        />
     </FormControl>
-  </form>  
+     <FormControl>
+      <FormControlLabel
+      control={
+      <TextField
+        id="date"
+        //label="Birthday"
+        type="date"
+        defaultValue="2017-05-24"
+        // className={classes.textField}
+        InputLabelProps={{
+          shrink: true,
+        }}
+      />
+       }
+        label="Дата возбуждения"
+         labelPlacement="top"
+       />
+    </FormControl>
+    
+         <FormControl>
+      <FormControlLabel
+      control={
+      <TextField
+        id="date"
+        //label="Birthday"
+        type="date"
+        defaultValue="2017-05-24"
+        // className={classes.textField}
+        InputLabelProps={{
+          shrink: true,
+        }}
+      />
+       }
+        label="Дата окончания"
+         labelPlacement="top"
+       />
+    </FormControl>
+      <FormControl>
+      <FormControlLabel
+      control={
+     <TextField
+          id="standard-select-currency"
+          select
+          //label="Select"
+          value='0'
+          //onChange={handleChange}
+          //helperText="Please select your currency"
+          >
+            {this.state.range_date.map(option => (
+            <MenuItem key={option.id} value={option.id}>
+              {option.name}
+            </MenuItem>
+          ))}
+          
+        
+        </TextField>
+    
       
+       }
+        label="Диапазон"
+         labelPlacement="top"
+       />
+    </FormControl>
+    
+    
+  </form>   
+  
       
       <Dialog  open={this.state.login_form} onClose={this.handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Войти</DialogTitle>
@@ -813,7 +922,7 @@ content=
           </Button>
         </DialogActions>
       </Dialog>
-    </div> 
+   
                       {debug_info}
 
 
