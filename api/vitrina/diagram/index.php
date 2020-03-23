@@ -68,8 +68,15 @@ $row=$result -> fetch_all(MYSQLI_ASSOC);
 for($i = 0; $i < count($row); ++$i) {
     $row[$i]['id'] = $i+1;
 };
+$data1=array (1,2);
+$row2=array();
+for($i = 0; $i < count($row); ++$i) {
+ $row[$i]['label']  : $row[$i]['osp'];
+ $rows2= array("label"=>$row[$i]['osp'], data=array (1,2))
+  $row3;
+   
 } elseif ($vitrina_id=='2') {
-	
+
 };
 // End of vitina if
 
@@ -85,4 +92,5 @@ $result->free();
 };
 
 ?>
+
 

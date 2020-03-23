@@ -25,6 +25,11 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import RefreshIcon from '@material-ui/icons/Refresh';
 import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
+import { Chart } from 'react-charts';
+import InsertChartIcon from '@material-ui/icons/InsertChart';
+//import useChartConfig from 'hooks/useChartConfig';
+
+
 
 import {
   MuiPickersUtilsProvider,
@@ -134,6 +139,8 @@ class App extends React.Component {
             result3: [],
             result4: [],
             result5: [],
+            diagram: [],
+            
             selectedDate1: new Date('2014-08-18T21:11:54'),
             selectedDate2:  new Date('2014-08-18T21:11:54'),
             anchor_el: null,
@@ -179,6 +186,9 @@ class App extends React.Component {
     };
 
     this.setwindows2_filters = this.setwindows2_filters.bind(this);
+    this.setwindows2_diagram = this.setwindows2_diagram.bind(this);
+    this.setDiagram = this.setDiagram.bind(this);
+    
     this.setwindows2_vitrina = this.setwindows2_vitrina.bind(this);
     this.setdebug= this.setdebug.bind(this);
     this.handleChange=this.handleChange.bind(this);
@@ -216,7 +226,21 @@ class App extends React.Component {
       this.toggleDrawerClose()
          //this.render()
     };
-
+ setDiagram () {
+	 if (this.state.loaded) {
+	 let arr=[];
+	 let arr2=[];
+	 let item=[];
+	 let a=0;
+	 for (a = 0; a < 2; a++)      {
+      item =this.state.result[a] 
+	  arr2={label: item.osp,data: [['47-1-1', item.col3], ['47-1-12', item.col4], ['47-1-3', item.col5], ['47-1-4', item.col6]] } ;
+	  arr.push(arr2)
+     };
+      this.setState({digram: arr}); };
+ };
+ /* label: 'ЧГО2',
+        data: [['47-1-1', 100], ['47-1-12', 110], ['47-1-3', 120], ['47-1-4', 120], ['47-1-5', 220]] */
 
     setwindows2_scheduller() {
         this.setState({windows: 'scheduller'});
@@ -226,6 +250,12 @@ class App extends React.Component {
     setwindows2_vitrina() {
       this.setState({windows: 'vitrina'});
     };
+   
+   setwindows2_diagram() {
+      this.setState({windows: 'diagram'});
+    }; 
+    
+    
 
 
     handleChange(e) {
@@ -455,7 +485,51 @@ class App extends React.Component {
 
 }
     render() {
+		
+ /*const  data  = 
+   [
+      {
+        label: 'ЧГО',
+        data: [['Январь', 100], ['Февраль', 110], ['Март', 120], ['Апрель', 120], ['Май', 220]]
+      },
+      {
+        label: 'МРО',
+        data: [['Январь', 100], ['Февраль', 110], ['Март', 120], ['Апрель', 120], ['Май', 220]]
+      }
+    
+    ] ; */
+ this.setDiagram;
+ /*const  data  = 
+   [
+      {
+        label: 'ЧГО2',
+        data: [['47-1-1', 100], ['47-1-12', 110], ['47-1-3', 120], ['47-1-4', 120], ['47-1-5', 220]]
+      },
+      {
+        label: 'ЧГО3',
+         data: [['47-1-1', 100], ['47-1-12', 110], ['47-1-3', 120], ['47-1-4', 120], ['47-1-5', 220]]
+      },
+      {
+        label: 'ЧГО4',
+         data: [['47-1-1', 100], ['47-1-12', 110], ['47-1-3', 120], ['47-1-4', 120], ['47-1-5', 220]]
+      }
+    
+    ] ;   */
+    let data=this.state.digram;
+  
+  const series ={
+      type: 'bar'
+    };
+  
+  const axes = [
+      { primary: true, type: 'ordinal', position: 'bottom' },
+      { position: 'left', type: 'linear', stacked: false }
+    ];
 
+ 
+    
+  
+ 
 		const outerTheme = createMuiTheme({
   palette: {
     primary: {
@@ -488,6 +562,18 @@ const StyledTableCell = withStyles(theme => ({
         if (this.state.debug) {
          debug_info=JSON.stringify (this.state)
         }
+    if (this.state.windows==='diagram') {
+content=
+  <div
+      style={{
+        width: '400px',
+        height: '300px'
+      }}
+    >
+        <Chart data={data} series={series} axes={axes} tooltip />
+      
+    </div>
+	};
      if (this.state.windows==='vitrina') {
            document.title = "Витрины| ФССП Витрина";
          if (this.state.loaded) {
@@ -500,7 +586,7 @@ const StyledTableCell = withStyles(theme => ({
 content=
 <div>
 <p></p>
- 
+
   <TableContainer>
     <Table border={1}  borderBottom={1} borderColor="text.primary">
      
@@ -788,9 +874,10 @@ content=
                             <RefreshIcon />
                              </IconButton>
  </Tooltip>
-                          <IconButton  onClick={this.handleClickCount}  aria-label="delete">
-                            <ScheduleIcon />
+                          <IconButton  onClick={this.setwindows2_diagram}  aria-label="delete">
+                            <InsertChartIcon />
                              </IconButton>
+                      
                                 <IconButton   disabled={!this.state.is_auth} onClick={this.toggleDrawerOpen}  aria-label="delete">
                             <SettingsIcon />
                              </IconButton>
@@ -927,7 +1014,7 @@ content=
 
 
           {content}
-
+         
 
    </Container>
 
