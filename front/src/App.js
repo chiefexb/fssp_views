@@ -550,7 +550,9 @@ const diagram = {
         series.push(
         {
           name: item.osp,
-          data: [item.col3]
+          data: [item.col3,
+                 item.col4,
+                 item.col5,]
         } );
     };
 };
