@@ -1,4 +1,5 @@
 import React from 'react';
+import Chart from "react-apexcharts";
 import { withRouter } from 'react-router-dom';
 import queryString from 'query-string';
 import CheckIcon from '@material-ui/icons/Check';
@@ -25,7 +26,7 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import RefreshIcon from '@material-ui/icons/Refresh';
 import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
-import { Chart } from 'react-charts';
+//import { Chart } from 'react-charts';
 import InsertChartIcon from '@material-ui/icons/InsertChart';
 //import useChartConfig from 'hooks/useChartConfig';
 
@@ -187,7 +188,7 @@ class App extends React.Component {
 
     this.setwindows2_filters = this.setwindows2_filters.bind(this);
     this.setwindows2_diagram = this.setwindows2_diagram.bind(this);
-    this.setDiagram = this.setDiagram.bind(this);
+  //  this.setDiagram = this.setDiagram.bind(this);
     
     this.setwindows2_vitrina = this.setwindows2_vitrina.bind(this);
     this.setdebug= this.setdebug.bind(this);
@@ -226,7 +227,7 @@ class App extends React.Component {
       this.toggleDrawerClose()
          //this.render()
     };
- setDiagram () {
+/* setDiagram () {
 	 if (this.state.loaded) {
 	 let arr=[];
 	 let arr2=[];
@@ -235,10 +236,12 @@ class App extends React.Component {
 	 for (a = 0; a < 2; a++)      {
       item =this.state.result[a] 
 	  arr2={label: item.osp,data: [['47-1-1', item.col3], ['47-1-12', item.col4], ['47-1-3', item.col5], ['47-1-4', item.col6]] } ;
-	  arr.push(arr2)
+	  arr.push(arr2);
      };
-      this.setState({digram: arr}); };
+      this.setState({diagram: arr})  
+      };
  };
+ */
  /* label: 'ЧГО2',
         data: [['47-1-1', 100], ['47-1-12', 110], ['47-1-3', 120], ['47-1-4', 120], ['47-1-5', 220]] */
 
@@ -498,8 +501,8 @@ class App extends React.Component {
       }
     
     ] ; */
- this.setDiagram;
- /*const  data  = 
+// this.setDiagram;
+/* const  data  = 
    [
       {
         label: 'ЧГО2',
@@ -514,8 +517,8 @@ class App extends React.Component {
          data: [['47-1-1', 100], ['47-1-12', 110], ['47-1-3', 120], ['47-1-4', 120], ['47-1-5', 220]]
       }
     
-    ] ;   */
-    let data=this.state.digram;
+    ] ;  
+  //  const data=this.state.diagram;
   
   const series ={
       type: 'bar'
@@ -527,8 +530,32 @@ class App extends React.Component {
     ];
 
  
+  */  
+const diagram = {
+     
+        chart: {
+          id: "basic-bar"
+        },
+        xaxis: {
+          categories: ['47 1 1', '47 1 2','47 1 3']
+        }
+      };
+ const      series =[];
+ let a=0;
+ let item=[];
+ if (this.state.result) {
+	   for (a = 0; a < length(this.state.result); a++) {
+    {
+        item=this.state.result[a];
+        series.push(
+        {
+          name: item.osp,
+          data: [item.col3]
+        } );
+    };
+};
     
-  
+}  
  
 		const outerTheme = createMuiTheme({
   palette: {
@@ -564,15 +591,21 @@ const StyledTableCell = withStyles(theme => ({
         }
     if (this.state.windows==='diagram') {
 content=
-  <div
-      style={{
-        width: '400px',
-        height: '300px'
-      }}
-    >
-        <Chart data={data} series={series} axes={axes} tooltip />
+ <div className="app">
+        <div className="row">
+          <div className="mixed-chart">
+            <Chart
+              options={diagram}
+              series={series}
+              type="bar"
+              width="1000"
+            />
+          </div>
+        </div>
+      </div>
+    
       
-    </div>
+    
 	};
      if (this.state.windows==='vitrina') {
            document.title = "Витрины| ФССП Витрина";
