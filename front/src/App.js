@@ -544,7 +544,7 @@ const diagram = {
  let a=0;
  let item=[];
  if (this.state.result) {
-	   for (a = 0; a < (this.state.result.length); a++) {
+	   for (a = 0; a < (this.state.result.length() ); a++) {
     {
         item=this.state.result[a];
         series.push(
