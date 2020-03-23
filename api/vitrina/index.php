@@ -20,9 +20,9 @@ if(isset($_GET["spi_id"]))  {
 	};
 };
 
-if(isset($_GET["$vitrina_id"]))  {
-    if(!empty($_GET["$vitrina_id"])) {
-		$sp$vitrina_id=$_GET["$vitrina_id"];
+if(isset($_GET["vitrina_id"]))  {
+    if(!empty($_GET["vitrina_id"])) {
+		$vitrina_id=$_GET["vitrina_id"];
 	};
 };
 if ($vitrina_id=='1') {
