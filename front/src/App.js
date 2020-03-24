@@ -169,63 +169,8 @@ class App extends React.Component {
             windows: 'vitrina',
             debug: false,
             login_name:'',
-            passw: '',
-            range_date: [
-  {
-    name: 'Свой период',
-    id: 0,
-  },
-  {
-    name: 'Сегодня',
-    id: 1,
-  },
-  {
-    name: 'Вчера',
-     id: 2,
-  },
-  
-  {
-    name: 'Последние 7 дней',
-    id: 3,
-  },
-  {
-    name: 'На этой неделе',
-    id: 4,
-  },
-  {
-    name: 'На прошлой неделе',
-    id: 5,
-  },
-  {
-    name: 'Последние 30 дней',
-    id: 6,
-  },
-  {
-    name: 'В этом месяце',
-    id: 7,
-  },
-  {
-    name: 'В прошлом месяце',
-    id: 8,
-  },
-  {
-    name: 'В этом году',
-    id: 9,
-  },
-  {
-    name: 'В прошлом году',
-    id: 10,
-  },
-  {
-    name: 'В 2018 году',
-    id: 11,
-  }, 
-  {
-    name: 'В 2017 году',
-    id: 12,
-  }, 
- 
-]
+            passw: ''
+            
     };
 
     this.setwindows2_filters = this.setwindows2_filters.bind(this);
@@ -594,49 +539,64 @@ class App extends React.Component {
 
 }
     render() {
-		
- /*const  data  = 
-   [
-      {
-        label: 'ЧГО',
-        data: [['Январь', 100], ['Февраль', 110], ['Март', 120], ['Апрель', 120], ['Май', 220]]
-      },
-      {
-        label: 'МРО',
-        data: [['Январь', 100], ['Февраль', 110], ['Март', 120], ['Апрель', 120], ['Май', 220]]
-      }
-    
-    ] ; */
-// this.setDiagram;
-/* const  data  = 
-   [
-      {
-        label: 'ЧГО2',
-        data: [['47-1-1', 100], ['47-1-12', 110], ['47-1-3', 120], ['47-1-4', 120], ['47-1-5', 220]]
-      },
-      {
-        label: 'ЧГО3',
-         data: [['47-1-1', 100], ['47-1-12', 110], ['47-1-3', 120], ['47-1-4', 120], ['47-1-5', 220]]
-      },
-      {
-        label: 'ЧГО4',
-         data: [['47-1-1', 100], ['47-1-12', 110], ['47-1-3', 120], ['47-1-4', 120], ['47-1-5', 220]]
-      }
-    
-    ] ;  
-  //  const data=this.state.diagram;
+const range_date= [
+  {
+    name: 'Свой период',
+    id: 0,
+  },
+  {
+    name: 'Сегодня',
+    id: 1,
+  },
+  {
+    name: 'Вчера',
+     id: 2,
+  },
   
-  const series ={
-      type: 'bar'
-    };
-  
-  const axes = [
-      { primary: true, type: 'ordinal', position: 'bottom' },
-      { position: 'left', type: 'linear', stacked: false }
-    ];
+  {
+    name: 'Последние 7 дней',
+    id: 3,
+  },
+  {
+    name: 'На этой неделе',
+    id: 4,
+  },
+  {
+    name: 'На прошлой неделе',
+    id: 5,
+  },
+  {
+    name: 'Последние 30 дней',
+    id: 6,
+  },
+  {
+    name: 'В этом месяце',
+    id: 7,
+  },
+  {
+    name: 'В прошлом месяце',
+    id: 8,
+  },
+  {
+    name: 'В этом году',
+    id: 9,
+  },
+  {
+    name: 'В прошлом году',
+    id: 10,
+  },
+  {
+    name: 'В 2018 году',
+    id: 11,
+  }, 
+  {
+    name: 'В 2017 году',
+    id: 12,
+  }
+ 
+];
 
  
-  */  
 const diagram = {
      
         chart: {
@@ -1101,7 +1061,7 @@ content=
           onChange={this.handleRangeChange}
           //helperText="Please select your currency"
           >
-            {this.state.range_date.map(option => (
+            {range_date.map(option => (
             <MenuItem key={option.id} value={option.id}>
               {option.name}
             </MenuItem>
