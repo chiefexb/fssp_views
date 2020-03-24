@@ -28,7 +28,7 @@ import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
 //import { Chart } from 'react-charts';
 import InsertChartIcon from '@material-ui/icons/InsertChart';
-import {endOfMonth, subMonths, startOfWeek ,startOfMonth ,getMonth,getDay,format, formatDistance, subDays,addDays } from 'date-fns';
+import {startOfYear, endOfYear ,endOfMonth,  subYears, subMonths, startOfWeek ,startOfMonth ,getMonth,getDay,format, formatDistance, subDays,addDays } from 'date-fns';
 //import useChartConfig from 'hooks/useChartConfig';
 
 
@@ -251,12 +251,13 @@ class App extends React.Component {
     }; 
      handleDate1Change (e) {
 		//  this.setState({selectedDate1: new Date(e.target.value),
-		  this.setState({selectedDate1: e.target.value
-			             }); 
+		  this.setState({selectedDate1: e.target.value }); 
+		    this.setState({range: 0 }); 
 	 };
 	  handleDate2Change (e) {
 		//  this.setState({selectedDate2: new Date (e.target.value )}); 
-		  this.setState({selectedDate2:e.target.value  });
+		  this.setState({selectedDate2:e.target.value });
+		   this.setState({range: 0 }); 
 	 };
 	 
    handleRangeChange (e) {
@@ -296,8 +297,28 @@ class App extends React.Component {
 		     dist= format ( subMonths(  startOfMonth ( new Date()) ,1) , "yyyy-MM-dd" )  ;
 		     date1= format (endOfMonth (subMonths(  startOfMonth ( new Date()) ,1))  , "yyyy-MM-dd" )  ;   
 			 	    
-		}; 
-		
+		}
+		else if  (e.target.value  ==9 ) {
+		     dist= format (  startOfYear ( new Date() ) , "yyyy-MM-dd" )  ;
+		    // date1= format (endOfMonth (subMonths(  startOfMonth ( new Date()) ,1))  , "yyyy-MM-dd" )  ;   
+			 	    
+		}
+		else if  (e.target.value  ==10 ) {
+		     dist= format ( subYears( startOfYear ( new Date() ),1) , "yyyy-MM-dd" )  ;
+		     date1= format (endOfYear(subYears( startOfYear ( new Date() ),1) )  , "yyyy-MM-dd" )  ;   
+			 	    
+		}
+		else if  (e.target.value  ==11 ) {
+		     dist= "2018-01-01"  ;
+		     date1=  "2018-12-31"   ;   
+			 	    
+		}
+		else if  (e.target.value  ==12 ) {
+		     dist= "2017-01-01"  ;
+		     date1=  "2017-12-31"   ;   
+			 	    
+		}
+	   
 		
 		this.setState({selectedDate1: dist,
 			              selectedDate2: date1,
@@ -539,6 +560,9 @@ class App extends React.Component {
 
 }
     render() {
+if (  !(this.state.loaded) ||  !(this.state.result) ) {
+	this.renderTable;
+};
 const range_date= [
   {
     name: 'Свой период',
@@ -937,8 +961,8 @@ content=
 
 
 
-                         <Button id="menu-button"   aria-controls="fade-menu" aria-haspopup="true"  onClick= {this.handleMenuClick }   >ОИП</Button>
-                         <Menu  
+                         <Button color="inherit" id="menu-button"   aria-controls="fade-menu" aria-haspopup="true"  onClick= {this.handleMenuClick }   >ОИП</Button>
+                         <Menu  color="inherit"
   id="simple-menu"
   
   anchorEl={this.state.anchor_el}
