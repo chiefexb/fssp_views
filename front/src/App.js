@@ -1029,7 +1029,7 @@ content=
     <FormControl>
       <FormControlLabel
         control={
-          <Checkbox checked={this.state.spi_checked} onChange={this.handleChange_spi_checked}   value="checkedA" />
+          <Checkbox checked={this.state.spi_checked} onChange={this.handleChange_spi_checked} onClose=={this.handleChange_spi_checked}  value="checkedA" />
         }
         label="Разбивка по СПИ"
           labelPlacement="top"
