@@ -28,6 +28,7 @@ import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
 //import { Chart } from 'react-charts';
 import InsertChartIcon from '@material-ui/icons/InsertChart';
+import {endOfMonth, subMonths, startOfWeek ,startOfMonth ,getMonth,getDay,format, formatDistance, subDays,addDays } from 'date-fns';
 //import useChartConfig from 'hooks/useChartConfig';
 
 
@@ -131,8 +132,8 @@ import Radio from '@material-ui/core/Radio';
 
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
             lastname:'',
             result: [],
@@ -141,9 +142,10 @@ class App extends React.Component {
             result4: [],
             result5: [],
             diagram: [],
+            range: 1,
             
-            selectedDate1: new Date('2014-08-18T21:11:54'),
-            selectedDate2:  new Date('2014-08-18T21:11:54'),
+            selectedDate1: format(new Date(), 'yyyy-MM-dd' ),
+            selectedDate2:  format(new Date() ,'yyyy-MM-dd'),
             anchor_el: null,
             spi_id:'0',
             is_auth: false,
@@ -170,18 +172,58 @@ class App extends React.Component {
             passw: '',
             range_date: [
   {
-    name: 'Текущий год',
+    name: 'Свой период',
     id: 0,
   },
   {
-    name: 'Текущий месяц',
-     id: 1,
+    name: 'Сегодня',
+    id: 1,
+  },
+  {
+    name: 'Вчера',
+     id: 2,
   },
   
   {
-    name: 'Текущая неделя',
-    id: 2,
+    name: 'Последние 7 дней',
+    id: 3,
   },
+  {
+    name: 'На этой неделе',
+    id: 4,
+  },
+  {
+    name: 'На прошлой неделе',
+    id: 5,
+  },
+  {
+    name: 'Последние 30 дней',
+    id: 6,
+  },
+  {
+    name: 'В этом месяце',
+    id: 7,
+  },
+  {
+    name: 'В прошлом месяце',
+    id: 8,
+  },
+  {
+    name: 'В этом году',
+    id: 9,
+  },
+  {
+    name: 'В прошлом году',
+    id: 10,
+  },
+  {
+    name: 'В 2018 году',
+    id: 11,
+  }, 
+  {
+    name: 'В 2017 году',
+    id: 12,
+  }, 
  
 ]
     };
@@ -210,6 +252,11 @@ class App extends React.Component {
     this.handlePasswChange=this.handlePasswChange.bind(this); 
     this.handleMenuClose=this.handleMenuClose.bind(this); 
     this.handleMenuClick=this.handleMenuClick.bind(this); 
+    this.handleRangeChange=this.handleRangeChange.bind(this); 
+      this.handleDate1Change=this.handleDate1Change.bind(this); 
+        this.handleDate2Change=this.handleDate2Change.bind(this); 
+     
+    
     
     
     
@@ -257,6 +304,65 @@ class App extends React.Component {
    setwindows2_diagram() {
       this.setState({windows: 'diagram'});
     }; 
+     handleDate1Change (e) {
+		//  this.setState({selectedDate1: new Date(e.target.value),
+		  this.setState({selectedDate1: e.target.value
+			             }); 
+	 };
+	  handleDate2Change (e) {
+		//  this.setState({selectedDate2: new Date (e.target.value )}); 
+		  this.setState({selectedDate2:e.target.value  });
+	 };
+	 
+   handleRangeChange (e) {
+	  
+	  //let date2= Date.now();
+	 // let dist=subDays(new Date(), 7);
+	  let date1=format(new Date() , "yyyy-MM-dd" )  ;
+	   let dist=format(new Date() , "yyyy-MM-dd" )  ;
+	 let wd= getDay(new Date(date1) );
+	 let mm=getMonth(new Date(date1)  );
+	  
+	  this.setState({range: e.target.value}); 
+		if (e.target.value  ==3 ) {
+		    dist=format(subDays(new Date(), 7), "yyyy-MM-dd" )  ;
+		  
+		} 
+		else if  (e.target.value  ==2 ) {
+		     dist=format(subDays(new Date(), 1), "yyyy-MM-dd" )  ;
+		} 
+		else if  (e.target.value  ==4 ) {
+		     dist=format( addDays (  startOfWeek(new Date()),1  ), "yyyy-MM-dd" )  ;  
+			 	    
+		}
+		else if  (e.target.value  ==5 ) {
+		     dist=format( subDays (  startOfWeek(new Date()),6  ), "yyyy-MM-dd" )  ;  
+			 date1=	format( addDays ( subDays (  startOfWeek(new Date()),6  ) ,6  ), "yyyy-MM-dd" )  ;   
+		}
+		else if  (e.target.value  ==6 ) {
+		     dist=format(subDays(new Date(), 30), "yyyy-MM-dd" )  ;  
+			 	    
+		}
+		else if  (e.target.value  ==7 ) {
+		     dist= format (startOfMonth ( new Date()) , "yyyy-MM-dd" )  ;  
+			 	    
+		}
+		else if  (e.target.value  ==8 ) {
+		     dist= format ( subMonths(  startOfMonth ( new Date()) ,1) , "yyyy-MM-dd" )  ;
+		     date1= format (endOfMonth (subMonths(  startOfMonth ( new Date()) ,1))  , "yyyy-MM-dd" )  ;   
+			 	    
+		}; 
+		
+		
+		this.setState({selectedDate1: dist,
+			              selectedDate2: date1,
+			              result5: mm +1
+			   });
+	 
+	 // window.location.reload(false);
+     
+    //getDay(date)
+   }
     
     
 
@@ -408,7 +514,7 @@ class App extends React.Component {
 
     }
   handleMenuClick (e) {
-	  this.setState({ anchor_el: event.currentTarget, menu_open: true}) ; 
+	  this.setState({ anchor_el: e.currentTarget, menu_open: true}) ; 
 	  //popupState.close;
     
   };
@@ -947,17 +1053,19 @@ content=
       <FormControlLabel
       control={
       <TextField
-        id="date"
+        onChange={this.handleDate1Change}
+        id="date1"
         //label="Birthday"
         type="date"
-        defaultValue="2017-05-24"
+        
+        value= {this.state.selectedDate1}
         // className={classes.textField}
         InputLabelProps={{
           shrink: true,
         }}
       />
        }
-        label="Дата возбуждения"
+        label="Дата начала периода"
          labelPlacement="top"
        />
     </FormControl>
@@ -966,17 +1074,19 @@ content=
       <FormControlLabel
       control={
       <TextField
-        id="date"
+        onChange={this.handleDate2Change}
+        id="date2"
         //label="Birthday"
         type="date"
-        defaultValue="2017-05-24"
+       
+         value={this.state.selectedDate2}
         // className={classes.textField}
         InputLabelProps={{
           shrink: true,
         }}
       />
        }
-        label="Дата окончания"
+        label="Дата конца периода"
          labelPlacement="top"
        />
     </FormControl>
@@ -987,8 +1097,8 @@ content=
           id="standard-select-currency"
           select
           //label="Select"
-          value='0'
-          //onChange={handleChange}
+          value={this.state.range}
+          onChange={this.handleRangeChange}
           //helperText="Please select your currency"
           >
             {this.state.range_date.map(option => (
