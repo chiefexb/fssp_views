@@ -4,9 +4,14 @@ $worker->addServer();
 $worker->addFunction("reverse", "my_reverse_function");
 while ($worker->work());
 
-function my_reverse_function($job)
+function vitrina_calc($job)
 {
-    $host = '62.109.7.133:fssp';
+    
+    j = json_decode($job->workload() );                                         |
+    $osp=$obj->{'osp'};
+    $vitrina_id=$obj->{'osp'};
+    
+    /*$host = '62.109.7.133:fssp';
     $username='SYSDBA';
     $password='8aJu3#7Y3j';
     $dbh = ibase_connect($host, $username, $password);
@@ -16,8 +21,8 @@ function my_reverse_function($job)
     var_dump($row);
 
    ibase_free_result($sth);
-   ibase_close($dbh);
-  return strrev($job->workload());
+   ibase_close($dbh);/? */
+  return 1 ; //($job->workload());
 
 ?>
 

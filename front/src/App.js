@@ -322,7 +322,8 @@ class App extends React.Component {
 		
 		this.setState({selectedDate1: dist,
 			              selectedDate2: date1,
-			              result5: mm +1
+			               loaded: false,
+			               result:[]
 			   });
 	 
 	 // window.location.reload(false);
@@ -496,7 +497,7 @@ class App extends React.Component {
 	//  this.setState({loaded: false,
 		//            result: []});
 if (!this.state.loaded) {
-    fetch(`api/vitrina?vitrina_id=1&counter_id=${this.state.counter_id}&spi_id=${this.state.spi_id}`)
+    fetch(`api/vitrina?vitrina_id=1&counter_id=${this.state.counter_id}&spi_id=${this.state.spi_id}&date1=${this.selectedDate1}&date2=${this.selectedDate2}`) 
       .then(response => {
         if (response.status > 400) {
           return this.setState(() => {
