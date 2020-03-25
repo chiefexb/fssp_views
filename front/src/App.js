@@ -534,8 +534,17 @@ class App extends React.Component {
 
 
   };
-
-
+//shouldComponentUpdate(nextProps, nextState) {
+//  // Only update if bricks change
+//  return nextState.blocks.length > this.state.blocks.length;
+//}
+static getDerivedStateFromProps(props, state) {
+	if (  !(this.state.loaded) &&  !(this.state.result) ) {
+	this.renderTable;
+}
+	
+  
+}
  componentDidMount() {
     //?vitrina_id=1&counter_id=1&spi_id=0   
     fetch(`api/vitrina?vitrina_id=1&counter_id=${this.state.counter_id}&spi_id=${this.state.spi_id}`)
@@ -562,9 +571,7 @@ class App extends React.Component {
 
 }
     render() {
-if (  !(this.state.loaded) &&  !(this.state.result) ) {
-	this.renderTable;
-}
+
 
 const range_date= [
   {
