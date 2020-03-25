@@ -550,7 +550,7 @@ static getDerivedStateFromProps(props, state) {
         return response.json();
       })
       .then(result => {
-        this.setState(() => {
+        setState(() => {
           return {
             result,
             loaded: true
