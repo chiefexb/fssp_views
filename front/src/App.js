@@ -564,7 +564,7 @@ class App extends React.Component {
     render() {
 if (  (this.state.loaded) &&  (this.state.result) ) {
 	
-} else { this.renderTable };
+} else  this.renderTable ;
 
 const range_date= [
   {
