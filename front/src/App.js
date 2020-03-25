@@ -540,17 +540,17 @@ class App extends React.Component {
 //}
 static getDerivedStateFromProps(props, state) {
 	
-	 fetch(`api/vitrina?vitrina_id=2&counter_id=${this.state.counter_id}&spi_id=${this.state.spi_id}`)
+	 fetch(`api/vitrina?vitrina_id=3&counter_id=${state.counter_id}&spi_id=${state.spi_id}`)
       .then(response => {
         if (response.status > 400) {
-          return this.setState(() => {
+          return props.setState(() => {
             return { placeholder: "Something went wrong!" };
           });
         }
         return response.json();
       })
       .then(result => {
-        setState(() => {
+        props.setState(() => {
           return {
             result,
             loaded: true
