@@ -496,7 +496,7 @@ class App extends React.Component {
 	//  this.setState({loaded: false,
 		//            result: []});
 if (!this.state.loaded) {
-    fetch(`api/vitrina?vitrina_id=2&counter_id=${this.state.counter_id}&spi_id=${this.state.spi_id}`)
+    fetch(`api/vitrina?vitrina_id=1&counter_id=${this.state.counter_id}&spi_id=${this.state.spi_id}`)
       .then(response => {
         if (response.status > 400) {
           return this.setState(() => {
