@@ -493,8 +493,8 @@ class App extends React.Component {
   };  
   renderTable() {
 
-	  this.setState({loaded: false,
-		            result: []});
+	//  this.setState({loaded: false,
+		//            result: []});
 
     fetch(`api/vitrina?vitrina_id=1&counter_id=${this.state.counter_id}&spi_id=${this.state.spi_id}`)
       .then(response => {
@@ -562,9 +562,9 @@ class App extends React.Component {
 
 }
     render() {
-if (  (this.state.loaded) &&  (this.state.result) ) {
-	
-} else  this.renderTable ;
+if (  !(this.state.loaded) &&  !(this.state.result) ) {
+	this.renderTable;
+}
 
 const range_date= [
   {
