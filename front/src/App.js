@@ -540,7 +540,7 @@ class App extends React.Component {
 //}
 static getDerivedStateFromProps(props, state) {
 	if (  !(state.loaded) ||  !(state.result) ) {
-	this.renderTable;
+	props.renderTable;
 }
 	
   
