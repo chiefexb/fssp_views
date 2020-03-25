@@ -538,25 +538,9 @@ class App extends React.Component {
 //  // Only update if bricks change
 //  return nextState.blocks.length > this.state.blocks.length;
 //}
-static getDerivedStateFromProps(props, state) {
+componentDidUpdate(prevProps, prevState, snapshot) {
 	
-	 fetch(`api/vitrina?vitrina_id=3&counter_id=${state.counter_id}&spi_id=${state.spi_id}`)
-      .then(response => {
-        if (response.status > 400) {
-          return state.setState(() => {
-            return { placeholder: "Something went wrong!" };
-          });
-        }
-        return response.json();
-      })
-      .then(result => {
-        state.setState(() => {
-          return {
-            result,
-            loaded: true
-          };
-        });
-      });
+	this.renderTable;
 
 	
   
