@@ -543,14 +543,14 @@ static getDerivedStateFromProps(props, state) {
 	 fetch(`api/vitrina?vitrina_id=3&counter_id=${state.counter_id}&spi_id=${state.spi_id}`)
       .then(response => {
         if (response.status > 400) {
-          return props.setState(() => {
+          return state.setState(() => {
             return { placeholder: "Something went wrong!" };
           });
         }
         return response.json();
       })
       .then(result => {
-        props.setState(() => {
+        state.setState(() => {
           return {
             result,
             loaded: true
