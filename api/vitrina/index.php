@@ -28,7 +28,13 @@ if(isset($_GET["vitrina_id"]))  {
 
 if(isset($_GET["date1"]))  {
     if(!empty($_GET["date1"])) {
-		$vitrina_id=$_GET["date1"];
+		$date1=$_GET["date1"];
+	};
+};
+
+if(isset($_GET["date2"]))  {
+    if(!empty($_GET["date2"])) {
+		$date2=$_GET["date2"];
 	};
 };
 
