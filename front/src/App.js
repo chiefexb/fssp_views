@@ -492,7 +492,12 @@ class App extends React.Component {
 	//  this.setState({loaded: false,
 		//            result: []});
 
-		
+
+if (this.state.loaded5)  {
+		  if (this.state.result5.auth=='yes') {
+		 this.setState( is_auth:true);
+	      };
+};		
 if (!this.state.loaded) {
     fetch(`api/vitrina?vitrina_id=1&counter_id=${this.state.counter_id}&spi_id=${this.state.spi_id}&date1=${this.state.selectedDate1}&date2=${this.state.selectedDate2}`) 
       .then(response => {
@@ -625,12 +630,7 @@ const range_date= [
   }
  
 ];
-let isAuth=false;
-if (this.state.loaded5)  {
-		  if (this.state.result5.auth=='yes') {
-		isAuth=true;
-	      }
-};
+
  //1
 const diagram = {
      
@@ -1014,7 +1014,7 @@ content=
                             <InsertChartIcon />
                              </IconButton>
                       
-                                <IconButton   disabled={!isAuth} onClick={this.toggleDrawerOpen}  aria-label="delete">
+                                <IconButton   disabled={!this.state.is_auth} onClick={this.toggleDrawerOpen}  aria-label="delete">
                             <SettingsIcon />
                              </IconButton>
                           
