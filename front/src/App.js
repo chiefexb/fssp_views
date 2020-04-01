@@ -491,12 +491,7 @@ class App extends React.Component {
 
 	//  this.setState({loaded: false,
 		//            result: []});
-if (this.state.Loaded5)  {
-		  if (this.state.result5.auth=='yes') {
-		localStorage.setItem('Token', this.state.result5.token);
-		 this.setState({is_auth: true});
-	      }
-};
+
 		
 if (!this.state.loaded) {
     fetch(`api/vitrina?vitrina_id=1&counter_id=${this.state.counter_id}&spi_id=${this.state.spi_id}&date1=${this.state.selectedDate1}&date2=${this.state.selectedDate2}`) 
@@ -630,7 +625,12 @@ const range_date= [
   }
  
 ];
-
+let isAuth=false;
+if (this.state.Loaded5)  {
+		  if (this.state.result5.auth=='yes') {
+		isAuth=true;
+	      }
+};
  
 const diagram = {
      
@@ -1014,7 +1014,7 @@ content=
                             <InsertChartIcon />
                              </IconButton>
                       
-                                <IconButton   disabled={!this.state.is_auth} onClick={this.toggleDrawerOpen}  aria-label="delete">
+                                <IconButton   disabled={!isAuth} onClick={this.toggleDrawerOpen}  aria-label="delete">
                             <SettingsIcon />
                              </IconButton>
                           
