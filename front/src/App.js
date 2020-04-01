@@ -198,8 +198,8 @@ class App extends React.Component {
     this.handleMenuClose=this.handleMenuClose.bind(this); 
     this.handleMenuClick=this.handleMenuClick.bind(this); 
     this.handleRangeChange=this.handleRangeChange.bind(this); 
-      this.handleDate1Change=this.handleDate1Change.bind(this); 
-        this.handleDate2Change=this.handleDate2Change.bind(this); 
+    this.handleDate1Change=this.handleDate1Change.bind(this); 
+    this.handleDate2Change=this.handleDate2Change.bind(this); 
      
     
     
@@ -383,12 +383,7 @@ class App extends React.Component {
      // this.refs.dialog.dismiss();
       
      this.setState({ login_form: false ,passw: '', login_name: ''}) ; 
-     if (this.state.Loaded5)  {
-		  if (this.state.result5.auth=='yes') {
-		localStorage.setItem('Token', this.state.result5.token);
-		 this.setState({is_auth: true});
-	      }
-	}
+ 
       // this.setState({ is_auth: true }) ; 
         //this.calculate(text);
     };
@@ -496,6 +491,13 @@ class App extends React.Component {
 
 	//  this.setState({loaded: false,
 		//            result: []});
+if (this.state.Loaded5)  {
+		  if (this.state.result5.auth=='yes') {
+		localStorage.setItem('Token', this.state.result5.token);
+		 this.setState({is_auth: true});
+	      }
+}
+		
 if (!this.state.loaded) {
     fetch(`api/vitrina?vitrina_id=1&counter_id=${this.state.counter_id}&spi_id=${this.state.spi_id}&date1=${this.state.selectedDate1}&date2=${this.state.selectedDate2}`) 
       .then(response => {
