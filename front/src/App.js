@@ -496,7 +496,7 @@ if (this.state.Loaded5)  {
 		localStorage.setItem('Token', this.state.result5.token);
 		 this.setState({is_auth: true});
 	      }
-}
+};
 		
 if (!this.state.loaded) {
     fetch(`api/vitrina?vitrina_id=1&counter_id=${this.state.counter_id}&spi_id=${this.state.spi_id}&date1=${this.state.selectedDate1}&date2=${this.state.selectedDate2}`) 
