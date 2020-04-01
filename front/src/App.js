@@ -366,7 +366,7 @@ class App extends React.Component {
       })
       .then((response) => {
         this.setState({
-            Loaded5: true,
+            loaded5: true,
             result5: response.data
         });
 
@@ -435,7 +435,7 @@ class App extends React.Component {
       })
       .then((response) => {
         this.setState({
-            Loaded5: true,
+            loaded5: true,
             result5: response.data
         });
 
@@ -626,7 +626,7 @@ const range_date= [
  
 ];
 let isAuth=false;
-if (this.state.Loaded5)  {
+if (this.state.loaded5)  {
 		  if (this.state.result5.auth=='yes') {
 		isAuth=true;
 	      }
