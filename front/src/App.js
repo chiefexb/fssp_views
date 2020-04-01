@@ -631,7 +631,7 @@ if (this.state.Loaded5)  {
 		isAuth=true;
 	      }
 };
- 
+ //1
 const diagram = {
      
         chart: {
