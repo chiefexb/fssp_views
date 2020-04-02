@@ -495,7 +495,7 @@ class App extends React.Component {
 
 if (this.state.loaded5)  {
 		  if (this.state.result5.auth=='yes') {
-		 this.setState( is_auth:true);
+		 this.setState( {is_auth: true });
 	      };
 };		
 if (!this.state.loaded) {
