@@ -1,10 +1,10 @@
 <?php
 $worker= new GearmanWorker();
 $worker->addServer();
-$worker->addFunction("vitrina_calc", "vitrina_calc");
+$worker->addFunction("vitrina_calc", "vitrina_calc_function");
 while ($worker->work());
 
-function vitrina_calc($job)
+function vitrina_calc_function($job)
 {
     
     //j = $job->workload() ;

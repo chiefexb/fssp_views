@@ -12,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $job_handle = $client->doBackground("vitrina_calc", $postData);
   print  $job_handle;
   print  $client->jobStatus($job_handle)[0];
+  //echo json_encode($row);
   //while ($client->jobStatus($job_handle)[0]);
 }
 
