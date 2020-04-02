@@ -689,9 +689,9 @@ const StyledTableCell = withStyles(theme => ({
        let content = <div/>;
        let debug_info=<div/>;
 
-        if (this.state.debug) {
-         debug_info=JSON.stringify (this.state)
-        }
+      //  if (this.state.debug) {
+      //   debug_info=JSON.stringify (this.state)
+      //  }
     if (this.state.windows==='diagram') {
 content=
  <div className="app">
