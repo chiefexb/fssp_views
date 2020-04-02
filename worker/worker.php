@@ -7,7 +7,7 @@ while ($worker->work());
 function vitrina_calc($job)
 {
     
-    j = $job->workload() ;
+    //j = $job->workload() ;
     //json_decode($job->workload() );                                         |
     //$osp=$obj->{'osp'};
     //$vitrina_id=$obj->{'osp'};
@@ -23,7 +23,7 @@ function vitrina_calc($job)
 
    ibase_free_result($sth);
    ibase_close($dbh);/? */
-  return strrev(j) ;
+  return strrev($job->workload() ) ;
    //($job->workload());
 }
 
