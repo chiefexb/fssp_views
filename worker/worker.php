@@ -1,7 +1,7 @@
 <?php
 $worker= new GearmanWorker();
 $worker->addServer();
-$worker->addFunction("reverse", "my_reverse_function");
+$worker->addFunction("vitrina_calc", "vitrina_calc");
 while ($worker->work());
 
 function vitrina_calc($job)
