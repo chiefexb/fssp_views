@@ -141,6 +141,8 @@ class App extends React.Component {
             result3: [],
             result4: [],
             result5: [],
+            result6: [],
+            
             diagram: [],
             range: 1,
             
@@ -163,6 +165,7 @@ class App extends React.Component {
             loaded2: false,
             loaded3: false,
             loaded5: false,
+            loaded6: false,
             menu_open: false,
             login_form: false,
             tooltip: false,
@@ -199,8 +202,10 @@ class App extends React.Component {
     this.handleMenuClick=this.handleMenuClick.bind(this); 
     this.handleRangeChange=this.handleRangeChange.bind(this); 
     this.handleDate1Change=this.handleDate1Change.bind(this); 
+    
     this.handleDate2Change=this.handleDate2Change.bind(this); 
-     
+    this.handleImport=this.handleImport.bind(this); 
+        
     
     
     
@@ -387,6 +392,38 @@ class App extends React.Component {
       // this.setState({ is_auth: true }) ; 
         //this.calculate(text);
     };
+    
+     handleImport() {
+		
+		let url='/api/job/job.php' ;
+    const  opts = { login: this.state.login_name,  password: this.state.passw        };
+    //this.setState({new_category: ''});
+    axios.defaults.xsrfCookieName = "csrftoken";
+    axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+    axios.post(url,opts, {
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFTOKEN': cookie.load("csrftoken")
+      }
+
+      })
+      .then((response) => {
+        this.setState({
+            loaded6: true,
+            result6: response.data
+        });
+
+      })
+      .catch((error) => {
+
+      })
+      
+      
+     this.setState({ login_form: false ,passw: '', login_name: ''}) ; 
+ 
+     
+    };
+    
     handleClickOpen  ()      {
       this.setState({ login_form: true }) ;
 	  };
@@ -689,9 +726,9 @@ const StyledTableCell = withStyles(theme => ({
        let content = <div/>;
        let debug_info=<div/>;
 
-      //  if (this.state.debug) {
-      //   debug_info=JSON.stringify (this.state)
-      //  }
+       if (this.state.debug) {
+         debug_info=JSON.stringify (this.state)
+        };
     if (this.state.windows==='diagram') {
 content=
  <div className="app">
@@ -844,8 +881,13 @@ content=
 }
 }
  if (this.state.windows==='scheduller') {
+	  document.title = "Импорт данных из БД | ФССП Витрина";
       content=
-  <div>Sheduller</div>
+  <div>
+  <Button   onClick={this.handleImport} variant="contained" color="primary">
+  Импорт данных из БД
+</Button>
+  </div>
 }
        if (this.state.windows==='filters') {
           if (this.state.loaded3) {
