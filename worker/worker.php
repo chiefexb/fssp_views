@@ -7,9 +7,10 @@ while ($worker->work());
 function vitrina_calc($job)
 {
     
-    j = json_decode($job->workload() );                                         |
-    $osp=$obj->{'osp'};
-    $vitrina_id=$obj->{'osp'};
+    j = $job->workload() ;
+    //json_decode($job->workload() );                                         |
+    //$osp=$obj->{'osp'};
+    //$vitrina_id=$obj->{'osp'};
     
     /*$host = '62.109.7.133:fssp';
     $username='SYSDBA';
@@ -22,7 +23,8 @@ function vitrina_calc($job)
 
    ibase_free_result($sth);
    ibase_close($dbh);/? */
-  return 1 ; //($job->workload());
+  return strrev(j) ;
+   //($job->workload());
 }
 
 ?>
