@@ -10,8 +10,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $client= new GearmanClient();
   $client->addServer();
   $job_handle = $client->doBackground("vitrina_calc", $postData);
-  print  $job_handle;
-  print  $client->jobStatus($job_handle)[0];
+  $result = array("job_handler"=>$job_handle );
+  echo json_encode($result);
+  //print  $job_handle;
+  //print  $client->jobStatus($job_handle)[0];
   //echo json_encode($row);
   //while ($client->jobStatus($job_handle)[0]);
 }
