@@ -1,5 +1,5 @@
 <?php
-include  include 'vars.php';
+include 'vars.php';
 $worker= new GearmanWorker();
 $worker->addServer();
 $worker->addFunction("vitrina_calc", "vitrina_calc_function");
@@ -12,17 +12,17 @@ function vitrina_calc_function($job)
     //$osp=$obj->{'osp'};
     //$vitrina_id=$obj->{'osp'};
     
-    /*$host = '62.109.7.133:fssp';
+    $host = '62.109.7.133:fssp';
     $username='SYSDBA';
     $password='8aJu3#7Y3j';
     $dbh = ibase_connect($host, $username, $password);
-    $stmt = 'SELECT COUNT(*) FROM DOC_IP_DOC';
+    $stmt = $vitrina1;
     $sth = ibase_query($dbh, $stmt);
     $row = ibase_fetch_assoc($sth);
     var_dump($row);
 
-   ibase_free_result($sth);
-   ibase_close($dbh);/? */
+    ibase_free_result($sth);
+    ibase_close($dbh);     // /? */
   return strrev($job->workload() ) ;
    //($job->workload());
 }

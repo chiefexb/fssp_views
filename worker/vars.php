@@ -63,5 +63,5 @@ $vitrina1="select
 					join document on document.id=doc_ip.id
 		where doc_ip.ip_date_finish>=current_date and doc_ip.article='31' and doc_ip.point='1' and doc_ip.subpoint='2'
 ";
-echo $vitrina1;
+//echo $vitrina1;
 ?>
