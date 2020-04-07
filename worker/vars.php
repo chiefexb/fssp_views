@@ -1,4 +1,4 @@
-<php
+<?php
 $vitrina1="select 
 		*
 		from
@@ -62,5 +62,6 @@ $vitrina1="select
 		from doc_ip join doc_ip_doc on doc_ip_doc.id=doc_ip.id
 					join document on document.id=doc_ip.id
 		where doc_ip.ip_date_finish>=current_date and doc_ip.article='31' and doc_ip.point='1' and doc_ip.subpoint='2'
-"
+";
+echo $vitrina1;
 ?>
