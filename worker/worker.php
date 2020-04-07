@@ -6,7 +6,6 @@ while ($worker->work());
 
 function vitrina_calc_function($job)
 {
-    
     //j = $job->workload() ;
     //json_decode($job->workload() );                                         |
     //$osp=$obj->{'osp'};
