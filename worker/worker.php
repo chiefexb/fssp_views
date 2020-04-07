@@ -23,7 +23,7 @@ function vitrina_calc($job)
 
     ibase_free_result($sth);
     ibase_close($dbh);     // /? */
-  return strrev($job->workload() ) ;
+  return 1 ;
    //($job->workload());
 }
 
