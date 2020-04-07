@@ -5,7 +5,7 @@ $worker->addServer();
 $worker->addFunction("vitrina_calc", "vitrina_calc_function");
 while ($worker->work());
 
-function vitrina_calc($job)
+function vitrina_calc_function($job)
 {
     //j = $job->workload() ;
     //json_decode($job->workload() );                                         |
