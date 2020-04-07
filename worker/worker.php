@@ -1,4 +1,5 @@
 <?php
+include  include 'vars.php';
 $worker= new GearmanWorker();
 $worker->addServer();
 $worker->addFunction("vitrina_calc", "vitrina_calc_function");

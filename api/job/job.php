@@ -1,7 +1,7 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $postData = file_get_contents('php://input');
-  //$data = json_decode($postData, true);
+  $data = json_decode($postData, true);
   
   //$query = ibase_prepare($dbh, "UPDATE FOO SET BAR = ? WHERE BAZ = ?");
 
@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //ibase_execute($query, $bar, $baz);
   $client= new GearmanClient();
   $client->addServer();
-  $job_handle = $client->doBackground("vitrina_calc", $postData);
+  $job_handle = $client->doBackground("vitrina_calc", $data);
   $result = array("job_handler"=>$job_handle );
   echo json_encode($result);
   //print  $job_handle;
