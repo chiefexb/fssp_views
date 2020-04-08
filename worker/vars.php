@@ -1,4 +1,23 @@
 <?php
+$vitrina="select
+ DOC_IP.IP_EXEC_PRIST_NAME,
+ doc_ip.article, 
+ doc_ip.point ,
+ doc_ip.subpoint ,
+ doc_ip.ip_risedate ,
+ doc_ip.ip_date_finish1
+ from doc_ip join doc_ip_doc on doc_ip_doc.id=doc_ip.id           join document on document.id=doc_ip.id";
+
+$vitrina2="select 
+
+doc_ip.article s,
+ doc_ip.point p,
+ doc_ip.subpoint pp,
+ count(*) k
+from doc_ip join doc_ip_doc on doc_ip_doc.id=doc_ip.id
+            join document on document.id=doc_ip.id
+
+ group by 1,2,3";
 $vitrina1="select 
 		*
 		from
@@ -60,7 +79,7 @@ $vitrina1="select
 		union all
 		select '31_1_2',count(DOC_IP.IP_EXEC_PRIST_NAME) as f_col
 		from doc_ip join doc_ip_doc on doc_ip_doc.id=doc_ip.id
-					join document on document.id=doc_ip.id
+					join document on document.id=doc_ip.id  
 		where doc_ip.ip_date_finish>=current_date and doc_ip.article='31' and doc_ip.point='1' and doc_ip.subpoint='2'
 ";
 //echo $vitrina1;
