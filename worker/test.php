@@ -9,13 +9,19 @@ include 'vars.php';
     $stmt = $vitrina3;
     $sth = ibase_query($dbh,  $stmt);
     $count=0;
-    while ($row[$count] = ibase_fetch_object($sth)) {
+    while ($onerow = ibasefetchrow( $sth)) {
+        foreach($onerow as $key => $value) {
+    echo $key.": ".$value.", ";
+  }
+  echo "\n";
+}
+    //while ($row[$count] = ibase_fetch_object($sth)) {
       $count++;
     //$d=count($row);
     //var_dump ($row) ;
       
     // echo $row->email, "\n";
-    }
+   // }
     echo $count;
     ibase_free_result($sth);
     ibase_close($dbh);
