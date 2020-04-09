@@ -1,11 +1,11 @@
 <?php
-$vitrina="select
+$vitrina3="select
  DOC_IP.IP_EXEC_PRIST_NAME,
  doc_ip.article, 
  doc_ip.point ,
  doc_ip.subpoint ,
  doc_ip.ip_risedate ,
- doc_ip.ip_date_finish1
+ doc_ip.ip_date_finish
  from doc_ip join doc_ip_doc on doc_ip_doc.id=doc_ip.id           join document on document.id=doc_ip.id";
 
 $vitrina2="select 
