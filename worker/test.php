@@ -11,7 +11,7 @@ include 'vars.php';
     $count=0;
     while ($onerow = ibase_fetch_row( $sth)) {
         foreach($onerow as $key => $value) {
-            $str='INSERT INTO fssp';
+/            $str='INSERT INTO fssp';
             $str=$str.",".$value.", ";
     }
     echo $str;
