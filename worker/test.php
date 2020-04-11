@@ -9,10 +9,10 @@ include 'vars.php';
     $mysqli = new mysqli("localhost", "fssp", "Exb021205!", "fssp");
     $mysqli->set_charset('utf8');
     
-    if ($mysqli->query($sql) === TRUE) {
+    if ($mysqli->query("DELETE FROM fssp_mon_vitrinavalue;") === TRUE) {
     echo "New record delete successfully";
     } else {
-    echo "Error: " . $sql . "<br>" . $mysqli->error;
+    echo "Error: " . $mysqli->error;
     }
     
     //$result = $mysqli->query($sql);
