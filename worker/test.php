@@ -39,7 +39,8 @@ include 'vars.php';
                //echo "New insert  successfully";
            } else {
 			     $count++;
-           //  echo "Error: ". $str . "--" . $mysqli->error;
+             echo "Error: ". $str . "--" . $mysqli->error;
+              die();
             }
            
             //var_dump($r);
