@@ -27,8 +27,11 @@ include 'vars.php';
            $col2=$onerow[2];
            $col3=$onerow[3];
            $data_vozb=$onerow[4];
-           $data_okon=$onerow[5];
-           $str=$vitr3."(1,1,  '".$spi."' , '". $col1."', '".$col2."', '".$col3."', '".$data_vozb."' , '".$data_okon."' );  "; 
+           $data_okon="'".$onerow[5]."'";
+            if ( $$onerow[5] = '') {
+				 $data_okon="NULL";
+			}
+           $str=$vitr3."(1,1,  '".$spi."' , '". $col1."', '".$col2."', '".$col3."', '".$data_vozb."' , '.$data_okon.' );  "; 
            if ($mysqli->query($str) === TRUE) {
                echo "New insert  successfully";
            } else {
