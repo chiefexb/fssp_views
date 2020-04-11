@@ -51,7 +51,7 @@ include 'vars.php';
            } else {
 			     $count++;
              echo "Error: ". $str . "-".$onerow[5]."--" . $mysqli->error;
-              die();
+              //die();
             }
            
             //var_dump($r);
