@@ -1,7 +1,7 @@
 <?php
 $vitr4=" INSERT INTO fssp_mon_vitrinavalue (vitrina_id, osp_id,spi, col1, data_vozb, data_okon) VALUES ";
 
-$vitina4="select  IP_EXEC_PRIST_NAME,  d.doc_date, d.metaobjectname from o_ip oip
+$vitina4="select  IP_EXEC_PRIST_NAME,  d.metaobjectname, d.doc_date from o_ip oip
     join document d on oip.id = d.id and d.docstatusid not in (-1, 1, 5)
 
     )";
