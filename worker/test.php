@@ -29,7 +29,7 @@ include 'vars.php';
            $data_vozb=$onerow[4];
            $data_okon="'".$onerow[5]."'";
            
-            if ( strlen ($onerow[5]) >0) {
+            if ( is_null ($onerow[5]) {
 				 $data_okon="NULL";
 				  
 			}
