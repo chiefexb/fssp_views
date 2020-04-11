@@ -26,7 +26,7 @@ include 'vars.php';
            $col1=$onerow[1];
            $col2=$onerow[2];
            $col3=$onerow[3];
-           $data_vozb=$onerow[4];
+           $data_vozb="'".$onerow[4]."'";
            $data_okon="'".$onerow[5]."'";
           // $str="";
            
@@ -37,8 +37,15 @@ include 'vars.php';
 				 $data_okon="NULL" ;
 				  
 			}
+			  if ( is_null ($onerow[4]) ) {
+				 $data_vozb="NULL" ;
+				  
+			} else   if ( strlen ($onerow[4]) <1) {
+				 $data_vozb="NULL" ;
+				  
+			}
 			//echo $data_okon;
-           $str=$vitr3."(1,1,  '".$spi."' , '". $col1."', '".$col2."', '".$col3."', '".$data_vozb."' , ".$data_okon." );  "; 
+           $str=$vitr3."(1,1,  '".$spi."' , '". $col1."', '".$col2."', '".$col3."', ".$data_vozb." , ".$data_okon." );  "; 
            if ($mysqli->query($str) === TRUE) {
                //echo "New insert  successfully";
            } else {
