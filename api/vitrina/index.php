@@ -41,7 +41,8 @@ if(isset($_GET["date2"]))  {
 
 if ($vitrina_id=='1') {
 $sql_count="
-SUM(CASE WHEN (col2='47' and col3='1' and col4='1' and data_vozb>='" . date1 ."' and  data_vozb<='" . date2 ."') THEN 1 ELSE 0 END ) as col3,
+//and data_vozb>='" . date1 ."' and  data_vozb<='" . date2 ."'
+SUM(CASE WHEN (col2='47' and col3='1' and col4='1' ) THEN 1 ELSE 0 END ) as col3,
 SUM(CASE WHEN (col2='47' and col3='1' and col4='2') THEN 1 ELSE 0 END ) as col4,
 SUM(CASE WHEN (col2='47' and col3='1' and col4='8') THEN 1 ELSE 0 END ) as col5,
 SUM(CASE WHEN (col2='47' and col3='1' and col4='9') THEN 1 ELSE 0 END ) as col6,
