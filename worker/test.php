@@ -6,6 +6,9 @@ include 'vars.php';
     //echo $vitrina3;
     $charset='WIN1251';
     $dbh = ibase_connect($host, $username, $password, $charset);
+    // $mysqli = new mysqli("localhost", "fssp", "Exb021205!", "fssp");
+    //$mysqli->set_charset('utf8');
+    //$result = $mysqli->query($sql);
     $stmt = $vitrina3;
     $sth = ibase_query($dbh,  $stmt);
     $count=0;
@@ -16,7 +19,9 @@ include 'vars.php';
            $col1=$onerow[1];
            $col2=$onerow[2];
            $col3=$onerow[3];
-  $col1=$onerow[1];
+           $data_vozb=$onerow[4];
+           $data_okon=$onerow[5];
+            $str=vitr3+"( + '".iconv('windows-1251', 'UTF-8',  $$spi).'" , '". $col1."', '".$col2."', '".$col3"', '".$data_vozb , data_okon)
 
  // $str=$str."' ,'".iconv('windows-1251', 'UTF-8',  $value)."', '";
     //}

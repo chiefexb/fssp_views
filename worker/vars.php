@@ -1,5 +1,5 @@
 <?php
-$vitr3=" INSERT INTO fssp_mon_vitrinavalue (spi,col1,col2,col3,data_vozb,data_okon) VALUES(";
+$vitr3=" INSERT INTO fssp_mon_vitrinavalue (spi,col1,col2,col3,data_vozb,data_okon) VALUES ";
 
 
 $vitrina3="select
