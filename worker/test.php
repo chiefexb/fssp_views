@@ -61,7 +61,7 @@ include 'vars.php';
                //echo "New insert  successfully";
            } else {
 			     $count++;
-             echo "Error: ". $str . "-".$onerow[5]."--" . $mysqli->error;
+             echo "Error: ". $str ."--" . $mysqli->error;
               //die();
             }
            
