@@ -8,7 +8,7 @@ include 'vars.php';
     $dbh = ibase_connect($host, $username, $password, $charset);
     $mysqli = new mysqli("localhost", "fssp", "Exb021205!", "fssp");
     $mysqli->set_charset('utf8');
-    $mysqli->query("DELETE FROM fssp_mon_vitrinavalue);"
+    $mysqli->query("DELETE FROM fssp_mon_vitrinavalue);";
     
     //$result = $mysqli->query($sql);
     $stmt = $vitrina3;
