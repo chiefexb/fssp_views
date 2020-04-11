@@ -28,8 +28,13 @@ include 'vars.php';
            $col3=$onerow[3];
            $data_vozb=$onerow[4];
            $data_okon=$onerow[5];
-            $str=$vitr3."(  '".$spi."' , '". $col1."', '".$col2."', '".$col3."', '".$data_vozb."' , '".$data_okon."' );  "; 
-            $r= $mysqli->query($str);
+           $str=$vitr3."(  '".$spi."' , '". $col1."', '".$col2."', '".$col3."', '".$data_vozb."' , '".$data_okon."' );  "; 
+           if ($mysqli->query($str) === TRUE) {
+               echo "New insert  successfully";
+           } else {
+             echo "Error: ". $str . "--" . $mysqli->error;
+            }
+           
             //var_dump($r);
 
  // $str=$str."' ,'".iconv('windows-1251', 'UTF-8',  $value)."', '";
