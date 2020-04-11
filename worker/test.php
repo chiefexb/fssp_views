@@ -58,7 +58,7 @@ include 'vars.php';
 	       
 	       
            if ($mysqli->query($str) === TRUE) {
-               //echo "New insert  successfully";
+               echo "New insert  successfully";
            } else {
 			     $count++;
              echo "Error: ". $str ."--" . $mysqli->error;
