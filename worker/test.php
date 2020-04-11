@@ -26,7 +26,7 @@ include 'vars.php';
 			   $spi=iconv('windows-1251', 'UTF-8',$onerow[0] );
 			   $data_vozb="'".$onerow[1]."'";
 			   $col1=$onerow[2];
-			   $str=$vitr4."(2,1,  '".$spi."' , '". $col1.', '".$data_vozb.'" );  "; 
+			   $str=$vitr4."(2,1,  '".$spi."' , '". $col1."', " . $data_vozb. " );  "; 
 	      }
 		  if  ($vitrina_id==1) {
            $spi=iconv('windows-1251', 'UTF-8',$onerow[0] );  
