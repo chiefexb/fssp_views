@@ -8,7 +8,12 @@ include 'vars.php';
     $dbh = ibase_connect($host, $username, $password, $charset);
     $mysqli = new mysqli("localhost", "fssp", "Exb021205!", "fssp");
     $mysqli->set_charset('utf8');
-    $mysqli->query("DELETE FROM fssp_mon_vitrinavalue;");
+    
+    if ($mysqli->query($sql) === TRUE) {
+    echo "New record delete successfully";
+    } else {
+    echo "Error: " . $sql . "<br>" . $mysqli->error;
+    }
     
     //$result = $mysqli->query($sql);
     $stmt = $vitrina3;
@@ -25,7 +30,7 @@ include 'vars.php';
            $data_okon=$onerow[5];
             $str=$vitr3."(  '".$spi."' , '". $col1."', '".$col2."', '".$col3."', '".$data_vozb."' , '".$data_okon."' );  "; 
             $r= $mysqli->query($str);
-            var_dump($r);
+            //var_dump($r);
 
  // $str=$str."' ,'".iconv('windows-1251', 'UTF-8',  $value)."', '";
     //}
