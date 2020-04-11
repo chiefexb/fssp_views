@@ -10,8 +10,9 @@ include 'vars.php';
     $sth = ibase_query($dbh,  $stmt);
     $count=0;
     while ($onerow = ibase_fetch_row( $sth)) {
+		 $str=vitr3;
         foreach($onerow as $key => $value) {
-/            $str='INSERT INTO fssp';
+         
             $str=$str.",".$value.", ";
     }
     echo $str;

@@ -1,4 +1,7 @@
 <?php
+$vitr3=" INSERT INTO fssp_mon_vitrinavalue (spi,col1,col2,col3,data_vozb,data_okon) VALUES(";
+
+
 $vitrina3="select
  DOC_IP.IP_EXEC_PRIST_NAME,
  doc_ip.article, 
