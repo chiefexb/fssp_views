@@ -31,7 +31,7 @@ include 'vars.php';
           // $str="";
            
             if ( is_null ($onerow[5]) ) {
-				 $data_okon="NULL" 
+				 $data_okon="NULL" ;
 				  
 			}
 			//echo $data_okon;
