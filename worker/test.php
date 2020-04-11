@@ -30,7 +30,7 @@ include 'vars.php';
     //}
     //echo $str;
     }
-    $conn->close();
+    $mysqli->close();
     //while ($row[$count] = ibase_fetch_object($sth)) {
     //  $count++;
     //$d=count($row);
