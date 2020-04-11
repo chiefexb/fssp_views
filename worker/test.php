@@ -6,8 +6,10 @@ include 'vars.php';
     //echo $vitrina3;
     $charset='WIN1251';
     $dbh = ibase_connect($host, $username, $password, $charset);
-    // $mysqli = new mysqli("localhost", "fssp", "Exb021205!", "fssp");
-    //$mysqli->set_charset('utf8');
+    $mysqli = new mysqli("localhost", "fssp", "Exb021205!", "fssp");
+    $mysqli->set_charset('utf8');
+    $mysqli->query("DELETE FROM fssp_mon_vitrinavalue);"
+    
     //$result = $mysqli->query($sql);
     $stmt = $vitrina3;
     $sth = ibase_query($dbh,  $stmt);
@@ -22,12 +24,13 @@ include 'vars.php';
            $data_vozb=$onerow[4];
            $data_okon=$onerow[5];
             $str=$vitr3."(  '".$spi."' , '". $col1."', '".$col2."', '".$col3."', '".$data_vozb."' , '".$data_okon."' );  "; 
-            echo $str;
+            $mysqli->query(str;)
 
  // $str=$str."' ,'".iconv('windows-1251', 'UTF-8',  $value)."', '";
     //}
     //echo $str;
     }
+    $conn->close();
     //while ($row[$count] = ibase_fetch_object($sth)) {
     //  $count++;
     //$d=count($row);
