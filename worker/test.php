@@ -28,6 +28,7 @@ include 'vars.php';
            $col3=$onerow[3];
            $data_vozb=$onerow[4];
            $data_okon="'".$onerow[5]."'";
+           $str="";
            
             if ( is_null ($onerow[5]) {
 				 $data_okon="NULL" 
