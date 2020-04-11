@@ -21,7 +21,7 @@ include 'vars.php';
            $col3=$onerow[3];
            $data_vozb=$onerow[4];
            $data_okon=$onerow[5];
-            $str=vitr3+"( + '".iconv('windows-1251', 'UTF-8',  $$spi).'" , '". $col1."', '".$col2."', '".$col3"', '".$data_vozb , data_okon)
+            $str=$vitr3."(  '".iconv('windows-1251', 'UTF-8',  $$spi).'" , '". $col1."', '".$col2."', '".$col3"', '".$data_vozb."' , '".$data_okon."' );  "; 
 
  // $str=$str."' ,'".iconv('windows-1251', 'UTF-8',  $value)."', '";
     //}
