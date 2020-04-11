@@ -28,14 +28,17 @@ include 'vars.php';
            $col3=$onerow[3];
            $data_vozb=$onerow[4];
            $data_okon="'".$onerow[5]."'";
+           
             if ( strlen ($onerow[5]) >0) {
 				 $data_okon="NULL";
+				  
 			}
+			echo $data_okon;
            $str=$vitr3."(1,1,  '".$spi."' , '". $col1."', '".$col2."', '".$col3."', '".$data_vozb."' , ".$data_okon." );  "; 
            if ($mysqli->query($str) === TRUE) {
                //echo "New insert  successfully";
            } else {
-             echo "Error: ". $str . "--" . $mysqli->error;
+           //  echo "Error: ". $str . "--" . $mysqli->error;
             }
            
             //var_dump($r);
