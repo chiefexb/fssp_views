@@ -31,7 +31,7 @@ include 'vars.php';
             if ( $$onerow[5] = '') {
 				 $data_okon="NULL";
 			}
-           $str=$vitr3."(1,1,  '".$spi."' , '". $col1."', '".$col2."', '".$col3."', '".$data_vozb."' , '.$data_okon.' );  "; 
+           $str=$vitr3."(1,1,  '".$spi."' , '". $col1."', '".$col2."', '".$col3."', '".$data_vozb."' , ".$data_okon." );  "; 
            if ($mysqli->query($str) === TRUE) {
                echo "New insert  successfully";
            } else {
