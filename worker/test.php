@@ -39,7 +39,7 @@ include 'vars.php';
                //echo "New insert  successfully";
            } else {
 			     $count++;
-             echo "Error: ". $str . "--" . $mysqli->error;
+             echo "Error: ". $str . "-".$onerow[5]."--" . $mysqli->error;
               die();
             }
            
