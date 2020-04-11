@@ -33,11 +33,12 @@ include 'vars.php';
 				 $data_okon="NULL";
 				  
 			}
-			echo $data_okon;
+			//echo $data_okon;
            $str=$vitr3."(1,1,  '".$spi."' , '". $col1."', '".$col2."', '".$col3."', '".$data_vozb."' , ".$data_okon." );  "; 
            if ($mysqli->query($str) === TRUE) {
                //echo "New insert  successfully";
            } else {
+			     $count+++;
            //  echo "Error: ". $str . "--" . $mysqli->error;
             }
            
@@ -55,7 +56,7 @@ include 'vars.php';
       
     // echo $row->email, "\n";
    // }
-    //echo $count;
+    echo $count;
     ibase_free_result($sth);
     ibase_close($dbh);
 ?>
