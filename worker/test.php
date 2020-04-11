@@ -22,12 +22,7 @@ include 'vars.php';
     $count=0;
     
     while ($onerow = ibase_fetch_row( $sth)) {
-		  if  ($vitrina_id=='2') {
-			   $spi=iconv('windows-1251', 'UTF-8',$onerow[0] );
-			   $data_vozb="'".$onerow[1]."'";
-			   $col1=$onerow[2];
-			   $str=$vitr4."(2,1,  '".$spi."' , '". $col1."', " . $data_vozb. " );  "; 
-	      }
+
 		  if  ($vitrina_id=='1') {
            $spi=iconv('windows-1251', 'UTF-8',$onerow[0] );  
            $col1=$onerow[1];
@@ -53,7 +48,12 @@ include 'vars.php';
 			}
 			//echo $data_okon;
            $str=$vitr3."(1,1,  '".$spi."' , '". $col1."', '".$col2."', '".$col3."', ".$data_vozb." , ".$data_okon." );  "; 
-	       }
+	       } else  if  ($vitrina_id=='2') {
+			   $spi=iconv('windows-1251', 'UTF-8',$onerow[0] );
+			   $data_vozb="'".$onerow[1]."'";
+			   $col1=$onerow[2];
+			   $str=$vitr4."(2,1,  '".$spi."' , '". $col1."', " . $data_vozb. " );  "; 
+	      }
 	       
 	       
 	       
