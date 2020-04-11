@@ -67,6 +67,22 @@ $sql="select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,'-'
 $sql =  "select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,spi as col1 , count(spi) as col2 , 
   " .$sql_count ."     from fssp_mon_vitrinavalue vv           where vitrina_id=1 and data_vozb>='" . $date1 ."' and  data_vozb<='" . $date2 ."'group by vv.spi, osp order by osp";
 };
+
+} elseif ($vitrina_id=='2') {
+
+$sql_count="SUM(CASE WHEN (col2='O_IP_ACT_GACCOUNT_MONEY'  ) THEN 1 ELSE 0 END ) as col3";
+$sql="select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,'-' as col1, count(osp_id) as col2,
+
+" .$sql_count ."   from fssp_mon_vitrinavalue vv           where vitrina_id=1  group by  osp order by osp";
+
+         from fssp_mon_vitrinavalue vv           where vitrina_id=1 
+         //and data_vozb>='" . $date1 ."' and  data_vozb<='" . $date2 ."' group by  osp order by osp";
+//	 } else {
+//$sql =  "select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,spi as col1 , count(spi) as col2 , 
+ // " .$sql_count ."     from fssp_mon_vitrinavalue vv           where vitrina_id=1 and data_vozb>='" . $date1 ."' and  data_vozb<='" . $date2 ."'group by vv.spi, osp order by osp";
+};
+
+
 $mysqli->set_charset('utf8');
 $result = $mysqli->query($sql);
 
@@ -83,7 +99,11 @@ $row=$result -> fetch_all(MYSQLI_ASSOC);
 for($i = 0; $i < count($row); ++$i) {
     $row[$i]['id'] = $i+1;
 };
-} elseif ($vitrina_id=='2') {
+
+
+
+$mysqli->set_charset('utf8');
+$result = $mysqli->query($sql);
 	
 };
 // End of vitina if
