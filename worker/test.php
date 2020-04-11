@@ -32,7 +32,7 @@ include 'vars.php';
             if ( is_null ($onerow[5]) {
 				 $data_okon="NULL" 
 				  
-			};
+			}
 			//echo $data_okon;
            $str=$vitr3."(1,1,  '".$spi."' , '". $col1."', '".$col2."', '".$col3."', '".$data_vozb."' , ".$data_okon." );  "; 
            if ($mysqli->query($str) === TRUE) {
