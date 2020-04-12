@@ -11,7 +11,11 @@
       
     //where (d.metaobjectname like 'O_IP_ACT_%') or (d.metaobjectname = 'O_IP_RES_REOPEN')";
     $sth = ibase_query($dbh,  $stmt);
-    $onerow = ibase_fetch_row( $sth);
+    if (!$sth) {
+    echo "Could not successfully run query ($sql) from DB: " . mysql_error();
+    exit;
+    }
+    //$onerow = ibase_fetch_row( $sth);
     $row = ibase_fetch_assoc($sth);
     $count=0;
     //while ($count<3) {
