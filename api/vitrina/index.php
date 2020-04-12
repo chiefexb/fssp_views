@@ -13,6 +13,8 @@ if (mysqli_connect_errno()) {
 }
 $spi_id='0';
 $vitrina_id='1';
+$date1='';
+$data2='';
 
 if(isset($_GET["spi_id"]))  {
     if(!empty($_GET["spi_id"])) {
