@@ -111,7 +111,8 @@ for($i = 0; $i < count($row); ++$i) {
 // End of vitina if
 
 
-echo json_encode($row);
+echo sql ;
+//json_encode($row);
 
 //while ($row = $result->fetch_assoc()) {
 //    echo " id = " . $row['full_name'] . $row['spi'] . "\n";
