@@ -66,7 +66,7 @@ $sql="select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,'-'
 	 } else {
 $sql =  "select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,spi as col1 , count(spi) as col2 , 
   " .$sql_count ."     from fssp_mon_vitrinavalue vv           where vitrina_id=1 and data_vozb>='" . $date1 ."' and  data_vozb<='" . $date2 ."'group by vv.spi, osp order by osp";
-};
+}
 
 } else if ($vitrina_id=='2') {
 
@@ -102,8 +102,8 @@ for($i = 0; $i < count($row); ++$i) {
 
 
 
-$mysqli->set_charset('utf8');
-$result = $mysqli->query($sql);
+//$mysqli->set_charset('utf8');
+//$result = $mysqli->query($sql);
 	
 
 // End of vitina if
