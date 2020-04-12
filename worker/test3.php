@@ -12,15 +12,15 @@
     //where (d.metaobjectname like 'O_IP_ACT_%') or (d.metaobjectname = 'O_IP_RES_REOPEN')";
     $sth = ibase_query($dbh,  $stmt);
     $onerow = ibase_fetch_row( $sth);
-    //$row = ibase_fetch_assoc($sth);
+    $row = ibase_fetch_assoc($sth);
     $count=0;
-    while ($count<3) {
-     $spi=iconv('windows-1251', 'UTF-8',$onerow[$count] );
-     
-     $count++;  
-    echo $count .": ".($spi)."\n";
-    }
-    //var_dump ($row); 
+    //while ($count<3) {
+     //$spi=iconv('windows-1251', 'UTF-8',$onerow[$count] );
+     //
+     //$count++;  
+    //echo $count .": ".($spi)."\n";
+    //}
+    var_dump ($row); 
     ibase_free_result($sth);
     ibase_close($dbh);
 ?>
