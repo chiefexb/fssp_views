@@ -1,2 +1,2 @@
 #!/bin/bash
-ansible-playbook -v -i  inventories/prod/hosts  install.yml
+ansible-playbook  -b -v -i  inventories/prod/hosts  pre-install.yml

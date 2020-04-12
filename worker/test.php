@@ -1,8 +1,8 @@
 <?php
 include 'vars.php';
-    $host = '62.109.7.133:fssp';
+    $host = '10.9.54.34:ncore-fssp';
     $username='SYSDBA';
-    $password='8aJu3#7Y3j';
+    $password='v1rnGo7';
     //echo $vitrina3;
     $charset='WIN1251';
     $dbh = ibase_connect($host, $username, $password, $charset);
@@ -16,8 +16,8 @@ include 'vars.php';
     }
     
     //$result = $mysqli->query($sql);
-   // $stmt = $vitrina3;
-     $stmt = $vitrina4;
+    $stmt = $vitrina3;
+    // $stmt = $vitrina4;
     $sth = ibase_query($dbh,  $stmt);
     $count=0;
     
@@ -58,7 +58,7 @@ include 'vars.php';
 	       
 	       
            if ($mysqli->query($str) === TRUE) {
-               echo "New insert  successfully";
+              // echo "New insert  successfully".$count;
            } else {
 			     $count++;
              echo "Error: ". $str ."--" . $mysqli->error;
