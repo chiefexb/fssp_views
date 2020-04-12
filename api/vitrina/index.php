@@ -111,7 +111,7 @@ for($i = 0; $i < count($row); ++$i) {
 // End of vitina if
 
 
-echo sql ;
+echo $sql ;
 //json_encode($row);
 
 //while ($row = $result->fetch_assoc()) {
