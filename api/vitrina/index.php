@@ -68,7 +68,7 @@ $sql =  "select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,
   " .$sql_count ."     from fssp_mon_vitrinavalue vv           where vitrina_id=1 and data_vozb>='" . $date1 ."' and  data_vozb<='" . $date2 ."'group by vv.spi, osp order by osp";
 };
 
-} elseif ($vitrina_id=='2') {
+} else if ($vitrina_id=='2') {
 
 $sql_count="SUM(CASE WHEN (col2='O_IP_ACT_GACCOUNT_MONEY'  ) THEN 1 ELSE 0 END ) as col3";
 $sql="select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,'-' as col1, count(osp_id) as col2,
