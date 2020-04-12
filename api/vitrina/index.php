@@ -105,7 +105,7 @@ for($i = 0; $i < count($row); ++$i) {
 $mysqli->set_charset('utf8');
 $result = $mysqli->query($sql);
 	
-};
+
 // End of vitina if
 
 
