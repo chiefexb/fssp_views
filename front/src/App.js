@@ -765,7 +765,7 @@ content=
        
       <TableHead  >
         <TableRow borderBottom={1} borderColor="text.primary">
-        for (key in state.result[0]) {
+        for (let key in state.result[0]) {
   // тело цикла выполняется для каждого свойства объекта
               
           <StyledTableCell  align="center" >
@@ -782,7 +782,7 @@ content=
      {this.state.result.map(item2 => (
      <TableBody  key={item2.id} >
        <TableRow borderBottom={1} borderColor="text.primary" >
-        for (key in item2) {
+        for (let key in item) {
          <TableCell align="center">
             {item2.key}
           </TableCell>
