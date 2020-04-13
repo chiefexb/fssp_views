@@ -784,7 +784,7 @@ content=
        <TableRow borderBottom={1} borderColor="text.primary" >
         for (let key in item2) {
          <TableCell align="center">
-            {item2.key}
+            {key}
           </TableCell>
          };
           
