@@ -785,18 +785,19 @@ content=
           
          
        
-			<TableCell  align="center">
-           { JSON.stringify (Object.values(item2)  )}
-          </TableCell> 
+		 <TableCell  align="center">
+           { JSON.stringify (item2)  }
+         </TableCell> 
 		
   
-}             
+            
           </TableRow>
           </TableBody>
-         ))}}
+         ))     }
     </Table >
 </TableContainer>
 </div>
+
 // }
 //}
 //  }
