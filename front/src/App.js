@@ -786,7 +786,7 @@ content=
          
        
 		 <TableCell  align="center">
-           { JSON.stringify (item2)  }
+           { JSON.stringify (Object.values(item2) )  }
          </TableCell> 
 		
   
