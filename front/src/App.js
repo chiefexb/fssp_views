@@ -784,11 +784,11 @@ content=
        <TableRow borderBottom={1} borderColor="text.primary" >
           
          
-       
+        { item2.map(item3 => (
 		 <TableCell  align="center">
-           { JSON.stringify (Object.values(item2) )  }
+           {{ item3 }}
          </TableCell> 
-		
+		))}
   
             
           </TableRow>
