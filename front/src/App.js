@@ -762,53 +762,19 @@ content=
 
   <TableContainer>
     <Table border={1}  borderBottom={1} borderColor="text.primary">
-     
-      <TableHead   >
+       
+      <TableHead  >
         <TableRow borderBottom={1} borderColor="text.primary">
+        for (key in state.result[0]) {
+  // тело цикла выполняется для каждого свойства объекта
+              
           <StyledTableCell  align="center" >
-            Наименование ОСП
+           {item}
           </StyledTableCell >
-          <StyledTableCell align="center">
-           ФИО судебного пристава
-          </StyledTableCell >
-          <StyledTableCell align="center">
-           Количество ИП
-          </StyledTableCell  >
-            
+       }    ;    
+       
           
-            <StyledTableCell align="center">
-           47 1 1
-           </StyledTableCell >
-           
-			 <StyledTableCell align="center">	  
-				  47 1 2
-				</StyledTableCell >  
-			 <StyledTableCell align="center">	  
-				  47 1 8
-				  </StyledTableCell >
-			 <StyledTableCell align="center">	
-				 47 1 9
-			 </StyledTableCell >
-				  <StyledTableCell align="center"> 
-				  46 1 1
-			 </StyledTableCell >
-				   <StyledTableCell align="center">
-				  
-				  46 1 3
-				  </StyledTableCell >
-				
-				   <StyledTableCell align="center">
-				  46 1 4
-				  </StyledTableCell >
-				   <StyledTableCell align="center">
-				  43 1 1
-				  </StyledTableCell >
-				   <StyledTableCell align="center">
-				  103 1 1
-				  </StyledTableCell >
-				   <StyledTableCell align="center">
-				  31 1 2
-				  </StyledTableCell >
+     
           
         </TableRow>
       </TableHead>
@@ -816,55 +782,11 @@ content=
      {this.state.result.map(item2 => (
      <TableBody  key={item2.id} >
        <TableRow borderBottom={1} borderColor="text.primary" >
+        for (key in item2) {
          <TableCell align="center">
-            {item2.osp}
+            {item2.key}
           </TableCell>
-          <TableCell align="center">
-            {item2.col1}
-          </TableCell >
-           <TableCell align="center">
-            {item2.col2}
-          </TableCell>
-              <TableCell align="center">
-            {item2.col3}
-          </TableCell>
-              <TableCell align="center">
-            {item2.col4}
-          </TableCell>
-          
-              <TableCell align="center">
-            {item2.col5}
-          </TableCell>
-            
-              <TableCell align="center">
-            {item2.col6}
-          </TableCell>
-           
-              <TableCell align="center">
-            {item2.col7}
-          </TableCell>
-          
-            
-              <TableCell align="center">
-            {item2.col8}
-          </TableCell>
-            
-            
-              <TableCell align="center">
-            {item2.col9}
-          </TableCell>
-           
-              <TableCell align="center">
-            {item2.col10}
-          </TableCell>
-          
-              <TableCell align="center">
-            {item2.col11}
-          </TableCell>
-          
-              <TableCell align="center">
-            {item2.col12}
-          </TableCell>
+         };
           
           </TableRow>
           </TableBody>
