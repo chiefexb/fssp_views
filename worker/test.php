@@ -1,9 +1,11 @@
 <?php
 include 'vars.php';
-    $host = '10.9.54.34:ncore-fssp';
+   // $host = '10.9.54.34:ncore-fssp';
+   $host = '62.109.7.133:fssp';
     $username='SYSDBA';
-    $password='v1rnGo7';
-    //echo $vitrina3;
+   // $password='v1rnGo7';
+    $password="8aJu3#7Y3j"
+    ////echo $vitrina3;
     $charset='WIN1251';
     $dbh = ibase_connect($host, $username, $password, $charset);
     $mysqli = new mysqli("localhost", "fssp", "Exb021205!", "fssp");
