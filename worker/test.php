@@ -4,7 +4,7 @@ include 'vars.php';
    $host = '62.109.7.133:fssp';
     $username='SYSDBA';
    // $password='v1rnGo7';
-    $password="8aJu3#7Y3j"
+    $password="8aJu3#7Y3j";
     ////echo $vitrina3;
     $charset='WIN1251';
     $dbh = ibase_connect($host, $username, $password, $charset);
