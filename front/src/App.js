@@ -766,10 +766,10 @@ content=
       <TableHead  >
         <TableRow borderBottom={1} borderColor="text.primary">
        
-  // тело цикла выполняется для каждого свойства объекта
+  
               
           <StyledTableCell  align="center" >
-           {item}
+           123
           </StyledTableCell >
          
        
