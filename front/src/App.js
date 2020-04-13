@@ -782,15 +782,18 @@ content=
      {this.state.result.map(item2 => (
      <TableBody  key={item2.id} >
        <TableRow borderBottom={1} borderColor="text.primary" >
-        for (let key in item2) {
-         <TableCell align="center">
-            {key}
-          </TableCell>
-         };
           
+         
+       
+			<TableCell  align="center">
+           { Object.values(item2) }
+          </TableCell> 
+		}
+  
+}             
           </TableRow>
           </TableBody>
-         ))}
+         ))}}
     </Table >
 </TableContainer>
 </div>
