@@ -765,13 +765,13 @@ content=
        
       <TableHead  >
         <TableRow borderBottom={1} borderColor="text.primary">
-        for (let key in state.result[0]) {
+       
   // тело цикла выполняется для каждого свойства объекта
               
           <StyledTableCell  align="center" >
            {item}
           </StyledTableCell >
-       }    ;    
+         
        
           
      
