@@ -536,7 +536,7 @@ if (this.state.loaded5)  {
 	      };
 };		
 if (!this.state.loaded) {
-    fetch(`api/vitrina?vitrina_id=1&counter_id=${this.state.counter_id}&spi_id=${this.state.spi_id}&date1=${this.state.selectedDate1}&date2=${this.state.selectedDate2}`) 
+    fetch(`api/vitrina?vitrina_id=${this.state.vitrina_id}&counter_id=${this.state.counter_id}&spi_id=${this.state.spi_id}&date1=${this.state.selectedDate1}&date2=${this.state.selectedDate2}`) 
       .then(response => {
         if (response.status > 400) {
           return this.setState(() => {
@@ -585,7 +585,7 @@ if (!this.state.loaded) {
       1000
     );
     //?vitrina_id=1&counter_id=1&spi_id=0   
-    fetch(`api/vitrina?vitrina_id=1&counter_id=${this.state.counter_id}&spi_id=${this.state.spi_id}`)
+    fetch(`api/vitrina?vitrina_id=${this.state.vitrina_id}&counter_id=${this.state.counter_id}&spi_id=${this.state.spi_id}`)
     //fetch("api/vitrina?")
     //fetch("api")
       .then(response => {
