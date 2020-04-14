@@ -528,7 +528,11 @@ class App extends React.Component {
 
 	//  this.setState({loaded: false,
 		//            result: []});
-
+ if (this.state.vitrina_id==='1') { 
+				 document.title = "Окончание| ФССП Витрина";
+			} else  if (this.state.vitrina_id==='2') {
+				 document.title = "Постановления| ФССП Витрина";
+		   };
 
 if (this.state.loaded5)  {
 		  if (this.state.result5.auth=='yes') {
@@ -748,11 +752,7 @@ content=
     
 	};
      if (this.state.windows==='vitrina') {
-            if (this.state.vitrina_id==='1') { 
-				 document.title = "Окончание| ФССП Витрина";
-			} else  if (this.state.vitrina_id==='2') {
-				 document.title = "Постановления| ФССП Витрина";
-		   };
+           
 				   
          if (this.state.loaded) {
              if (this.state.result) {
