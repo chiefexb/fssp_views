@@ -324,7 +324,8 @@ class App extends React.Component {
 			 	    
 		}
 	   
-		
+		// dist= format (  startOfYear ( new Date() ) , "yyyy-MM-dd" )  
+		// let date1=format(new Date() , "yyyy-MM-dd" )  ;
 		this.setState({selectedDate1: dist,
 			              selectedDate2: date1,
 			               loaded: false,
@@ -584,12 +585,19 @@ if (!this.state.loaded) {
 //}
 
  componentDidMount() {
+	 	// dist= format (  startOfYear ( new Date() ) , "yyyy-MM-dd" )  
+		let date1=format(new Date() , "yyyy-MM-dd" )  ;
+		this.setState({selectedDate1: dist,
+			              selectedDate2: date1
+			               
+			   });
 	 this.timerID = setInterval(
       () => this.renderTable(),
       1000
     );
-    //?vitrina_id=1&counter_id=1&spi_id=0   
-    fetch(`api/vitrina?vitrina_id=${this.state.vitrina_id}&counter_id=${this.state.counter_id}&spi_id=${this.state.spi_id}`)
+    //?vitrina_id=1&counter_id=1&spi_id=0  
+    fetch(`api/vitrina?vitrina_id=${this.state.vitrina_id}&counter_id=${this.state.counter_id}&spi_id=${this.state.spi_id}&date1=${this.state.selectedDate1}&date2=${this.state.selectedDate2}`)  
+    //fetch(`api/vitrina?vitrina_id=${this.state.vitrina_id}&counter_id=${this.state.counter_id}&spi_id=${this.state.spi_id}`)
     //fetch("api/vitrina?")
     //fetch("api")
       .then(response => {
