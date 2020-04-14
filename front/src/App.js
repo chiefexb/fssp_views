@@ -767,10 +767,12 @@ content=
         <TableRow borderBottom={1} borderColor="text.primary">
        
   
-              
-          <StyledTableCell  align="center" >
-           123
+              { Object.entries(this.state.result[0]).map(item3 => (
+		  <StyledTableCell  align="center" >
+           {item3}
           </StyledTableCell >
+		))}
+         
          
        
           
