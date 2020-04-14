@@ -515,7 +515,7 @@ class App extends React.Component {
 
     }
   handleMenuClick (e) {
-	  this.setState({ anchor_el: e.currentTarget, menu_open: true}) ; 
+	  this.setState({ debug: false, anchor_el: e.currentTarget, menu_open: true}) ; 
 	  //popupState.close;
     
   };
