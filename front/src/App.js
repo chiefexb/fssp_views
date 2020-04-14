@@ -144,7 +144,7 @@ class App extends React.Component {
             result6: [],
             
             diagram: [],
-            range: 1,
+            range: 9,
             
             selectedDate1: format(new Date(), 'yyyy-MM-dd' ),
             selectedDate2:  format(new Date() ,'yyyy-MM-dd'),
