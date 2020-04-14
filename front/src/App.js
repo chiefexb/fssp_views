@@ -521,7 +521,7 @@ class App extends React.Component {
   };
 
    handleMenuClose (e) {
-    this.setState({ menu_open: false,vitrina_id: e.target.value ,result:[],loaded:false, anchor_el: null });
+    this.setState({ menu_open: false,vitrina_id: e.target.value ,result:[],loaded:false, anchor_el: null,debug:false });
    // this.setState({ menu_open: false,vitrina_id: e.target.value, anchor_el: null}) ;
   };  
   renderTable() {
