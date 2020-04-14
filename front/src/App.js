@@ -142,6 +142,7 @@ class App extends React.Component {
             result4: [],
             result5: [],
             result6: [],
+             result7: [],
             
             diagram: [],
             range: 9,
@@ -166,6 +167,7 @@ class App extends React.Component {
             loaded3: false,
             loaded5: false,
             loaded6: false,
+            loaded7: false
             menu_open: false,
             login_form: false,
             tooltip: false,
@@ -559,7 +561,7 @@ if (!this.state.loaded) {
         });
       });
 }
-if (!this.state.loaded6) {
+if (!this.state.loaded7) {
     fetch(`api/vitrina/field?vitrina_id=${this.state.vitrina_id}&counter_id=${this.state.counter_id}&spi_id=${this.state.spi_id}`)
     //fetch("api/vitrina?")
     //fetch("api")
@@ -571,11 +573,11 @@ if (!this.state.loaded6) {
         }
         return response.json();
       })
-      .then(result6 => {
+      .then(result7 => {
         this.setState(() => {
           return {
-            result6,
-            loaded6: true
+            result7,
+            loaded7: true
           };
         });
       });
@@ -644,11 +646,11 @@ if (!this.state.loaded6) {
         }
         return response.json();
       })
-      .then(result6 => {
+      .then(result7 => {
         this.setState(() => {
           return {
-            result6,
-            loaded6: true
+            result7,
+            loaded7: true
           };
         });
       });
@@ -800,8 +802,8 @@ content=
 				   
          if (this.state.loaded) {
              if (this.state.result) {
-				  if (this.state.loaded6) {
-             if (this.state.result6) {
+				  if (this.state.loaded7) {
+             if (this.state.result7) {
             //    if (this.state.loaded2) {
              //if (this.state.result2.rez) {
 			//	if (this.state.loaded5) {
@@ -813,7 +815,7 @@ content=
 
   <TableContainer>
     <Table border={1}  borderBottom={1} borderColor="text.primary">
-       {this.state.result6.map(item2 => (
+       {this.state.result7.map(item2 => (
       <TableHead key={item2.id} >
         <TableRow borderBottom={1} borderColor="text.primary">
        
