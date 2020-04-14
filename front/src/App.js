@@ -585,7 +585,7 @@ if (!this.state.loaded) {
 //}
 
  componentDidMount() {
-	 	// dist= format (  startOfYear ( new Date() ) , "yyyy-MM-dd" )  
+	 	 let dist= format (  startOfYear ( new Date() ) , "yyyy-MM-dd" )  
 		let date1=format(new Date() , "yyyy-MM-dd" )  ;
 		this.setState({selectedDate1: dist,
 			              selectedDate2: date1
