@@ -748,7 +748,12 @@ content=
     
 	};
      if (this.state.windows==='vitrina') {
-           document.title = "Витрины| ФССП Витрина";
+            if (this.state.vitrina_id==='1') { 
+				 document.title = "Окончание| ФССП Витрина";
+			} else  if (this.state.vitrina_id==='2') {
+				 document.title = "Постановления| ФССП Витрина";
+		   };
+				   
          if (this.state.loaded) {
              if (this.state.result) {
             //    if (this.state.loaded2) {
