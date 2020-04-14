@@ -54,7 +54,7 @@ $row = [
     
 ];
 
-}
+
 
 } else if ($vitrina_id=='2') {
 
