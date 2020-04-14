@@ -68,7 +68,7 @@ $}
 //if (!$result) {
 //    echo "Could not successfully run query ($sql) from DB: " . mysql_error();
 //    exit;
-}
+//}
 
 
 //$result->data_seek(0);
@@ -94,7 +94,7 @@ echo json_encode($row);
 //echo json_encode($arr);
 //}
 
-$result->free();
+//$result->free();
 };
 
 ?>
