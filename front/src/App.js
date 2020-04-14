@@ -813,7 +813,7 @@ content=
 
   <TableContainer>
     <Table border={1}  borderBottom={1} borderColor="text.primary">
-       {this.state.result.map(item2 => (
+       {this.state.result6.map(item2 => (
       <TableHead key={item2.id} >
         <TableRow borderBottom={1} borderColor="text.primary">
        
@@ -832,7 +832,7 @@ content=
         ))}
       
       
-     {this.state.result6.map(item2 => (
+     {this.state.result.map(item2 => (
      <TableBody  key={item2.id} >
        <TableRow borderBottom={1} borderColor="text.primary" >
           
