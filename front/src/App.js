@@ -784,9 +784,15 @@ content=
        <TableRow borderBottom={1} borderColor="text.primary" >
           
          
+<<<<<<< HEAD
         
 		 <TableCell  align="center">
            {  JSON.stringify(  Object.entries(item2) ) }
+=======
+        { Object.entries(item2).map(item3,item4 => (
+		 <TableCell  align="center">
+           { item4 }
+>>>>>>> d74089ec66c4153482ce998a705235f4e81c1b38
          </TableCell> 
 		))}
   
