@@ -167,7 +167,7 @@ class App extends React.Component {
             loaded3: false,
             loaded5: false,
             loaded6: false,
-            loaded7: false
+            loaded7: false,
             menu_open: false,
             login_form: false,
             tooltip: false,
