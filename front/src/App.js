@@ -784,9 +784,9 @@ content=
        <TableRow borderBottom={1} borderColor="text.primary" >
           
          
-        { item2.map(item3 => (
+        { Object.entries(item2).map(item3 => (
 		 <TableCell  align="center">
-           {{ item3 }}
+           { item3 }
          </TableCell> 
 		))}
   
