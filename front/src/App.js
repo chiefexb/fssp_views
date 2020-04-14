@@ -832,7 +832,7 @@ content=
         ))}
       
       
-     {this.state.result.map(item2 => (
+     {this.state.result6.map(item2 => (
      <TableBody  key={item2.id} >
        <TableRow borderBottom={1} borderColor="text.primary" >
           
