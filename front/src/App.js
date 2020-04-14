@@ -608,8 +608,28 @@ if (!this.state.loaded) {
           };
         });
       });
-
+    
+    fetch(`api/vitrina/field?vitrina_id=${this.state.vitrina_id}&counter_id=${this.state.counter_id}&spi_id=${this.state.spi_id}`)
+    //fetch("api/vitrina?")
+    //fetch("api")
+      .then(response => {
+        if (response.status > 400) {
+          return this.setState(() => {
+            return { placeholder: "Something went wrong!" };
+          });
+        }
+        return response.json();
+      })
+      .then(result6 => {
+        this.setState(() => {
+          return {
+            result6,
+            loaded6: true
+          };
+        });
+      });
   
+
 
 }
     render() {
