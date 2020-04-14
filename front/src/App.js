@@ -797,11 +797,11 @@ content=
         <TableRow borderBottom={1} borderColor="text.primary">
        
   
-               
+          {this.state.result.map(item2 => (
           <StyledTableCell   align="center" >
-            {item2}
+           { item3[1] }
           </StyledTableCell >
-         
+         ))}
        
           
      
