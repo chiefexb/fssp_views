@@ -779,6 +779,8 @@ content=
 				   
          if (this.state.loaded) {
              if (this.state.result) {
+				  if (this.state.loaded6) {
+             if (this.state.result6) {
             //    if (this.state.loaded2) {
              //if (this.state.result2.rez) {
 			//	if (this.state.loaded5) {
@@ -790,14 +792,14 @@ content=
 
   <TableContainer>
     <Table border={1}  borderBottom={1} borderColor="text.primary">
-       
-      <TableHead  >
+       {this.state.result.map(item2 => (
+      <TableHead key={item2.id} >
         <TableRow borderBottom={1} borderColor="text.primary">
        
   
-              
-          <StyledTableCell  align="center" >
-          
+               
+          <StyledTableCell   align="center" >
+            {item2}
           </StyledTableCell >
          
        
@@ -805,7 +807,9 @@ content=
      
           
         </TableRow>
-      </TableHead>
+        </TableHead>
+        ))}
+      
       
      {this.state.result.map(item2 => (
      <TableBody  key={item2.id} >
@@ -832,7 +836,8 @@ content=
 //}
 //  }
 //}
-
+}
+}
 }
 }
 }
