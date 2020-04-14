@@ -146,7 +146,7 @@ class App extends React.Component {
             diagram: [],
             range: 9,
             
-            selectedDate1: format(new Date(), 'yyyy-MM-dd' ),
+            selectedDate1: format (  startOfYear ( new Date() ) , "yyyy-MM-dd" ) ,
             selectedDate2:  format(new Date() ,'yyyy-MM-dd'),
             anchor_el: null,
             spi_id:'0',
