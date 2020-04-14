@@ -815,7 +815,7 @@ content=
 
   <TableContainer>
     <Table border={1}  borderBottom={1} borderColor="text.primary">
-       {this.state.result7.map(item2 => (
+       {this.state.result.map(item2 => (
       <TableHead key={item2.id} >
         <TableRow borderBottom={1} borderColor="text.primary">
        
