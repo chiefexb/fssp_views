@@ -845,7 +845,7 @@ content=
 
         { Object.entries(item2).map(item3 => (
 		 <TableCell  align="center">
-           { item3[1] }
+           { item3[0] }/   { item3[1] }
 
          </TableCell> 
 		))}
