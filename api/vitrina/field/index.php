@@ -33,7 +33,7 @@ if(isset($_GET["vitrina_id"]))  {
 //and data_vozb>='" . date1 ."' and  data_vozb<='" . date2 ."'
 if ($vitrina_id=='1') {
 $row = [[
-    
+    "osp" => "Наименование ОСП",
     "col1" => "Наименование ОСП",
     "col2" => "ФИО судебного пристава",
     "col3" =>  "47 1 1",
