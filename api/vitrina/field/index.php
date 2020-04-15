@@ -56,13 +56,7 @@ $row = [[
 
 
 } else if ($vitrina_id=='2') {
-	<td width=40><font size='2'>Всего</font></td>
-				  <td width=40><font size='2'>Спис</font></td>
-				  <td width=40><font size='2'>Пенс</font></td>
-				  <td width=40><font size='2'>Сбор</font></td>
-				  <td width=40><font size='2'>Зп.ЗЭК</font></td>
-				  <td width=40><font size='2'>Зп</font></td>
-				  <td width=40><font size='2'>Огр.вы</font></td>
+
 	
 $row = [[
     "col1" => "Наименование ОСП",
