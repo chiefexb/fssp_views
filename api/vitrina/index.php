@@ -72,7 +72,16 @@ $sql =  "select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,
 
 } else if ($vitrina_id=='2') {
 
-$sql_count="SUM(CASE WHEN (col2='O_IP_ACT_GACCOUNT_MONEY'  ) THEN 1 ELSE 0 END ) as col3";
+$sql_count="SUM(CASE WHEN ( (col2 like 'O_IP_ACT_%'  ) or (col2 = 'O_IP_RES_REOPEN')) THEN 1 ELSE 0 END ) as col3
+            SUM(CASE WHEN (col2='O_IP_ACT_GACCOUNT_MONEY'  ) THEN 1 ELSE 0 END ) as col4,
+            SUM(CASE WHEN (col2='O_IP_ACT_PENS'            ) THEN 1 ELSE 0 END ) as col5,
+            SUM(CASE WHEN (col2='O_IP_ACT_MONEY'           ) THEN 1 ELSE 0 END ) as col6, 
+            SUM(CASE WHEN (col2='O_IP_ACT_ZEK'             ) THEN 1 ELSE 0 END ) as col7, 
+            SUM(CASE WHEN (col2='O_IP_ACT_ZP'              ) THEN 1 ELSE 0 END ) as col8, 
+            SUM(CASE WHEN (col2='O_IP_ACT_BAN_EXIT'        ) THEN 1 ELSE 0 END ) as col9, 
+           
+            
+";
 $sql="select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,'-' as col1, count(osp_id) as col2,
 
 " .$sql_count ."   from fssp_mon_vitrinavalue vv           where vitrina_id=1  group by  osp order by osp";

@@ -33,19 +33,16 @@ if(isset($_GET["vitrina_id"]))  {
 //and data_vozb>='" . date1 ."' and  data_vozb<='" . date2 ."'
 if ($vitrina_id=='1') {
 $row = [[
-    "osp" => "Наименование ОСП",
-    "col1" => "СПИ",
-   
-    "col2" =>  "47 1 1",
-    "col3" =>  "47 1 2",
-    "col4" =>  "47 1 8",
-    "col5" =>  "47 1 9",
-    "col6" =>  "46 1 1",
-    "col7" =>  "46 1 3",
-    "col8" =>  "46 1 4",
-    "coll9" => "46 1 6",
+    "col1" => "Наименование ОСП",
+    "col2" => "СПИ",
+    "col3" =>  "47 1 1",
+    "col4" =>  "47 1 2",
+    "col5" =>  "47 1 8",
+    "col6" =>  "47 1 9",
+    "col7" =>  "46 1 1",
+    "col8" =>  "46 1 3",
+    "col9" =>  "46 1 6",
     "col10" =>  "43 1 1",
-    
     "col11" =>  "103 1 1",
     "col12" =>  "31 1 2",
     
@@ -59,7 +56,30 @@ $row = [[
 
 
 } else if ($vitrina_id=='2') {
+	<td width=40><font size='2'>Всего</font></td>
+				  <td width=40><font size='2'>Спис</font></td>
+				  <td width=40><font size='2'>Пенс</font></td>
+				  <td width=40><font size='2'>Сбор</font></td>
+				  <td width=40><font size='2'>Зп.ЗЭК</font></td>
+				  <td width=40><font size='2'>Зп</font></td>
+				  <td width=40><font size='2'>Огр.вы</font></td>
+	
+$row = [[
+    "col1" => "Наименование ОСП",
+    "col2" => "СПИ",
+    "col3" =>  "Всего",
+    "col4" =>  "Спис",
+    "col5" =>  "Пенс",
+    "col6" =>  "Сбор",
+    "col7" =>  "Зп.ЗЭК",
+    "col8" =>  "Зп",
+    "col9" =>  "Огр.вы",
+    "id"   => 1
+ ]
 
+   
+    
+];
 }
 
 
