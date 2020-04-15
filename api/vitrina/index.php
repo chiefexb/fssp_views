@@ -75,7 +75,7 @@ $sql =  "select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,
 } else if ($vitrina_id=='2') {
 $per ="data_vozb>='" . $date1 ."' and  data_vozb<='" . $date2 ."' and";
 //(col2 like 'O_IP_ACT_%'  )
-$sql_count="SUM(CASE WHEN (       col2 = 'O_IP_RES_REOPEN') THEN 1 ELSE 0 END ) as col3
+$sql_count="SUM(CASE WHEN (       col2 = 'O_IP_RES_REOPEN') THEN 1 ELSE 0 END ) as col3,
             SUM(CASE WHEN (col2='O_IP_ACT_GACCOUNT_MONEY'  ) THEN 1 ELSE 0 END ) as col4,
             SUM(CASE WHEN (col2='O_IP_ACT_PENS'            ) THEN 1 ELSE 0 END ) as col5,
             SUM(CASE WHEN (col2='O_IP_ACT_MONEY'           ) THEN 1 ELSE 0 END ) as col6, 
