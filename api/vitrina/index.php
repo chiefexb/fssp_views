@@ -44,30 +44,32 @@ if(isset($_GET["date2"]))  {
 if ($vitrina_id=='1') {
 
 $sql_count="
-SUM(CASE WHEN (col2='47' and col3='1' and col4='1' ) THEN 1 ELSE 0 END ) as col3,
-SUM(CASE WHEN (col2='47' and col3='1' and col4='2') THEN 1 ELSE 0 END ) as col4,
-SUM(CASE WHEN (col2='47' and col3='1' and col4='8') THEN 1 ELSE 0 END ) as col5,
-SUM(CASE WHEN (col2='47' and col3='1' and col4='9') THEN 1 ELSE 0 END ) as col6,
+SUM(CASE WHEN (data_vozb>='" . $date1 ."' and  data_vozb<='" . $date2 ."' ) THEN 1 ELSE 0 END ) as col3,
 
-SUM(CASE WHEN (col2='46' and col3='1' and col4='1') THEN 1 ELSE 0 END ) as col7,
-SUM(CASE WHEN (col2='46' and col3='1' and col4='3') THEN 1 ELSE 0 END ) as col8,
-SUM(CASE WHEN (col2='46' and col3='1' and col4='6') THEN 1 ELSE 0 END ) as col9,
-SUM(CASE WHEN (col2='43' and col3='1' and col4='1') THEN 1 ELSE 0 END ) as col10,
+SUM(CASE WHEN (col2='47' and col3='1' and col4='1' ) THEN 1 ELSE 0 END ) as col5,
+SUM(CASE WHEN (col2='47' and col3='1' and col4='2') THEN 1 ELSE 0 END  ) as col6,
+SUM(CASE WHEN (col2='47' and col3='1' and col4='8') THEN 1 ELSE 0 END  ) as col7,
+SUM(CASE WHEN (col2='47' and col3='1' and col4='9') THEN 1 ELSE 0 END  ) as col8,
 
-SUM(CASE WHEN (col2='103' and col3='1' and col4='1') THEN 1 ELSE 0 END ) as col11,
-SUM(CASE WHEN (col2='31' and col3='1' and col4='2') THEN 1 ELSE 0 END ) as col12
+SUM(CASE WHEN (col2='46' and col3='1' and col4='1') THEN 1 ELSE 0 END ) as col9,
+SUM(CASE WHEN (col2='46' and col3='1' and col4='3') THEN 1 ELSE 0 END ) as col10,
+SUM(CASE WHEN (col2='46' and col3='1' and col4='6') THEN 1 ELSE 0 END ) as col11,
+SUM(CASE WHEN (col2='43' and col3='1' and col4='1') THEN 1 ELSE 0 END ) as col12,
+
+SUM(CASE WHEN (col2='103' and col3='1' and col4='1') THEN 1 ELSE 0 END ) as col13,
+SUM(CASE WHEN (col2='31' and col3='1' and col4='2') THEN 1 ELSE 0 END ) as col14
 ";
-//$spi_id= array_search($, $array, strict_parameter)
-// r = p2.values('osp').order_by('osp').annotate(count=Count('osp'))
+
+
 if ($spi_id=='0') {
 $sql="select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,'-' as col1, count(osp_id) as col2,
 
 " .$sql_count ."
 
-         from fssp_mon_vitrinavalue vv           where vitrina_id=1 and data_vozb>='" . $date1 ."' and  data_vozb<='" . $date2 ."' group by  osp order by osp";
+         from fssp_mon_vitrinavalue vv           where vitrina_id=1 and data_okon>='" . $date1 ."' and  data_okon<='" . $date2 ."' group by  osp order by osp";
 	 } else {
-$sql =  "select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,spi as col1 , count(spi) as col2 , 
-  " .$sql_count ."     from fssp_mon_vitrinavalue vv           where vitrina_id=1 and data_vozb>='" . $date1 ."' and  data_vozb<='" . $date2 ."'group by vv.spi, osp order by osp";
+$sql =  "select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,spi as col1 , count(spi) as col4 , 
+  " .$sql_count ."     from fssp_mon_vitrinavalue vv           where vitrina_id=1 and data_okon>='" . $date1 ."' and  data_okon<='" . $date2 ."'group by vv.spi, osp order by osp";
 }
 
 } else if ($vitrina_id=='2') {
@@ -78,7 +80,7 @@ $sql_count="SUM(CASE WHEN ( (col2 like 'O_IP_ACT_%'  ) or (col2 = 'O_IP_RES_REOP
             SUM(CASE WHEN (col2='O_IP_ACT_MONEY'           ) THEN 1 ELSE 0 END ) as col6, 
             SUM(CASE WHEN (col2='O_IP_ACT_ZEK'             ) THEN 1 ELSE 0 END ) as col7, 
             SUM(CASE WHEN (col2='O_IP_ACT_ZP'              ) THEN 1 ELSE 0 END ) as col8, 
-            SUM(CASE WHEN (col2='O_IP_ACT_BAN_EXIT'        ) THEN 1 ELSE 0 END ) as col9, 
+            SUM(CASE WHEN (col2='O_IP_ACT_BAN_EXIT'        ) THEN 1 ELSE 0 END ) as col9 
            
             
 ";
@@ -91,6 +93,8 @@ $sql="select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,'-'
 //	 } else {
 //$sql =  "select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,spi as col1 , count(spi) as col2 , 
  // " .$sql_count ."     from fssp_mon_vitrinavalue vv           where vitrina_id=1 and data_vozb>='" . $date1 ."' and  data_vozb<='" . $date2 ."'group by vv.spi, osp order by osp";
+
+
 }
 
 
