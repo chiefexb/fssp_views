@@ -53,7 +53,7 @@ SUM(CASE WHEN (col2='47' and col3='1' and col4='9') THEN 1 ELSE 0 END  ) as col8
 
 SUM(CASE WHEN (col2='46' and col3='1' and col4='1') THEN 1 ELSE 0 END ) as col9,
 SUM(CASE WHEN (col2='46' and col3='1' and col4='3') THEN 1 ELSE 0 END ) as col10,
-SUM(CASE WHEN (col2='46' and col3='1' and col4='6') THEN 1 ELSE 0 END ) as col11,
+SUM(CASE WHEN (col2='46' and col3='1' and col4='4') THEN 1 ELSE 0 END ) as col11,
 SUM(CASE WHEN (col2='43' and col3='1' and col4='1') THEN 1 ELSE 0 END ) as col12,
 
 SUM(CASE WHEN (col2='103' and col3='1' and col4='1') THEN 1 ELSE 0 END ) as col13,
