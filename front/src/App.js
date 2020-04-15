@@ -821,9 +821,12 @@ content=
        
   
           { Object.entries(item2).map(item3 => (
-          <StyledTableCell   align="center" >
-           { item3[1] }
-          </StyledTableCell >
+			   <StyledTableCell   align="center" >
+			 { item3[0]}
+			  </StyledTableCell>
+          
+          
+       
          ))}
        
           
