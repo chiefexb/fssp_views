@@ -42,8 +42,8 @@ if(isset($_GET["date2"]))  {
 
 //and data_vozb>='" . date1 ."' and  data_vozb<='" . date2 ."'
 if ($vitrina_id=='1') {
-$per="data_okon>='" . $date1 ."' and  data_okon<='" . $date2 ."' and";
-$per2="data_okon>='" . $date1 ."' and  data_okon<='" . $date2 "' ";
+$per ="data_okon>='" . $date1 ."' and  data_okon<='" . $date2 ."' and";
+$per2="data_okon>='" . $date1 ."' and  data_okon<='" . $date2 ."' ";
 $sql_count="
 SUM(CASE WHEN (data_vozb>='" . $date1 ."' and  data_vozb<='" . $date2 ."' ) THEN 1 ELSE 0 END ) as col3,
 SUM(CASE WHEN (".$per2. "  ) THEN 1 ELSE 0 END ) as col4,
