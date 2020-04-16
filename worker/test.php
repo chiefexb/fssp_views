@@ -13,11 +13,19 @@ include 'vars.php';
     $mysqli = new mysqli("localhost", "fssp", "Exb021205!", "fssp");
     $mysqli->set_charset('utf8');
     $vitrina_id='2';
+<<<<<<< HEAD
     if ($mysqli->query("DELETE FROM fssp_mon_vitrinavalue where vitrina_id=".$vitrina_id) === TRUE) {
      echo "New record delete successfully";
      } else {
      echo "Error: " . $mysqli->error;
     }
+=======
+   // if ($mysqli->query("DELETE FROM fssp_mon_vitrinavalue where vitrina_id=".$vitrina_id) === TRUE) {
+   //  echo "New record delete successfully";
+   //  } else {
+   //  echo "Error: " . $mysqli->error;
+   //  }
+>>>>>>> f0ba4c77505b4b348861498da5ba5669589fac46
     
     //$result = $mysqli->query($sql);
     //$stmt = $vitrina3;
