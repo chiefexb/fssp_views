@@ -54,8 +54,8 @@ include 'vars.php';
            $str=$vitr3."(1,4,  '".$spi."' , '". $col1."', '".$col2."', '".$col3."', ".$data_vozb." , ".$data_okon." );  "; 
 	       } else  if  ($vitrina_id=='2') {
 			   $spi=iconv('windows-1251', 'UTF-8',$onerow[0] );
-			   $data_vozb="'".$onerow[1]."'";
-			   $col1=$onerow[2];
+			   $data_vozb="'".$onerow[2]."'";
+			   $col1=$onerow[1];
 			   $str=$vitr4."(2,1,  '".$spi."' , '". $col1."', " . $data_vozb. " );  "; 
 	      }
 	       
