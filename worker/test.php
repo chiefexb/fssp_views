@@ -1,27 +1,27 @@
 <?php
 include 'vars.php';
-  //  $host = '10.9.54.34:ncore-fssp';
- $host = '10.9.40.34:ncore-fssp'; 
- //  $host = '62.109.7.133:fssp';
+ //   $host = '10.9.54.34:ncore-fssp';
+ //$host = '10.9.40.34:ncore-fssp'; 
+   $host = '62.109.7.133:fssp';
     $username='SYSDBA';
-  $password='IMzRMsuO';
+ // $password='IMzRMsuO';
  // $password='v1rnGo7';
-  //  $password="8aJu3#7Y3j";
+    $password="8aJu3#7Y3j";
     ////echo $vitrina3;
     $charset='WIN1251';
     $dbh = ibase_connect($host, $username, $password, $charset);
     $mysqli = new mysqli("localhost", "fssp", "Exb021205!", "fssp");
     $mysqli->set_charset('utf8');
-    $vitrina_id='1';
-   // if ($mysqli->query("DELETE FROM fssp_mon_vitrinavalue where vitrina_id=".$vitrina_id) === TRUE) {
-   //  echo "New record delete successfully";
-   //  } else {
-   //  echo "Error: " . $mysqli->error;
-   //  }
+    $vitrina_id='2';
+    if ($mysqli->query("DELETE FROM fssp_mon_vitrinavalue where vitrina_id=".$vitrina_id) === TRUE) {
+     echo "New record delete successfully";
+     } else {
+     echo "Error: " . $mysqli->error;
+    }
     
     //$result = $mysqli->query($sql);
-    $stmt = $vitrina3;
-    // $stmt = $vitrina4;
+    //$stmt = $vitrina3;
+     $stmt = $vitrina4;
     $sth = ibase_query($dbh,  $stmt);
     $count=0;
     
