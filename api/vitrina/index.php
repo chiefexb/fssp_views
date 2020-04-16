@@ -82,17 +82,17 @@ $sql_count="SUM(CASE WHEN (".$per. " (col1 like 'O_IP_ACT_%'  )  or   ( col1 = '
             SUM(CASE WHEN (".$per. "col1='O_IP_ACT_ZEK'             ) THEN 1 ELSE 0 END ) as col7, 
             SUM(CASE WHEN (".$per. "col1='O_IP_ACT_ZP'              ) THEN 1 ELSE 0 END ) as col8, 
             SUM(CASE WHEN (".$per. "col1='O_IP_ACT_BAN_EXIT'        ) THEN 1 ELSE 0 END ) as col9 ";
-            
+if ($spi_id=='0') {            
 $sql="select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,'-' as col1, 
 
 " .$sql_count ."   from fssp_mon_vitrinavalue vv           where vitrina_id=2  group by  osp order by osp";
 
          //from fssp_mon_vitrinavalue vv           where vitrina_id=1 
          //and data_vozb>='" . $date1 ."' and  data_vozb<='" . $date2 ."' group by  osp order by osp";
-//	 } else {
-//$sql =  "select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,spi as col1 , count(spi) as col2 , 
- // " .$sql_count ."     from fssp_mon_vitrinavalue vv           where vitrina_id=1 and data_vozb>='" . $date1 ."' and  data_vozb<='" . $date2 ."'group by vv.spi, osp order by osp";
-
+	 } else {
+$sql =  "select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,spi as col1 , count(spi) as col2 , 
+" .$sql_count ."     from fssp_mon_vitrinavalue vv           where vitrina_id=2 group by vv.spi, osp order by osp";
+ }
 
 }
 
