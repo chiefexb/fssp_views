@@ -45,19 +45,19 @@ if ($vitrina_id=='1') {
 $per ="data_okon>='" . $date1 ."' and  data_okon<='" . $date2 ."' and";
 $per2="data_okon>='" . $date1 ."' and  data_okon<='" . $date2 ."' ";
 $sql_count="
-COUNT(CASE WHEN (data_vozb>='" . $date1 ."' and  data_vozb<='" . $date2 ."' ) THEN 1 ELSE 0 END ) as col3,
-COUNT(CASE WHEN (".$per2. "  ) THEN 1 ELSE 0 END ) as col4,
-COUNT(CASE WHEN (".$per. " col2='47' and col3='1' and col4='1' ) THEN 1 ELSE 0 END ) as col5,
-COUNT(CASE WHEN (".$per. " col2='47' and col3='1' and col4='2') THEN 1 ELSE 0 END  ) as col6,
-COUNT(CASE WHEN (".$per. " col2='47' and col3='1' and col4='8') THEN 1 ELSE 0 END  ) as col7,
-COUNT(CASE WHEN (".$per. " col2='47' and col3='1' and col4='9') THEN 1 ELSE 0 END  ) as col8,
+SUM(CASE WHEN (data_vozb>='" . $date1 ."' and  data_vozb<='" . $date2 ."' ) THEN 1 ELSE 0 END ) as col3,
+SUM(CASE WHEN (".$per2. "  ) THEN 1 ELSE 0 END ) as col4,
+SUM(CASE WHEN (".$per. " col2='47' and col3='1' and col4='1' ) THEN 1 ELSE 0 END ) as col5,
+SUM(CASE WHEN (".$per. " col2='47' and col3='1' and col4='2') THEN 1 ELSE 0 END  ) as col6,
+SUM(CASE WHEN (".$per. " col2='47' and col3='1' and col4='8') THEN 1 ELSE 0 END  ) as col7,
+SUM(CASE WHEN (".$per. " col2='47' and col3='1' and col4='9') THEN 1 ELSE 0 END  ) as col8,
 
-COUNT(CASE WHEN (".$per. " col2='46' and col3='1' and col4='1') THEN 1 ELSE 0 END ) as col9,
-COUNT(CASE WHEN (".$per. " col2='46' and col3='1' and col4='3') THEN 1 ELSE 0 END ) as col10,
-COUNT(CASE WHEN (".$per. " col2='46' and col3='1' and col4='4') THEN 1 ELSE 0 END ) as col11,
-COUNT(CASE WHEN (".$per. " col2='43' and col3='1' and col4='1') THEN 1 ELSE 0 END ) as col12,
-COUNT(CASE WHEN (".$per. " col2='103' and col3='1' and col4='1') THEN 1 ELSE 0 END ) as col13,
-COUNT(CASE WHEN (".$per. " col2='31' and col3='1' and col4='2') THEN 1 ELSE 0 END ) as col14
+SUM(CASE WHEN (".$per. " col2='46' and col3='1' and col4='1') THEN 1 ELSE 0 END ) as col9,
+SUM(CASE WHEN (".$per. " col2='46' and col3='1' and col4='3') THEN 1 ELSE 0 END ) as col10,
+SUM(CASE WHEN (".$per. " col2='46' and col3='1' and col4='4') THEN 1 ELSE 0 END ) as col11,
+SUM(CASE WHEN (".$per. " col2='43' and col3='1' and col4='1') THEN 1 ELSE 0 END ) as col12,
+SUM(CASE WHEN (".$per. " col2='103' and col3='1' and col4='1') THEN 1 ELSE 0 END ) as col13,
+SUM(CASE WHEN (".$per. " col2='31' and col3='1' and col4='2') THEN 1 ELSE 0 END ) as col14
 ";
 
 
@@ -75,13 +75,13 @@ $sql =  "select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,
 } else if ($vitrina_id=='2') {
 $per ="data_vozb>='" . $date1 ."' and  data_vozb<='" . $date2 ."' and ";
 //(col2 like 'O_IP_ACT_%'  )
-$sql_count="COUNT(CASE WHEN (".$per. " (col1 like 'O_IP_ACT_%'  )  or   ( col1 = 'O_IP_RES_REOPEN') ) THEN 1 ELSE 0 END ) as col3,
-            COUNT(CASE WHEN (".$per. "col1='O_IP_ACT_GACCOUNT_MONEY'  ) THEN 1 ELSE 0 END ) as col4,
-            COUNT(CASE WHEN (".$per. "col1='O_IP_ACT_PENS'            ) THEN 1 ELSE 0 END ) as col5,
-            COUNT(CASE WHEN (".$per. "col1='O_IP_ACT_MONEY'           ) THEN 1 ELSE 0 END ) as col6, 
-            COUNT(CASE WHEN (".$per. "col1='O_IP_ACT_ZEK'             ) THEN 1 ELSE 0 END ) as col7, 
-            COUNT(CASE WHEN (".$per. "col1='O_IP_ACT_ZP'              ) THEN 1 ELSE 0 END ) as col8, 
-            COUNT(CASE WHEN (".$per. "col1='O_IP_ACT_BAN_EXIT'        ) THEN 1 ELSE 0 END ) as col9 ";
+$sql_count="SUM(CASE WHEN (".$per. " (col1 like 'O_IP_ACT_%'  )  or   ( col1 = 'O_IP_RES_REOPEN') ) THEN 1 ELSE 0 END ) as col3,
+            SUM(CASE WHEN (".$per. "col1='O_IP_ACT_GACCOUNT_MONEY'  ) THEN 1 ELSE 0 END ) as col4,
+            SUM(CASE WHEN (".$per. "col1='O_IP_ACT_PENS'            ) THEN 1 ELSE 0 END ) as col5,
+            SUM(CASE WHEN (".$per. "col1='O_IP_ACT_MONEY'           ) THEN 1 ELSE 0 END ) as col6, 
+            SUM(CASE WHEN (".$per. "col1='O_IP_ACT_ZEK'             ) THEN 1 ELSE 0 END ) as col7, 
+            SUM(CASE WHEN (".$per. "col1='O_IP_ACT_ZP'              ) THEN 1 ELSE 0 END ) as col8, 
+            SUM(CASE WHEN (".$per. "col1='O_IP_ACT_BAN_EXIT'        ) THEN 1 ELSE 0 END ) as col9 ";
 if ($spi_id=='0') {            
 $sql="select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,'-' as col1, 
 
