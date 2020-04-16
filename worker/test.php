@@ -13,7 +13,9 @@ include 'vars.php';
     $mysqli = new mysqli("localhost", "fssp", "Exb021205!", "fssp");
     $mysqli->set_charset('utf8');
     $vitrina_id='2';
-    if ($mysqli->query("DELETE FROM fssp_mon_vitrinavalue where vitrina_id=".$vitrina_id) === TRUE) {
+    $osp_i=1;
+    
+    if ($mysqli->query("DELETE FROM fssp_mon_vitrinavalue where vitrina_id=".$vitrina_id." and osp_id=".$osp_i) === TRUE) {
      echo "New record delete successfully";
      } else {
      echo "Error: " . $mysqli->error;
@@ -51,12 +53,12 @@ include 'vars.php';
 				  
 			}
 			//echo $data_okon;
-           $str=$vitr3."(1,4,  '".$spi."' , '". $col1."', '".$col2."', '".$col3."', ".$data_vozb." , ".$data_okon." );  "; 
+           $str=$vitr3."(1,".$osp_i.",  '".$spi."' , '". $col1."', '".$col2."', '".$col3."', ".$data_vozb." , ".$data_okon." );  "; 
 	       } else  if  ($vitrina_id=='2') {
 			   $spi=iconv('windows-1251', 'UTF-8',$onerow[0] );
 			   $data_vozb="'".$onerow[2]."'";
 			   $col1=$onerow[1];
-			   $str=$vitr4."(2,1,  '".$spi."' , '". $col1."', " . $data_vozb. " );  "; 
+			   $str=$vitr4."(2,".$osp_i.",  '".$spi."' , '". $col1."', " . $data_vozb. " );  "; 
 	      }
 	       
 	       
