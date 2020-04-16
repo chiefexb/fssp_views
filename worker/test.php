@@ -12,7 +12,7 @@ include 'vars.php';
     $dbh = ibase_connect($host, $username, $password, $charset);
     $mysqli = new mysqli("localhost", "fssp", "Exb021205!", "fssp");
     $mysqli->set_charset('utf8');
-    $vitrina_id='1';
+    $vitrina_id='2';
    // if ($mysqli->query("DELETE FROM fssp_mon_vitrinavalue where vitrina_id=".$vitrina_id) === TRUE) {
    //  echo "New record delete successfully";
    //  } else {
