@@ -20,8 +20,8 @@ include 'vars.php';
      }
     
     //$result = $mysqli->query($sql);
-    $stmt = $vitrina3;
-    // $stmt = $vitrina4;
+    //$stmt = $vitrina3;
+     $stmt = $vitrina4;
     $sth = ibase_query($dbh,  $stmt);
     $count=0;
     
