@@ -30,7 +30,7 @@ for($i = 0; $i < count($osp); ++$i) {
     exit;
 	} else {
 		var_dump ($row);
-		}
+		};
     
    
 };
