@@ -1,5 +1,7 @@
 <?php
+//
 include 'vars.php';
+include '../../fssp_settings/config.php';
   //  $host = '10.9.54.34:ncore-fssp';
 // $host = '10.9.40.34:ncore-fssp'; 
    $host = '62.109.7.133:fssp';
