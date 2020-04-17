@@ -7,8 +7,8 @@ if (count($argv ) <2) {
 echo "Usage: \n php test.php osp_id vitrina_id";
 } else { 
 	var_dump($argv);
-    $osp_i=$argv[0];
-     $vitrina_id=$argv[1];
+    $osp_i=$argv[1];
+     $vitrina_id=$argv[2];
    
     $host = $osp [ $osp_i ] ["host"];
     $username='SYSDBA';
