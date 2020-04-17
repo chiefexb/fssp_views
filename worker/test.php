@@ -31,7 +31,7 @@ echo "Usage: \n php test.php osp_id vitrina_id";
     //$result = $mysqli->query($sql);
     //$stmt = $vitrina3;
     
-    $stmt = $vitrina[$osp_i-1]["rdb_script"];
+    $stmt = $vitrina[$osp_i]["rdb_script"];
     $sth = ibase_query($dbh,  $stmt);
     $count=0;
     
