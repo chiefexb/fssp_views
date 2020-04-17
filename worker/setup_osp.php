@@ -25,12 +25,12 @@ for($i = 0; $i < count($osp); ++$i) {
     if (count($row)< 1 ) {
 		echo "osp not found";
 		$rez=$mysqli->query($sql . $osp[$i]['osp_id']. ", '".  $osp[$i]['name'] ."', '".  $osp[$i]['short_name'] ."');" ) ; 
-		if (!$rez) {
+	if (!$rez) {
     echo "Could not successfully run query () from DB: "  . mysql_error();
-    exit;
+    exit; }
 	} else {
 		var_dump ($row);
-		};
+		}
     
    
 };
