@@ -25,7 +25,9 @@ for($i = 0; $i < count($osp); ++$i) {
     if (count($row)< 1 ) {
 		echo "osp not found";
 		$mysqli->query($sql . $osp[$i]['osp_id']. ", '".  $osp[$i]['name'] ."', '".  $osp[$i]['short_name'] ."');" ) ; 
-	} else {var_dump ($row)}
+	} else {
+		var_dump ($row);
+		}
     
    
 };
