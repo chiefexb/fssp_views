@@ -22,7 +22,7 @@ for($i = 0; $i < count($osp); ++$i) {
     exit;
      }
     $row=$result -> fetch_all(MYSQLI_ASSOC);
-    if (count($row)=0 ) {
+    if (count($row)< 1 ) {
 		echo "osp not found";
 	} 
     
