@@ -26,7 +26,7 @@ for($i = 0; $i < count($osp); ++$i) {
 		echo "osp not found";
 		$rez=$mysqli->query($sql . $osp[$i]['osp_id']. ", '".  $osp[$i]['name'] ."', '".  $osp[$i]['short_name'] ."');" ) ; 
 	if (!$rez) {
-    echo "Could not successfully run query (" .$sql. . $osp[$i]['osp_id']. ", '".  $osp[$i]['name'] ."', '".  $osp[$i]['short_name'] ."' )  "  . mysql_error();
+    echo "Could not successfully run query (" .$sql.  $osp[$i]['osp_id']. ", '".  $osp[$i]['name'] ."', '".  $osp[$i]['short_name'] ."' )  "  . mysql_error();
     exit; }
 	} else {
 		var_dump ($row);
