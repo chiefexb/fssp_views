@@ -1,13 +1,5 @@
 <?php
-$vitrina = [[
-    "name"=> "Окончания",
-    "rdb_script" =>$vitrina3,
-    "insert_script" => $vitr3
-   ], 
-[   "name"=> "Постановления",
-    "rdb_script" =>$vitrina4,
-    "insert_script" => $vitr4
-]];
+
 
 $vitr4=" INSERT INTO fssp_mon_vitrinavalue (vitrina_id, osp_id,spi, col1, data_vozb) VALUES ";
 
@@ -101,5 +93,16 @@ $vitrina1="select
 					join document on document.id=doc_ip.id  
 		where doc_ip.ip_date_finish>=current_date and doc_ip.article='31' and doc_ip.point='1' and doc_ip.subpoint='2'
 ";
+
+$vitrina = [[
+    "name"=> "Окончания",
+    "rdb_script" =>$vitrina3,
+    "insert_script" => $vitr3
+   ], 
+[   "name"=> "Постановления",
+    "rdb_script" =>$vitrina4,
+    "insert_script" => $vitr4
+]];
+
 //echo $vitrina1;
 ?>
