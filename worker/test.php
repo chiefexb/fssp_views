@@ -75,6 +75,11 @@ echo "Usage: \n php test.php osp_id vitrina_id \n";
 			   $data_vozb="'".$onerow[2]."'";
 			   $col1=$onerow[1];
 			   $str=$vitrina[$vitrina_id]["insert_script"] . "(2,(".$sql2."),  '".$spi."' , '". $col1."', " . $data_vozb. " );  "; 
+	      } else  if  ($vitrina_id==2) {
+			   $spi=iconv('windows-1251', 'UTF-8',$onerow[0] );
+			   $data_vozb="'".$onerow[0]."'";
+			   $col1=$onerow[1];
+			   $str=$vitrina[$vitrina_id]["insert_script"] . "(3,(".$sql2."),  '".$spi."' , '". $col1."', " . $data_vozb. " );  "; 
 	      }
 	       
 	       

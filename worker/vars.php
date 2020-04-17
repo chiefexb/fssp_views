@@ -1,4 +1,9 @@
 <?php
+$vitrina5="select DOCUMENT.CREATE_DATE,DOCUMENT.amount FROM O_IP_RM_BANKSTLIST_DEBT O_IP_RM_BANKSTLIST_DEBT
+JOIN O_IP_RM_BANKSTLIST ON O_IP_RM_BANKSTLIST_DEBT.ID=O_IP_RM_BANKSTLIST.ID
+JOIN DOC_DEPOSIT ON O_IP_RM_BANKSTLIST.ID=DOC_DEPOSIT.ID
+JOIN DOCUMENT ON DOC_DEPOSIT.ID=DOCUMENT.ID";
+$vitr5=" INSERT INTO fssp_mon_vitrinavalue (vitrina_id, osp_id, col23, data_vozb) VALUES ";
 
 
 $vitr4=" INSERT INTO fssp_mon_vitrinavalue (vitrina_id, osp_id,spi, col1, data_vozb) VALUES ";
@@ -102,7 +107,14 @@ $vitrina = [[
 [   "name"=> "Постановления",
     "rdb_script" =>$vitrina4,
     "insert_script" => $vitr4
-]];
+],
+[
+    "name"=> "Депозит строки",
+    "rdb_script" =>$vitrina5,
+    "insert_script" => $vitr5
+   ]
+
+];
 
 //echo $vitrina1;
 ?>
