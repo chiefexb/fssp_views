@@ -27,8 +27,8 @@ for($i = 0; $i < count($osp); ++$i) {
 		$sql2= $sql.  $osp[$i]['osp_id']. ", '".  $osp[$i]['name'] ."', '".  $osp[$i]['short_name'] "');"  ;
 		$rez=$mysqli->query(sql2) ; 
 	if (!$rez) {
-	echo  $sql2 ."\n";
-    echo "Could not successfully run query (". $sql2. "-"  . mysql_error();
+	  echo  $sql2 ."\n";
+       echo "Could not successfully run query ". $sql2. "-"  . mysql_error()  ;
     exit; }
 	} else {
 		var_dump ($row);
