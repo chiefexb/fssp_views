@@ -19,7 +19,7 @@ if (!$result) {
 $row=$result -> fetch_all(MYSQLI_ASSOC);
 
 for($i = 0; $i < count($osp); ++$i) {
-   vardump $osp[$i]['osp_id'] ;
+   vardump ($osp[$i]['osp_id'] );
 };
 
 ?>
