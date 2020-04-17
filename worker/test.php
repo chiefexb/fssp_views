@@ -25,7 +25,7 @@ echo "Usage: \n php test.php osp_id vitrina_id \n";
   
     
     if ($mysqli->query("DELETE FROM fssp_mon_vitrinavalue where vitrina_id=".$vitrina_id." and osp_id=".$osp_i) === TRUE) {
-     echo "New record delete successfully";
+     echo "New record delete successfully\n";
      } else {
      echo "Error: " . $mysqli->error;
      }
@@ -40,6 +40,7 @@ echo "Usage: \n php test.php osp_id vitrina_id \n";
     $sth = ibase_query($dbh,  $stmt);
     $count=0;
     $osp_id=$osp_i+1;
+    $sql2="select id from fssp_mon_osp where osp_id=".$osp_id;
     while ($onerow = ibase_fetch_row( $sth)) {
 
 		  if  ($vitrina_id==0) {
@@ -66,13 +67,13 @@ echo "Usage: \n php test.php osp_id vitrina_id \n";
 				  
 			}
 			//echo $data_okon;
-			$sql2="select id from fssp_mon_osp where osp_id=".$osp_id;
+			
            $str = $vitrina[$osp_i]["insert_script"].  "(1,(".$sql2."),  '".$spi."' , '". $col1."', '".$col2."', '".$col3."', ".$data_vozb." , ".$data_okon." );  "; 
 	       } else  if  ($vitrina_id==1) {
 			   $spi=iconv('windows-1251', 'UTF-8',$onerow[0] );
 			   $data_vozb="'".$onerow[2]."'";
 			   $col1=$onerow[1];
-			   $str=$vitrina[$osp_i]["insert_script"] . "(2,".$osp_id.",  '".$spi."' , '". $col1."', " . $data_vozb. " );  "; 
+			   $str=$vitrina[$osp_i]["insert_script"] . "(2,".$sql2.",  '".$spi."' , '". $col1."', " . $data_vozb. " );  "; 
 	      }
 	       
 	       
