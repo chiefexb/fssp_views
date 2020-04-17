@@ -4,15 +4,15 @@ include 'vars.php';
 include 'config.php';
 
 if (count($argv ) <2) {
-echo "Usage: \n php test.php osp_id vitrina_id";
+echo "Usage: \n php test.php osp_id vitrina_id \n";
 } else { 
 	var_dump($argv);
     $osp_i=$argv[1]-1;
      $vitrina_id=$argv[2]-1;
-     echo "osp id".$osp_i;
+     echo "osp id".$osp_i."\n";
    
     $host = $osp [ $osp_i ] ["host"];
-    echo "Имя" . $osp [ $osp_i ] ["name"] ;
+    echo "Имя" . $osp [ $osp_i ] ["name"]."\n" ;
     $username='SYSDBA';
     $password=$osp [ $osp_i ] ["password"];;
     ////echo $vitrina3;
