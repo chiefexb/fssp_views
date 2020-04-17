@@ -13,7 +13,7 @@ var_dump( $mysql_db[0]["host"]);
 
 
 
-$sql="INSERT INTO fssp_mon_osp (osp_id,name,short_name) VALUE  (";
+$sql="INSERT INTO fssp_mon_osp (osp_id,full_name,short_name) VALUE  (";
 
 for($i = 0; $i < count($osp); ++$i) {
    $result = $mysqli->query("select * from fssp_mon_osp where osp_id=". $osp[$i]['osp_id']  );
