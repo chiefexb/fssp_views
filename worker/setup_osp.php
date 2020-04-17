@@ -1,5 +1,5 @@
 <?php
-include '../../fssp_settings/config.php';
+include 'config.php';
 //Проверяем есть ли район в таблице
 var_dump( mysql_db);
  //$mysqli = new mysqli(mysql_db[0]=>host, mysql_db[0]=>user, mysql_db[0]=>password, mysql_db[0]=>db);
