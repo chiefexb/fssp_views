@@ -21,10 +21,10 @@ echo "Usage: \n php test.php osp_id vitrina_id \n";
     
     $mysqli = new mysqli($mysql_db[0]["host"], $mysql_db[0]["username"], $mysql_db[0]["password"], $mysql_db[0]["db"]) ;
     $mysqli->set_charset('utf8');
-   
-  
+    $osp_id=$osp_i+1;
+    $sql2="select id from fssp_mon_osp where osp_id=".$osp_id;
     
-    if ($mysqli->query("DELETE FROM fssp_mon_vitrinavalue where vitrina_id=".$vitrina_id." and osp_id=".$osp_i) === TRUE) {
+    if ($mysqli->query("DELETE FROM fssp_mon_vitrinavalue where vitrina_id=".$vitrina_id." and osp_id=(".$sql2.")" ) === TRUE) {
      echo "New record delete successfully\n";
      } else {
      echo "Error: " . $mysqli->error;
@@ -33,14 +33,15 @@ echo "Usage: \n php test.php osp_id vitrina_id \n";
     //$result = $mysqli->query($sql);
     //$stmt = $vitrina3;
     
-    $stmt = $vitrina[$osp_i]["rdb_script"];
-    echo $vitrina[$osp_i]["name"] ."\n" ;
+    $stmt = $vitrina[$vitrina_id]["rdb_script"];
+    echo $vitrina[$vitrina_id]["name"] ."\n" ;
     echo "RDB ". $stmt . "\n";
     echo "VIRINA ID ".$vitrina_id."\n";
+    
     $sth = ibase_query($dbh,  $stmt);
     $count=0;
-    $osp_id=$osp_i+1;
-    $sql2="select id from fssp_mon_osp where osp_id=".$osp_id;
+   
+  
     while ($onerow = ibase_fetch_row( $sth)) {
 
 		  if  ($vitrina_id==0) {
@@ -68,12 +69,12 @@ echo "Usage: \n php test.php osp_id vitrina_id \n";
 			}
 			//echo $data_okon;
 			
-           $str = $vitrina[$osp_i]["insert_script"].  "(1,(".$sql2."),  '".$spi."' , '". $col1."', '".$col2."', '".$col3."', ".$data_vozb." , ".$data_okon." );  "; 
+           $str = $vitrina[$vitrina_id]["insert_script"].  "(1,(".$sql2."),  '".$spi."' , '". $col1."', '".$col2."', '".$col3."', ".$data_vozb." , ".$data_okon." );  "; 
 	       } else  if  ($vitrina_id==1) {
 			   $spi=iconv('windows-1251', 'UTF-8',$onerow[0] );
 			   $data_vozb="'".$onerow[2]."'";
 			   $col1=$onerow[1];
-			   $str=$vitrina[$osp_i]["insert_script"] . "(2,(".$sql2."),  '".$spi."' , '". $col1."', " . $data_vozb. " );  "; 
+			   $str=$vitrina[$vitrina_id]["insert_script"] . "(2,(".$sql2."),  '".$spi."' , '". $col1."', " . $data_vozb. " );  "; 
 	      }
 	       
 	       
