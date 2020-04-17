@@ -24,7 +24,10 @@ for($i = 0; $i < count($osp); ++$i) {
     $row=$result -> fetch_all(MYSQLI_ASSOC);
     if (count($row)< 1 ) {
 		echo "osp not found";
-		$mysqli->query($sql . $osp[$i]['osp_id']. ", '".  $osp[$i]['name'] ."', '".  $osp[$i]['short_name'] ."');" ) ; 
+		$rez=$mysqli->query($sql . $osp[$i]['osp_id']. ", '".  $osp[$i]['name'] ."', '".  $osp[$i]['short_name'] ."');" ) ; 
+		if (!$rez) {
+    echo "Could not successfully run query () from DB: "  . mysql_error();
+    exit;
 	} else {
 		var_dump ($row);
 		}
