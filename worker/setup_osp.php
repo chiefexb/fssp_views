@@ -13,7 +13,7 @@ var_dump( $mysql_db[0]["host"]);
 
 
 
-
+$sql="INSERT INTO fssp_mon_osp (osp_id,name,short_name,) VALUE  (";
 
 for($i = 0; $i < count($osp); ++$i) {
    $result = $mysqli->query("select * from fssp_mon_osp where osp_id=". $osp[$i]['osp_id']  );
@@ -24,6 +24,7 @@ for($i = 0; $i < count($osp); ++$i) {
     $row=$result -> fetch_all(MYSQLI_ASSOC);
     if (count($row)< 1 ) {
 		echo "osp not found";
+		$mysqli->query($sql . $osp['osp_id']. ", ".  $osp['name'] .", ".  $osp['short_name'] .");" ; 
 	} 
     
    
