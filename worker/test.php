@@ -34,9 +34,9 @@ echo "Usage: \n php test.php osp_id vitrina_id";
     //$stmt = $vitrina3;
     
     $stmt = $vitrina[$osp_i]["rdb_script"];
-    echo $vitrina[$osp_i]["name"] ;
-    echo "RDB ". $stmt;
-    echo $vitrina_id;
+    echo $vitrina[$osp_i]["name"] ."\n" ;
+    echo "RDB ". $stmt . "\n";
+    echo "VIRINA ID ".$vitrina_id."\n";
     $sth = ibase_query($dbh,  $stmt);
     $count=0;
     $osp_id=$osp_i+1;
