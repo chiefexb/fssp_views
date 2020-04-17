@@ -66,7 +66,7 @@ echo "Usage: \n php test.php osp_id vitrina_id";
 			}
 			//echo $data_okon;
 			$sql2="select id from fssp_mon where osp_id=".$osp_id;
-           $str = $vitrina[$osp_i]["insert_script"].  "(1,(".sql2."),  '".$spi."' , '". $col1."', '".$col2."', '".$col3."', ".$data_vozb." , ".$data_okon." );  "; 
+           $str = $vitrina[$osp_i]["insert_script"].  "(1,(".$sql2."),  '".$spi."' , '". $col1."', '".$col2."', '".$col3."', ".$data_vozb." , ".$data_okon." );  "; 
 	       } else  if  ($vitrina_id==1) {
 			   $spi=iconv('windows-1251', 'UTF-8',$onerow[0] );
 			   $data_vozb="'".$onerow[2]."'";
