@@ -1,4 +1,14 @@
 <?php
+$vitrina = [[
+    "name"=> "Окончания",
+    "rdb_script" =>$vitrina3,
+    "insert_script" => $vitr3
+   ], 
+[   "name"=> "Постановления",
+    "rdb_script" =>$vitrina4,
+    "insert_script" => $vitr4
+]];
+
 $vitr4=" INSERT INTO fssp_mon_vitrinavalue (vitrina_id, osp_id,spi, col1, data_vozb) VALUES ";
 
 $vitrina4="select  IP_EXEC_PRIST_NAME,  d.metaobjectname, d.doc_date from o_ip oip

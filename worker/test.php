@@ -1,21 +1,25 @@
 <?php
 //
 include 'vars.php';
-include '../../fssp_settings/config.php';
-  //  $host = '10.9.54.34:ncore-fssp';
-// $host = '10.9.40.34:ncore-fssp'; 
-   $host = '62.109.7.133:fssp';
+include 'config.php';
+
+if (count($argv ) <2) {
+echo "Usage: \n php test.php osp_id vitrina_id";
+} else { 
+    $osp_i=$argv[0];
+     $vitrina_id=$argv[1];
+   
+    $host = $osp [ $osp_i ] ["host"];
     $username='SYSDBA';
- // $password='IMzRMsuO';
- // $password='v1rnGo7';
-    $password="8aJu3#7Y3j";
+    $password=$osp [ $osp_i ] ["password"];;
     ////echo $vitrina3;
     $charset='WIN1251';
     $dbh = ibase_connect($host, $username, $password, $charset);
-    $mysqli = new mysqli("localhost", "fssp", "Exb021205!", "fssp");
+    
+    $mysqli = new mysqli($mysql_db[0]["host"], $mysql_db[0]["username"], $mysql_db[0]["password"], $mysql_db[0]["db"]) ;
     $mysqli->set_charset('utf8');
-    $vitrina_id='2';
-    $osp_i=1;
+   
+  
     
     if ($mysqli->query("DELETE FROM fssp_mon_vitrinavalue where vitrina_id=".$vitrina_id." and osp_id=".$osp_i) === TRUE) {
      echo "New record delete successfully";
@@ -25,7 +29,8 @@ include '../../fssp_settings/config.php';
     
     //$result = $mysqli->query($sql);
     //$stmt = $vitrina3;
-     $stmt = $vitrina4;
+    
+    $stmt = $vitrina[$osp_i]["rdb_script"];
     $sth = ibase_query($dbh,  $stmt);
     $count=0;
     
@@ -55,12 +60,12 @@ include '../../fssp_settings/config.php';
 				  
 			}
 			//echo $data_okon;
-           $str=$vitr3."(1,".$osp_i.",  '".$spi."' , '". $col1."', '".$col2."', '".$col3."', ".$data_vozb." , ".$data_okon." );  "; 
+           $str=$vitrina[$osp_i]["insert_script"]."(1,".$osp_i.",  '".$spi."' , '". $col1."', '".$col2."', '".$col3."', ".$data_vozb." , ".$data_okon." );  "; 
 	       } else  if  ($vitrina_id=='2') {
 			   $spi=iconv('windows-1251', 'UTF-8',$onerow[0] );
 			   $data_vozb="'".$onerow[2]."'";
 			   $col1=$onerow[1];
-			   $str=$vitr4."(2,".$osp_i.",  '".$spi."' , '". $col1."', " . $data_vozb. " );  "; 
+			   $str=$vitrina[$osp_i]["insert_script"]."(2,".$osp_i.",  '".$spi."' , '". $col1."', " . $data_vozb. " );  "; 
 	      }
 	       
 	       
@@ -88,4 +93,5 @@ include '../../fssp_settings/config.php';
     echo $count;
     ibase_free_result($sth);
     ibase_close($dbh);
+}
 ?>
