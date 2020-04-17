@@ -14,7 +14,7 @@ $osp = [[
 
 mysql_db=[[ 
     "host" => "localhost",
-    "db"=>"fss", 
+    "db"=>"fssp", 
     "username"=> "fssp",
     "password"=> ""
 ]]
