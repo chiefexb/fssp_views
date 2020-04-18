@@ -1,5 +1,5 @@
 <?php
-include 'var.php';
+include 'vars.php';
 include 'config.php';
 //Проверяем есть ли район в таблице
 var_dump( $vitrina);

@@ -7,10 +7,12 @@ $osp = [[
     "username" => "SYSDBA",
     "password" => ""
    ], 
-[ "osp_id" => 1,
+[    "osp_id" => 2,
     "host"=> "62.109.7.133:fssp",
+    "short_name" => "Малокарачаевский РО",
+    "name" => "Малокарачаевский РО",
     "username"=>"SYSDBA",
-    "password"=>"SYSDBA"]];
+    "password"=>""]];
 
 $mysql_db = [[ 
     "host" => "localhost",
