@@ -82,7 +82,7 @@ echo "Usage: \n php test.php osp_id vitrina_id \n";
 			   $spi=iconv('windows-1251', 'UTF-8',$onerow[0] );
 			   $data_vozb="'".$onerow[0]."'";
 			   $col1=$onerow[1];
-			   $str=$vitrina[$vitrina_id]["insert_script"] . "((".$sql3."),(".$sql2."),  '". $col1."', " . $data_vozb. " );  "; 
+			   $str=$vitrina[$vitrina_id]["insert_script"] . "((".$sql3."),(".$sql2."),  '". $col23."', " . $data_vozb. " );  "; 
 	      }
 	       
 	       
