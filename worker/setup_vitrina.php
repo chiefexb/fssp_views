@@ -25,7 +25,7 @@ for($i = 0; $i < count($vitrina); ++$i) {
     $row=$result -> fetch_all(MYSQLI_ASSOC);
     if (count($row)< 1 ) {
 		echo "vitrina not found";
-		$sql2= $sql. "1, ". $vitrina[$i]['vitrina_id']. ", '".  $osp[$i]['name'] ."','2020-01-01',1,1 );"  ;
+		$sql2= $sql. "1, ". $vitrina[$i]['vitrina_id']. ", '".  $vitrina[$i]['name'] ."','2020-01-01',1,1 );"  ;
 		$rez=$mysqli->query($sql2) ; 
 	if (!$rez) {
 	  echo  $sql2 ."\n";
