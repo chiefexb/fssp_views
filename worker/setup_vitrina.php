@@ -31,7 +31,7 @@ for($i = 0; $i < count($vitrina); ++$i) {
 	  echo  $sql2 ."\n";
        echo "Could not successfully run query ". $sql2. "-"  . mysql_error()  ;
     exit; }
-	} else {,
+	} else {
 		var_dump ($row);
 		}
     
