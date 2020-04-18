@@ -102,16 +102,19 @@ $vitrina1="select
 $vitrina = [[
     "name"=> "Окончания",
     "rdb_script" =>$vitrina3,
-    "insert_script" => $vitr3
+    "insert_script" => $vitr3,
+    "vitrina_id" => 1
    ], 
 [   "name"=> "Постановления",
     "rdb_script" =>$vitrina4,
-    "insert_script" => $vitr4
+    "insert_script" => $vitr4,
+    "vitrina_id" => 2
 ],
 [
     "name"=> "Депозит строки",
     "rdb_script" =>$vitrina5,
-    "insert_script" => $vitr5
+    "insert_script" => $vitr5,
+    "vitrina_id" => 3
    ]
 
 ];
