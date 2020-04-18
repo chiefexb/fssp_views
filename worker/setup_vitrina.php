@@ -14,7 +14,7 @@ var_dump( $vitrina);
 
 
 
-$sql="INSERT INTO fssp_mon_vitrina (filter_id,vitrina_id,name) VALUE  (";
+$sql="INSERT INTO fssp_mon_vitrina (filter_id,vitrina_id,name,date_actual) VALUE  (";
 
 for($i = 0; $i < count($vitrina); ++$i) {
    $result = $mysqli->query("select * from fssp_mon_vitrina where vitrina_id=". $vitrina[$i]['vitrina_id']  );
@@ -25,13 +25,13 @@ for($i = 0; $i < count($vitrina); ++$i) {
     $row=$result -> fetch_all(MYSQLI_ASSOC);
     if (count($row)< 1 ) {
 		echo "vitrina not found";
-		$sql2= $sql. "1, ". $vitrina[$i]['vitrina_id']. ", '".  $osp[$i]['name'] ."' );"  ;
+		$sql2= $sql. "1, ". $vitrina[$i]['vitrina_id']. ", '".  $osp[$i]['name'] ."','2020-01-01' );"  ;
 		$rez=$mysqli->query($sql2) ; 
 	if (!$rez) {
 	  echo  $sql2 ."\n";
        echo "Could not successfully run query ". $sql2. "-"  . mysql_error()  ;
     exit; }
-	} else {
+	} else {,
 		var_dump ($row);
 		}
     
