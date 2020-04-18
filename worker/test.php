@@ -22,7 +22,10 @@ echo "Usage: \n php test.php osp_id vitrina_id \n";
     $mysqli = new mysqli($mysql_db[0]["host"], $mysql_db[0]["username"], $mysql_db[0]["password"], $mysql_db[0]["db"]) ;
     $mysqli->set_charset('utf8');
     $osp_id=$osp_i+1;
+    $vitrina_id2=$vitrina_id+1;
     $sql2="select id from fssp_mon_osp where osp_id=".$osp_id;
+    $sql3="select id from fssp_mon_vitrina where vitrina_id=".$vittrina_id2;
+    
     
     if ($mysqli->query("DELETE FROM fssp_mon_vitrinavalue where vitrina_id=".$vitrina_id." and osp_id=(".$sql2.")" ) === TRUE) {
      echo "New record delete successfully\n";
@@ -69,17 +72,17 @@ echo "Usage: \n php test.php osp_id vitrina_id \n";
 			}
 			//echo $data_okon;
 			
-           $str = $vitrina[$vitrina_id]["insert_script"].  "(1,(".$sql2."),  '".$spi."' , '". $col1."', '".$col2."', '".$col3."', ".$data_vozb." , ".$data_okon." );  "; 
+           $str = $vitrina[$vitrina_id]["insert_script"].  "( (" .$sql3."),(".$sql2."),  '".$spi."' , '". $col1."', '".$col2."', '".$col3."', ".$data_vozb." , ".$data_okon." );  "; 
 	       } else  if  ($vitrina_id==1) {
 			   $spi=iconv('windows-1251', 'UTF-8',$onerow[0] );
 			   $data_vozb="'".$onerow[2]."'";
 			   $col1=$onerow[1];
-			   $str=$vitrina[$vitrina_id]["insert_script"] . "(2,(".$sql2."),  '".$spi."' , '". $col1."', " . $data_vozb. " );  "; 
+			   $str=$vitrina[$vitrina_id]["insert_script"] . "((".$sql3."),(".$sql2."),  '".$spi."' , '". $col1."', " . $data_vozb. " );  "; 
 	      } else  if  ($vitrina_id==2) {
 			   $spi=iconv('windows-1251', 'UTF-8',$onerow[0] );
 			   $data_vozb="'".$onerow[0]."'";
 			   $col1=$onerow[1];
-			   $str=$vitrina[$vitrina_id]["insert_script"] . "(3,(".$sql2."),  '". $col1."', " . $data_vozb. " );  "; 
+			   $str=$vitrina[$vitrina_id]["insert_script"] . "((".$sql3."),(".$sql2."),  '". $col1."', " . $data_vozb. " );  "; 
 	      }
 	       
 	       
