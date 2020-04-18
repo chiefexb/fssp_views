@@ -24,7 +24,7 @@ echo "Usage: \n php test.php osp_id vitrina_id \n";
     $osp_id=$osp_i+1;
     $vitrina_id2=$vitrina_id+1;
     $sql2="select id from fssp_mon_osp where osp_id=".$osp_id;
-    $sql3="select id from fssp_mon_vitrina where vitrina_id=".$vittrina_id2;
+    $sql3="select id from fssp_mon_vitrina where vitrina_id=".$vitrina_id2;
     
     
     if ($mysqli->query("DELETE FROM fssp_mon_vitrinavalue where vitrina_id=".$vitrina_id." and osp_id=(".$sql2.")" ) === TRUE) {
