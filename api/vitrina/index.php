@@ -96,8 +96,8 @@ $sql =  "select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,
 
 } else if ($vitrina_id=='3') {
 	 $per ="data_vozb>='" . $date1 ."' and  data_vozb<='" . $date2 ."' and ";
-$sql_count="SUM(CASE WHEN ( (col1 >0) ) THEN 1 ELSE 0 END ) as col3,
-            SUM( col1) as col4";
+$sql_count="SUM(CASE WHEN ( (col23 >0) ) THEN 1 ELSE 0 END ) as col3,
+            SUM( col23) as col4";
 	
  $sql="select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,'-' as col1, 
 
