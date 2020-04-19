@@ -92,6 +92,14 @@ $sql="select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,'-'
 	 } else {
 $sql =  "select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,spi as col1 , count(spi) as col2 , 
 " .$sql_count ."     from fssp_mon_vitrinavalue vv           where vitrina_id=(select id from fssp_mon_vitrina where vitrina_id=2) group by vv.spi, osp order by osp";
+ } else if ($vitrina_id=='3') {
+	 $per ="data_vozb>='" . $date1 ."' and  data_vozb<='" . $date2 ."' and ";
+$sql_count="SUM(CASE WHEN (".$per. " col1 is not null ) THEN 1 ELSE 0 END ) as col3,";
+	
+ $sql="select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,'-' as col1, 
+
+" .$sql_count ."   from fssp_mon_vitrinavalue vv           where vitrina_id=((select id from fssp_mon_vitrina where vitrina_id=3))  group by  osp order by osp";
+	
  }
 
 } 
