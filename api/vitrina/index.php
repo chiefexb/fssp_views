@@ -101,7 +101,7 @@ $sql_count="SUM(CASE WHEN ( (col23 >0) ) THEN 1 ELSE 0 END ) as col3,
 	
  $sql="select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,'-' as col1, 
 
-" .$sql_count ."   from fssp_mon_vitrinavalue vv           where vitrina_id=((select id from fssp_mon_vitrina where vitrina_id=3))".$per."  group by  osp order by osp";
+" .$sql_count ."   from fssp_mon_vitrinavalue vv           where vitrina_id=((select id from fssp_mon_vitrina where vitrina_id=3)) and".$per."  group by  osp order by osp";
 	
  }
 
