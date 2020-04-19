@@ -1001,7 +1001,7 @@ content=
 
 
 
-                         <Button color="inherit" id="menu-button"   aria-controls="fade-menu" aria-haspopup="true"  onClick= {this.handleMenuClick }   >ОИП</Button>
+  <Button color="inherit" id="menu-button"   aria-controls="fade-menu" aria-haspopup="true"  onClick= {this.handleMenuClick }   >ОИП</Button>
                          <Menu  color="inherit"
   id="simple-menu"
   
@@ -1014,11 +1014,25 @@ content=
 >
   <MenuItem value='1' onClick={this.handleMenuClose}>Окончание</MenuItem>
   <MenuItem value='2' onClick={this.handleMenuClose}>Постановления</MenuItem>
-  <MenuItem value='3' onClick={this.handleMenuClose}>Депозит</MenuItem>
+ 
 </Menu>
 
+    <Button color="inherit" id="menu-button"   aria-controls="fade-menu" aria-haspopup="true"  onClick= {this.handleMenuClick }   >ОИП</Button>
+                         <Menu  color="inherit"
+  id="simple-menu"
   
-                            <Button color="inherit">Депозит</Button>
+  anchorEl={this.state.anchor_el}
+  anchorPosition={ {top: -40, left: 120} }
+  keepMounted
+  open={this.state.menu_open}
+  onClose={this.handleMenuClose}
+  TransitionComponent={Fade}
+>
+  <MenuItem value='3' onClick={this.handleMenuClose}>Депозит строки</MenuItem>
+  <MenuItem value='4' onClick={this.handleMenuClose}>Количество дней </MenuItem>
+  <MenuItem value='5' onClick={this.handleMenuClose}>остатки</MenuItem>
+</Menu>
+                           
                                <Button onClick={this.handleClickOpen} color="inherit">Login</Button>
 
 
