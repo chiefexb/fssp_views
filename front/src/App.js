@@ -1017,7 +1017,7 @@ content=
  
 </Menu>
 
-    <Button color="inherit" id="menu-button"   aria-controls="fade-menu" aria-haspopup="true"  onClick= {this.handleMenuClick }   >ОИП</Button>
+    <Button color="inherit" id="menu-button"   aria-controls="fade-menu" aria-haspopup="true"  onClick= {this.handleMenuClick }   >Депозит</Button>
                          <Menu  color="inherit"
   id="simple-menu"
   
