@@ -103,6 +103,41 @@ $sql_count="SUM(CASE WHEN ( (col23 >0) ) THEN 1 ELSE 0 END ) as col3,
 
 " .$sql_count ."   from fssp_mon_vitrinavalue vv           where vitrina_id=((select id from fssp_mon_vitrina where vitrina_id=3)) and ".$per."  group by  osp order by osp";
 	
+ } else if ($vitrina_id=='10') {
+	
+	$per ="data_okon>='" . $date1 ."' and  data_okon<='" . $date2 ."' and";
+$per2="data_okon>='" . $date1 ."' and  data_okon<='" . $date2 ."' ";
+$sql_count="
+SUM(CASE WHEN (data_okon>='01.01.2019' and  data_okon<='31.01.2019' ) THEN 1 ELSE 0 END ) as col3,
+SUM(CASE WHEN (data_okon>='01.02.2020' and  data_okon<='31.01.2020' ) THEN 1 ELSE 0 END ) as col4,
+
+SUM(CASE WHEN (data_okon>='01.02.2019' and  data_okon<='28.02.2019' ) THEN 1 ELSE 0 END ) as col5,
+SUM(CASE WHEN (data_okon>='01.02.2020' and  data_okon<='29.02.2020' ) THEN 1 ELSE 0 END ) as col6,
+
+SUM(CASE WHEN (data_okon>='01.03.2019' and  data_okon<='31.03.2019' ) THEN 1 ELSE 0 END ) as col7,
+SUM(CASE WHEN (data_okon>='01.03.2020' and  data_okon<='31.03.2020' ) THEN 1 ELSE 0 END ) as col8,
+
+SUM(CASE WHEN (data_okon>='01.04.2019' and  data_okon<='30.04.2019' ) THEN 1 ELSE 0 END ) as col9,
+SUM(CASE WHEN (data_okon>='01.04.2020' and  data_okon<='30.04.2020' ) THEN 1 ELSE 0 END ) as col10,
+
+SUM(CASE WHEN (data_okon>='01.05.2019' and  data_okon<='31.05.2019' ) THEN 1 ELSE 0 END ) as col11,
+SUM(CASE WHEN (data_okon>='01.05.2020' and  data_okon<='31.05.2020' ) THEN 1 ELSE 0 END ) as col12
+
+
+";
+
+
+if ($spi_id=='0') {
+$sql="select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,'-' as col2, 
+
+" .$sql_count ."
+
+         from fssp_mon_vitrinavalue vv           where vitrina_id=(select id from fssp_mon_vitrina where vitrina_id=1) group by  osp order by osp";
+	 } else {
+$sql =  "select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,spi as col2 ,  
+  " .$sql_count ."     from fssp_mon_vitrinavalue vv           where vitrina_id=(select id from fssp_mon_vitrina where vitrina_id=1) group by vv.spi, osp order by osp";
+}
+	
  }
 
 
