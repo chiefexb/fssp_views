@@ -717,7 +717,7 @@ const range_date= [
   }
  
 ];
-
+let cat=[];
 
    if (this.state.vitrina_id=='4') {
 	  
@@ -731,7 +731,7 @@ const range_date= [
     'Апрель 2020',
     'Май 2019',
    'Май 2020'
-    ]; 
+    ]; }
 
 let diagram = {
      
