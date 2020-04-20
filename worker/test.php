@@ -83,7 +83,7 @@ echo "Usage: \n php test.php osp_id vitrina_id \n";
 			   $data_vozb="'".$onerow[0]."'";
 			   $col23=$onerow[1];
 			   $str=$vitrina[$vitrina_id]["insert_script"] . "((".$sql3."),(".$sql2."),  ". $col23.", " . $data_vozb. " );  "; 
-	      }
+	      } 
 	       
 	       
 	       
