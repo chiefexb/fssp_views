@@ -7,7 +7,7 @@
       set_fact:
          mount: "{{ ansible_mounts  }}"
     - name: Debug
-      templates:
+      template:
          src: 'free.json'
          dest: /home/free_json
       delefate_to: localhost
