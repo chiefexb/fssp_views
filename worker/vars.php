@@ -115,6 +115,12 @@ $vitrina = [[
     "rdb_script" =>$vitrina5,
     "insert_script" => $vitr5,
     "vitrina_id" => 3
+   ],
+   [
+    "name"=> "Итого",
+    "rdb_script" =>'',
+    "insert_script" => '',
+    "vitrina_id" => 4
    ]
 
 ];
