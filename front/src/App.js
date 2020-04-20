@@ -720,7 +720,7 @@ const range_date= [
 let cat=['1','2','2'];
 
    if (this.state.result7) {
-	   let cat = Object.entries(this.state.result7[0]);
+	   let cat = Object.values(this.state.result7[0]);
    }
 //	let cat=[   'Январь 2019',
  //   'Январь 2020',
