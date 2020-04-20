@@ -720,7 +720,7 @@ const range_date= [
 let cat=[];
 let mydata=[];
 
-    if (this.state.vitrina_id=10) {
+    if (this.state.vitrina_id='10') {
 	let cat=[   "Январь 2019",
     "Январь 2020",
     "Февраль 2019",
@@ -730,7 +730,7 @@ let mydata=[];
     "Апрель 2019",
     "Апрель 2020",
     "Май 2019",
-    "Май 2020"
+    "Май 202и0"
     ]; }
 
 let diagram = {
@@ -752,7 +752,7 @@ let diagram = {
     {
         item=this.state.result[a];
         
-        if (this.state.vitrina_id=10) {
+        if (this.state.vitrina_id='10') {
 	
     let mydata=   [ item.col3,
     item.col4 ,
