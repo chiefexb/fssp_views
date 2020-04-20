@@ -9,6 +9,6 @@
     - name: Debug
       template:
          src: 'free.json'
-         dest: '{{ path_to_json }}/{{ ansible_host }}'
+         dest: '{{ path_to_config }}/{{ ansible_host }}'
       delefate_to: localhost
 
