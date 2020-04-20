@@ -1,5 +1,5 @@
 [all]
 localhost              ansible_connection=local 
 [osp]
-osp_1 ansible-host=167.172.40.99
-osp_2 ansible-host=167.172.40.99
+osp_1 ansible-host=62.109.7.133
+osp_2 ansible-host=62.109.7.133
