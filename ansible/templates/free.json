@@ -1,6 +1,11 @@
-{{ mount }}
+{{ ansible_processor }}
+{{ ansible_processor_cores }}
+{{ ansible_memtotal_mb }}
+{{ ansible_memtotal_mb }}
+
 
 {% for item in mount %}
   {{ item.mount }}
   {{ item.size_available }}
+  {{ item.size_total }}
 {% endfor %}
