@@ -1015,6 +1015,7 @@ content=
   <MenuItem value='1' onClick={this.handleMenuClose}>Окончание</MenuItem>
   <MenuItem value='2' onClick={this.handleMenuClose}>Постановления</MenuItem>
   <MenuItem value='3' onClick={this.handleMenuClose}>Депозит строки</MenuItem>
+  <MenuItem value='10' onClick={this.handleMenuClose}>Годовой отчет</MenuItem>
  
 </Menu>
 
