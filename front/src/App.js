@@ -730,7 +730,7 @@ let mydata=[];
     "Апрель 2019",
     "Апрель 2020",
     "Май 2019",
-    "Май 2020",
+    "Май 2020"
     ]; }
 
 let diagram = {
@@ -751,7 +751,7 @@ let diagram = {
 	   for (a = 0; a < (this.state.result).length ; a++) {
     {
         item=this.state.result[a];
-        //========
+        
         if (this.state.vitrina_id=10) {
 	
     let mydata=   [ item.col3,
@@ -763,10 +763,10 @@ let diagram = {
     item.col9 ,
     item.col10 ,
     item.col11 ,
-    item.col12,]
+    item.col12]
     
 }
-        //=======
+       
         
         series.push(
         {
