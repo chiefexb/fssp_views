@@ -730,7 +730,7 @@ let mydata=[];
     "Апрель 2019",
     "Апрель 2020",
     "Май 2019",
-    "Май 202и0"
+    "Май 2020",
     ]; }
 
 let diagram = {
@@ -763,7 +763,7 @@ let diagram = {
     item.col9 ,
     item.col10 ,
     item.col11 ,
-    item.col12]
+    item.col12,]
     
 }
        
