@@ -1,3 +1,4 @@
 {% for item in mount %}
-  {{ item }}
+  {{ item.mount }}
+  {{ item.size_available }}
 {% endfor %}
