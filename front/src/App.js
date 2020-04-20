@@ -717,20 +717,24 @@ const range_date= [
   }
  
 ];
-
- //1
-const diagram = {
+let cat=[];
+ if (this.state.result7) {
+     let cat=Object.values( this.state.result7[0]);
+   }  
+let diagram = {
      
         chart: {
           id: "basic-bar"
         },
         xaxis: {
-          categories: ['47 1 1', '47 1 2','47 1 3']
+          categories: cat
         }
       };
- const      series =[];
+ let      series =[];
  let a=0;
  let item=[];
+ // { Object.entries(item2).map(item3 =>
+ // {this.state.result7.map(item2 => (
  if (this.state.result) {
 	   for (a = 0; a < (this.state.result).length ; a++) {
     {
@@ -738,9 +742,7 @@ const diagram = {
         series.push(
         {
           name: item.osp,
-          data: [item.col3,
-                 item.col4,
-                 item.col5,]
+          data: item
         } );
     };
 };
