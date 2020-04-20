@@ -1,3 +1,5 @@
+{{ mount }}
+
 {% for item in mount %}
   {{ item.mount }}
   {{ item.size_available }}
