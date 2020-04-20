@@ -103,7 +103,7 @@ $sql_count="SUM(CASE WHEN ( (col23 >0) ) THEN 1 ELSE 0 END ) as col3,
 
 " .$sql_count ."   from fssp_mon_vitrinavalue vv           where vitrina_id=((select id from fssp_mon_vitrina where vitrina_id=3)) and ".$per."  group by  osp order by osp";
 	
- } else if ($vitrina_id=='10') {
+ } else if ($vitrina_id=='4') {
 	
 	$per ="data_okon>='" . $date1 ."' and  data_okon<='" . $date2 ."' and";
 $per2="data_okon>='" . $date1 ."' and  data_okon<='" . $date2 ."' ";
