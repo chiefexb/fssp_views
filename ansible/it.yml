@@ -9,6 +9,6 @@
     - name: Debug
       template:
          src: 'free.json'
-         dest: '{{ path_to_www }}/{{ ansible_host }}.json'
+         dest: '{{ path_to_www }}/{{ inventory_hostname }}.json'
       delegate_to: localhost
 
