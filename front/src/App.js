@@ -717,8 +717,7 @@ const range_date= [
   }
  
 ];
-let cat=[];
-let mydata=[];
+
 
     
 	let cat=[   'Январь 2019',
