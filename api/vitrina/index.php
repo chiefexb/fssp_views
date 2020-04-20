@@ -121,7 +121,7 @@ SUM(CASE WHEN (data_okon>='2019-04-01' and  data_okon<='2019-04-30' ) THEN 1 ELS
 SUM(CASE WHEN (data_okon>='2020-04-01' and  data_okon<='2020-04-30' ) THEN 1 ELSE 0 END ) as col10,
 
 SUM(CASE WHEN (data_okon>='2019-05-01' and  data_okon<='2019-05-31' ) THEN 1 ELSE 0 END ) as col11,
-SUM(CASE WHEN (data_okon>='2020-05-01' and  data_okon<='2020-05-31' ) THEN 1 ELSE 0 END ) as col12,
+SUM(CASE WHEN (data_okon>='2020-05-01' and  data_okon<='2020-05-31' ) THEN 1 ELSE 0 END ) as col12
 
 
 ";
@@ -132,7 +132,7 @@ $sql="select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,'-'
 
 " .$sql_count ."
 
-         from fssp_mon_vitrinavalue vv           where vitrina_id=(select id from fssp_mon_vitrina where vitrina_id=1) group by  osp order by osp";
+         from fssp_mon_vitrinavalue vv           where vitrina_id=(select id from fssp_mon_vitrina where vitrina_id=1) group by  osp_id order by osp_id";
 	 } else {
 $sql =  "select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,spi as col2 ,  
   " .$sql_count ."     from fssp_mon_vitrinavalue vv           where vitrina_id=(select id from fssp_mon_vitrina where vitrina_id=1) group by vv.spi, osp order by osp";
