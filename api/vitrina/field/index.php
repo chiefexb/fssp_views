@@ -92,7 +92,7 @@ $row = [[
    
     
 ];
-} else if ($vitrina_id=='10') {
+} else if ($vitrina_id=='4') {
 
 	
 $row = [[
