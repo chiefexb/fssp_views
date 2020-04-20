@@ -717,7 +717,7 @@ const range_date= [
   }
  
 ];
-let cat=[];
+let cat=['1','2','2'];
 
    if (this.state.result7) {
 	   let cat = Object.entries(this.state.result7[0]);
