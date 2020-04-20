@@ -112,7 +112,7 @@ SUM(CASE WHEN (data_okon>='2019-01-01' and  data_okon<='2019-01-31' ) THEN 1 ELS
 SUM(CASE WHEN (data_okon>='2020-01-01' and  data_okon<='2020-01-31' ) THEN 1 ELSE 0 END ) as col4,
 
 SUM(CASE WHEN (data_okon>='2019-02-01' and  data_okon<='2019-02-28' ) THEN 1 ELSE 0 END ) as col5,
-SUM(CASE WHEN (data_okon>='2020-02-01' and  data_okon<='2020-01-01' ) THEN 1 ELSE 0 END ) as col6,
+SUM(CASE WHEN (data_okon>='2020-02-01' and  data_okon<='2020-02-29' ) THEN 1 ELSE 0 END ) as col6,
 
 SUM(CASE WHEN (data_okon>='2019-03-01' and  data_okon<='2019-03-31' ) THEN 1 ELSE 0 END ) as col7,
 SUM(CASE WHEN (data_okon>='2020-03-01' and  data_okon<='2020-03-31' ) THEN 1 ELSE 0 END ) as col8,
