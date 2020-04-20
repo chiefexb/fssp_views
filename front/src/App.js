@@ -527,7 +527,7 @@ class App extends React.Component {
     this.setState({ menu_open: false,vitrina_id: e.target.value ,result:[],loaded:false,result7:[],loaded7:false ,anchor_el: null,debug:false });
    // this.setState({ menu_open: false,vitrina_id: e.target.value, anchor_el: null}) ;
   };  
-  renderTable() {
+  renderTable() {f
 
 	//  this.setState({loaded: false,
 		//            result: []});
@@ -720,7 +720,7 @@ const range_date= [
 let cat=[];
 let mydata=[];
 
-    if (this.state.vitrina_id='10') {
+    if (this.state.vitrina_id=='10') {
 	let cat=[   "Январь 2019",
     "Январь 2020",
     "Февраль 2019",
@@ -752,7 +752,7 @@ let diagram = {
     {
         item=this.state.result[a];
         
-        if (this.state.vitrina_id='10') {
+        if (this.state.vitrina_id=='10') {
 	
     let mydata=   [ item.col3,
     item.col4 ,
