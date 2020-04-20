@@ -1,1 +1,3 @@
-{{ mount }}
+{% for item in mount %}
+  {{ item }}
+{% endfor %}
