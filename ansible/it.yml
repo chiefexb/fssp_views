@@ -5,7 +5,7 @@
   pre_tasks:
     - name: Remove consul agents
       set_fact:
-         mount: "{{ ansible_mounts  }}"
+         mount: "{{ ansible_mounts  | dict2items(key_name='mount', value_name='/home/db') }}"
     - name: Debug
       debug:
          var: mount
