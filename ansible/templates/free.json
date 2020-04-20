@@ -1,4 +1,4 @@
-{ "cpu": "{{ ansible_processor [1]}}",
+{ "cpu": "{{ ansible_processor [2]}}",
   "cpu_core":"{{ ansible_processor_cores }}",
   "mem_total": "{{ ansible_memtotal_mb }}",
 {% for item in mount %}
