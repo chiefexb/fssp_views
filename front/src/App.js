@@ -718,9 +718,11 @@ const range_date= [
  
 ];
 let cat=[];
+if (this.state.loaded7) 
  if (this.state.result7) {
      let cat=Object.values( this.state.result7[0]);
-   }  
+   };
+    }; 
 let diagram = {
      
         chart: {
