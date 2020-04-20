@@ -1,1 +1,12 @@
-2
+- name: Install & configure Hashicorp Consul cluster
+  hosts: osp
+  #become: yes
+  gather_facts: yes
+  pre_tasks:
+    - name: Remove consul agents
+      set_fact:
+         mount: "{{ ansible_mounts | first }}"
+    - name: Debug
+      debug:
+         var: mount
+
