@@ -719,7 +719,7 @@ const range_date= [
 ];
 
 
-   if (this.state.vitrina_id==4) {
+   if (this.state.vitrina_id=='4') {
 	  
 	let cat=[   'Январь 2019',
     'Январь 2020',
