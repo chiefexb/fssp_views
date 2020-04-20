@@ -718,11 +718,8 @@ const range_date= [
  
 ];
 let cat=[];
-if (this.state.loaded7)  {
- if (this.state.result7) {
-     let cat=Object.values( this.state.result7[0]);
-   }
-    }
+let mydata=[];
+
 let diagram = {
      
         chart: {
@@ -741,10 +738,37 @@ let diagram = {
 	   for (a = 0; a < (this.state.result).length ; a++) {
     {
         item=this.state.result[a];
+        //========
+        if (this.state.vitrina_id=10) {
+	let cat=[   "Январь 2019",
+    "Январь 2020",
+    "Февраль 2019",
+    "Февраль 2020",
+    "Март 2019",
+    "Март 2020",
+    "Апрель 2019",
+    "Апрель 2020",
+    "Май 2019",
+    "Май 2020",
+    ];
+    let mydata=   [ item.col3,
+    item.col4 ,
+    item.col5 ,
+    item.col6 ,
+    item.col7,
+    item.col8, 
+    item.col9 ,
+    item.col10 ,
+    item.col11 ,
+    item.col12,]
+    
+}
+        //=======
+        
         series.push(
         {
           name: item.osp,
-          data: item
+          data: mydata
         } );
     };
 };
