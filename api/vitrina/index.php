@@ -139,7 +139,7 @@ $sql =  "select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,
 }
 	
  }  else if ($vitrina_id=='5') {
-	 $sql_count  ="col23 as col3,  
+	 $sql_count  ="col3,  
 	               col28 as col4 ,
 	               col29 as col5,
 	               col25 as col6, 
