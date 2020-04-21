@@ -3,7 +3,7 @@ include 'vars.php';
 include 'config.php';
 
 for($i = 0; $i < count($osp); ++$i) {
-$osp_id=$i-1;
+$osp_id=$i+1;
 $
   $jj = file_get_contents(osp[$osp_id-1]["mon_file_name"]); 
   $json_a = json_decode($jj, true);
