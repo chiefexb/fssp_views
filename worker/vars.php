@@ -121,6 +121,12 @@ $vitrina = [[
     "rdb_script" =>'',
     "insert_script" => '',
     "vitrina_id" => 4
+   ],
+   [
+    "name"=> "IT info",
+    "rdb_script" =>'',
+    "insert_script" => '',
+    "vitrina_id" => 5
    ]
 
 ];
