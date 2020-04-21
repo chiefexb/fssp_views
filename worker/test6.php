@@ -59,7 +59,7 @@ $rdb_size_procent =$json_a["rdb_size_available"]/ $json_a["rdb_size_total"];
 	  echo  $str ."\n";
        echo "Could not successfully run query ". $str. "-"  . mysql_error()  ;
     exit ;  } 	 else {
-		var_dump ($row);
+		
 		}
     
 
