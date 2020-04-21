@@ -8,7 +8,7 @@
   "root_size_available": "{{ item.size_total }}",
 {% endif %}
 
-{% if item.mount == '{{ rdb_path }}' %}
+{% if item.mount ==  rdb_path  %}
   "rdb_size_available": "{{ item.size_available }}",
   "rdb_size_available": "{{ item.size_total }}"
 {% endif %}
