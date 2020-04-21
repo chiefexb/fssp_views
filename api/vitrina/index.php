@@ -149,7 +149,7 @@ $sql =  "select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,
 
 " .$sql_count ." ,data_vozb 
 
-         from fssp_mon_vitrinavalue vv           where vitrina_id=(select id from fssp_mon_vitrina where vitrina_id=1)  order by osp_id";
+         from fssp_mon_vitrinavalue vv           where vitrina_id=(select id from fssp_mon_vitrina where vitrina_id=5)  order by osp_id";
 	
 	 
 }	 
