@@ -4,7 +4,7 @@
 {% for item in mount %}
 {% if item.mount == '/' %}
   "root_size_available": "{{ item.size_available }}",
-  "root_size_available": "{{ item.size_total }}",
+  "root_size_total": "{{ item.size_total }}",
 {% endif %}
 {% if item.mount ==  rdb_path  %}
   "rdb_size_available": "{{ item.size_available }}",
