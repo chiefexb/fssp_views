@@ -6,6 +6,15 @@
     - name: Remove consul agents
       set_fact:
          mount: "{{ ansible_mounts  }}"
+    - name:debug
+      debug: 
+         var: mount
+    - name:debug     
+      template:
+         src: 'free.json'
+         dest: '{{ path_to_www }}/{{ inventory_hostname }}.json'
+      delegate_to: localhost
+      
     - name: Debug
       template:
          src: 'free.json'
