@@ -48,7 +48,8 @@ $rdb_size_procent =$json_a["rdb_size_available"]/ $json_a["rdb_size_total"];
       $col29=$mem_total /1024/1024;
       $col25=$root_size_procent*100;
       $col26=$rdb_size_procent*100;
-      $data_vozb='2020-01-01';
+      $data_vozb= date("Y-m-d h:i:s", strtotime("now") );
+      //'2020-01-01';
      
      $str=$vitr6 . "((".$sql3."),(".$sql2."),  '". $col23."', " . $col28. ", " . $col29. ", ". $col25. ", ". $col26. ", '" .    $data_vozb. "' );  "; 
 	       
