@@ -1047,6 +1047,7 @@ content=
   <MenuItem value='2' onClick={this.handleMenuClose}>Постановления</MenuItem>
   <MenuItem value='3' onClick={this.handleMenuClose}>Депозит строки</MenuItem>
   <MenuItem value='4' onClick={this.handleMenuClose}>Годовой отчет</MenuItem>
+  <MenuItem value='5' onClick={this.handleMenuClose}>IT состояние</MenuItem>
  
 </Menu>
 
