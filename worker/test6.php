@@ -15,8 +15,8 @@ $cpu_core=$json_a["cpu_core"];
 
 $mem_total=$json_a["mem_total"]/1024;
 
-$root_size_procent =$json_a["root_size_available"]/ 1024/1024;
-$rdb_size_procent =$json_a["rdb_size_available"]/ 1024/1024;
+$root_size_procent =$json_a["root_size_available"]/ 1024/1024/1024;
+$rdb_size_procent =$json_a["rdb_size_available"]/ 1024/1024/1024;
   var_dump($root_size_procent)  ;
   var_dump($rdb_size_procent )  ;
 
