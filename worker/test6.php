@@ -1,9 +1,11 @@
 <?php
 include 'vars.php';
 include 'config.php';
-$osp_id=1; 
 
-  $jj = file_get_contents("/var/www/portal/osp_1.json"); 
+for($i = 0; $i < count($osp); ++$i) {
+$osp_id=$i-1;
+$
+  $jj = file_get_contents(osp[$osp_id-1]["mon_file_name"]); 
   $json_a = json_decode($jj, true);
   var_dump($json_a)  ;
 // mon_file_name 
@@ -63,7 +65,7 @@ $rdb_size_procent =$json_a["rdb_size_available"]/ $json_a["rdb_size_total"];
 		
 		}
     
-
+}
 
 ?>
 
