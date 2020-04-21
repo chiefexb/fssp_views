@@ -8,7 +8,7 @@
 {% endif %}
 {% if item.mount ==  rdb_path  %}
   "rdb_size_available": "{{ item.size_available }}",
-  "rdb_size_available": "{{ item.size_total }}"
+  "rdb_size_total": "{{ item.size_total }}"
 {% endif %}
 {% endfor %}
 }

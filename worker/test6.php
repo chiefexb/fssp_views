@@ -5,7 +5,15 @@ include 'config.php';
   $json_a = json_decode($jj, true);
   var_dump($json_a)  ;
 // mon_file_name 
-
+//col3 cpu_info
+//cpu_core col27
+ // "mem_total": col28
+//  "root_size_available": col 25
+//  "root_size_available": "126286888960",
+//  "rdb_size_available": "27380080640", 26
+ // "rdb_size_total": "82957524992"
+$root_size_procent =$json_a["rdb_size_available"]/$json_a["rdb_size_total"];
+$root_size_procent =$json_a["rdb_size_available"]/$json_a["rdb_size_total"];
 
 
 //var_dump( $mysql_db[0]["host"]);
