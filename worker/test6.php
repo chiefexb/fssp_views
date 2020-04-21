@@ -29,11 +29,11 @@ $rdb_size_procent =$json_a["rdb_size_available"]/$json_a["rdb_size_total"];
 
 
   
-  $sql2="select id from fssp_mon_osp where osp_id=".$osp_id;
+  $sql2="select id from fssp_mon_osp where osp_id=.$osp_id;
   $sql3="select id from fssp_mon_vitrina where vitrina_id=5;
   
     
-    if ($mysqli->query("DELETE FROM fssp_mon_vitrinavalue where vitrina_id=(".$sql3.") and osp_id=(".$sql2.")" ) === TRUE) {
+    if ($mysqli->query("DELETE FROM fssp_mon_vitrinavalue where vitrina_id=(". $sql3. ") and osp_id=(" . $sql2.")" ) === TRUE) {
      echo "New record delete successfully\n";
     } else {
     echo "Error: " . $mysqli->error;

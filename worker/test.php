@@ -27,7 +27,7 @@ echo "Usage: \n php test.php osp_id vitrina_id \n";
     $sql3="select id from fssp_mon_vitrina where vitrina_id=".$vitrina_id2;
     
     
-    if ($mysqli->query("DELETE FROM fssp_mon_vitrinavalue where vitrina_id=(".sql3.") and osp_id=(".$sql2.")" ) === TRUE) {
+    if ($mysqli->query("DELETE FROM fssp_mon_vitrinavalue where vitrina_id=(".$sql3.") and osp_id=(".$sql2.")" ) === TRUE) {
      echo "New record delete successfully\n";
      } else {
      echo "Error: " . $mysqli->error;
