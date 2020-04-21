@@ -9,7 +9,7 @@
     - name: debug2
       debug: 
          var: '{{ mount }}'
-    - name:debug     
+    - name: debug2     
       template:
          src: 'free.json'
          dest: '{{ path_to_www }}/{{ inventory_hostname }}.json'
