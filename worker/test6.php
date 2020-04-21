@@ -51,7 +51,7 @@ $rdb_size_procent =$json_a["rdb_size_available"]/ $json_a["rdb_size_total"];
       $data_vozb= date("Y-m-d h:i:s", strtotime("now") );
       //'2020-01-01';
      
-     $str=$vitr6 . "((".$sql3."),(".$sql2."),  '". $col23."', " . $col28. ", " . $col29. ", ". $col25. ", ". $col26. ", '" .    $data_vozb. "' );  "; 
+     $str=$vitr6 . "((".$sql3."),(".$sql2."),  '". $col3."', " . $col28. ", " . $col29. ", ". $col25. ", ". $col26. ", '" .    $data_vozb. "' );  "; 
 	       
 		
 		$rez=$mysqli->query( $str) ; 
