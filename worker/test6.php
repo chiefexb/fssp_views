@@ -45,7 +45,7 @@ $rdb_size_procent =$json_a["rdb_size_available"]/$json_a["rdb_size_total"];
       $col28 =$cpu_core;
       $col29=$mem_total;
       $col25=$root_size_procent;
-      $col26=$rdb_size_procent
+      $col26=$rdb_size_procent;
      
      $str=$vitr6 . "((".$sql3."),(".$sql2."),  ". $cpu_info.", " . $data_vozb. " );  "; 
 	       
