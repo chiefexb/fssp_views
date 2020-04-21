@@ -13,8 +13,10 @@ $cpu_core=$json_a["cpu_core"];
 
 $mem_total=$json_a["rdb_size_available"];
 
-$root_size_procent =$json_a["rdb_size_available"]/$json_a["rdb_size_total"];
-$rdb_size_procent =$json_a["rdb_size_available"]/$json_a["rdb_size_total"];
+$root_size_procent =$json_a["rdb_size_available"]/ $json_a["rdb_size_total"];
+$rdb_size_procent =$json_a["rdb_size_available"]/ $json_a["rdb_size_total"];
+  var_dump($root_size_procent)  ;
+  var_dump($rdb_size_procent )  ;
 
 
 //var_dump( $mysql_db[0]["host"]);
