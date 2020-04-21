@@ -8,8 +8,8 @@ $osp_id=1;
   var_dump($json_a)  ;
 // mon_file_name 
 
-$cpu_info=$json_a[$json_a["cpu_info"]; 
-$cpu_core=$json_a[$json_a["cpu_core"]; 
+$cpu_info=$json_a["cpu_info"]; 
+$cpu_core=$json_a["cpu_core"]; 
 
 $mem_total=$json_a["$json_a["rdb_size_available"];
 
