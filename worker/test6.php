@@ -43,7 +43,7 @@ $rdb_size_procent =$json_a["rdb_size_available"]/ $json_a["rdb_size_total"];
  
 
      $vitr6=" INSERT INTO fssp_mon_vitrinavalue (vitrina_id, osp_id, col3,col28,col29,col25,col26, data_vozb) VALUES ";
-      $col23= $cpu_info;
+      $col3= $cpu_info;
       $col28 =$cpu_core;
       $col29=$mem_total /1024/1024;
       $col25=$root_size_procent*100;
