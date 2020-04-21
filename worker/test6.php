@@ -13,10 +13,10 @@ $osp_id=$i+1;
 $cpu_info=$json_a["cpu"]; 
 $cpu_core=$json_a["cpu_core"]; 
 
-$mem_total=$json_a["mem_total"];
+$mem_total=$json_a["mem_total"]/1024;
 
-$root_size_procent =$json_a["root_size_available"]/ $json_a["root_size_total"];
-$rdb_size_procent =$json_a["rdb_size_available"]/ $json_a["rdb_size_total"];
+$root_size_procent =$json_a["root_size_available"]/ 1024/1024;
+$rdb_size_procent =$json_a["rdb_size_available"]/ 1024/1024;
   var_dump($root_size_procent)  ;
   var_dump($rdb_size_procent )  ;
 
@@ -48,8 +48,8 @@ $rdb_size_procent =$json_a["rdb_size_available"]/ $json_a["rdb_size_total"];
       $col3= $cpu_info;
       $col28 =$cpu_core;
       $col29=$mem_total ;
-      $col25=$root_size_procent*100;
-      $col26=$rdb_size_procent*100;
+      $col25=$root_size_procent;
+      $col26=$rdb_size_procent;
       $data_vozb= date("Y-m-d h:i:s", strtotime("now") );
       //'2020-01-01';
      
