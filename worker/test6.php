@@ -40,14 +40,15 @@ $rdb_size_procent =$json_a["rdb_size_available"]/$json_a["rdb_size_total"];
      }
  
 
-     $vitr6=" INSERT INTO fssp_mon_vitrinavalue (vitrina_id, osp_id, col23,col28,col29,col25,col26 data_vozb) VALUES ";
-      $col23= $cpu_core;
+     $vitr6=" INSERT INTO fssp_mon_vitrinavalue (vitrina_id, osp_id, col23,col28,col29,col25,col26, data_vozb) VALUES ";
+      $col23= $cpu_info;
       $col28 =$cpu_core;
       $col29=$mem_total;
       $col25=$root_size_procent;
       $col26=$rdb_size_procent;
+      $data_vozb='2020-01-01';
      
-     $str=$vitr6 . "((".$sql3."),(".$sql2."),  ". $cpu_info.", " . $data_vozb. " );  "; 
+     $str=$vitr6 . "((".$sql3."),(".$sql2."),  '". $col23."', " . $col28. ", " . $col29. ", ". $col25. ", ". $col26. ", '" .    $data_vozb. "' );  "; 
 	       
 		
 		$rez=$mysqli->query( $str) ; 
