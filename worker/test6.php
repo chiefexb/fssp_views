@@ -11,7 +11,7 @@ $osp_id=1;
 $cpu_info=$json_a["cpu"]; 
 $cpu_core=$json_a["cpu_core"]; 
 
-$mem_total=$json_a["memtotal"];
+$mem_total=$json_a["mem_total"];
 
 $root_size_procent =$json_a["root_size_available"]/ $json_a["root_size_total"];
 $rdb_size_procent =$json_a["rdb_size_available"]/ $json_a["rdb_size_total"];
