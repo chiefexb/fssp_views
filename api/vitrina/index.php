@@ -62,14 +62,14 @@ SUM(CASE WHEN (".$per. " col2='31' and col3='1' and col4='2') THEN 1 ELSE 0 END 
 
 
 if ($spi_id=='0') {
-$sql="select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,'-' as col2, 
+$sql="select  osp.full_name,'-' as col2, 
 
 " .$sql_count ."
 
-         from fssp_mon_vitrinavalue vv           where vitrina_id=(select id from fssp_mon_vitrina where vitrina_id=1) group by  osp order by osp";
+         from fssp_mon_vitrinavalue vv  join  fssp_mon_osp osp on vv.osp_id=osp.id       where vitrina_id=(select id from fssp_mon_vitrina where vitrina_id=1) group by  vv.osp_id order by vv.osp_id";
 	 } else {
-$sql =  "select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,spi as col2 ,  
-  " .$sql_count ."     from fssp_mon_vitrinavalue vv           where vitrina_id=(select id from fssp_mon_vitrina where vitrina_id=1) group by vv.spi_id, osp_id ";
+$sql =  "select  osp.full_name,spi as col2 ,  
+  " .$sql_count ."     from fssp_mon_vitrinavalue vv  join  fssp_mon_osp osp on vv.osp_id=osp.id        where vitrina_id=(select id from fssp_mon_vitrina where vitrina_id=1) group by vv.spi_id, vv.osp_id ";
 }
 
 } else if ($vitrina_id=='2') {
