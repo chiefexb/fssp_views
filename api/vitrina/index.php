@@ -128,14 +128,14 @@ SUM(CASE WHEN (data_okon>='2020-05-01' and  data_okon<='2020-05-31' ) THEN 1 ELS
 
 
 if ($spi_id=='0') {
-$sql="select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,'-' as col2, 
+$sql="select  osp.full_name,'-' as col2, 
 
 " .$sql_count ."
 
-         from fssp_mon_vitrinavalue vv           where vitrina_id=(select id from fssp_mon_vitrina where vitrina_id=1) group by  osp_id order by osp_id";
+        from fssp_mon_vitrinavalue vv join fssp_mon_osp osp on vv.osp_id=osp.id        where vitrina_id=(select id from fssp_mon_vitrina where vitrina_id=1) group by  osp_id order by osp_id";
 	 } else {
-$sql =  "select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,spi as col2 ,  
-  " .$sql_count ."     from fssp_mon_vitrinavalue vv           where vitrina_id=(select id from fssp_mon_vitrina where vitrina_id=1) group by vv.spi, osp order by osp";
+$sql =  "select  osp.full_name,spi as col2 ,  
+  " .$sql_count ."     from fssp_mon_vitrinavalue vv   join fssp_mon_osp osp on vv.osp_id=osp.id         where vitrina_id=(select id from fssp_mon_vitrina where vitrina_id=1) group by vv.spi, osp_id order by osp";
 }
 	
  }  else if ($vitrina_id=='5') {
@@ -157,7 +157,10 @@ $sql =  "select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,
 
 $mysqli->set_charset('utf8');
 $result = $mysqli->query($sql);
-
+//3 rows in set (1 min 14.03 sec) vitrina_id=1
+//1 row in set (31.19 sec) =2
+// 1 row in set (2.38 sec) =3
+//3 rows in set (3.29 sec) =4
 
 if (!$result) {
     echo "Could not successfully run query ($sql) from DB: "; // . mysql_error();
