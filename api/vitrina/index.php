@@ -173,7 +173,7 @@ $row=$result -> fetch_all(MYSQLI_ASSOC);
 
 for($i = 0; $i < count($row); ++$i) {
     $row[$i]['id'] = $i+1;
-    $row[$i]['sql'] = $sql;
+    //$row[$i]['sql'] = $sql;
 };
 
 
