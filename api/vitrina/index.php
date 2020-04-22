@@ -83,15 +83,15 @@ $sql_count="SUM(CASE WHEN (".$per. " (col1 like 'O_IP_ACT_%'  )  or   ( col1 = '
             SUM(CASE WHEN (".$per. "col1='O_IP_ACT_ZP'              ) THEN 1 ELSE 0 END ) as col8, 
             SUM(CASE WHEN (".$per. "col1='O_IP_ACT_BAN_EXIT'        ) THEN 1 ELSE 0 END ) as col9 ";
 if ($spi_id=='0') {            
-$sql="select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,'-' as col1, 
+$sql="select  osp.full_name,'-' as col1, 
 
-" .$sql_count ."   from fssp_mon_vitrinavalue vv           where vitrina_id=((select id from fssp_mon_vitrina where vitrina_id=2))  group by  osp_id ";
+" .$sql_count ."   from fssp_mon_vitrinavalue vv     join  fssp_mon_osp osp on vv.osp_id=osp.id       where vitrina_id=((select id from fssp_mon_vitrina where vitrina_id=2))  group by  vv.osp_id ";
 
          //from fssp_mon_vitrinavalue vv           where vitrina_id=1 
          //and data_vozb>='" . $date1 ."' and  data_vozb<='" . $date2 ."' group by  osp_id ";
 	 } else {
-$sql =  "select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,spi as col1 , count(spi) as col2 , 
-" .$sql_count ."     from fssp_mon_vitrinavalue vv           where vitrina_id=(select id from fssp_mon_vitrina where vitrina_id=2) group by vv.spi_id, osp_id ";
+$sql =  "select  osp.full_name,spi as col1 , count(vv.spi) as col2 , 
+" .$sql_count ."     from fssp_mon_vitrinavalue vv join  fssp_mon_osp osp on vv.osp_id=osp.id           where vitrina_id=(select id from fssp_mon_vitrina where vitrina_id=2) group by vv.spi, vv.osp_id ";
  } 
 
 } else if ($vitrina_id=='3') {
@@ -99,9 +99,9 @@ $sql =  "select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,
 $sql_count="SUM(CASE WHEN ( (col23 >0) ) THEN 1 ELSE 0 END ) as col3,
             SUM( col23) as col4";
 	
- $sql="select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,'-' as col1, 
+ $sql="select  osp.full_name ,'-' as col1, 
 
-" .$sql_count ."   from fssp_mon_vitrinavalue vv           where vitrina_id=((select id from fssp_mon_vitrina where vitrina_id=3)) and ".$per."  group by  osp order by osp";
+" .$sql_count ."   from fssp_mon_vitrinavalue vv  join  fssp_mon_osp osp on vv.osp_id=osp.id          where vitrina_id=((select id from fssp_mon_vitrina where vitrina_id=3)) and ".$per."  group by  vv.osp_id ";
 	
  } else if ($vitrina_id=='4') {
 	
