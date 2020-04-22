@@ -132,10 +132,10 @@ $sql="select  osp.full_name,'-' as col2,
 
 " .$sql_count ."
 
-        from fssp_mon_vitrinavalue vv join fssp_mon_osp osp on vv.osp_id=osp.id        where vitrina_id=(select id from fssp_mon_vitrina where vitrina_id=1) group by  osp_id order by osp_id";
+        from fssp_mon_vitrinavalue vv join fssp_mon_osp osp on vv.osp_id=osp.id        where vitrina_id=(select id from fssp_mon_vitrina where vitrina_id=1) group by  vv.osp_id";
 	 } else {
 $sql =  "select  osp.full_name,spi as col2 ,  
-  " .$sql_count ."     from fssp_mon_vitrinavalue vv   join fssp_mon_osp osp on vv.osp_id=osp.id         where vitrina_id=(select id from fssp_mon_vitrina where vitrina_id=1) group by vv.spi, osp_id order by osp";
+  " .$sql_count ."     from fssp_mon_vitrinavalue vv   join fssp_mon_osp osp on vv.osp_id=osp.id         where vitrina_id=(select id from fssp_mon_vitrina where vitrina_id=1) group by vv.spi, vv.osp_id";
 }
 	
  }  else if ($vitrina_id=='5') {
@@ -145,11 +145,11 @@ $sql =  "select  osp.full_name,spi as col2 ,
 	               col25 as col6, 
 	               col26 as col7 "; 
 	      
-	 $sql="select  (select full_name from fssp_mon_osp where id=vv.osp_id) as osp,'-' as col2, 
+	 $sql="select  osp.full_name,'-' as col2, 
 
 " .$sql_count ." ,data_vozb 
 
-         from fssp_mon_vitrinavalue vv           where vitrina_id=(select id from fssp_mon_vitrina where vitrina_id=5)  order by osp_id";
+         from fssp_mon_vitrinavalue vv  join  fssp_mon_osp osp on vv.osp_id=osp.id         where vitrina_id=(select id from fssp_mon_vitrina where vitrina_id=5)";
 	
 	 
 }	 
