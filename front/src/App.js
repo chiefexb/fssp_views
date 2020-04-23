@@ -853,8 +853,10 @@ content=
   
           { Object.entries(item2).map(item3 => (
 			   <StyledTableCell   align="center" >
-			 { item3[1]}
+			
+			 	{   (item3 [0]=='id') ? '' : item3[1] }  
 			  </StyledTableCell>
+			
           
           
        
@@ -875,10 +877,11 @@ content=
          
 
         { Object.entries(item2).map(item3 => (
-		 <TableCell  align="center">
-           { item3[1] }  
-
-         </TableCell> 
+			<TableCell  align="center">   
+			{   (item3 [0]=='id') ? '' : item3[1] }  
+		</TableCell> 
+				       
+         
 		))}
   
             
