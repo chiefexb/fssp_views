@@ -535,6 +535,12 @@ class App extends React.Component {
 				 document.title = "Окончание| ФССП Витрина";
 			} else  if (this.state.vitrina_id==='2') {
 				 document.title = "Постановления| ФССП Витрина";
+		   } else  if (this.state.vitrina_id==='3') {
+				 document.title = "Депозит| ФССП Витрина";
+		   }  if (this.state.vitrina_id==='4') {
+				 document.title = "Годовой отчет| ФССП Витрина";
+		   }  if (this.state.vitrina_id==='5') {
+				 document.title = "IT INFO| ФССП Витрина";
 		   };
 
 if (this.state.loaded5)  {
