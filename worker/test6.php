@@ -1,15 +1,17 @@
 <?php
 include 'vars.php';
 include 'config.php';
+var_dump ($osp[8] );
 
 for($i = 0; $i < count($osp); ++$i) {
 $osp_id=$i+1;
 
   $jj = file_get_contents($osp[$osp_id-1]["mon_file_name"]); 
   $json_a = json_decode($jj, true);
+  var_dump ($osp[$osp_id-1]["mon_file_name"]);
   var_dump($json_a)  ;
 // mon_file_name 
-
+   
 $cpu_info=$json_a["cpu"]; 
 $cpu_core=$json_a["cpu_core"]; 
 
@@ -54,6 +56,9 @@ $rdb_size_procent =$json_a["rdb_size_available"]/ 1024/1024/1024;
       //'2020-01-01';
      
      $str=$vitr6 . "((".$sql3."),(".$sql2."),  '". $col3."', " . $col28. ", " . $col29. ", ". $col25. ", ". $col26. ", '" .    $data_vozb. "' );  "; 
+
+     echo  $str ."\n";
+
 	       
 		
 		$rez=$mysqli->query( $str) ; 

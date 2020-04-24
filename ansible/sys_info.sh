@@ -1,2 +1,2 @@
 #!/bin/bash
-ansible-playbook -v -i  inventories/dev/hosts  it.yml
+ansible-playbook -v  -b -K  -i inventories/prod/hosts  it.yml
