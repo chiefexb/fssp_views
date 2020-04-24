@@ -825,7 +825,9 @@ let cat2=[
     ],
     []
     ]; 
+ let cat=[];
 let item=[];
+ if (this.state.result7) {
 item =this.state.result7[0];
 
 let cat = [item.col3,
@@ -838,6 +840,7 @@ let cat = [item.col3,
     item.col10 ,
     item.col11 ,
     item.col12,];
+}
 //cat[this.state.vitrina_id-1
 let diagram = {
      
