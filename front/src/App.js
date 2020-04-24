@@ -808,8 +808,20 @@ let titles=[
 
  
 	  
-let cat2=[
-	[],
+let cat=[
+	["Возб",
+    "Окончено",
+     "47 1 1",
+     "47 1 2",
+     "47 1 8",
+     "47 1 9",
+     "46 1 1",
+     "46 1 3",
+     "46 1 4",
+     "43 1 1",
+     "103 1 1",
+     "31 1 2"
+	],
 	[],
 	[],
 	[   'Январь 2019',
@@ -826,22 +838,7 @@ let cat2=[
     []
     ];
  let a=0;    
- let cat=[];
-let item=[];
- if (this.state.result7) {
-item = this.state.result7[0];
-
-let cat = [item.col3,
-     item.col4 ,
-    item.col5 ,
-    item.col6 ,
-    item.col7,
-    item.col8, 
-    item.col9 ,
-    item.col10 ,
-    item.col11 ,
-    item.col12,];
-}
+ 
 //cat[this.state.vitrina_id-1
 let diagram = {
      
@@ -849,11 +846,12 @@ let diagram = {
           id: "basic-bar"
         },
         xaxis: {
-          categories: cat
+          categories: cat[this.state.vitrina_id-1]
         }
       };
  let      series =[];
  
+let item=[];
 
  // { Object.entries(item2).map(item3 =>
  // {this.state.result7.map(item2 => (
@@ -873,7 +871,8 @@ let diagram = {
     item.col9 ,
     item.col10 ,
     item.col11 ,
-    item.col12,]
+    item.col12,
+     item.col13,]
     
 
        
