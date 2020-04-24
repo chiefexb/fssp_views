@@ -681,7 +681,12 @@ if (!this.state.loaded7) {
  //   "col12" =>  "43 1 1",
  //   "col13" =>  "103 1 1",
  //   "col14" =>  "31 1 2",
-const  range_rate= [
+
+let  range_rate= [ 
+[],
+[],
+[],
+[
   {
     name: 'Всего окончено',
     id: 0,
@@ -729,9 +734,11 @@ const  range_rate= [
     name: '31 1 2',
     id: 11,
   }
-  
+  ],
+  []
   
   ]
+  
 const range_date= [
   {
     name: 'Свой период',
@@ -1296,7 +1303,7 @@ content=
           onChange={this.handleRateChange}
           //helperText="Please select your currency"
           >
-            {range_rate.map(option => (
+            {range_rate[this.state.vitrina_id-1].map(option => (
             <MenuItem key={option.id} value={option.id}>
               {option.name}
             </MenuItem>
