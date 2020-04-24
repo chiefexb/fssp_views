@@ -824,11 +824,12 @@ let cat2=[
    'Май 2020'
     ],
     []
-    ]; 
+    ];
+ let a=0;    
  let cat=[];
 let item=[];
  if (this.state.result7) {
-item =this.state.result7[0];
+item = this.state.result7[0];
 
 let cat = [item.col3,
      item.col4 ,
@@ -852,7 +853,7 @@ let diagram = {
         }
       };
  let      series =[];
- let a=0;
+ 
 
  // { Object.entries(item2).map(item3 =>
  // {this.state.result7.map(item2 => (
