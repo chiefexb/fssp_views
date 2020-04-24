@@ -857,7 +857,7 @@ let diagram = {
         
         series.push(
         {
-          name: item.osp,
+          name: item.full_name,
           data: mydata
         } );
     };
