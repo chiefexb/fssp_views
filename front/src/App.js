@@ -808,7 +808,7 @@ let titles=[
 
  
 	  
-let cat=[
+let cat2=[
 	[],
 	[],
 	[],
@@ -825,19 +825,32 @@ let cat=[
     ],
     []
     ]; 
+let item=[];
+item =this.state.result7[0];
 
+let cat = [item.col3,
+     item.col4 ,
+    item.col5 ,
+    item.col6 ,
+    item.col7,
+    item.col8, 
+    item.col9 ,
+    item.col10 ,
+    item.col11 ,
+    item.col12,];
+//cat[this.state.vitrina_id-1
 let diagram = {
      
         chart: {
           id: "basic-bar"
         },
         xaxis: {
-          categories: cat[this.state.vitrina_id-1]
+          categories: cat
         }
       };
  let      series =[];
  let a=0;
- let item=[];
+
  // { Object.entries(item2).map(item3 =>
  // {this.state.result7.map(item2 => (
  if (this.state.result) {
