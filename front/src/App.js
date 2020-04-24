@@ -157,7 +157,7 @@ class App extends React.Component {
             SQLtext:'',
             code: '',
             category: 1,
-            counter_id:1,
+            counter_id:0,
             vitrina_id:'1',
             new_category: '',
             region: '',
@@ -207,6 +207,8 @@ class App extends React.Component {
     
     this.handleDate2Change=this.handleDate2Change.bind(this); 
     this.handleImport=this.handleImport.bind(this); 
+    this.handleRateChange=this.handleRateChange.bind(this); 
+    
         
     
     
@@ -266,7 +268,9 @@ class App extends React.Component {
 		  this.setState({selectedDate2:e.target.value });
 		   this.setState({range: 0 }); 
 	 };
-	 
+	  handleRateChange (e) {
+		  this.setState({counter_id:  e.target.value }); 
+	  } 
    handleRangeChange (e) {
 	  
 	  //let date2= Date.now();
@@ -531,17 +535,17 @@ class App extends React.Component {
 
 	//  this.setState({loaded: false,
 		//            result: []});
- if (this.state.vitrina_id==='1') { 
-				 document.title = "Окончание| ФССП Витрина";
-			} else  if (this.state.vitrina_id==='2') {
-				 document.title = "Постановления| ФССП Витрина";
-		   } else  if (this.state.vitrina_id==='3') {
-				 document.title = "Депозит| ФССП Витрина";
-		   }  if (this.state.vitrina_id==='4') {
-				 document.title = "Годовой отчет| ФССП Витрина";
-		   }  if (this.state.vitrina_id==='5') {
-				 document.title = "IT INFO| ФССП Витрина";
-		   };
+ //if (this.state.vitrina_id==='1') { 
+	//			 document.title = "Окончание| ФССП Витрина";
+		//	} else  if (this.state.vitrina_id==='2') {
+	//			 document.title = "Постановления| ФССП Витрина";
+//		   } else  if (this.state.vitrina_id==='3') {
+//				 document.title = "Депозит| ФССП Витрина";
+//		   }  if (this.state.vitrina_id==='4') {
+//				 document.title = "Годовой отчет| ФССП Витрина";
+//		   }  if (this.state.vitrina_id==='5') {
+//				 document.title = "IT INFO| ФССП Витрина";
+//		   };
 
 if (this.state.loaded5)  {
 		  if (this.state.result5.auth=='yes') {
@@ -665,8 +669,43 @@ if (!this.state.loaded7) {
 
 }
     render() {
-
-
+// "col5" =>  "47 1 1",
+ //   "col6" =>  "47 1 2",
+ //   "col7" =>  "47 1 8",
+ //   "col8" =>  "47 1 9",
+ //   "col9" =>  "46 1 1",
+ //   "col10" =>  "46 1 3",
+ //   "col11" =>  "46 1 4",
+   
+ //   "col12" =>  "43 1 1",
+ //   "col13" =>  "103 1 1",
+ //   "col14" =>  "31 1 2",
+const  range_rate= [
+  {
+    name: 'Всего окончено',
+    id: 0,
+  },
+  {
+    name: 'окончено 47 1 1 ',
+    id: 1,
+  },
+  {
+    name: '47 1 8',
+     id: 2,
+  },
+  
+  {
+    name: '47 1 9',
+    id: 3,
+  },
+  {
+    name: '46 1 1',
+    id: 4,
+  },
+  {
+    name: '46 1 3',
+    id: 5,
+  }]
 const range_date= [
   {
     name: 'Свой период',
@@ -723,6 +762,15 @@ const range_date= [
   }
  
 ];
+let titles=[
+ 'Оконченые',
+ 'Постановления',
+ 'Депозит',
+ 'Годовой',
+ 'IT INFO'
+ 
+];
+ document.title =   titles[this.state.vitrina_id-1];
 let cat=[];
 
    if (this.state.vitrina_id=='4') {
@@ -809,7 +857,7 @@ const StyledTableCell = withStyles(theme => ({
          {this.state.code}
 
           </SyntaxHighlighter>
-
+window.title=titles[this.state.vitrina_id];
        let content = <div/>;
        let debug_info=<div/>;
 
@@ -900,6 +948,9 @@ content=
 
 // }
 //}
+//<IconButton   disabled={!this.state.is_auth} onClick={this.toggleDrawerOpen}  aria-label="delete">
+//                            <SettingsIcon />
+//                             </IconButton>
 //  }
 //}
 }
@@ -920,8 +971,34 @@ content=
           if (this.state.loaded3) {
              if (this.state.result3.rez) {
           document.title = "Добавление фильров | ФССП Витрина"
-
-
+let counter_field='';
+counter_field =
+      <FormControl>
+      <FormControlLabel
+      control={
+     <TextField
+          id="standard-select-currency"
+          select
+          //label="Select"
+          value={this.state.range}
+          onChange={this.handleRangeChange}
+          //helperText="Please select your currency"
+          >
+            {range_date.map(option => (
+            <MenuItem key={option.id} value={option.id}>
+              {option.name}
+            </MenuItem>
+          ))}
+          
+        
+        </TextField>
+    
+      
+       }
+        label="Выбор показателя"
+         labelPlacement="top"
+       />
+    </FormControl>
 content=
   <div>
           <form  noValidate autoComplete="off">
@@ -1062,7 +1139,7 @@ content=
 
   
                            
-                               <Button onClick={this.handleClickOpen} color="inherit">Login</Button>
+                              
 
 
 
@@ -1086,9 +1163,7 @@ content=
                             <InsertChartIcon />
                              </IconButton>
                       
-                                <IconButton   disabled={!this.state.is_auth} onClick={this.toggleDrawerOpen}  aria-label="delete">
-                            <SettingsIcon />
-                             </IconButton>
+                                
                           
 
 
@@ -1184,6 +1259,32 @@ content=
        />
     </FormControl>
     
+      <FormControl>
+      <FormControlLabel
+      control={
+     <TextField
+          id="standard-select-currency"
+          select
+          //label="Select"
+          value={this.state.counter_id}
+          onChange={this.handleRateChange}
+          //helperText="Please select your currency"
+          >
+            {range_rate.map(option => (
+            <MenuItem key={option.id} value={option.id}>
+              {option.name}
+            </MenuItem>
+          ))}
+          
+        
+        </TextField>
+    
+      
+       }
+        label="Выбор показателя"
+         labelPlacement="top"
+       />
+    </FormControl>
     
   </form>   
   

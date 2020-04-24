@@ -15,6 +15,7 @@ $spi_id='0';
 $vitrina_id='1';
 $date1='';
 $data2='';
+$counter_id='0';
 
 if(isset($_GET["spi_id"]))  {
     if(!empty($_GET["spi_id"])) {
@@ -37,6 +38,11 @@ if(isset($_GET["date1"]))  {
 if(isset($_GET["date2"]))  {
     if(!empty($_GET["date2"])) {
 		$date2=$_GET["date2"];
+	};
+};
+if(isset($_GET["counter_id"]))  {
+    if(!empty($_GET["counter_id"])) {
+		$counter_id=$_GET["counter_id"];
 	};
 };
 
@@ -107,25 +113,30 @@ $sql_count="SUM(CASE WHEN ( (col23 >0) ) THEN 1 ELSE 0 END ) as col3,
 	
 	$per ="data_okon>='" . $date1 ."' and  data_okon<='" . $date2 ."' and";
 $per2="data_okon>='" . $date1 ."' and  data_okon<='" . $date2 ."' ";
+
+$pp=["",
+" and col2='47' and col3='1' and col4='1' "
+];
+
 $sql_count="
-SUM(CASE WHEN (data_okon>='2019-01-01' and  data_okon<='2019-01-31' ) THEN 1 ELSE 0 END ) as col3,
-SUM(CASE WHEN (data_okon>='2020-01-01' and  data_okon<='2020-01-31' ) THEN 1 ELSE 0 END ) as col4,
+SUM(CASE WHEN (data_okon>='2019-01-01' and  data_okon<='2019-01-31'  ". $pp[$counter_id]." ) THEN 1 ELSE 0 END ) as col3,
+SUM(CASE WHEN (data_okon>='2020-01-01' and  data_okon<='2020-01-31' ". $pp[$counter_id]." ) THEN 1 ELSE 0 END ) as col4,
 
-SUM(CASE WHEN (data_okon>='2019-02-01' and  data_okon<='2019-02-28' ) THEN 1 ELSE 0 END ) as col5,
-SUM(CASE WHEN (data_okon>='2020-02-01' and  data_okon<='2020-02-29' ) THEN 1 ELSE 0 END ) as col6,
+SUM(CASE WHEN (data_okon>='2019-02-01' and  data_okon<='2019-02-28' ". $pp[$counter_id]." ) THEN 1 ELSE 0 END ) as col5,
+SUM(CASE WHEN (data_okon>='2020-02-01' and  data_okon<='2020-02-29' ". $pp[$counter_id]." ) THEN 1 ELSE 0 END ) as col6,
 
-SUM(CASE WHEN (data_okon>='2019-03-01' and  data_okon<='2019-03-31' ) THEN 1 ELSE 0 END ) as col7,
-SUM(CASE WHEN (data_okon>='2020-03-01' and  data_okon<='2020-03-31' ) THEN 1 ELSE 0 END ) as col8,
+SUM(CASE WHEN (data_okon>='2019-03-01' and  data_okon<='2019-03-31' ". $pp[$counter_id]." ) THEN 1 ELSE 0 END ) as col7,
+SUM(CASE WHEN (data_okon>='2020-03-01' and  data_okon<='2020-03-31' ". $pp[$counter_id]." ) THEN 1 ELSE 0 END ) as col8,
 
-SUM(CASE WHEN (data_okon>='2019-04-01' and  data_okon<='2019-04-30' ) THEN 1 ELSE 0 END ) as col9,
-SUM(CASE WHEN (data_okon>='2020-04-01' and  data_okon<='2020-04-30' ) THEN 1 ELSE 0 END ) as col10,
+SUM(CASE WHEN (data_okon>='2019-04-01' and  data_okon<='2019-04-30' ". $pp[$counter_id]." ) THEN 1 ELSE 0 END ) as col9,
+SUM(CASE WHEN (data_okon>='2020-04-01' and  data_okon<='2020-04-30' ". $pp[$counter_id].") THEN 1 ELSE 0 END ) as col10,
 
-SUM(CASE WHEN (data_okon>='2019-05-01' and  data_okon<='2019-05-31' ) THEN 1 ELSE 0 END ) as col11,
-SUM(CASE WHEN (data_okon>='2020-05-01' and  data_okon<='2020-05-31' ) THEN 1 ELSE 0 END ) as col12
+SUM(CASE WHEN (data_okon>='2019-05-01' and  data_okon<='2019-05-31' ". $pp[$counter_id].") THEN 1 ELSE 0 END ) as col11,
+SUM(CASE WHEN (data_okon>='2020-05-01' and  data_okon<='2020-05-31' ". $pp[$counter_id]." ) THEN 1 ELSE 0 END ) as col12
 
 
-";
-
+"; 
+ 
 
 if ($spi_id=='0') {
 $sql="select  osp.full_name,'-' as col2, 
