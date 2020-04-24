@@ -269,7 +269,8 @@ class App extends React.Component {
 		   this.setState({range: 0 }); 
 	 };
 	  handleRateChange (e) {
-		  this.setState({counter_id:  e.target.value }); 
+		  this.setState({counter_id:  e.target.value,
+			  loaded:false,result:[],loaded7:false,result7:[] }); 
 	  } 
    handleRangeChange (e) {
 	  
