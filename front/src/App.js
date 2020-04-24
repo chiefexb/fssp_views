@@ -808,7 +808,11 @@ let cat=[];
 
    if (this.state.vitrina_id=='4') {
 	  
-	let cat=[   'Январь 2019',
+	let cat=[
+	[],
+	[],
+	[],
+	[   'Январь 2019',
     'Январь 2020',
     'Февраль 2019',
    'Февраль 2020',
@@ -818,6 +822,8 @@ let cat=[];
     'Апрель 2020',
     'Май 2019',
    'Май 2020'
+    ],
+    []
     ]; }
 
 let diagram = {
@@ -826,7 +832,7 @@ let diagram = {
           id: "basic-bar"
         },
         xaxis: {
-          categories: cat
+          categories: cat[this.state.vitrina_id-1]
         }
       };
  let      series =[];
