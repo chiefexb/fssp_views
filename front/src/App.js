@@ -806,7 +806,7 @@ let titles=[
  document.title =   titles[this.state.vitrina_id-1];
 let cat=[];
 
-   if (this.state.vitrina_id=='4') {
+ 
 	  
 	let cat=[
 	[],
@@ -824,7 +824,7 @@ let cat=[];
    'Май 2020'
     ],
     []
-    ]; }
+    ]; 
 
 let diagram = {
      
