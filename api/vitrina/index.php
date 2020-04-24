@@ -115,7 +115,17 @@ $sql_count="SUM(CASE WHEN ( (col23 >0) ) THEN 1 ELSE 0 END ) as col3,
 $per2="data_okon>='" . $date1 ."' and  data_okon<='" . $date2 ."' ";
 
 $pp=["",
-" and col2='47' and col3='1' and col4='1' "
+" and col2='47' and col3='1' and col4='1' ",
+" and col2='47' and col3='1' and col4='2' ",
+" and col2='47' and col3='1' and col4='8' ",
+" and col2='47' and col3='1' and col4='9' ",
+" and col2='46' and col3='1' and col4='1' ",
+" and col2='46' and col3='1' and col4='3' ",
+" and col2='46' and col3='1' and col4='4' ",
+" and col2='43' and col3='1' and col4='1' ",
+" and col2='103' and col3='1' and col4='1' ",
+" and col2='31'  and col3='1' and col4='2' "
+
 ];
 
 $sql_count="
