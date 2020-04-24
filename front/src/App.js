@@ -804,11 +804,11 @@ let titles=[
  
 ];
  document.title =   titles[this.state.vitrina_id-1];
-let cat=[];
+
 
  
 	  
-	let cat=[
+let cat=[
 	[],
 	[],
 	[],
