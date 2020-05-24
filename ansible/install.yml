@@ -21,7 +21,7 @@
     systemd:
       name: '{{ item }}'
       state: stopped
-    with_items: ['apache2']
+    with_items: ['{{ web_server }}']
     
   - name: reload service httpd, in all cases
     file:
@@ -91,5 +91,5 @@
     systemd:
       name: '{{ item }}'
       state: started
-    with_items: ['apache2']
+    with_items: ['{{ web_server }}']
       

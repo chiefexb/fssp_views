@@ -7,12 +7,6 @@ var_dump( $vitrina);
 
  $mysqli = new mysqli($mysql_db[0]["host"], $mysql_db[0]["username"], $mysql_db[0]["password"], $mysql_db[0]["db"]) ;
  $mysqli->set_charset('utf8');
- 
- 
-
-
-
-
 
 $sql="INSERT INTO fssp_mon_vitrina (filter_id,vitrina_id,name,date_actual,calc_field_name,custom_fields) VALUE  (";
 
