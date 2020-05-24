@@ -11,6 +11,10 @@
   - name: install nodejs
     unarchive:
        src: /tmp/node-v12.16.1-linux-x64.tar.xz
-       dest:  '/usr/'
+       dest:  '/tmp/'
        remote_src: yes
+  - name: install nodejs2
+    copy:
+       src: /tmp/node-v12.16.1-linux-x64/
+       dest:  '/usr'
     tags: [all]
